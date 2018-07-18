@@ -351,6 +351,10 @@ namespace UHFDemo
             this.panel3 = new System.Windows.Forms.Panel();
             this.btFastInventory = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.m_phase_value = new System.Windows.Forms.CheckBox();
+            this.m_new_fast_inventory_flag = new System.Windows.Forms.ComboBox();
+            this.m_new_fast_inventory_session = new System.Windows.Forms.ComboBox();
+            this.m_new_fast_inventory = new System.Windows.Forms.CheckBox();
             this.txtRepeat = new System.Windows.Forms.TextBox();
             this.txtInterval = new System.Windows.Forms.TextBox();
             this.label73 = new System.Windows.Forms.Label();
@@ -362,6 +366,7 @@ namespace UHFDemo
             this.columnHeader33 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader34 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader35 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader356 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader36 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label49 = new System.Windows.Forms.Label();
             this.txtFastTagList = new System.Windows.Forms.Label();
@@ -3232,7 +3237,7 @@ namespace UHFDemo
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.22422F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.77578F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 380F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 384F));
             this.tableLayoutPanel4.Controls.Add(this.panel9, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel10, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel8, 1, 0);
@@ -3251,9 +3256,9 @@ namespace UHFDemo
             this.panel9.Controls.Add(this.btGetClearBuffer);
             this.panel9.Controls.Add(this.btGetBuffer);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(621, 4);
+            this.panel9.Location = new System.Drawing.Point(617, 4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(375, 74);
+            this.panel9.Size = new System.Drawing.Size(379, 74);
             this.panel9.TabIndex = 1;
             // 
             // btClearBuffer
@@ -3312,7 +3317,7 @@ namespace UHFDemo
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(4, 4);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(303, 74);
+            this.panel10.Size = new System.Drawing.Size(301, 74);
             this.panel10.TabIndex = 0;
             // 
             // btBufferInventory
@@ -3358,9 +3363,9 @@ namespace UHFDemo
             this.panel8.Controls.Add(this.cbBufferWorkant2);
             this.panel8.Controls.Add(this.cbBufferWorkant3);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(314, 4);
+            this.panel8.Location = new System.Drawing.Point(312, 4);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(300, 74);
+            this.panel8.Size = new System.Drawing.Size(298, 74);
             this.panel8.TabIndex = 0;
             // 
             // checkBox4
@@ -4038,7 +4043,7 @@ namespace UHFDemo
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.20588F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.79412F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 313F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 273F));
             this.tableLayoutPanel2.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel4, 2, 0);
@@ -4087,9 +4092,9 @@ namespace UHFDemo
             this.panel2.Controls.Add(this.label59);
             this.panel2.Controls.Add(this.label48);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(190, 5);
+            this.panel2.Location = new System.Drawing.Point(200, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(483, 83);
+            this.panel2.Size = new System.Drawing.Size(513, 83);
             this.panel2.TabIndex = 0;
             // 
             // label124
@@ -4525,7 +4530,7 @@ namespace UHFDemo
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(5, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(177, 83);
+            this.panel3.Size = new System.Drawing.Size(187, 83);
             this.panel3.TabIndex = 1;
             // 
             // btFastInventory
@@ -4542,19 +4547,80 @@ namespace UHFDemo
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.m_phase_value);
+            this.panel4.Controls.Add(this.m_new_fast_inventory_flag);
+            this.panel4.Controls.Add(this.m_new_fast_inventory_session);
+            this.panel4.Controls.Add(this.m_new_fast_inventory);
             this.panel4.Controls.Add(this.txtRepeat);
             this.panel4.Controls.Add(this.txtInterval);
             this.panel4.Controls.Add(this.label73);
             this.panel4.Controls.Add(this.label72);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(681, 5);
+            this.panel4.Location = new System.Drawing.Point(721, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(308, 83);
+            this.panel4.Size = new System.Drawing.Size(268, 83);
             this.panel4.TabIndex = 2;
+            // 
+            // m_phase_value
+            // 
+            this.m_phase_value.AutoSize = true;
+            this.m_phase_value.Enabled = false;
+            this.m_phase_value.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.m_phase_value.Location = new System.Drawing.Point(198, 56);
+            this.m_phase_value.Name = "m_phase_value";
+            this.m_phase_value.Size = new System.Drawing.Size(60, 16);
+            this.m_phase_value.TabIndex = 71;
+            this.m_phase_value.Text = "相位值";
+            this.m_phase_value.UseVisualStyleBackColor = true;
+            this.m_phase_value.CheckedChanged += new System.EventHandler(this.m_phase_value_CheckedChanged);
+            // 
+            // m_new_fast_inventory_flag
+            // 
+            this.m_new_fast_inventory_flag.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.m_new_fast_inventory_flag.Enabled = false;
+            this.m_new_fast_inventory_flag.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.m_new_fast_inventory_flag.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.m_new_fast_inventory_flag.FormattingEnabled = true;
+            this.m_new_fast_inventory_flag.Items.AddRange(new object[] {
+            "A",
+            "B"});
+            this.m_new_fast_inventory_flag.Location = new System.Drawing.Point(122, 54);
+            this.m_new_fast_inventory_flag.Name = "m_new_fast_inventory_flag";
+            this.m_new_fast_inventory_flag.Size = new System.Drawing.Size(55, 20);
+            this.m_new_fast_inventory_flag.TabIndex = 70;
+            // 
+            // m_new_fast_inventory_session
+            // 
+            this.m_new_fast_inventory_session.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.m_new_fast_inventory_session.Enabled = false;
+            this.m_new_fast_inventory_session.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.m_new_fast_inventory_session.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.m_new_fast_inventory_session.FormattingEnabled = true;
+            this.m_new_fast_inventory_session.Items.AddRange(new object[] {
+            "S0",
+            "S1",
+            "S2",
+            "S3"});
+            this.m_new_fast_inventory_session.Location = new System.Drawing.Point(48, 54);
+            this.m_new_fast_inventory_session.Name = "m_new_fast_inventory_session";
+            this.m_new_fast_inventory_session.Size = new System.Drawing.Size(55, 20);
+            this.m_new_fast_inventory_session.TabIndex = 69;
+            // 
+            // m_new_fast_inventory
+            // 
+            this.m_new_fast_inventory.AutoSize = true;
+            this.m_new_fast_inventory.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.m_new_fast_inventory.Location = new System.Drawing.Point(12, 58);
+            this.m_new_fast_inventory.Name = "m_new_fast_inventory";
+            this.m_new_fast_inventory.Size = new System.Drawing.Size(30, 16);
+            this.m_new_fast_inventory.TabIndex = 65;
+            this.m_new_fast_inventory.Text = "S";
+            this.m_new_fast_inventory.UseVisualStyleBackColor = true;
+            this.m_new_fast_inventory.CheckedChanged += new System.EventHandler(this.m_new_fast_inventory_CheckedChanged);
             // 
             // txtRepeat
             // 
-            this.txtRepeat.Location = new System.Drawing.Point(153, 27);
+            this.txtRepeat.Location = new System.Drawing.Point(153, 22);
             this.txtRepeat.Name = "txtRepeat";
             this.txtRepeat.Size = new System.Drawing.Size(42, 21);
             this.txtRepeat.TabIndex = 58;
@@ -4563,7 +4629,7 @@ namespace UHFDemo
             // 
             // txtInterval
             // 
-            this.txtInterval.Location = new System.Drawing.Point(55, 27);
+            this.txtInterval.Location = new System.Drawing.Point(55, 24);
             this.txtInterval.Name = "txtInterval";
             this.txtInterval.Size = new System.Drawing.Size(42, 21);
             this.txtInterval.TabIndex = 57;
@@ -4575,7 +4641,7 @@ namespace UHFDemo
             this.label73.AutoSize = true;
             this.label73.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label73.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label73.Location = new System.Drawing.Point(38, 12);
+            this.label73.Location = new System.Drawing.Point(38, 7);
             this.label73.Name = "label73";
             this.label73.Size = new System.Drawing.Size(89, 12);
             this.label73.TabIndex = 36;
@@ -4586,7 +4652,7 @@ namespace UHFDemo
             this.label72.AutoSize = true;
             this.label72.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label72.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label72.Location = new System.Drawing.Point(151, 12);
+            this.label72.Location = new System.Drawing.Point(151, 6);
             this.label72.Name = "label72";
             this.label72.Size = new System.Drawing.Size(53, 12);
             this.label72.TabIndex = 37;
@@ -4611,6 +4677,7 @@ namespace UHFDemo
             this.columnHeader33,
             this.columnHeader34,
             this.columnHeader35,
+            this.columnHeader356,
             this.columnHeader36});
             this.lvFastList.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lvFastList.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -4625,37 +4692,43 @@ namespace UHFDemo
             // columnHeader31
             // 
             this.columnHeader31.Text = "ID";
-            this.columnHeader31.Width = 56;
+            this.columnHeader31.Width = 53;
             // 
             // columnHeader32
             // 
             this.columnHeader32.Text = "EPC";
             this.columnHeader32.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader32.Width = 428;
+            this.columnHeader32.Width = 400;
             // 
             // columnHeader33
             // 
             this.columnHeader33.Text = "PC";
             this.columnHeader33.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader33.Width = 65;
+            this.columnHeader33.Width = 61;
             // 
             // columnHeader34
             // 
             this.columnHeader34.Text = "识别次数(ANT1/2/3/4/5/6/7/8)";
             this.columnHeader34.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader34.Width = 226;
+            this.columnHeader34.Width = 211;
             // 
             // columnHeader35
             // 
             this.columnHeader35.Text = "RSSI";
             this.columnHeader35.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader35.Width = 96;
+            this.columnHeader35.Width = 89;
+            // 
+            // columnHeader356
+            // 
+            this.columnHeader356.Text = "相位值";
+            this.columnHeader356.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader356.Width = 65;
             // 
             // columnHeader36
             // 
             this.columnHeader36.Text = "载波频率";
             this.columnHeader36.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader36.Width = 125;
+            this.columnHeader36.Width = 117;
             // 
             // label49
             // 
@@ -6895,6 +6968,7 @@ namespace UHFDemo
         private System.Windows.Forms.ColumnHeader columnHeader33;
         private System.Windows.Forms.ColumnHeader columnHeader34;
         private System.Windows.Forms.ColumnHeader columnHeader35;
+        private System.Windows.Forms.ColumnHeader columnHeader356;
         private System.Windows.Forms.ColumnHeader columnHeader36;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel2;
@@ -7331,6 +7405,10 @@ namespace UHFDemo
         private RadioButton sessionInventoryrb;
         private RadioButton autoInventoryrb;
         private TableLayoutPanel tableLayoutPanel1;
+        private CheckBox m_phase_value;
+        private ComboBox m_new_fast_inventory_flag;
+        private ComboBox m_new_fast_inventory_session;
+        private CheckBox m_new_fast_inventory;
     }
 }
 
