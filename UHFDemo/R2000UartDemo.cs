@@ -55,6 +55,8 @@ namespace UHFDemo
 
         private int m_nReceiveFlag = 0;
 
+        private volatile bool m_nPhaseOpened = false;
+
         public R2000UartDemo()
         {
             InitializeComponent();
@@ -73,6 +75,11 @@ namespace UHFDemo
 
             this.columnHeader49.ImageIndex = 0;
             this.columnHeader52.ImageIndex = 0;
+
+            this.m_new_fast_inventory_session.SelectedIndex = 0;
+            this.m_new_fast_inventory_flag.SelectedIndex = 0;
+
+            this.refreshFastListView();
 
 
             this.columnHeader37.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -149,6 +156,31 @@ namespace UHFDemo
             lvFastHelper.addSortColumn(1);
             this.lvFastList.ColumnClick += new ColumnClickEventHandler(lvFastHelper.ListView_ColumnClick);
         }
+
+        private void refreshFastListView()
+        {
+            if (this.m_phase_value.Checked)
+            {
+                this.columnHeader31.Width = 53;
+                    this.columnHeader32.Width = 400;
+                    this.columnHeader33.Width = 61;
+                    this.columnHeader34.Width = 211;
+                    this.columnHeader35.Width = 89;
+                    this.columnHeader356.Width = 65;
+                    this.columnHeader36.Width = 117;
+            }
+            else
+            {
+                this.columnHeader31.Width = 56;
+                this.columnHeader32.Width = 428;
+                this.columnHeader33.Width = 65;
+                this.columnHeader34.Width = 226;
+                this.columnHeader35.Width = 96;
+                this.columnHeader356.Width = 0;
+                this.columnHeader36.Width = 125;
+            }
+        }
+
 
         private void ReceiveData(byte[] btAryReceiveData)
         {
@@ -756,6 +788,7 @@ namespace UHFDemo
                                     item.SubItems.Add(row[7].ToString() + "  /  " + row[8].ToString() + "  /  " + row[9].ToString() + "  /  " + row[10]);
                                 }
                                 item.SubItems.Add((Convert.ToInt32(row[4]) - 129).ToString() + "dBm");
+                                item.SubItems.Add(row[15].ToString());
                                 item.SubItems.Add(row[6].ToString());
 
                                 lvFastList.Items.Add(item);
@@ -779,8 +812,16 @@ namespace UHFDemo
                                         item.SubItems[3].Text = (row[7].ToString() + "  /  " + row[8].ToString() + "  /  " + row[9].ToString() + "  /  " + row[10]);
                                     }
                                     item.SubItems[4].Text = (Convert.ToInt32(row[4]) - 129).ToString() + "dBm";
-                                    item.SubItems[5].Text = row[6].ToString();
 
+                                    if (m_nPhaseOpened)
+                                    {
+                                        item.SubItems[5].Text = row[15].ToString();
+                                        item.SubItems[6].Text = row[6].ToString();
+                                    }
+                                    else
+                                    {
+                                        item.SubItems[6].Text = row[6].ToString();
+                                    }
                                     nIndex++;
                                 }
                             }
@@ -2963,16 +3004,42 @@ namespace UHFDemo
             {
                 m_nTotal++;
                 int nLength = msgTran.AryData.Length;
+
                 int nEpcLength = nLength - 4;
+                if (m_nPhaseOpened)
+                {
+                    nEpcLength = nLength - 6;
+                }
 
                 //Add inventory list
                 string strEPC = CCommondMethod.ByteArrayToString(msgTran.AryData, 3, nEpcLength);
                 string strPC = CCommondMethod.ByteArrayToString(msgTran.AryData, 1, 2);
-                string strRSSI = (msgTran.AryData[nLength - 1] & 0x7F).ToString();
-                SetMaxMinRSSI(Convert.ToInt32(msgTran.AryData[nLength - 1] & 0x7F));
+                string strRSSI = string.Empty;
+
+                if (m_nPhaseOpened)
+                {
+                    SetMaxMinRSSI(Convert.ToInt32(msgTran.AryData[nLength - 3] & 0x7F));
+                    strRSSI = (msgTran.AryData[nLength - 3] & 0x7F).ToString();
+                }
+                else
+                {
+                    SetMaxMinRSSI(Convert.ToInt32(msgTran.AryData[nLength - 1] & 0x7F));
+                    strRSSI = (msgTran.AryData[nLength - 1] & 0x7F).ToString();
+                }
+                
                 byte btTemp = msgTran.AryData[0];
                 byte btAntId = (byte)((btTemp & 0x03) + 1);
-                if ((msgTran.AryData[nLength - 1] & 0x80) != 0) btAntId += 4;
+                string strPhase = string.Empty;
+                if (m_nPhaseOpened)
+                {
+                    if ((msgTran.AryData[nLength - 3] & 0x80) != 0) btAntId += 4;
+                    strPhase = CCommondMethod.ByteArrayToString(msgTran.AryData,nLength - 2,2);
+                }
+                else
+                {
+                    if ((msgTran.AryData[nLength - 1] & 0x80) != 0) btAntId += 4;
+                }
+               
                 m_curInventoryBuffer.nCurrentAnt = (int)btAntId;
                 string strAntId = btAntId.ToString();
                 byte btFreq = (byte)(btTemp >> 2);
@@ -2996,6 +3063,7 @@ namespace UHFDemo
                     row1[12] = "0";
                     row1[13] = "0";
                     row1[14] = "0";
+                    row1[15] = strPhase;
                     switch (btAntId)
                     {
                         case 0x01:
@@ -3057,6 +3125,8 @@ namespace UHFDemo
                         nTemp = Convert.ToInt32(dr[5]);
                         dr[5] = (nTemp + 1).ToString();
                         dr[6] = strFreq;
+
+                        dr[15] = strPhase;
 
                         switch (btAntId)
                         {
@@ -5185,6 +5255,46 @@ namespace UHFDemo
                 m_curInventoryBuffer.ClearInventoryRealResult();
                 lvFastList.Items.Clear();
 
+                if (antType8.Checked)
+                {
+                    if (m_new_fast_inventory.Checked)
+                    {
+                        m_btAryData = new byte[29];
+                        m_btAryData[22] = Convert.ToByte(m_new_fast_inventory_session.SelectedIndex);
+                        m_btAryData[23] = Convert.ToByte(m_new_fast_inventory_flag.SelectedIndex);
+                        m_btAryData[27] = m_phase_value.Checked ? (byte)0x01 : (byte)0x00;
+
+                    } else 
+                    {
+                        m_btAryData = new byte[18];
+                    }
+                }
+
+                if (antType4.Checked)
+                {
+                    if (m_new_fast_inventory.Checked)
+                    {
+                        m_btAryData_4 = new byte[29];
+
+                        m_btAryData_4[8] = 0xFF;
+                        m_btAryData_4[9] = 0x00;
+                        m_btAryData_4[10] = 0xFF;
+                        m_btAryData_4[11] = 0x00;
+                        m_btAryData_4[12] = 0xFF;
+                        m_btAryData_4[13] = 0x00;
+                        m_btAryData_4[14] = 0xFF;
+                        m_btAryData_4[15] = 0x00;
+
+                        m_btAryData_4[22] = Convert.ToByte(m_new_fast_inventory_session.SelectedIndex);
+                        m_btAryData_4[23] = Convert.ToByte(m_new_fast_inventory_flag.SelectedIndex);
+                        m_btAryData_4[27] = m_phase_value.Checked ? (byte)0x01 : (byte)0x00;
+                    }
+                    else
+                    {
+                        m_btAryData_4 = new byte[10];
+                    }
+                }
+
                 //this.totalTime.Enabled = true;
                 
                 m_nTotal = 0;
@@ -5260,24 +5370,48 @@ namespace UHFDemo
                         m_btAryData_4[7] = Convert.ToByte(txtDStay.Text);
                     }
 
-
-                    if (txtInterval.Text.Length == 0)
+                    if (m_new_fast_inventory.Checked) 
                     {
-                        m_btAryData_4[8] = 0x00;
-                    }
+                        if (txtInterval.Text.Length == 0)
+                        {
+                            m_btAryData_4[16] = 0x00;
+                        }
+                        else
+                        {
+                            m_btAryData_4[16] = Convert.ToByte(txtInterval.Text);
+                        }
+
+                        if (txtRepeat.Text.Length == 0)
+                        {
+                             m_btAryData_4[28] = 0x00;
+                        }
+                        else
+                        {
+                            m_btAryData_4[28] = Convert.ToByte(txtRepeat.Text);
+                        }
+                    } 
                     else
                     {
-                        m_btAryData_4[8] = Convert.ToByte(txtInterval.Text);
+                        if (txtInterval.Text.Length == 0)
+                        {
+                            m_btAryData_4[8] = 0x00;
+                        }
+                        else
+                        {
+                            m_btAryData_4[8] = Convert.ToByte(txtInterval.Text);
+                        }
+
+                        if (txtRepeat.Text.Length == 0)
+                        {
+                            m_btAryData_4[9] = 0x00;
+                        }
+                        else
+                        {
+                            m_btAryData_4[9] = Convert.ToByte(txtRepeat.Text);
+                        }
                     }
 
-                    if (txtRepeat.Text.Length == 0)
-                    {
-                        m_btAryData_4[9] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData_4[9] = Convert.ToByte(txtRepeat.Text);
-                    }
+                    
 
 
 
@@ -5300,6 +5434,8 @@ namespace UHFDemo
                     {
                         antDSelection = 0;
                     }
+
+
 
                     if ((antASelection * m_btAryData_4[1] + antBSelection * m_btAryData_4[3] + antCSelection * m_btAryData_4[5] + antDSelection * m_btAryData_4[7] == 0))
                     {
@@ -5453,6 +5589,7 @@ namespace UHFDemo
                         m_btAryData[15] = Convert.ToByte(textBox16.Text);
                     }
 
+
                     if (txtInterval.Text.Length == 0)
                     {
                         m_btAryData[16] = 0x00;
@@ -5464,11 +5601,11 @@ namespace UHFDemo
 
                     if (txtRepeat.Text.Length == 0)
                     {
-                        m_btAryData[17] = 0x00;
+                        m_btAryData[m_btAryData.Length - 1] = 0x00;
                     }
                     else
                     {
-                        m_btAryData[17] = Convert.ToByte(txtRepeat.Text);
+                        m_btAryData[m_btAryData.Length - 1] = Convert.ToByte(txtRepeat.Text);
                     }
 
                     //ant 8
@@ -5520,7 +5657,7 @@ namespace UHFDemo
                     //ant8
 
                     if ((antASelection * m_btAryData[1] + antBSelection * m_btAryData[3] + antCSelection * m_btAryData[5] + antDSelection * m_btAryData[7]
-                       + antESelection * m_btAryData[9] + antFSelection * m_btAryData[11] + antGSelection * m_btAryData[13] + antHSelection * m_btAryData[15]) * m_btAryData[17] == 0)
+                       + antESelection * m_btAryData[9] + antFSelection * m_btAryData[11] + antGSelection * m_btAryData[13] + antHSelection * m_btAryData[15]) * m_btAryData[m_btAryData.Length - 1] == 0)
                     {
                         MessageBox.Show("请至少选择一个天线至少轮询一次，重复次数至少一次。");
                         m_bInventory = false;
@@ -7019,6 +7156,36 @@ namespace UHFDemo
                 label98.Enabled = true;
                 cmbSession.Enabled = true;
                 cmbTarget.Enabled = true;
+            }
+        }
+
+        private void m_new_fast_inventory_CheckedChanged(object sender, EventArgs e)
+        {
+            if (m_new_fast_inventory.Checked)
+            {
+                this.m_new_fast_inventory_flag.Enabled = true;
+                this.m_new_fast_inventory_session.Enabled = true;
+                this.m_phase_value.Enabled = true;
+            }
+            else
+            {
+                this.m_new_fast_inventory_flag.Enabled = false;
+                this.m_new_fast_inventory_session.Enabled = false;
+                this.m_phase_value.Enabled = false;
+                this.m_phase_value.Checked = false;
+            }
+        }
+
+        private void m_phase_value_CheckedChanged(object sender, EventArgs e)
+        {
+            this.refreshFastListView();
+            if (m_phase_value.Checked)
+            {
+                m_nPhaseOpened = true;
+            }
+            else
+            {
+                m_nPhaseOpened = false;
             }
         }
     }
