@@ -12,6 +12,11 @@ using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using System.IO;
+using CyUSB;
+using LibUsbDotNet;
+using LibUsbDotNet.Main;
+using LibUsbDotNet.Info;
+using System.Collections.ObjectModel;
 
 
 namespace UHFDemo
@@ -83,6 +88,57 @@ namespace UHFDemo
 
 
             this.columnHeader37.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+
+
+            USBDeviceList devices = new USBDeviceList(CyUSB.CyConst.DEVICES_MSC);
+            Console.WriteLine("Number:" + devices.Count);
+
+            PrintUsbInfo();
+
+        }
+
+        public static void PrintUsbInfo()
+        {
+            UsbDevice usbDevice = null;
+            UsbRegDeviceList allDevices = UsbDevice.AllDevices;
+
+            Console.WriteLine("Found {0} devices", allDevices.Count);
+
+            foreach (UsbRegistry usbRegistry in allDevices)
+            {
+                Console.WriteLine("Got device: {0}\r\n", usbRegistry.FullName);
+
+                if (usbRegistry.Open(out usbDevice))
+                {
+                    Console.WriteLine("Device Information\r\n------------------");
+
+                    Console.WriteLine("{0}", usbDevice.Info.ToString());
+
+                    Console.WriteLine("VID & PID: {0} {1}", usbDevice.Info.Descriptor.VendorID, usbDevice.Info.Descriptor.ProductID);
+
+                    Console.WriteLine("\r\nDevice configuration\r\n--------------------");
+                    foreach (UsbConfigInfo usbConfigInfo in usbDevice.Configs)
+                    {
+                        Console.WriteLine("{0}", usbConfigInfo.ToString());
+
+                        Console.WriteLine("\r\nDevice interface list\r\n---------------------");
+                        ReadOnlyCollection<UsbInterfaceInfo> interfaceList = usbConfigInfo.InterfaceInfoList;
+                        foreach (UsbInterfaceInfo usbInterfaceInfo in interfaceList)
+                        {
+                            Console.WriteLine("{0}", usbInterfaceInfo.ToString());
+
+                            Console.WriteLine("\r\nDevice endpoint list\r\n--------------------");
+                            ReadOnlyCollection<UsbEndpointInfo> endpointList = usbInterfaceInfo.EndpointInfoList;
+                            foreach (UsbEndpointInfo usbEndpointInfo in endpointList)
+                            {
+                                Console.WriteLine("{0}", usbEndpointInfo.ToString());
+                            }
+                        }
+                    }
+                    usbDevice.Close();
+                }
+                Console.WriteLine("\r\n----- Device information finished -----\r\n");
+            }
         }
 
         private void R2000UartDemo_Load(object sender, EventArgs e)

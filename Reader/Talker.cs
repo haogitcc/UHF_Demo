@@ -44,6 +44,27 @@ namespace Reader
             }
         }
 
+        public bool Connect(Stream stream)
+        {
+            try
+            {
+                streamToTran = stream;    // 获取连接至远程的流
+
+                //建立线程收取服务器发送数据
+                ThreadStart stThead = new ThreadStart(ReceivedData);
+                waitThread = new Thread(stThead);
+                waitThread.IsBackground = true;
+                waitThread.Start();
+
+                bIsConnect = true;
+                return true;
+            }
+            catch (System.Exception ex)
+            { 
+                return false;
+            }
+        }
+
         private void ReceivedData()
         {
             while (true)

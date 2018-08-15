@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
+using System.IO;
 
 namespace Reader
 {
@@ -13,6 +14,7 @@ namespace Reader
     {
         event MessageReceivedEventHandler MessageReceived;    // 接收到发来的消息
         bool Connect(IPAddress ip, int port, out string strException);                 // 连接到服务端
+        bool Connect(Stream stream);
         bool SendMessage(byte[] btAryBuffer);                 // 发送数据包
         void SignOut();                                       // 注销连接
 
