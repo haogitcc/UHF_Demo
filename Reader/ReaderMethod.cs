@@ -852,5 +852,11 @@ namespace Reader
             return nResult;
         }
 
+        public int sendNXPCommand(byte btReaderId,byte cmd,byte[] parameters)
+        {
+            int nResult = SendMessage(btReaderId,cmd,parameters);
+
+            return nResult;
+        }
     }
 }
