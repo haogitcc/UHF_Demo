@@ -56,6 +56,7 @@ namespace UHFDemo
         private int m_nReceiveFlag = 0;
 
         private volatile bool m_nPhaseOpened = false;
+        private volatile bool m_nSessionPhaseOpened = false;
 
         public R2000UartDemo()
         {
@@ -80,6 +81,7 @@ namespace UHFDemo
             this.m_new_fast_inventory_flag.SelectedIndex = 0;
 
             this.refreshFastListView();
+            this.refreshLvListView();
 
 
             this.columnHeader37.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -155,6 +157,12 @@ namespace UHFDemo
             lvFastHelper.addSortColumn(0);
             lvFastHelper.addSortColumn(1);
             this.lvFastList.ColumnClick += new ColumnClickEventHandler(lvFastHelper.ListView_ColumnClick);
+
+            this.m_real_phase_value.SelectedIndex = 0;
+
+            this.mUntraceableTid.SelectedIndex = 0;
+            this.mUntraceableUser.SelectedIndex = 0;
+            this.mUntraceableRange.SelectedIndex = 0;
         }
 
         private void refreshFastListView()
@@ -180,6 +188,31 @@ namespace UHFDemo
                 this.columnHeader36.Width = 125;
             }
         }
+
+        private void refreshLvListView()
+        {
+            if (this.m_session_q_cb.Checked)
+            {
+                this.columnHeader37.Width = 53;
+                this.columnHeader38.Width = 400;
+                this.columnHeader39.Width = 61;
+                this.columnHeader40.Width = 211;
+                this.columnHeader41.Width = 89;
+                this.columnHeader412.Width = 65;
+                this.columnHeader42.Width = 117;
+            }
+            else
+            {
+                this.columnHeader37.Width = 56;
+                this.columnHeader38.Width = 428;
+                this.columnHeader39.Width = 65;
+                this.columnHeader40.Width = 226;
+                this.columnHeader41.Width = 96;
+                this.columnHeader412.Width = 0;
+                this.columnHeader42.Width = 125;
+            }
+        }
+
 
 
         private void ReceiveData(byte[] btAryReceiveData)
@@ -345,8 +378,65 @@ namespace UHFDemo
                 case 0xb4:
                     ProcessQueryISO18000(msgTran);
                     break;
+                case 0xE1:
+                    ProcessUntraceable(msgTran);
+                    break;
                 default:
                     break;
+            }
+        }
+
+        private void ProcessUntraceable(Reader.MessageTran msgTran)
+        {
+            string strCmd = "Untraceable 设置";
+            string strErrorCode = string.Empty;
+
+            if (msgTran.AryData.Length == 1)
+            {
+                strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[0]);
+                string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+
+                WriteLog(lrtxtLog, strLog, 1);
+            }
+            else
+            {
+                int nLen = msgTran.AryData.Length;
+                int nEpcLen = Convert.ToInt32(msgTran.AryData[2]) - 4;
+
+                if (msgTran.AryData[nLen - 3] != 0x10)
+                {
+                    strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[nLen - 3]);
+                    string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+
+                    WriteLog(lrtxtLog, strLog, 1);
+                    return;
+                }
+
+                string strPC = CCommondMethod.ByteArrayToString(msgTran.AryData, 3, 2);
+                string strEPC = CCommondMethod.ByteArrayToString(msgTran.AryData, 5, nEpcLen);
+                string strCRC = CCommondMethod.ByteArrayToString(msgTran.AryData, 5 + nEpcLen, 2);
+                string strData = string.Empty;
+
+                byte byTemp = msgTran.AryData[nLen - 2];
+                byte byAntId = (byte)((byTemp & 0x03) + 1);
+                string strAntId = byAntId.ToString();
+
+                string strReadCount = msgTran.AryData[nLen - 1].ToString();
+
+                DataRow row = m_curOperateTagBuffer.dtTagTable.NewRow();
+                row[0] = strPC;
+                row[1] = strCRC;
+                row[2] = strEPC;
+                row[3] = strData;
+                row[4] = string.Empty;
+                row[5] = strAntId;
+                row[6] = strReadCount;
+
+                m_curOperateTagBuffer.dtTagTable.Rows.Add(row);
+                m_curOperateTagBuffer.dtTagTable.AcceptChanges();
+
+                RefreshUntraceable(0xE1);
+                WriteLog(lrtxtLog, strCmd, 0);
             }
         }
 
@@ -461,6 +551,44 @@ namespace UHFDemo
                     case 0x93:
                         {
                             
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private delegate void RefreshiUntraceableUnsaft(byte btCmd);
+        private void RefreshUntraceable(byte btCmd)
+        {
+            if (this.InvokeRequired)
+            {
+                RefreshiUntraceableUnsaft InvokeRefresh = new RefreshiUntraceableUnsaft(RefreshUntraceable);
+                this.Invoke(InvokeRefresh, new object[] { btCmd });
+            }
+            else
+            {
+                switch (btCmd)
+                {
+                    case 0xE1:
+                        {
+                            int nCount = ltvOperate.Items.Count;
+                            int nLength = m_curOperateTagBuffer.dtTagTable.Rows.Count;
+
+                            DataRow row = m_curOperateTagBuffer.dtTagTable.Rows[nLength - 1];
+
+                            ListViewItem item = new ListViewItem();
+                            item.Text = (nCount + 1).ToString();
+                            item.SubItems.Add(row[0].ToString());
+                            item.SubItems.Add(row[1].ToString());
+                            item.SubItems.Add(row[2].ToString());
+                            item.SubItems.Add(row[3].ToString());
+                            item.SubItems.Add(row[4].ToString());
+                            item.SubItems.Add(row[5].ToString());
+                            item.SubItems.Add(row[6].ToString());
+
+                            this.listViewUntraceable.Items.Add(item);
                         }
                         break;
                     default:
@@ -590,6 +718,8 @@ namespace UHFDemo
                                     item.SubItems.Add(row[7].ToString());
                                 }
                                 item.SubItems.Add((Convert.ToInt32(row[4]) - 129).ToString() + "dBm");
+
+                                item.SubItems.Add(row[15].ToString());
                                 item.SubItems.Add(row[6].ToString());
 
                                 //set Item backagroud color.
@@ -634,11 +764,23 @@ namespace UHFDemo
                                         item.SubItems[3].Text = (row[7].ToString());
                                     }
                                     item.SubItems[4].Text = (Convert.ToInt32(row[4]) - 129).ToString() + "dBm";
-                                    item.SubItems[5].Text = row[6].ToString();
+
+                                    if (m_nSessionPhaseOpened)
+                                    {
+                                        item.SubItems[5].Text = row[15].ToString();
+                                        item.SubItems[6].Text = row[6].ToString();
+                                    }
+                                    else
+                                    {
+                                        item.SubItems[6].Text = row[6].ToString();
+                                    }
 
                                     nIndex++;
                                 }
                             }
+
+
+
 
                             //if (ltvInventoryEpc.SelectedIndices.Count != 0)
                             //{
@@ -3240,40 +3382,48 @@ namespace UHFDemo
             {
                 m_nTotal++;
                 int nLength = msgTran.AryData.Length;
-                int nEpcLength = nLength - 4;
 
-                //增加盘存明细表
-                //if (msgTran.AryData[3] == 0x00)
-                //{
-                //    MessageBox.Show("");
-                //}
+                int nEpcLength = nLength - 4;
+                if (m_nSessionPhaseOpened)
+                {
+                    nEpcLength = nLength - 6;
+                }
+
+                //Add inventory list
                 string strEPC = CCommondMethod.ByteArrayToString(msgTran.AryData, 3, nEpcLength);
                 string strPC = CCommondMethod.ByteArrayToString(msgTran.AryData, 1, 2);
-                //string strPC = CCommondMethod.ByteArrayToString(new byte[]{msgTran.ReadId},0,1);
-                string strRSSI = (msgTran.AryData[nLength - 1] & 0x7F).ToString();
-                SetMaxMinRSSI(Convert.ToInt32(msgTran.AryData[nLength - 1] & 0x7F));
+                string strRSSI = string.Empty;
+
+                if (m_nSessionPhaseOpened)
+                {
+                    SetMaxMinRSSI(Convert.ToInt32(msgTran.AryData[nLength - 3] & 0x7F));
+                    strRSSI = (msgTran.AryData[nLength - 3] & 0x7F).ToString();
+                }
+                else
+                {
+                    SetMaxMinRSSI(Convert.ToInt32(msgTran.AryData[nLength - 1] & 0x7F));
+                    strRSSI = (msgTran.AryData[nLength - 1] & 0x7F).ToString();
+                }
+
                 byte btTemp = msgTran.AryData[0];
                 byte btAntId = (byte)((btTemp & 0x03) + 1);
-                if ((msgTran.AryData[nLength - 1] & 0x80) != 0) btAntId += 4;
+                string strPhase = string.Empty;
+                if (m_nSessionPhaseOpened)
+                {
+                    if ((msgTran.AryData[nLength - 3] & 0x80) != 0) btAntId += 4;
+                    strPhase = CCommondMethod.ByteArrayToString(msgTran.AryData, nLength - 2, 2);
+                }
+                else
+                {
+                    if ((msgTran.AryData[nLength - 1] & 0x80) != 0) btAntId += 4;
+                }
+
                 m_curInventoryBuffer.nCurrentAnt = (int)btAntId;
                 string strAntId = btAntId.ToString();
                 byte btFreq = (byte)(btTemp >> 2);
 
-
                 string strFreq = GetFreqString(btFreq);
-                
-                //DataRow row = m_curInventoryBuffer.dtTagDetailTable.NewRow();
-                //row[0] = strEPC;
-                //row[1] = strRSSI;
-                //row[2] = strAntId;
-                //row[3] = strFreq;
 
-                //m_curInventoryBuffer.dtTagDetailTable.Rows.Add(row);
-                //m_curInventoryBuffer.dtTagDetailTable.AcceptChanges();
-
-                ////增加标签表
-                //DataRow[] drsDetail = m_curInventoryBuffer.dtTagDetailTable.Select(string.Format("COLEPC = '{0}'", strEPC));
-                //int nDetailCount = drsDetail.Length;
                 DataRow[] drs = m_curInventoryBuffer.dtTagTable.Select(string.Format("COLEPC = '{0}'", strEPC));
                 if (drs.Length == 0)
                 {
@@ -3291,6 +3441,7 @@ namespace UHFDemo
                     row1[12] = "0";
                     row1[13] = "0";
                     row1[14] = "0";
+                    row1[15] = strPhase;
                     switch (btAntId)
                     {
                         case 0x01:
@@ -3352,7 +3503,7 @@ namespace UHFDemo
                         nTemp = Convert.ToInt32(dr[5]);
                         dr[5] = (nTemp + 1).ToString();
                         dr[6] = strFreq;
-
+                        dr[15] = strPhase;
                         switch (btAntId)
                         {
                             case 0x01:
@@ -4907,6 +5058,7 @@ namespace UHFDemo
 
                     if (m_session_q_cb.Checked)
                     {
+                        /*
                         byte startQ = Convert.ToByte(m_session_start_q.Text);
                         byte minQ = Convert.ToByte(m_session_min_q.Text);
                         byte maxQ = Convert.ToByte(m_session_max_q.Text);
@@ -4918,6 +5070,17 @@ namespace UHFDemo
                         m_curInventoryBuffer.CustomizeSessionParameters.Add(startQ);
                         m_curInventoryBuffer.CustomizeSessionParameters.Add(minQ);
                         m_curInventoryBuffer.CustomizeSessionParameters.Add(maxQ);
+                         * */
+                        if (this.m_real_phase_value.SelectedIndex == 0)
+                        {
+                            m_nSessionPhaseOpened = false;
+                        }
+                        else
+                        {
+                            m_nSessionPhaseOpened = true;
+                        }
+
+                        m_curInventoryBuffer.CustomizeSessionParameters.Add((byte)this.m_real_phase_value.SelectedIndex);
 
                     }
                     m_curInventoryBuffer.CustomizeSessionParameters.Add(Convert.ToByte(textRealRound.Text));
@@ -7092,24 +7255,42 @@ namespace UHFDemo
 
         private void m_session_q_cb_CheckedChanged(object sender, EventArgs e)
         {
+            this.refreshLvListView();
             if (m_session_q_cb.Checked)
             {
                 m_session_sl_cb.Checked = true;
+                
+                /*
                 m_session_start_q.Enabled = true;
                 m_session_min_q.Enabled = true;
                 m_session_max_q.Enabled = true;
                 m_min_q_content.Enabled = true;
                 m_start_q_content.Enabled = true;
                 m_max_q_content.Enabled = true;
+                 * */
+                if (this.m_real_phase_value.SelectedIndex == 1) 
+                {
+                    m_nSessionPhaseOpened = true;
+                }
+                else if (this.m_real_phase_value.SelectedIndex == 0)
+                {
+                    m_nSessionPhaseOpened = false;
+                }
+                
+                this.m_real_phase_value.Enabled = true;
             }
             else
             {
+                /*
                 m_session_start_q.Enabled = false;
                 m_session_min_q.Enabled = false;
                 m_session_max_q.Enabled = false;
                 m_min_q_content.Enabled = false;
                 m_start_q_content.Enabled = false;
                 m_max_q_content.Enabled = false;
+                 * */
+                m_nSessionPhaseOpened = false;
+                this.m_real_phase_value.Enabled = false;
             }
         }
 
@@ -7187,6 +7368,35 @@ namespace UHFDemo
             {
                 m_nPhaseOpened = false;
             }
+        }
+
+        private void mUntraceableSet_Click(object sender, EventArgs e)
+        {
+            byte[] pwd = CCommondMethod.StringArrayToByteArray(CCommondMethod.StringToStringArray(this.mUntraceablePwd.Text, 2), 4);
+            if (pwd == null || pwd.Length != 4) 
+            {
+                MessageBox.Show("Password invaild!");
+                return;
+            }
+            
+            byte[] para = new byte[10];
+            Array.Copy(pwd,0,para,0,pwd.Length);
+            para[4] = 0;
+            para[5] = 0;
+            para[6] = Convert.ToByte(this.mUntraceableEpc.Text);
+            para[7] = (byte)this.mUntraceableTid.SelectedIndex;
+            para[8] = (byte)this.mUntraceableUser.SelectedIndex;
+            para[9] = (byte)this.mUntraceableRange.SelectedIndex;
+
+            m_curOperateTagBuffer.dtTagTable.Clear();
+            this.listViewUntraceable.Items.Clear();
+
+            reader.sendNXPCommand(m_curSetting.btReadId,(byte)0xE1,para);
+        }
+
+        private void mUntraceableEpc_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
