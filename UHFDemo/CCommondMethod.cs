@@ -277,6 +277,7 @@ namespace UHFDemo
                     break;
 
                 default:
+                    strErrorCode = "未知错误";
                     break;
             }
 
