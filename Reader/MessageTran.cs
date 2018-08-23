@@ -7,15 +7,14 @@ namespace Reader
 {
     public class MessageTran
     {
-        private byte btPacketType;     //数据包头，默认为0xA0
-        private byte btDataLen;        //数据包长度，数据包从‘长度’字节后面开始的字节数，不包含‘长度’字节本身
-        private byte btReadId;         //读写器地址
-        private byte btCmd;            //数据包命令代码
-        private byte[] btAryData;      //数据包命令参数，部分命令无参数
-        private byte btCheck;          //校验和，除校验和本身外所有字节的校验和
-        private byte[] btAryTranData;  //完整数据包
+        private byte btPacketType;     
+        private byte btDataLen;        
+        private byte btReadId;         
+        private byte btCmd;            
+        private byte[] btAryData;      
+        private byte btCheck;          
+        private byte[] btAryTranData;  
 
-        //设置属性
         public byte[] AryTranData
         {
             get

@@ -11,11 +11,11 @@ namespace Reader
 
     interface ITalker
     {
-        event MessageReceivedEventHandler MessageReceived;    // 接收到发来的消息
-        bool Connect(IPAddress ip, int port, out string strException);                 // 连接到服务端
-        bool SendMessage(byte[] btAryBuffer);                 // 发送数据包
-        void SignOut();                                       // 注销连接
+        event MessageReceivedEventHandler MessageReceived;    
+        bool Connect(IPAddress ip, int port, out string strException);                 
+        bool SendMessage(byte[] btAryBuffer);                 
+        void SignOut();                                       
 
-        bool IsConnect();                                    //校验是否连接服务器
+        bool IsConnect();                                   
     }
 }
