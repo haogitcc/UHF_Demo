@@ -26,9 +26,8 @@ namespace Reader
             {
                 client = new TcpClient();
                 client.Connect(ipAddress, nPort);
-                streamToTran = client.GetStream();    // 获取连接至远程的流
+                streamToTran = client.GetStream();    
 
-                //建立线程收取服务器发送数据
                 ThreadStart stThead = new ThreadStart(ReceivedData);
                 waitThread = new Thread(stThead);
                 waitThread.IsBackground = true;

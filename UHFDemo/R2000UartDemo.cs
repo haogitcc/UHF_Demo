@@ -25,31 +25,30 @@ namespace UHFDemo
         private OperateTagBuffer m_curOperateTagBuffer = new OperateTagBuffer();
         private OperateTagISO18000Buffer m_curOperateTagISO18000Buffer = new OperateTagISO18000Buffer();
 
-        //盘存操作前，需要先设置工作天线，用于标识当前是否在执行盘存操作
+        //Before inventory, you need to set working antenna to identify whether the inventory operation is executing.
         private bool m_bInventory = false;
-        //标识是否统计命令执行时间，当前仅盘存命令需要统计时间
+        //Identify whether reckon the command execution time, and the current inventory command needs to reckon time.
         private bool m_bReckonTime = false;
-        //实时盘存锁定操作
+        //Real time inventory locking operation.
         private bool m_bLockTab = false;
-        //ISO18000标签连续盘存标识
+        //ISO18000 tag continuously inventory mark.
         private bool m_bContinue = false;
-        //是否显示串口监控数据
+        //Whether display the serial monitoring data.
         private bool m_bDisplayLog = false;
-        //记录ISO18000标签循环写入次数
+        //Record the number of ISO18000 tag written loop time.
         private int m_nLoopTimes = 0;
-        //记录ISO18000标签写入字符数
+        //Record the number of ISO18000 tag's written characters.
         private int m_nBytes = 0;
-        //记录ISO18000标签已经循环写入次数
+        //Record the number of ISO18000 tag have been written loop time.
         private int m_nLoopedTimes = 0;
-        //实时盘存次数
+        //Real time inventory times.
         private int m_nTotal = 0;
-        //列表更新频率
+        //Frequency of list updating.
         private int m_nRealRate = 20;
-        //记录快速轮询天线参数
-        private byte[] m_btAryData=  new byte[18];
-        //4 ant
+        //Record quick poll antenna parameter.
+        private byte[] m_btAryData = new byte[18];
         private byte[] m_btAryData_4 = new byte[10];
-        //记录快速轮询总次数
+        //Record the total number of quick poll times.
         private int m_nSwitchTotal = 0;
         private int m_nSwitchTime = 0;
 
@@ -125,15 +124,12 @@ namespace UHFDemo
 
         private void R2000UartDemo_Load(object sender, EventArgs e)
         {
-            //初始化访问读写器实例
             reader = new Reader.ReaderMethod();
 
-            //回调函数
             reader.AnalyCallback = AnalyData;
             reader.ReceiveCallback = ReceiveData;
             reader.SendCallback = SendData;
 
-            //设置界面元素有效性
             gbRS232.Enabled = false;
             gbTcpIp.Enabled = false;
             SetFormEnable(false);
@@ -142,7 +138,6 @@ namespace UHFDemo
 
 
 
-            //初始化连接读写器默认配置
             cmbComPort.SelectedIndex = 0;
             cmbBaudrate.SelectedIndex = 1;
             ipIpServer.IpAddressStr = "192.168.0.178";
@@ -401,7 +396,7 @@ namespace UHFDemo
 
         private void ProcessSetTempOutpower(Reader.MessageTran msgTran)
         {
-            string strCmd = "设置临时输出功率";
+            string strCmd = "Set temporary output power";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -420,10 +415,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -526,7 +521,7 @@ namespace UHFDemo
                             lvBufferList.Items.Add(item);
                             //lvBufferList.Items[nCount].EnsureVisible();
 
-                            labelBufferTagCount.Text = "标签列表： " + m_curInventoryBuffer.nTagCount.ToString() + "个";
+                            labelBufferTagCount.Text = "Tag List： " + m_curInventoryBuffer.nTagCount.ToString() + "";
                            
                         }
                         break;
@@ -614,7 +609,7 @@ namespace UHFDemo
                             int nCaculatedReadRate = 0;
                             int nCommandDuation = 0;
 
-                            if (m_curInventoryBuffer.nReadRate == 0) //读写器没有返回速度前软件测速度
+                            if (m_curInventoryBuffer.nReadRate == 0) 
                             {
                                 if (nTotalTime > 0)
                                 {
@@ -627,7 +622,7 @@ namespace UHFDemo
                                 nCaculatedReadRate = m_curInventoryBuffer.nReadRate;
                             }
 
-                            //列表用变量
+                            
                             int nEpcCount = 0;
                             int nEpcLength = m_curInventoryBuffer.dtTagTable.Rows.Count;
                                                        
@@ -639,7 +634,7 @@ namespace UHFDemo
                             ledReal4.Text = nCommandDuation.ToString();  //实际的命令执行时间
                             tbRealMaxRssi.Text = (m_curInventoryBuffer.nMaxRSSI - 129).ToString() + "dBm";
                             tbRealMinRssi.Text = (m_curInventoryBuffer.nMinRSSI - 129).ToString() + "dBm";
-                            lbRealTagCount.Text = "标签EPC号列表（不重复）： " + nTagCount.ToString() + "个";
+                            lbRealTagCount.Text = "Tag EPC ID List(Uniq)： " + nTagCount.ToString() + "";
 
                             nEpcCount = lvRealList.Items.Count;
                                 
@@ -810,7 +805,7 @@ namespace UHFDemo
                             m_curInventoryBuffer.bLoopInventory = false;
                             btRealTimeInventory.BackColor = Color.WhiteSmoke;
                             btRealTimeInventory.ForeColor = Color.DarkBlue;
-                            btRealTimeInventory.Text = "开始盘存";
+                            btRealTimeInventory.Text = "Inventory";
                             timerInventory.Enabled = false;
                             totalTime.Enabled = false;
                             //return;
@@ -844,10 +839,10 @@ namespace UHFDemo
                             TimeSpan ts = m_curInventoryBuffer.dtEndInventory - m_curInventoryBuffer.dtStartInventory;
                             int nTotalTime = ts.Minutes * 60 * 1000 + ts.Seconds * 1000 + ts.Milliseconds;
 
-                            ledFast1.Text = nTagCount.ToString(); //标签总数
+                            ledFast1.Text = nTagCount.ToString();
                             if (m_curInventoryBuffer.nCommandDuration > 0)
                             {
-                                ledFast2.Text = (m_curInventoryBuffer.nDataCount * 1000 / m_curInventoryBuffer.nCommandDuration).ToString(); //读标签速度
+                                ledFast2.Text = (m_curInventoryBuffer.nDataCount * 1000 / m_curInventoryBuffer.nCommandDuration).ToString();
                             }
                             else
                             {
@@ -864,26 +859,25 @@ namespace UHFDemo
                             {
                                 this.m_NewExeTimer += m_curInventoryBuffer.nCommandDuration;
                                 //this.m_NewExeTimer += Convert.ToInt32(this.m_fast_session_power_time.Text);
-                                ledFast3.Text = this.m_NewExeTimer.ToString(); //命令执行时间
+                                ledFast3.Text = this.m_NewExeTimer.ToString(); 
                                 this.m_NewExeTimer = 0;
                                 m_curInventoryBuffer.nCommandDuration = 0;
                                 Console.WriteLine("execute time:" + this.m_NewExeTimer.ToString());
                             }
                             else
                             {
-                                ledFast3.Text = m_curInventoryBuffer.nCommandDuration.ToString(); //命令执行时间
+                                ledFast3.Text = m_curInventoryBuffer.nCommandDuration.ToString(); 
                             }
 
                             
 
-                            ledFast5.Text = nTotalTime.ToString(); //命令累计执行时间
+                            ledFast5.Text = nTotalTime.ToString(); 
                             ledFast4.Text = nTotalRead.ToString();
                            
                             txtFastMaxRssi.Text = (m_curInventoryBuffer.nMaxRSSI - 129).ToString() + "dBm";
                             txtFastMinRssi.Text = (m_curInventoryBuffer.nMinRSSI - 129).ToString() + "dBm";
-                            txtFastTagList.Text = "标签EPC号列表（不重复）： " + nTagCount.ToString() + "个";
+                            txtFastTagList.Text = "Tag EPC ID List(Uniq)： " + nTagCount.ToString() + "";
 
-                            //形成列表
                             int nEpcCount = lvFastList.Items.Count;
                             int nEpcLength = m_curInventoryBuffer.dtTagTable.Rows.Count;
                             if (nEpcCount < nEpcLength)
@@ -911,7 +905,6 @@ namespace UHFDemo
                                 //lvFastList.Items[nEpcCount].EnsureVisible();
                             }
 
-                            //更新列表中读取的次数
                             if (m_nTotal % m_nRealRate == 1)
                             {
                                 int nIndex = 0;
@@ -1334,7 +1327,6 @@ namespace UHFDemo
             }
             else
             {
-                //校验盘存是否所有天线均完成
                 if ( m_curInventoryBuffer.nIndexAntenna < m_curInventoryBuffer.lAntenna.Count - 1 || m_curInventoryBuffer.nCommond == 0)
                 {
                     if (m_curInventoryBuffer.nCommond == 0)
@@ -1345,7 +1337,7 @@ namespace UHFDemo
                         {
                             //m_bLockTab = true;
                             //btnInventory.Enabled = false;
-                            if (m_curInventoryBuffer.bLoopCustomizedSession)//自定义Session和Inventoried Flag 
+                            if (m_curInventoryBuffer.bLoopCustomizedSession)
                             {
                                 if (this.m_isOnKeyRuning)
                                 {
@@ -1439,7 +1431,7 @@ namespace UHFDemo
                                     reader.CustomizedInventoryV2(m_curSetting.btReadId,m_curInventoryBuffer.CustomizeSessionParameters.ToArray());
                                 }
                             }
-                            else //实时盘存
+                            else 
                             {
                                 reader.InventoryReal(m_curSetting.btReadId, m_curInventoryBuffer.btRepeat);
                                 
@@ -1461,7 +1453,6 @@ namespace UHFDemo
                         m_curSetting.btWorkAntenna = btWorkAntenna;
                     }
                 }
-                //校验是否循环盘存
                 else if (m_curInventoryBuffer.bLoopInventory)
                 {
                     if (this.m_isOnKeyRuning)
@@ -1498,7 +1489,7 @@ namespace UHFDemo
                                     this.m_ErrorTagCount += m_curInventoryBuffer.dtTagTable.Rows.Count;
                                 }
                                 StreamWriter writer = new StreamWriter(m_FilePath, true);
-                                writer.WriteLine(this.m_writeCount.ToString() + " " +"本次读取的标签数量是：" + m_curInventoryBuffer.dtTagTable.Rows.Count + " " + "耗时：" 
+                                writer.WriteLine(this.m_writeCount.ToString() + " " +"Tag count:：" + m_curInventoryBuffer.dtTagTable.Rows.Count + " " + "Elapse Time：" 
                                     + ((long)(DateTime.Now - m_startConsumTime).TotalMilliseconds).ToString());
                                 writer.Flush();
                                 writer.Dispose();
@@ -1509,7 +1500,7 @@ namespace UHFDemo
                                 this.m_runLoopTest = false;
                                 this.ｍOneKeyInventory.BackColor = Color.WhiteSmoke;
                                 this.ｍOneKeyInventory.ForeColor = Color.DarkBlue;
-                                this.ｍOneKeyInventory.Text = "一键盘存";
+                                this.ｍOneKeyInventory.Text = "Inventory";
 
                                 totalTime.Enabled = false;
                                 this.intervalExecuteTimer.Enabled = false;
@@ -1523,15 +1514,6 @@ namespace UHFDemo
 
                             if (!this.m_runLoopTest)
                             {
-                                /*
-                                StreamWriter writer2 = new StreamWriter(m_FilePath, true);
-                                writer.WriteLine("总行数：" + this.m_writeCount.ToString() +  "    " + "错误行数：" + this.m_ErrorCount.ToString() + 
-                                    "       " + "行错误率："　+ (this.m_ErrorCount * 1.00 / this.m_writeCount).ToString());
-
-                                int total = m_ErrorTagCount + (m_writeCount - m_ErrorCount) * m_TestTagCount;
-                                writer.WriteLine("总表标签数量：" +total.ToString() + "    " + "读取标签完整率：" +　total * 1.00 / (m_writeCount * m_TestTagCount));
-                                writer.Flush();
-                                writer.Dispose(); */
 
                                 m_curInventoryBuffer.bLoopInventory = false;
                                 return;
@@ -1638,7 +1620,7 @@ namespace UHFDemo
                     this.m_ErrorTagCount += m_curInventoryBuffer.dtTagTable.Rows.Count;
                 }
                 StreamWriter writer = new StreamWriter(m_FilePath, true);
-                writer.WriteLine(this.m_writeCount.ToString() + " " + "本次读取的标签数量是：" + m_curInventoryBuffer.dtTagTable.Rows.Count + " " + "耗时："
+                writer.WriteLine(this.m_writeCount.ToString() + " " + "Tag count:：" + m_curInventoryBuffer.dtTagTable.Rows.Count + " " + "Elapse Time："
                     + ((long)(DateTime.Now - m_startConsumTime).TotalMilliseconds).ToString());
                 writer.Flush();
                 writer.Dispose();
@@ -1657,7 +1639,7 @@ namespace UHFDemo
                         m_curInventoryBuffer.bLoopInventory = false;
                         btFastInventory.BackColor = Color.WhiteSmoke;
                         btFastInventory.ForeColor = Color.DarkBlue;
-                        btFastInventory.Text = "开始盘存";
+                        btFastInventory.Text = "Inventory";
 
                     }
                     else
@@ -1708,7 +1690,7 @@ namespace UHFDemo
                             }
                             else
                             {
-                                WriteLog(lrtxtLog, "停止盘存", 0);
+                                WriteLog(lrtxtLog, "Stop", 0);
                             }
                         }
                         break;
@@ -1724,20 +1706,7 @@ namespace UHFDemo
                         break;
                     case 0xb3:
                         {
-                            //switch(m_curOperateTagISO18000Buffer.btStatus)
-                            //{
-                            //    case 0x00:
-                            //        MessageBox.Show("该字节成功锁定");
-                            //        break;
-                            //    case 0xFE:
-                            //        MessageBox.Show("该字节已是锁定状态");
-                            //        break;
-                            //    case 0xFF:
-                            //        MessageBox.Show("该字节无法锁定");
-                            //        break;
-                            //    default:
-                            //        break;
-                            //}
+                          
                         }
                         break;
                     case 0xb4:
@@ -1745,10 +1714,10 @@ namespace UHFDemo
                             switch (m_curOperateTagISO18000Buffer.btStatus)
                             {
                                 case 0x00:
-                                    txtStatus.Text = "该字节未锁定";
+                                    txtStatus.Text = "Byte not Locked";
                                     break;
                                 case 0xFE:
-                                    txtStatus.Text = "该字节已是锁定状态";
+                                    txtStatus.Text = "Byte Locked";
                                     break;
                                 default:
                                     break;
@@ -1793,7 +1762,6 @@ namespace UHFDemo
                 gbRS232.Enabled = true;
                 btnDisconnectRs232.Enabled = false;
 
-                //设置按钮字体颜色
                 btnConnectRs232.ForeColor = Color.Indigo;
                 SetButtonBold(btnConnectRs232);
                 if (btnConnectTcp.Font.Bold)
@@ -1812,7 +1780,6 @@ namespace UHFDemo
                 gbTcpIp.Enabled = true;
                 btnDisconnectTcp.Enabled = false;
 
-                //设置按钮字体颜色
                 btnConnectTcp.ForeColor = Color.Indigo;
                 if (btnConnectRs232.Font.Bold)
                 {
@@ -1880,7 +1847,6 @@ namespace UHFDemo
 
         private void btnConnectRs232_Click(object sender, EventArgs e)
         {
-            //处理串口连接读写器
             string strException = string.Empty;
             string strComPort = cmbComPort.Text;
             int nBaudrate=Convert.ToInt32(cmbBaudrate.Text);
@@ -1888,25 +1854,23 @@ namespace UHFDemo
             int nRet = reader.OpenCom(strComPort, nBaudrate, out strException);
             if (nRet != 0)
             {
-                string strLog = "连接读写器失败，失败原因： " + strException; 
+                string strLog = "Connection failed, failure cause: " + strException; 
                 WriteLog(lrtxtLog, strLog, 1);
 
                 return;
             }
             else
             {
-                string strLog = "连接读写器 " + strComPort + "@" + nBaudrate.ToString();
+                string strLog = "Connect " + strComPort + "@" + nBaudrate.ToString();
                 WriteLog(lrtxtLog, strLog, 0);
             }
             
-            //处理界面元素是否有效
             SetFormEnable(true);
 
             
             btnConnectRs232.Enabled = false;
             btnDisconnectRs232.Enabled = true;
 
-            //设置按钮字体颜色
             btnConnectRs232.ForeColor = Color.Black;
             btnDisconnectRs232.ForeColor = Color.Indigo;
             SetButtonBold(btnConnectRs232);
@@ -1915,15 +1879,12 @@ namespace UHFDemo
 
         private void btnDisconnectRs232_Click(object sender, EventArgs e)
         {
-            //处理串口断开连接读写器
             reader.CloseCom();
 
-            //处理界面元素是否有效
             SetFormEnable(false);
             btnConnectRs232.Enabled = true;
             btnDisconnectRs232.Enabled = false;
 
-            //设置按钮字体颜色
             btnConnectRs232.ForeColor = Color.Indigo;
             btnDisconnectRs232.ForeColor = Color.Black;
             SetButtonBold(btnConnectRs232);
@@ -1934,7 +1895,6 @@ namespace UHFDemo
         {
             try
             {
-                //处理Tcp连接读写器
                 string strException = string.Empty;
                 IPAddress ipAddress = IPAddress.Parse(ipIpServer.IpAddressStr);
                 int nPort = Convert.ToInt32(txtTcpPort.Text);
@@ -1942,23 +1902,21 @@ namespace UHFDemo
                 int nRet = reader.ConnectServer(ipAddress,nPort,out strException);
                 if (nRet != 0)
                 {
-                    string strLog = "连接读写器失败，失败原因： " + strException;
+                    string strLog = "onnection failed, failure cause: " + strException;
                     WriteLog(lrtxtLog, strLog, 1);
 
                     return;
                 }
                 else
                 {
-                    string strLog = "连接读写器 " + ipIpServer.IpAddressStr + "@" + nPort.ToString();
+                    string strLog = "Connect " + ipIpServer.IpAddressStr + "@" + nPort.ToString();
                     WriteLog(lrtxtLog, strLog, 0);
                 }
 
-                //处理界面元素是否有效
                 SetFormEnable(true);
                 btnConnectTcp.Enabled = false;
                 btnDisconnectTcp.Enabled = true;
 
-                //设置按钮字体颜色
                 btnConnectTcp.ForeColor = Color.Black;
                 btnDisconnectTcp.ForeColor = Color.Indigo;
                 SetButtonBold(btnConnectTcp);
@@ -1973,15 +1931,12 @@ namespace UHFDemo
 
         private void btnDisconnectTcp_Click(object sender, EventArgs e)
         {
-            //处理断开Tcp连接读写器
             reader.SignOut();
 
-            //处理界面元素是否有效
             SetFormEnable(false);
             btnConnectTcp.Enabled = true;
             btnDisconnectTcp.Enabled = false;
 
-            //设置按钮字体颜色
             btnConnectTcp.ForeColor = Color.Indigo;
             btnDisconnectTcp.ForeColor = Color.Black;
             SetButtonBold(btnConnectTcp);
@@ -1993,12 +1948,12 @@ namespace UHFDemo
             int nRet = reader.Reset(m_curSetting.btReadId);
             if (nRet != 0)
             {
-                string strLog = "复位读写器失败";
+                string strLog = "Reset reader fails";
                 WriteLog(lrtxtLog, strLog, 1);
             }
             else
             {
-                string strLog = "复位读写器";
+                string strLog = "Reset reader";
                 m_curSetting.btReadId = (byte)0xFF;
                 WriteLog(lrtxtLog, strLog, 0);
             }
@@ -2024,7 +1979,7 @@ namespace UHFDemo
 
         private void ProcessSetReadAddress(Reader.MessageTran msgTran)
         {
-            string strCmd = "设置读写器地址";
+            string strCmd = "Set reader's address";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -2043,10 +1998,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -2057,7 +2012,7 @@ namespace UHFDemo
 
         private void ProcessGetFirmwareVersion(Reader.MessageTran msgTran)
         {
-            string strCmd = "取得读写器版本号";
+            string strCmd = "Get Reader's firmware version";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 2)
@@ -2076,10 +2031,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -2094,7 +2049,7 @@ namespace UHFDemo
 
         private void ProcessSetUartBaudrate(Reader.MessageTran msgTran)
         {
-            string strCmd = "设置波特率";
+            string strCmd = "Set Baudrate";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -2113,10 +2068,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -2127,7 +2082,7 @@ namespace UHFDemo
 
         private void ProcessGetReaderTemperature(Reader.MessageTran msgTran)
         {
-            string strCmd = "取得读写器温度";
+            string strCmd = "Get reader internal temperature";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 2)
@@ -2146,10 +2101,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -2168,7 +2123,7 @@ namespace UHFDemo
 
         private void ProcessGetOutputPower(Reader.MessageTran msgTran)
         {
-            string strCmd = "取得输出功率";
+            string strCmd = "Get RF Output Power";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -2200,10 +2155,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -2267,7 +2222,7 @@ namespace UHFDemo
 
         private void ProcessSetOutputPower(Reader.MessageTran msgTran)
         {
-            string strCmd = "设置输出功率";
+            string strCmd = "Set RF Output Power";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -2286,10 +2241,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -2300,7 +2255,7 @@ namespace UHFDemo
 
         private void ProcessGetWorkAntenna(Reader.MessageTran msgTran)
         {
-            string strCmd = "取得工作天线";
+            string strCmd = "Get working antenna";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -2322,10 +2277,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -2357,7 +2312,7 @@ namespace UHFDemo
 
             int intCurrentAnt = 0;
             intCurrentAnt = m_curSetting.btWorkAntenna + 1;
-            string strCmd = "设置工作天线成功,当前工作天线: 天线" + intCurrentAnt.ToString();
+            string strCmd = "Set working antenna successfully, Current Ant: Ant" + intCurrentAnt.ToString();
          
             string strErrorCode = string.Empty;
 
@@ -2369,7 +2324,6 @@ namespace UHFDemo
                     m_curSetting.btReadId = msgTran.ReadId;
                     WriteLog(lrtxtLog, strCmd, 0);
 
-                    //校验是否盘存操作
                     if (m_bInventory)
                     {
                         RunLoopInventroy();
@@ -2383,10 +2337,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
 
             if (m_bInventory)
@@ -2404,7 +2358,7 @@ namespace UHFDemo
 
         private void ProcessGetDrmMode(Reader.MessageTran msgTran)
         {
-            string strCmd = "取得DRM模式";
+            string strCmd = "Get DRM Status";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -2425,10 +2379,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -2456,7 +2410,7 @@ namespace UHFDemo
 
         private void ProcessSetDrmMode(Reader.MessageTran msgTran)
         {
-            string strCmd = "设置DRM模式";
+            string strCmd = "Set DRM Status";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -2475,10 +2429,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -2576,7 +2530,7 @@ namespace UHFDemo
 
         private void ProcessGetFrequencyRegion(Reader.MessageTran msgTran)
         {
-            string strCmd = "取得射频规范";
+            string strCmd = "Get RF frequency spectrum";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 3)
@@ -2609,10 +2563,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -2642,7 +2596,7 @@ namespace UHFDemo
                     int nEndIndex = cmbFrequencyEnd.SelectedIndex;
                     if (nEndIndex < nStartIndex)
                     {
-                        MessageBox.Show("频谱范围不符合规范，请参考通讯协议");
+                        MessageBox.Show("pectral range that does not meet specifications, please refer to the Serial Protocol");
                         return;
                     }
 
@@ -2683,7 +2637,7 @@ namespace UHFDemo
 
         private void ProcessSetFrequencyRegion(Reader.MessageTran msgTran)
         {
-            string strCmd = "设置射频规范";
+            string strCmd = "Query RF frequency spectrum    ";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -2702,10 +2656,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -2736,7 +2690,8 @@ namespace UHFDemo
 
         private void ProcessSetBeeperMode(Reader.MessageTran msgTran)
         {
-            string strCmd = "设置蜂鸣器模式";
+            string strCmd = "Set reader's buzzer hehavior";
+
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -2755,10 +2710,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -2769,7 +2724,7 @@ namespace UHFDemo
 
         private void ProcessReadGpioValue(Reader.MessageTran msgTran)
         {
-            string strCmd = "读取GPIO状态";
+            string strCmd = "Get GPIO status";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 2)
@@ -2788,10 +2743,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -2839,7 +2794,7 @@ namespace UHFDemo
 
         private void ProcessWriteGpioValue(Reader.MessageTran msgTran)
         {
-            string strCmd = "设置GPIO状态";
+            string strCmd = "Set GPIO status";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -2858,10 +2813,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -2872,7 +2827,7 @@ namespace UHFDemo
 
         private void ProcessGetAntDetector(Reader.MessageTran msgTran)
         {
-            string strCmd = "读取天线连接检测阈值";
+            string strCmd = "Get antenna detector threshold value";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -2886,16 +2841,16 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
         private void ProcessGetMonzaStatus(Reader.MessageTran msgTran)
         {
-            string strCmd = "读取Impinj Monza快速读TID功能";
+            string strCmd = "Get current Impinj FastTID setting";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -2916,16 +2871,16 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
         private void ProcessSetMonzaStatus(Reader.MessageTran msgTran)
         {
-            string strCmd = "设置Impinj Monza快速读TID功能";
+            string strCmd = "Set Impinj FastTID function";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -2945,16 +2900,16 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
         private void ProcessSetProfile(Reader.MessageTran msgTran)
         {
-            string strCmd = "设置射频通讯链路配置";
+            string strCmd = "Set RF link profile";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -2974,16 +2929,16 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
         private void ProcessGetProfile(Reader.MessageTran msgTran)
         {
-            string strCmd = "读取射频通讯链路配置";
+            string strCmd = "Get RF link profile";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -3004,10 +2959,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -3015,7 +2970,7 @@ namespace UHFDemo
 
         private void ProcessGetReaderIdentifier(Reader.MessageTran msgTran)
         {
-            string strCmd = "读取读写器识别标记";
+            string strCmd = "Get Reader Identifier";
             string strErrorCode = string.Empty;
             short i;
             string readerIdentifier = "";
@@ -3037,16 +2992,16 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
         private void ProcessGetImpedanceMatch(Reader.MessageTran msgTran)
         {
-            string strCmd = "测量天线端口阻抗匹配";
+            string strCmd = "Measure Impedance of Antenna Port Match";
             string strErrorCode = string.Empty;
                   
             
@@ -3062,10 +3017,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -3073,7 +3028,7 @@ namespace UHFDemo
 
         private void ProcessSetReaderIdentifier(Reader.MessageTran msgTran)
         {
-            string strCmd = "设置读写器识别标记";
+            string strCmd = "Set Reader Identifier";
             string strErrorCode = string.Empty;
             
             if (msgTran.AryData.Length == 1)
@@ -3087,10 +3042,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -3114,7 +3069,7 @@ namespace UHFDemo
 
         private void ProcessSetAntDetector(Reader.MessageTran msgTran)
         {
-            string strCmd = "设置天线连接检测阈值";
+            string strCmd = "Set antenna detector threshold value";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -3133,10 +3088,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
         
@@ -3162,200 +3117,18 @@ namespace UHFDemo
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            /*try
-            {                
-                if (rbdFastSwitchInventory.Checked)
-                {
-                }
-                else
-                {
-                    m_curInventoryBuffer.ClearInventoryPar();
-
-                    if (txtChannel.Text.Length == 0)
-                    {
-                        MessageBox.Show("请输入跳频次数");
-                        return;
-                    }
-                    m_curInventoryBuffer.btChannel = Convert.ToByte(txtChannel.Text);
-
-                    if (ckWorkAntenna1.Checked)
-                    {
-                        m_curInventoryBuffer.lAntenna.Add(0x00);
-                    }
-                    if (ckWorkAntenna2.Checked)
-                    {
-                        m_curInventoryBuffer.lAntenna.Add(0x01);
-                    }
-                    if (ckWorkAntenna3.Checked)
-                    {
-                        m_curInventoryBuffer.lAntenna.Add(0x02);
-                    }
-                    if (ckWorkAntenna4.Checked)
-                    {
-                        m_curInventoryBuffer.lAntenna.Add(0x03);
-                    }
-                    if (m_curInventoryBuffer.lAntenna.Count == 0)
-                    {
-                        MessageBox.Show("请至少选择一个天线");
-                        return;
-                    }
-                }                
-
-                //默认循环发送命令
-                if (m_curInventoryBuffer.bLoopInventory)
-                {
-                    m_bInventory = false;
-                    m_curInventoryBuffer.bLoopInventory = false;
-                    btnInventory.BackColor = Color.WhiteSmoke;
-                    btnInventory.ForeColor = Color.Indigo;
-                    btnInventory.Text = "开始盘存";
-                    return;
-                }
-                else
-                {
-                    //ISO 18000-6B盘存是否正在运行
-                    if (m_bContinue)
-                    {
-                        if (MessageBox.Show("ISO 18000-6B标签正在盘存，是否停止?", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
-                        {
-                            return;
-                        }
-                        else
-                        {
-                            btnInventoryISO18000_Click(sender, e);
-                            return;
-                        }
-                    }
-
-                    m_bInventory = true; 
-                    m_curInventoryBuffer.bLoopInventory = true;
-                    btnInventory.BackColor = Color.Indigo;
-                    btnInventory.ForeColor = Color.White;
-                    btnInventory.Text = "停止盘存";
-                }
-
-                if (rdbInventoryRealTag.Checked)
-                {
-                    m_curInventoryBuffer.bLoopInventoryReal = true;
-                }
-
-                m_curInventoryBuffer.ClearInventoryRealResult();
-                ltvInventoryEpc.Items.Clear();
-                ltvInventoryTag.Items.Clear();
-                m_nTotal = 0;
-                if (rbdFastSwitchInventory.Checked)
-                {
-                    if (cmbAntSelect1.SelectedIndex == -1)
-                    {
-                        m_btAryData[0] = 0xFF;
-                    }
-                    else
-                    {
-                        m_btAryData[0] = Convert.ToByte(cmbAntSelect1.SelectedIndex);
-                    }
-                    if (txtStayA.Text.Length == 0)
-                    {
-                        m_btAryData[1] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData[1] = Convert.ToByte(txtStayA.Text);
-                    }
-
-                    if (cmbAntSelect2.SelectedIndex == -1)
-                    {
-                        m_btAryData[2] = 0xFF;
-                    }
-                    else
-                    {
-                        m_btAryData[2] = Convert.ToByte(cmbAntSelect2.SelectedIndex);
-                    }
-                    if (txtStayB.Text.Length == 0)
-                    {
-                        m_btAryData[3] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData[3] = Convert.ToByte(txtStayB.Text);
-                    }
-
-                    if (cmbAntSelect3.SelectedIndex == -1)
-                    {
-                        m_btAryData[4] = 0xFF;
-                    }
-                    else
-                    {
-                        m_btAryData[4] = Convert.ToByte(cmbAntSelect3.SelectedIndex);
-                    }
-                    if (txtStayC.Text.Length == 0)
-                    {
-                        m_btAryData[5] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData[5] = Convert.ToByte(txtStayC.Text);
-                    }
-
-                    if (cmbAntSelect4.SelectedIndex == -1)
-                    {
-                        m_btAryData[6] = 0xFF;
-                    }
-                    else
-                    {
-                        m_btAryData[6] = Convert.ToByte(cmbAntSelect4.SelectedIndex);
-                    }
-                    if (txtStayD.Text.Length == 0)
-                    {
-                        m_btAryData[7] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData[7] = Convert.ToByte(txtStayD.Text);
-                    }
-
-                    if (txtInterval.Text.Length == 0)
-                    {
-                        m_btAryData[8] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData[8] = Convert.ToByte(txtInterval.Text);
-                    }
-
-                    if (txtRepeat.Text.Length == 0)
-                    {
-                        m_btAryData[9] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData[9] = Convert.ToByte(txtRepeat.Text);
-                    }
-
-                    m_nSwitchTotal = 0;
-                    m_nSwitchTime = 0;
-                    reader.FastSwitchInventory(m_curSetting.btReadId, m_btAryData);
-                }
-                else
-                {
-                    byte btWorkAntenna = m_curInventoryBuffer.lAntenna[m_curInventoryBuffer.nIndexAntenna];
-                    reader.SetWorkAntenna(m_curSetting.btReadId, btWorkAntenna);
-                }                
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }     */       
+            
         }
 
         private void ProcessFastSwitch(Reader.MessageTran msgTran)
         {
-            string strCmd = "快速天线盘存";
+            string strCmd = "Real time inventory with fast ant switch";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
             {
                 strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[0]);
-                string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+                string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
                 WriteLog(lrtxtLog, strLog, 1);
                 
@@ -3380,7 +3153,7 @@ namespace UHFDemo
             {
                 strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[1]);
                 Console.WriteLine("Return ant NO : " + (msgTran.AryData[0] + 1));
-                string strLog = strCmd + "失败，失败原因： " + strErrorCode + "--" + "天线" + (msgTran.AryData[0] + 1);
+                string strLog = strCmd + "Failure, failure cause: " + strErrorCode + "--" + "ANT" + (msgTran.AryData[0] + 1);
 
                 WriteLog(lrtxtLog, strLog, 1);
 
@@ -3652,18 +3425,18 @@ namespace UHFDemo
             string strCmd = "";
             if (msgTran.Cmd == 0x89)
             {
-                strCmd = "实时盘存";
+                strCmd = "Real time inventory";
             }
             if (msgTran.Cmd == 0x8B)
             {
-                strCmd = "自定义Session和Inventoried Flag盘存";
+                strCmd = "User define Session and Inventoried Flag inventory";
             }
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
             {
                 strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[0]);
-                string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+                string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
                 WriteLog(lrtxtLog, strLog, 1);
 
                 m_curInventoryBuffer.dtEndInventory = DateTime.Now;
@@ -3688,7 +3461,6 @@ namespace UHFDemo
                 int nLength = msgTran.AryData.Length;
                 int nEpcLength = nLength - 4;
 
-                //增加盘存明细表
                 //if (msgTran.AryData[3] == 0x00)
                 //{
                 //    MessageBox.Show("");
@@ -3717,7 +3489,6 @@ namespace UHFDemo
                 //m_curInventoryBuffer.dtTagDetailTable.Rows.Add(row);
                 //m_curInventoryBuffer.dtTagDetailTable.AcceptChanges();
 
-                ////增加标签表
                 //DataRow[] drsDetail = m_curInventoryBuffer.dtTagDetailTable.Select(string.Format("COLEPC = '{0}'", strEPC));
                 //int nDetailCount = drsDetail.Length;
                 DataRow[] drs = m_curInventoryBuffer.dtTagTable.Select(string.Format("COLEPC = '{0}'", strEPC));
@@ -3873,7 +3644,7 @@ namespace UHFDemo
 
         private void ProcessInventory(Reader.MessageTran msgTran)
         {
-            string strCmd = "盘存标签";
+            string strCmd = "Inventory";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 9)
@@ -3902,10 +3673,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
 
             RunLoopInventroy();
@@ -3937,13 +3708,13 @@ namespace UHFDemo
 
         private void ProcessGetInventoryBuffer(Reader.MessageTran msgTran)
         {
-            string strCmd = "读取缓存";
+            string strCmd = "Get buffered data without clearing";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
             {
                 strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[0]);
-                string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+                string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
                 WriteLog(lrtxtLog, strLog, 1);
             }
@@ -3990,13 +3761,13 @@ namespace UHFDemo
 
         private void ProcessGetAndResetInventoryBuffer(Reader.MessageTran msgTran)
         {
-            string strCmd = "读取清空缓存";
+            string strCmd = "Get and clear buffered data";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
             {
                 strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[0]);
-                string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+                string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
                 WriteLog(lrtxtLog, strLog, 1);
             }
@@ -4041,7 +3812,7 @@ namespace UHFDemo
 
         private void ProcessGetInventoryBufferTagCount(Reader.MessageTran msgTran)
         {
-            string strCmd = "缓存标签数量";
+            string strCmd = "Query how many tags are buffered";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 2)
@@ -4059,10 +3830,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
             WriteLog(lrtxtLog, strLog, 1);
         }
@@ -4074,7 +3845,7 @@ namespace UHFDemo
 
         private void ProcessResetInventoryBuffer(Reader.MessageTran msgTran)
         {
-            string strCmd = "清空缓存";
+            string strCmd = "Clear buffer";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -4092,10 +3863,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
             WriteLog(lrtxtLog, strLog, 1);
         }
@@ -4116,14 +3887,14 @@ namespace UHFDemo
 
         private void ProcessGetAccessEpcMatch(Reader.MessageTran msgTran)
         {
-            string strCmd = "取得选定标签";
+            string strCmd = "Get selected tag";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
             {
                 if (msgTran.AryData[0] == 0x01)
                 {
-                    WriteLog(lrtxtLog, "未选定标签", 0);
+                    WriteLog(lrtxtLog, "Unselected Tag", 0);
                     return;
                 }
                 else
@@ -4143,11 +3914,11 @@ namespace UHFDemo
                 }
                 else
                 {
-                    strErrorCode = "未知错误";
+                    strErrorCode = "Unknown Error";
                 }
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
             WriteLog(lrtxtLog, strLog, 1);
         }
@@ -4158,7 +3929,7 @@ namespace UHFDemo
 
             if (reslut == null)
             {
-                MessageBox.Show("请选择EPC号");
+                MessageBox.Show("Please select EPC number");
                 return;
             }
 
@@ -4172,7 +3943,7 @@ namespace UHFDemo
 
         private void ProcessSetAccessEpcMatch(Reader.MessageTran msgTran)
         {
-            string strCmd = "选定/取消选定标签";
+            string strCmd = "Select/Deselect Tag";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -4189,10 +3960,10 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
+                strErrorCode = "Unknown Error";
             }
 
-            string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
             WriteLog(lrtxtLog, strLog, 1);
         }
@@ -4223,7 +3994,7 @@ namespace UHFDemo
                 }
                 else
                 {
-                    MessageBox.Show("请选择读标签区域");
+                    MessageBox.Show("Please select the area of tag");
                     return;
                 }
 
@@ -4233,7 +4004,7 @@ namespace UHFDemo
                 }
                 else
                 {
-                    MessageBox.Show("请选择读标签起始地址");
+                    MessageBox.Show("Please select the start Add of tag");
                     return;
                 }
 
@@ -4243,7 +4014,7 @@ namespace UHFDemo
                 }
                 else
                 {
-                    MessageBox.Show("请选择读标签长度");
+                    MessageBox.Show("Please select the Length");
                     return;
                 }
 
@@ -4251,7 +4022,7 @@ namespace UHFDemo
 
                 if (reslut != null && reslut.GetLength(0) != 4)
                 {
-                    MessageBox.Show("密码必须是空或者4个字节");
+                    MessageBox.Show("Password must be null or 4 bytes");
                     return;
                 }
                 byte[] btAryPwd = null;
@@ -4264,7 +4035,7 @@ namespace UHFDemo
                 m_curOperateTagBuffer.dtTagTable.Clear();
                 ltvOperate.Items.Clear();
                 reader.ReadTag(m_curSetting.btReadId, btMemBank, btWordAdd, btWordCnt,btAryPwd);
-                WriteLog(lrtxtLog, "读标签", 1);
+                WriteLog(lrtxtLog, "Read Tag", 1);
             }
             catch (System.Exception ex)
             {
@@ -4275,13 +4046,13 @@ namespace UHFDemo
 
         private void ProcessReadTag(Reader.MessageTran msgTran)
         {
-            string strCmd = "读标签";
+            string strCmd = "Read Tag";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
             {
                 strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[0]);
-                string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+                string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
                 WriteLog(lrtxtLog, strLog, 1);
             }
@@ -4354,7 +4125,7 @@ namespace UHFDemo
                 }
                 else
                 {
-                    MessageBox.Show("请选择读标签区域");
+                    MessageBox.Show("Please select the area of tag");
                     return;
                 }
 
@@ -4364,7 +4135,7 @@ namespace UHFDemo
                 }
                 else
                 {
-                    MessageBox.Show("请选择读标签起始地址");
+                    MessageBox.Show("Please select the start Add of tag");
                     return;
                 }
 
@@ -4374,7 +4145,7 @@ namespace UHFDemo
                 }
                 else
                 {
-                    MessageBox.Show("请选择读标签长度");
+                    MessageBox.Show("Please select the Length");
                     return;
                 }
 
@@ -4382,12 +4153,12 @@ namespace UHFDemo
 
                 if (reslut == null)
                 {
-                    MessageBox.Show("输入字符无效");
+                    MessageBox.Show("Invalid input characters");
                     return;
                 }
                 else if (reslut.GetLength(0) < 4)
                 {
-                    MessageBox.Show("至少输入4个字节");
+                    MessageBox.Show("Enter at least 4 bytes");
                     return;
                 }
                 byte[] btAryPwd = CCommondMethod.StringArrayToByteArray(reslut, 4);
@@ -4396,7 +4167,7 @@ namespace UHFDemo
 
                 if (reslut == null)
                 {
-                    MessageBox.Show("输入字符无效");
+                    MessageBox.Show("Invalid input characters");
                     return;
                 }
                 byte[] btAryWriteData = CCommondMethod.StringArrayToByteArray(reslut, reslut.Length);
@@ -4407,7 +4178,7 @@ namespace UHFDemo
                 m_curOperateTagBuffer.dtTagTable.Clear();
                 ltvOperate.Items.Clear();
                 reader.WriteTag(m_curSetting.btReadId, btAryPwd, btMemBank, btWordAdd, btWordCnt, btAryWriteData,btCmd);
-                WriteLog(lrtxtLog, "写标签", 0);
+                WriteLog(lrtxtLog, "Write Tag", 0);
             }
             catch (System.Exception ex)
             {
@@ -4419,13 +4190,13 @@ namespace UHFDemo
         private int WriteTagCount = 0;
         private void ProcessWriteTag(Reader.MessageTran msgTran)
         {
-            string strCmd = "写标签";
+            string strCmd = "Write Tag";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
             {
                 strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[0]);
-                string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+                string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
                 WriteLog(lrtxtLog, strLog, 1);
             }
@@ -4437,7 +4208,7 @@ namespace UHFDemo
                 if (msgTran.AryData[nLen - 3] != 0x10)
                 {
                     strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[nLen - 3]);
-                    string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+                    string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
                     WriteLog(lrtxtLog, strLog, 1);
                     return;
@@ -4504,7 +4275,7 @@ namespace UHFDemo
             }
             else
             {
-                MessageBox.Show("请选择保护区域");
+                MessageBox.Show("Please select the protected area");
                 return;
             }
 
@@ -4526,7 +4297,7 @@ namespace UHFDemo
             }
             else
             {
-                MessageBox.Show("请选择保护类型");
+                MessageBox.Show("Please select the type of protection");
                 return;
             }
 
@@ -4534,12 +4305,12 @@ namespace UHFDemo
 
             if (reslut == null)
             {
-                MessageBox.Show("输入字符无效");
+                MessageBox.Show("Invalid input characters");
                 return;
             }
             else if (reslut.GetLength(0) < 4)
             {
-                MessageBox.Show("至少输入4个字节");
+                MessageBox.Show("Enter at least 4 bytes");
                 return;
             }
 
@@ -4552,13 +4323,13 @@ namespace UHFDemo
 
         private void ProcessLockTag(Reader.MessageTran msgTran)
         {
-            string strCmd = "锁定标签";
+            string strCmd = "Lock Tag";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
             {
                 strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[0]);
-                string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+                string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
                 WriteLog(lrtxtLog, strLog, 1);
             }
@@ -4570,7 +4341,7 @@ namespace UHFDemo
                 if (msgTran.AryData[nLen - 3] != 0x10)
                 {
                     strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[nLen - 3]);
-                    string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+                    string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
                     WriteLog(lrtxtLog, strLog, 1);
                     return;
@@ -4610,12 +4381,12 @@ namespace UHFDemo
 
             if (reslut == null)
             {
-                MessageBox.Show("输入字符无效");
+                MessageBox.Show("Invalid input characters");
                 return;
             }
             else if (reslut.GetLength(0) < 4)
             {
-                MessageBox.Show("至少输入4个字节");
+                MessageBox.Show("Enter at least 4 bytes");
                 return;
             }
 
@@ -4628,13 +4399,13 @@ namespace UHFDemo
 
         private void ProcessKillTag(Reader.MessageTran msgTran)
         {
-            string strCmd = "销毁标签";
+            string strCmd = "Kill Tag";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
             {
                 strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[0]);
-                string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+                string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
                 WriteLog(lrtxtLog, strLog, 1);
             }
@@ -4646,7 +4417,7 @@ namespace UHFDemo
                 if (msgTran.AryData[nLen - 3] != 0x10)
                 {
                     strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[nLen - 3]);
-                    string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+                    string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
                     WriteLog(lrtxtLog, strLog, 1);
                     return;
@@ -4687,14 +4458,13 @@ namespace UHFDemo
                 m_bContinue = false;
                 btnInventoryISO18000.BackColor = Color.WhiteSmoke;
                 btnInventoryISO18000.ForeColor = Color.Indigo;
-                btnInventoryISO18000.Text = "开始盘存";
+                btnInventoryISO18000.Text = "Inventory";
             }
             else
             {
-                //判断EPC盘存是否正在进行
                 if (m_curInventoryBuffer.bLoopInventory)
                 {
-                    if (MessageBox.Show("EPC C1G2标签正在盘存，是否停止?", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
+                    if (MessageBox.Show("EPC C1G2 tag is inventoring, whether to stop?", "Prompt", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
                     {
                         return;
                     }
@@ -4710,9 +4480,9 @@ namespace UHFDemo
                 m_bContinue = true;
                 btnInventoryISO18000.BackColor = Color.Indigo;
                 btnInventoryISO18000.ForeColor = Color.White;
-                btnInventoryISO18000.Text = "停止盘存";
+                btnInventoryISO18000.Text = "Stop";
 
-                string strCmd = "盘存标签";
+                string strCmd = "Inventory";
                 WriteLog(lrtxtLog, strCmd, 0);
                 
                 reader.InventoryISO18000(m_curSetting.btReadId);
@@ -4721,7 +4491,7 @@ namespace UHFDemo
 
         private void ProcessInventoryISO18000(Reader.MessageTran msgTran)
         {
-            string strCmd = "盘存标签";
+            string strCmd = "Inventory";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
@@ -4729,7 +4499,7 @@ namespace UHFDemo
                 if (msgTran.AryData[0] != 0xFF)
                 {
                     strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[0]);
-                    string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+                    string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
                     WriteLog(lrtxtLog, strLog, 1);
                 }                
@@ -4739,7 +4509,6 @@ namespace UHFDemo
                 string strAntID = CCommondMethod.ByteArrayToString(msgTran.AryData, 0, 1);
                 string strUID = CCommondMethod.ByteArrayToString(msgTran.AryData, 1, 8);
 
-                //增加保存标签列表，原未盘存则增加记录，否则将标签盘存数量加1
                 DataRow[] drs = m_curOperateTagISO18000Buffer.dtTagTable.Select(string.Format("UID = '{0}'", strUID));
                 if (drs.Length == 0)
                 {
@@ -4768,8 +4537,8 @@ namespace UHFDemo
             }
             else
             {
-                strErrorCode = "未知错误";
-                string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+                strErrorCode = "Unknown Error";
+                string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
                 WriteLog(lrtxtLog, strLog, 1);
             }
@@ -4779,17 +4548,17 @@ namespace UHFDemo
         {
             if (htxtReadUID.Text.Length == 0)
             {
-                MessageBox.Show("请输入UID");
+                MessageBox.Show("Please enter UID");
                 return;
             }
             if (htxtReadStartAdd.Text.Length == 0)
             {
-                MessageBox.Show("请输入读取起始地址");
+                MessageBox.Show("Please enter Start Add");
                 return;
             }
             if (txtReadLength.Text.Length == 0)
             {
-                MessageBox.Show("请输入读取长度");
+                MessageBox.Show("Please enter Length");
                 return;
             }
 
@@ -4797,12 +4566,12 @@ namespace UHFDemo
 
             if (reslut == null)
             {
-                MessageBox.Show("输入字符无效");
+                MessageBox.Show("Invalid input characters");
                 return;
             }
             else if (reslut.GetLength(0) < 8)
             {
-                MessageBox.Show("至少输入8个字节");
+                MessageBox.Show("Enter at least 8 bytes");
                 return;
             }
             byte[] btAryUID = CCommondMethod.StringArrayToByteArray(reslut, 8);
@@ -4812,13 +4581,13 @@ namespace UHFDemo
 
         private void ProcessReadTagISO18000(Reader.MessageTran msgTran)
         {
-            string strCmd = "读取标签";
+            string strCmd = "Read Tag";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
             {
                 strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[0]);
-                string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+                string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
                 WriteLog(lrtxtLog, strLog, 1);
             }
@@ -4858,17 +4627,17 @@ namespace UHFDemo
         {
             if (htxtReadUID.Text.Length == 0)
             {
-                MessageBox.Show("请输入UID");
+                MessageBox.Show("Please enter UID");
                 return;
             }
             if (htxtWriteStartAdd.Text.Length == 0)
             {
-                MessageBox.Show("请输入写入地址");
+                MessageBox.Show("Please enter Start Add");
                 return;
             }
             if (htxtWriteData18000.Text.Length == 0)
             {
-                MessageBox.Show("请输入写入数据");
+                MessageBox.Show("Please enter Data to be written");
                 return;
             }
 
@@ -4876,12 +4645,12 @@ namespace UHFDemo
 
             if (reslut == null)
             {
-                MessageBox.Show("输入字符无效");
+                MessageBox.Show("Invalid input characters");
                 return;
             }
             else if (reslut.GetLength(0) < 8)
             {
-                MessageBox.Show("至少输入8个字节");
+                MessageBox.Show("Enter at least 8 bytes");
                 return;
             }
             byte[] btAryUID = CCommondMethod.StringArrayToByteArray(reslut, 8);
@@ -4894,7 +4663,7 @@ namespace UHFDemo
 
             if (reslut == null)
             {
-                MessageBox.Show("输入字符无效");
+                MessageBox.Show("Invalid input characters");
                 return;
             }
 
@@ -4917,13 +4686,13 @@ namespace UHFDemo
 
         private void ProcessWriteTagISO18000(Reader.MessageTran msgTran)
         {
-            string strCmd = "写入标签";
+            string strCmd = "Write Tag";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
             {
                 strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[0]);
-                string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+                string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
                 WriteLog(lrtxtLog, strLog, 1);
             }
@@ -4937,7 +4706,7 @@ namespace UHFDemo
 
                 //RefreshISO18000(msgTran.Cmd);
                 string strLength = msgTran.AryData[1].ToString();
-                string strLog = strCmd + ": " + "成功写入" + strLength + "字节";
+                string strLog = strCmd + ": " + "Successfully written" + strLength + "byte";
                 WriteLog(lrtxtLog, strLog, 0);
                 RunLoopISO18000(Convert.ToInt32(msgTran.AryData[1]));
             }
@@ -4947,17 +4716,16 @@ namespace UHFDemo
         {
             if (htxtReadUID.Text.Length == 0)
             {
-                MessageBox.Show("请输入UID");
+                MessageBox.Show("Please enter UID");
                 return;
             }
             if (htxtLockAdd.Text.Length == 0)
             {
-                MessageBox.Show("请输入写保护地址");
+                MessageBox.Show("Please enter write-protected Add");
                 return;
             }
 
-            //确认写保护提示
-            if (MessageBox.Show("是否确定对该地址永久写保护?", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel) 
+            if (MessageBox.Show("Are you sure to write protect this address permanently?", "Prompt", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel) 
             {
                 return;
             }
@@ -4966,12 +4734,12 @@ namespace UHFDemo
 
             if (reslut == null)
             {
-                MessageBox.Show("输入字符无效");
+                MessageBox.Show("Invalid input characters");
                 return;
             }
             else if (reslut.GetLength(0) < 8)
             {
-                MessageBox.Show("至少输入8个字节");
+                MessageBox.Show("Enter at least 8 bytes");
                 return;
             }
             byte[] btAryUID = CCommondMethod.StringArrayToByteArray(reslut, 8);
@@ -4983,13 +4751,13 @@ namespace UHFDemo
 
         private void ProcessLockTagISO18000(Reader.MessageTran msgTran)
         {
-            string strCmd = "永久写保护";
+            string strCmd = "Permanent write protection";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
             {
                 strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[0]);
-                string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+                string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
                 WriteLog(lrtxtLog, strLog, 1);
             }
@@ -5006,13 +4774,13 @@ namespace UHFDemo
                 switch (msgTran.AryData[1])
                 {
                     case 0x00:
-                        strLog = strCmd + ": " + "成功锁定";
+                        strLog = strCmd + ": " + "Successfully locked";
                         break;
                     case 0xFE:
-                        strLog = strCmd + ": " + "已是锁定状态";
+                        strLog = strCmd + ": " + "It is already locked state";
                         break;
                     case 0xFF:
-                        strLog = strCmd + ": " + "无法锁定";
+                        strLog = strCmd + ": " + "Unable to lock";
                         break;
                     default:
                         break;
@@ -5027,12 +4795,12 @@ namespace UHFDemo
         {
             if (htxtReadUID.Text.Length == 0)
             {
-                MessageBox.Show("请输入UID");
+                MessageBox.Show("Please enter UID");
                 return;
             }
             if (htxtQueryAdd.Text.Length == 0)
             {
-                MessageBox.Show("请输入查询地址");
+                MessageBox.Show("Please enter the query address");
                 return;
             }
 
@@ -5040,12 +4808,12 @@ namespace UHFDemo
 
             if (reslut == null)
             {
-                MessageBox.Show("输入字符无效");
+                MessageBox.Show("Invalid input characters");
                 return;
             }
             else if (reslut.GetLength(0) < 8)
             {
-                MessageBox.Show("至少输入8个字节");
+                MessageBox.Show("Enter at least 8 bytes");
                 return;
             }
             byte[] btAryUID = CCommondMethod.StringArrayToByteArray(reslut, 8);
@@ -5057,13 +4825,13 @@ namespace UHFDemo
 
         private void ProcessQueryISO18000(Reader.MessageTran msgTran)
         {
-            string strCmd = "查询标签";
+            string strCmd = "Query Tag";
             string strErrorCode = string.Empty;
 
             if (msgTran.AryData.Length == 1)
             {
                 strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[0]);
-                string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+                string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
 
                 WriteLog(lrtxtLog, strLog, 1);
             }
@@ -5324,7 +5092,7 @@ namespace UHFDemo
 
                 if (textRealRound.Text.Length == 0)
                 {
-                    MessageBox.Show("请输入循环次数");
+                    MessageBox.Show("Please enter the number of cycles");
                     return;
                 }
                 m_curInventoryBuffer.btRepeat = Convert.ToByte(textRealRound.Text);
@@ -5333,12 +5101,12 @@ namespace UHFDemo
                 {
                     if (cmbSession.SelectedIndex == -1)
                     {
-                        MessageBox.Show("请输入Session ID");
+                        MessageBox.Show("Please enter Session ID");
                         return;
                     }
                     if (cmbTarget.SelectedIndex == -1)
                     {
-                        MessageBox.Show("请输入Inventoried Flag");
+                        MessageBox.Show("Please enter Inventoried Flag");
                             return;
                     }
                     m_curInventoryBuffer.bLoopCustomizedSession = true;
@@ -5411,17 +5179,16 @@ namespace UHFDemo
                 }
                 if (m_curInventoryBuffer.lAntenna.Count == 0)
                 {
-                    MessageBox.Show("请至少选择一个天线");
+                    MessageBox.Show("One antenna must be selected");
                     return;
                 }
-                //默认循环发送命令
                 if (m_curInventoryBuffer.bLoopInventory)
                 {
                     m_bInventory = false;
                     m_curInventoryBuffer.bLoopInventory = false;
                     btRealTimeInventory.BackColor = Color.WhiteSmoke;
                     btRealTimeInventory.ForeColor = Color.DarkBlue;
-                    btRealTimeInventory.Text = "开始盘存";
+                    btRealTimeInventory.Text = "Inventory";
                     timerInventory.Enabled = false;
 
                     totalTime.Enabled = false;
@@ -5429,10 +5196,9 @@ namespace UHFDemo
                 }
                 else
                 {
-                    //ISO 18000-6B盘存是否正在运行
                     if (m_bContinue)
                     {
-                        if (MessageBox.Show("ISO 18000-6B标签正在盘存，是否停止?", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
+                        if (MessageBox.Show("ISO 18000-6B tag is inventoring, whether to stop?", "Prompt", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
                         {
                             return;
                         }
@@ -5447,7 +5213,7 @@ namespace UHFDemo
                     m_curInventoryBuffer.bLoopInventory = true;
                     btRealTimeInventory.BackColor = Color.DarkBlue;
                     btRealTimeInventory.ForeColor = Color.White;
-                    btRealTimeInventory.Text = "停止盘存";
+                    btRealTimeInventory.Text = "Stop";
                 }
 
                 m_curInventoryBuffer.bLoopInventoryReal = true;
@@ -5496,7 +5262,7 @@ namespace UHFDemo
             cbRealWorkant2.Checked = false;
             cbRealWorkant3.Checked = false;
             cbRealWorkant4.Checked = false;
-            lbRealTagCount.Text = "标签列表：";
+            lbRealTagCount.Text = "Tag List：";
        
            
         }
@@ -5509,7 +5275,7 @@ namespace UHFDemo
 
                     if (textReadRoundBuffer.Text.Length == 0)
                     {
-                        MessageBox.Show("请输入循环次数");
+                        MessageBox.Show("Please enter the number of cycles");
                         return;
                     }
                     m_curInventoryBuffer.btRepeat = Convert.ToByte(textReadRoundBuffer.Text);
@@ -5548,29 +5314,27 @@ namespace UHFDemo
                     }
                     if (m_curInventoryBuffer.lAntenna.Count == 0)
                     {
-                        MessageBox.Show("请至少选择一个天线");
+                        MessageBox.Show("One antenna must be selected");
                         return;
                     }
                 
 
-                //默认循环发送命令
                 if (m_curInventoryBuffer.bLoopInventory)
                 {
                     m_bInventory = false;
                     m_curInventoryBuffer.bLoopInventory = false;
                     btBufferInventory.BackColor = Color.WhiteSmoke;
                     btBufferInventory.ForeColor = Color.DarkBlue;
-                    btBufferInventory.Text = "开始盘存";
+                    btBufferInventory.Text = "Inventory";
 
                     //this.totalTime.Enabled = false;
                     return;
                 }
                 else
                 {
-                    //ISO 18000-6B盘存是否正在运行
                     if (m_bContinue)
                     {
-                        if (MessageBox.Show("ISO 18000-6B标签正在盘存，是否停止?", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
+                        if (MessageBox.Show("ISO 18000-6B tag is inventoring, whether to stop?", "Prompt", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
                         {
                             return;
                         }
@@ -5585,7 +5349,7 @@ namespace UHFDemo
                     m_curInventoryBuffer.bLoopInventory = true;
                     btBufferInventory.BackColor = Color.DarkBlue;
                     btBufferInventory.ForeColor = Color.White;
-                    btBufferInventory.Text = "停止盘存";
+                    btBufferInventory.Text = "Stop";
                 }
 
               
@@ -5649,7 +5413,7 @@ namespace UHFDemo
             cbBufferWorkant2.Checked = false;
             cbBufferWorkant3.Checked = false;
             cbBufferWorkant4.Checked = false;
-            labelBufferTagCount.Text = "标签列表：";
+            labelBufferTagCount.Text = "Tag List：";
         }
 
         private void btFastInventory_Click(object sender, EventArgs e)
@@ -5668,29 +5432,27 @@ namespace UHFDemo
             {
                 if (Convert.ToInt32(mFastExeCount.Text) == 0)
                 {
-                    MessageBox.Show("无效参数运行次数不能为0!");
+                    MessageBox.Show("Invaild parameter,0 is not allowed!");
                     return;
                 }
             
             
-            //默认循环发送命令
             if (m_curInventoryBuffer.bLoopInventory)
             {
                 m_bInventory = false;
                 m_curInventoryBuffer.bLoopInventory = false;
                 btFastInventory.BackColor = Color.WhiteSmoke;
                 btFastInventory.ForeColor = Color.DarkBlue;
-                btFastInventory.Text = "开始盘存";
+                btFastInventory.Text = "Inventory";
 
                 //this.totalTime.Enabled = false;
                 return;
             }
             else
             {
-                //ISO 18000-6B盘存是否正在运行
                 if (m_bContinue)
                 {
-                    if (MessageBox.Show("ISO 18000-6B标签正在盘存，是否停止?", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
+                    if (MessageBox.Show("ISO 18000-6B tag is inventoring, whether to stop?", "Prompt", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
                     {
                         return;
                     }
@@ -5705,7 +5467,7 @@ namespace UHFDemo
                 m_curInventoryBuffer.bLoopInventory = true;
                 btFastInventory.BackColor = Color.DarkBlue;
                 btFastInventory.ForeColor = Color.White;
-                btFastInventory.Text = "停止盘存";
+                btFastInventory.Text = "Stop";
             }
 
             /*
@@ -5933,12 +5695,12 @@ namespace UHFDemo
 
                     if ((antASelection * m_btAryData_4[1] + antBSelection * m_btAryData_4[3] + antCSelection * m_btAryData_4[5] + antDSelection * m_btAryData_4[7] == 0))
                     {
-                        MessageBox.Show("请至少选择一个天线至少轮询一次，重复次数至少一次。");
+                        MessageBox.Show("One antenna must be selected, polling at least once,repeat per command at least once.");
                         m_bInventory = false;
                         m_curInventoryBuffer.bLoopInventory = false;
                         btFastInventory.BackColor = Color.WhiteSmoke;
                         btFastInventory.ForeColor = Color.DarkBlue;
-                        btFastInventory.Text = "开始盘存";
+                        btFastInventory.Text = "Inventory";
                         return;
                     }
 
@@ -6183,12 +5945,12 @@ namespace UHFDemo
                     if ((antASelection * m_btAryData[1] + antBSelection * m_btAryData[3] + antCSelection * m_btAryData[5] + antDSelection * m_btAryData[7]
                        + antESelection * m_btAryData[9] + antFSelection * m_btAryData[11] + antGSelection * m_btAryData[13] + antHSelection * m_btAryData[15]) == 0)
                     {
-                        MessageBox.Show("请至少选择一个天线至少轮询一次，重复次数至少一次。");
+                        MessageBox.Show("One antenna must be selected, polling at least once,repeat per command at least once.");
                         m_bInventory = false;
                         m_curInventoryBuffer.bLoopInventory = false;
                         btFastInventory.BackColor = Color.WhiteSmoke;
                         btFastInventory.ForeColor = Color.DarkBlue;
-                        btFastInventory.Text = "开始盘存";
+                        btFastInventory.Text = "Inventory";
                         return;
                     }
                 }
@@ -6236,7 +5998,7 @@ namespace UHFDemo
             ledFast5.Text = "0";
             txtFastMinRssi.Text = "";
             txtFastMaxRssi.Text = "";
-            txtFastTagList.Text = "标签列表：";
+            txtFastTagList.Text = "Tag List：";
 
             m_new_fast_inventory.Checked = false;
 
@@ -6327,12 +6089,12 @@ namespace UHFDemo
 
                 if (result == null)
                 {
-                    MessageBox.Show("输入字符无效");
+                    MessageBox.Show("Invalid input characters");
                     return;
                 }
                 else if (result.GetLength(0) != 12)
                 {
-                    MessageBox.Show("请输入12个字节");
+                    MessageBox.Show("Please enter 12 bytes");
                     return;
                 }
                 byte[] readerIdentifier = CCommondMethod.StringArrayToByteArray(result, 12);
@@ -6482,7 +6244,7 @@ namespace UHFDemo
 
         private void tabCtrMain_Click(object sender, EventArgs e)
         {
-            if ((m_curSetting.btRegion < 1) || (m_curSetting.btRegion > 4)) //如果是自定义的频谱则需要先提取自定义频率信息
+            if ((m_curSetting.btRegion < 1) || (m_curSetting.btRegion > 4)) 
             {
                 reader.GetFrequencyRegion(m_curSetting.btReadId);
                 Thread.Sleep(5);
@@ -6552,22 +6314,22 @@ namespace UHFDemo
 
         private void ProcessTagMask(Reader.MessageTran msgTran)
         {
-            string strCmd = "操作过滤";
+            string strCmd = "Operate Mask";
             string strErrorCode = string.Empty;
             if (msgTran.AryData.Length == 1)
             {
                 if (msgTran.AryData[0] == (byte)0x10)
                 {
-                    WriteLog(lrtxtLog, "命令执行成功！", 0);
+                    WriteLog(lrtxtLog, "Command execute success！", 0);
                     return;
                 }
                 else if (msgTran.AryData[1] == (byte)0x41)
                 {
-                    strErrorCode = "无效的参数错误";
+                    strErrorCode = "Invaild parameter";
                 }
                 else
                 {
-                    strErrorCode = "未知错误";
+                    strErrorCode = "Unknown Error";
                 }
             }
             else
@@ -6576,12 +6338,12 @@ namespace UHFDemo
                 {
                     m_curSetting.btsGetTagMask = msgTran.AryData;
                     RefreshReadSetting(msgTran.Cmd);
-                    WriteLog(lrtxtLog, "查询过滤设置成功", 0);
+                    WriteLog(lrtxtLog, "Get tag mask sucess", 0);
                     return;
                 }
             }
 
-            string strLog = strCmd + "失败，失败原因: " + strErrorCode;
+            string strLog = strCmd + "Failure, failure cause: " + strErrorCode;
             WriteLog(lrtxtLog, strLog, 1);
         }
 
@@ -6612,7 +6374,7 @@ namespace UHFDemo
 
                 if (intStartAdd <= 0 || intStartAdd > 255 || intMaskLen <= 0 || intMaskLen > 255)
                 {
-                    MessageBox.Show("Mask Length and start address must be 1-255");
+                    MessageBox.Show("Mask Length and start address must be 0-255");
                     return;
                 }
 
@@ -6703,12 +6465,12 @@ namespace UHFDemo
                         fs.Write(byData, 0, byData.Length);
                     }
                     fs.Close();
-                    MessageBox.Show("数据导出成功！");
+                    MessageBox.Show("Export data success！");
                 }
             }
             else if (excel_format_rb.Checked)
             {
-                saveFileDialog1.Filter = "97-2003文档（*.xls）|*.xls|2007文档(*.xlsx)|*.xlsx";
+                saveFileDialog1.Filter = "97-2003Document（*.xls）|*.xls|2007Document(*.xlsx)|*.xlsx";
                 saveFileDialog1.Title = "Save an excel File";
                 saveFileDialog1.ShowDialog();
 
@@ -6744,7 +6506,6 @@ namespace UHFDemo
             foreach (ListViewItem item in listView.Items)
             {
                 DataRow row = table.NewRow();
-                //处理行
                 for (int i = 0; i < item.SubItems.Count; i++)
                 {
                     //MessageBox.Show(item.SubItems[i].Text);
@@ -6757,7 +6518,7 @@ namespace UHFDemo
         }
 
         /// <summary>
-        /// 导出数据到excel2003中
+        /// Export data to excel2003
         /// </summary>
         /// <param name="table"></param>
         /// <param name="filename"></param>
@@ -6797,7 +6558,7 @@ namespace UHFDemo
                 try
                 {
                     SaveToFile(ms, filename);
-                    MessageBox.Show("数据导出成功！");
+                    MessageBox.Show("Export data success！");
                     return true;
                 }
                 catch (System.Exception ex)
@@ -6824,7 +6585,7 @@ namespace UHFDemo
         }
 
         /// <summary>
-        /// 导出数据到excel2007中
+        /// Export data excel2007
         /// </summary>
         /// <param name="dt"></param>
         /// <param name="file"></param>
@@ -6834,7 +6595,6 @@ namespace UHFDemo
             XSSFWorkbook xssfworkbook = new XSSFWorkbook();
             ISheet sheet = xssfworkbook.CreateSheet("Test");
 
-            //表头   
             IRow row = sheet.CreateRow(0);
             for (int i = 0; i < dt.Columns.Count; i++)
             {
@@ -6842,7 +6602,6 @@ namespace UHFDemo
                 cell.SetCellValue(dt.Columns[i].ColumnName);
             }
 
-            //数据   
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 IRow row1 = sheet.CreateRow(i + 1);
@@ -6853,12 +6612,10 @@ namespace UHFDemo
                 }
             }
 
-            //转为字节数组   
             MemoryStream stream = new MemoryStream();
             xssfworkbook.Write(stream);
             var buf = stream.ToArray();
 
-            //保存为Excel文件  
             try
             {
                 using (FileStream fs = new FileStream(file, FileMode.Create, FileAccess.Write))
@@ -6866,7 +6623,7 @@ namespace UHFDemo
                     fs.Write(buf, 0, buf.Length);
                     fs.Flush();
                 }
-                MessageBox.Show("数据导出成功！");
+                MessageBox.Show("Export data success！");
                 return true;
             }
 
@@ -6934,12 +6691,12 @@ namespace UHFDemo
                         fs.Write(byData, 0, byData.Length);
                     }
                     fs.Close();
-                    MessageBox.Show("数据导出成功！");
+                    MessageBox.Show("Export data success！");
                 }
             }
             else if (excel_format_buffer_rb.Checked)
             {
-                saveFileDialog1.Filter = "97-2003文档（*.xls）|*.xls|2007文档(*.xlsx)|*.xlsx";
+                saveFileDialog1.Filter = "97-2003Document（*.xls）|*.xls|2007Document(*.xlsx)|*.xlsx";
                 saveFileDialog1.Title = "Save an excel File";
                 saveFileDialog1.ShowDialog();
 
@@ -7014,12 +6771,12 @@ namespace UHFDemo
                         fs.Write(byData, 0, byData.Length);
                     }
                     fs.Close();
-                    MessageBox.Show("数据导出成功！");
+                    MessageBox.Show("Export data success！");
                 }
             }
             else if (excel_format_fast_rb.Checked)
             {
-                saveFileDialog1.Filter = "97-2003文档（*.xls）|*.xls|2007文档(*.xlsx)|*.xlsx";
+                saveFileDialog1.Filter = "97-2003Document（*.xls）|*.xls|2007Document(*.xlsx)|*.xlsx";
                 saveFileDialog1.Title = "Save an excel File";
                 saveFileDialog1.ShowDialog();
 
@@ -7054,7 +6811,7 @@ namespace UHFDemo
                     int tmp = Convert.ToInt16(textBox1.Text);
                     if (tmp > 33 || tmp < 0)
                     {
-                        MessageBox.Show("参数异常!");
+                        MessageBox.Show("Parameter exception!");
                         textBox1.Text = "";
                         return;
                     }
@@ -7103,7 +6860,7 @@ namespace UHFDemo
                     int tmp = Convert.ToInt16(textBox2.Text);
                     if (tmp > 33 || tmp < 0)
                     {
-                        MessageBox.Show("参数异常!");
+                        MessageBox.Show("Parameter exception!");
                         textBox2.Text = "";
                         return;
                     }
@@ -7130,7 +6887,7 @@ namespace UHFDemo
                     int tmp = Convert.ToInt16(textBox3.Text);
                     if (tmp > 33 || tmp < 0)
                     {
-                        MessageBox.Show("参数异常!");
+                        MessageBox.Show("Parameter exception!");
                         textBox3.Text = "";
                         return;
                     }
@@ -7157,7 +6914,7 @@ namespace UHFDemo
                     int tmp = Convert.ToInt16(textBox4.Text);
                     if (tmp > 33 || tmp < 0)
                     {
-                        MessageBox.Show("参数异常!");
+                        MessageBox.Show("Parameter exception!");
                         textBox4.Text = "";
                         return;
                     }
@@ -7184,7 +6941,7 @@ namespace UHFDemo
                     int tmp = Convert.ToInt16(textBox7.Text);
                     if (tmp > 33 || tmp < 0)
                     {
-                        MessageBox.Show("参数异常!");
+                        MessageBox.Show("Parameter exception!");
                         textBox7.Text = "";
                         return;
                     }
@@ -7211,7 +6968,7 @@ namespace UHFDemo
                     int tmp = Convert.ToInt16(textBox8.Text);
                     if (tmp > 33 || tmp < 0)
                     {
-                        MessageBox.Show("参数异常!");
+                        MessageBox.Show("Parameter exception!");
                         textBox8.Text = "";
                         return;
                     }
@@ -7238,7 +6995,7 @@ namespace UHFDemo
                     int tmp = Convert.ToInt16(textBox9.Text);
                     if (tmp > 33 || tmp < 0)
                     {
-                        MessageBox.Show("参数异常!");
+                        MessageBox.Show("Parameter exception!");
                         textBox9.Text = "";
                         return;
                     }
@@ -7265,7 +7022,7 @@ namespace UHFDemo
                     int tmp = Convert.ToInt16(textBox10.Text);
                     if (tmp > 33 || tmp < 0)
                     {
-                        MessageBox.Show("参数异常!");
+                        MessageBox.Show("Parameter exception!");
                         textBox10.Text = "";
                         return;
                     }
@@ -7294,12 +7051,12 @@ namespace UHFDemo
                 textBox9.Enabled = false;
                 textBox10.Enabled = false;
 
-                columnHeader40.Text = "识别次数";
+                columnHeader40.Text = "Identification Count";
 
                 //set work ant
                 this.cmbWorkAnt.Items.Clear();
                 this.cmbWorkAnt.Items.AddRange(new object[] {
-                "天线 1"});
+                "ANT 1"});
                 this.cmbWorkAnt.SelectedIndex = 0;
 
 
@@ -7375,17 +7132,17 @@ namespace UHFDemo
                 //Enable fast ant switch inventory.
 
                 //set fast 4 ant
-                columnHeader34.Text = "识别次数(ANT1/2/3/4)";
+                columnHeader34.Text = "Identification Count(ANT1/2/3/4)";
                 //init selelct ant
-                columnHeader40.Text = "识别次数(ANT1/2/3/4)";
+                columnHeader40.Text = "Identification Count(ANT1/2/3/4)";
 
                 //set work ant
                 this.cmbWorkAnt.Items.Clear();
                 this.cmbWorkAnt.Items.AddRange(new object[] {
-                "天线 1",
-                "天线 2",
-                "天线 3",
-                "天线 4"});
+                "ANT 1",
+                "ANT 2",
+                "ANT 3",
+                "ANT 4"});
                 this.cmbWorkAnt.SelectedIndex = 0;
 
                 // output power 
@@ -7471,35 +7228,35 @@ namespace UHFDemo
                 //change  selelct ant
                 cmbAntSelect1.Items.Clear();
                 cmbAntSelect1.Items.AddRange(new object[] {
-                "天线1",
-                "天线2",
-                "天线3",
-                "天线4",
-                "不选"});
+                "ANT1",
+                "ANT2",
+                "ANT3",
+                "ANT4",
+                "Unselect"});
                 cmbAntSelect1.SelectedIndex = 0;
                 cmbAntSelect2.Items.Clear();
                 cmbAntSelect2.Items.AddRange(new object[] {
-                "天线1",
-                "天线2",
-                "天线3",
-                "天线4",
-                "不选"});
+                "ANT1",
+                "ANT2",
+                "ANT3",
+                "ANT4",
+                "Unselect"});
                 cmbAntSelect2.SelectedIndex = 1;
                 cmbAntSelect3.Items.Clear();
                 cmbAntSelect3.Items.AddRange(new object[] {
-                "天线1",
-                "天线2",
-                "天线3",
-                "天线4",
-                "不选"});
+                "ANT1",
+                "ANT2",
+                "ANT3",
+                "ANT4",
+                "Unselect"});
                 cmbAntSelect3.SelectedIndex = 2;
                 cmbAntSelect4.Items.Clear();
                 cmbAntSelect4.Items.AddRange(new object[] {
-                "天线1",
-                "天线2",
-                "天线3",
-                "天线4",
-                "不选"});
+                "ANT1",
+                "ANT2",
+                "ANT3",
+                "ANT4",
+                "Unselect"});
                 cmbAntSelect4.SelectedIndex = 3;
 
                 //change  selelct ant
@@ -7516,19 +7273,19 @@ namespace UHFDemo
                 //Enable fast ant switch inventory.
 
                 //set fast 8 ant
-                columnHeader34.Text = "识别次数(ANT1/2/3/4/5/6/7/8)";
-                columnHeader40.Text = "识别次数(ANT1/2/3/4/5/6/7/8)";
+                columnHeader34.Text = "Identification Count(ANT1/2/3/4/5/6/7/8)";
+                columnHeader40.Text = "Identification Count(ANT1/2/3/4/5/6/7/8)";
                 //set work ant
                 this.cmbWorkAnt.Items.Clear();
                 this.cmbWorkAnt.Items.AddRange(new object[] {
-                "天线 1",
-                "天线 2",
-                "天线 3",
-                "天线 4",
-                "天线 5",
-                "天线 6",
-                "天线 7",
-                "天线 8"});
+                "ANT 1",
+                "ANT 2",
+                "ANT 3",
+                "ANT 4",
+                "ANT 5",
+                "ANT 6",
+                "ANT 7",
+                "ANT 8"});
                 this.cmbWorkAnt.SelectedIndex = 0;
 
                 // output power 
@@ -7583,51 +7340,51 @@ namespace UHFDemo
                 //change  selelct ant
                 cmbAntSelect1.Items.Clear();
                 cmbAntSelect1.Items.AddRange(new object[] {
-                "天线1",
-                "天线2",
-                "天线3",
-                "天线4",
-                "天线5",
-                "天线6",
-                "天线7",
-                "天线8",
-                "不选"});
+                "ANT1",
+                "ANT2",
+                "ANT3",
+                "ANT4",
+                "ANT5",
+                "ANT6",
+                "ANT7",
+                "ANT8",
+                "Unselect"});
                 cmbAntSelect1.SelectedIndex = 0;
                 cmbAntSelect2.Items.Clear();
                 cmbAntSelect2.Items.AddRange(new object[] {
-                 "天线1",
-                "天线2",
-                "天线3",
-                "天线4",
-                "天线5",
-                "天线6",
-                "天线7",
-                "天线8",
-                "不选"});
+                 "ANT1",
+                "ANT2",
+                "ANT3",
+                "ANT4",
+                "ANT5",
+                "ANT6",
+                "ANT7",
+                "ANT8",
+                "Unselect"});
                 cmbAntSelect2.SelectedIndex = 1;
                 cmbAntSelect3.Items.Clear();
                 cmbAntSelect3.Items.AddRange(new object[] {
-                "天线1",
-                "天线2",
-                "天线3",
-                "天线4",
-                "天线5",
-                "天线6",
-                "天线7",
-                "天线8",
-                "不选"});
+                "ANT1",
+                "ANT2",
+                "ANT3",
+                "ANT4",
+                "ANT5",
+                "ANT6",
+                "ANT7",
+                "ANT8",
+                "Unselect"});
                 cmbAntSelect3.SelectedIndex = 2;
                 cmbAntSelect4.Items.Clear();
                 cmbAntSelect4.Items.AddRange(new object[] {
-                 "天线1",
-                "天线2",
-                "天线3",
-                "天线4",
-                "天线5",
-                "天线6",
-                "天线7",
-                "天线8",
-                "不选"});
+                 "ANT1",
+                "ANT2",
+                "ANT3",
+                "ANT4",
+                "ANT5",
+                "ANT6",
+                "ANT7",
+                "ANT8",
+                "Unselect"});
                 cmbAntSelect4.SelectedIndex = 3;
 
                 comboBox1.SelectedIndex = 4;
@@ -7730,7 +7487,7 @@ namespace UHFDemo
 
                 if (this.m_TestTagCount == 0)
                 {
-                    MessageBox.Show("无效参数运行次数不能为0!");
+                    MessageBox.Show("Invaild parameter,0 is not allowed!");
                     return;
                 }
                 /*
@@ -7837,7 +7594,7 @@ namespace UHFDemo
                 }
                 if (m_curInventoryBuffer.lAntenna.Count == 0)
                 {
-                    MessageBox.Show("请至少选择一个天线");
+                    MessageBox.Show("One antenna must be selected");
                     return;
                 } */
 
@@ -7847,7 +7604,7 @@ namespace UHFDemo
                     this.m_runLoopTest = false;
                     this.ｍOneKeyInventory.BackColor = Color.WhiteSmoke;
                     this.ｍOneKeyInventory.ForeColor = Color.DarkBlue;
-                    this.ｍOneKeyInventory.Text = "一键盘存";
+                    this.ｍOneKeyInventory.Text = "Inventory";
 
                     totalTime.Enabled = false;
                     this.intervalExecuteTimer.Enabled = false;
@@ -7859,7 +7616,7 @@ namespace UHFDemo
                     this.m_runLoopTest = true;
                     this.ｍOneKeyInventory.BackColor = Color.DarkBlue;
                     this.ｍOneKeyInventory.ForeColor = Color.White;
-                    this.ｍOneKeyInventory.Text = "停止盘存";
+                    this.ｍOneKeyInventory.Text = "Stop";
 
                     //this.intervalExecuteTimer.Enabled = true;
                     totalTime.Enabled = true;
@@ -7956,13 +7713,13 @@ namespace UHFDemo
 
                 if (this.mInventoryAStatusCount.Text.Length == 0)
                 {
-                    MessageBox.Show("请输入A状态循环次数");
+                    MessageBox.Show("Please enter A staus repeat times");
                     return;
                 }
 
                 if (this.mInventoryBStatusCount.Text.Length == 0)
                 {
-                    MessageBox.Show("请输入B状态循环次数");
+                    MessageBox.Show("Please enter B status repeat times");
                     return;
                 }
 
@@ -8004,7 +7761,7 @@ namespace UHFDemo
                 }
                 if (m_curInventoryBuffer.lAntenna.Count == 0)
                 {
-                    MessageBox.Show("请至少选择一个天线");
+                    MessageBox.Show("One antenna must be selected");
                     return;
                 }
 

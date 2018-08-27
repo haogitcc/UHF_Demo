@@ -27,7 +27,7 @@ namespace UHFDemo
 
         
         public int nTagCount;
-        public int nDataCount; //执行一次命令所返回的标签记录条数
+        public int nDataCount; 
         public int nCommandDuration;
         public int nReadRate;
         public int nCurrentAnt;

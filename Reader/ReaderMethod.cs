@@ -28,9 +28,7 @@ namespace Reader
         public SendDataCallback SendCallback;
         public AnalyDataCallback AnalyCallback;
 
-        //记录未处理的接收数据，主要考虑接收数据分段
         byte[] m_btAryBuffer = new byte[4096 * 10];
-        //记录未处理数据的有效长度
         int m_nLenth = 0;
 
         public ReaderMethod()
@@ -149,9 +147,8 @@ namespace Reader
                 Array.Copy(m_btAryBuffer, btAryBuffer, m_nLenth);
                 Array.Copy(btAryReceiveData, 0, btAryBuffer, m_nLenth, btAryReceiveData.Length);
 
-                //分析接收数据，以0xA0为数据起点，以协议中数据长度为数据终止点
-                int nIndex = 0;//当数据中存在A0时，记录数据的终止点
-                int nMarkIndex = 0;//当数据中不存在A0时，nMarkIndex等于数据组最大索引
+                int nIndex = 0;
+                int nMarkIndex = 0;
                 for (int nLoop = 0; nLoop < btAryBuffer.Length; nLoop++)
                 {
                     if (btAryBuffer.Length > nLoop + 1)
@@ -209,7 +206,6 @@ namespace Reader
 
         public int SendMessage(byte[] btArySenderData)
         {
-            //串口连接方式
             if (m_nType == 0)
             {
                 if (!iSerialPort.IsOpen)
@@ -226,7 +222,6 @@ namespace Reader
 
                 return 0;
             }
-            //Tcp连接方式
             else if (m_nType == 1)
             {
                 if (!italker.IsConnect())
