@@ -452,28 +452,6 @@ namespace UHFDemo
             this.comboBox14 = new System.Windows.Forms.ComboBox();
             this.comboBox15 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.m_NXPTabPage = new System.Windows.Forms.TabPage();
-            this.groupBox25 = new System.Windows.Forms.GroupBox();
-            this.mUntraceableSet = new System.Windows.Forms.Button();
-            this.label130 = new System.Windows.Forms.Label();
-            this.label129 = new System.Windows.Forms.Label();
-            this.mUntraceableRange = new System.Windows.Forms.ComboBox();
-            this.mUntraceableUser = new System.Windows.Forms.ComboBox();
-            this.mUntraceableTid = new System.Windows.Forms.ComboBox();
-            this.label128 = new System.Windows.Forms.Label();
-            this.mUntraceableEpc = new System.Windows.Forms.TextBox();
-            this.label127 = new System.Windows.Forms.Label();
-            this.mUntraceablePwd = new CustomControl.HexTextBox();
-            this.label126 = new System.Windows.Forms.Label();
-            this.listViewUntraceable = new System.Windows.Forms.ListView();
-            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PagISO18000 = new System.Windows.Forms.TabPage();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnInventoryISO18000 = new System.Windows.Forms.Button();
@@ -650,8 +628,6 @@ namespace UHFDemo
             this.groupBox22.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox9.SuspendLayout();
-            this.m_NXPTabPage.SuspendLayout();
-            this.groupBox25.SuspendLayout();
             this.PagISO18000.SuspendLayout();
             this.gbISO1800LockQuery.SuspendLayout();
             this.gbISO1800ReadWrite.SuspendLayout();
@@ -2427,7 +2403,6 @@ namespace UHFDemo
             this.tabEpcTest.Controls.Add(this.pageFast4AntMode);
             this.tabEpcTest.Controls.Add(this.pageAcessTag);
             this.tabEpcTest.Controls.Add(this.tabPage3);
-            this.tabEpcTest.Controls.Add(this.m_NXPTabPage);
             this.tabEpcTest.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tabEpcTest.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabEpcTest.Location = new System.Drawing.Point(0, 5);
@@ -3221,7 +3196,7 @@ namespace UHFDemo
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.22422F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.77578F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 390F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 392F));
             this.tableLayoutPanel4.Controls.Add(this.panel9, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel10, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel8, 1, 0);
@@ -3240,9 +3215,9 @@ namespace UHFDemo
             this.panel9.Controls.Add(this.btGetClearBuffer);
             this.panel9.Controls.Add(this.btGetBuffer);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(611, 4);
+            this.panel9.Location = new System.Drawing.Point(609, 4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(385, 74);
+            this.panel9.Size = new System.Drawing.Size(387, 74);
             this.panel9.TabIndex = 1;
             // 
             // btClearBuffer
@@ -3301,7 +3276,7 @@ namespace UHFDemo
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(4, 4);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(298, 74);
+            this.panel10.Size = new System.Drawing.Size(297, 74);
             this.panel10.TabIndex = 0;
             // 
             // btBufferInventory
@@ -3347,9 +3322,9 @@ namespace UHFDemo
             this.panel8.Controls.Add(this.cbBufferWorkant2);
             this.panel8.Controls.Add(this.cbBufferWorkant3);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(309, 4);
+            this.panel8.Location = new System.Drawing.Point(308, 4);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(295, 74);
+            this.panel8.Size = new System.Drawing.Size(294, 74);
             this.panel8.TabIndex = 0;
             // 
             // checkBox4
@@ -4027,7 +4002,7 @@ namespace UHFDemo
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.20588F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.79412F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 282F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 285F));
             this.tableLayoutPanel2.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel4, 2, 0);
@@ -4076,9 +4051,9 @@ namespace UHFDemo
             this.panel2.Controls.Add(this.label59);
             this.panel2.Controls.Add(this.label48);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(198, 5);
+            this.panel2.Location = new System.Drawing.Point(197, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(506, 83);
+            this.panel2.Size = new System.Drawing.Size(504, 83);
             this.panel2.TabIndex = 0;
             // 
             // label124
@@ -4514,7 +4489,7 @@ namespace UHFDemo
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(5, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(185, 83);
+            this.panel3.Size = new System.Drawing.Size(184, 83);
             this.panel3.TabIndex = 1;
             // 
             // btFastInventory
@@ -4540,9 +4515,9 @@ namespace UHFDemo
             this.panel4.Controls.Add(this.label73);
             this.panel4.Controls.Add(this.label72);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(712, 5);
+            this.panel4.Location = new System.Drawing.Point(709, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(277, 83);
+            this.panel4.Size = new System.Drawing.Size(280, 83);
             this.panel4.TabIndex = 2;
             // 
             // m_phase_value
@@ -5609,216 +5584,6 @@ namespace UHFDemo
             this.button1.Text = "设置过滤";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // m_NXPTabPage
-            // 
-            this.m_NXPTabPage.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.m_NXPTabPage.Controls.Add(this.groupBox25);
-            this.m_NXPTabPage.Controls.Add(this.listViewUntraceable);
-            this.m_NXPTabPage.Location = new System.Drawing.Point(4, 22);
-            this.m_NXPTabPage.Name = "m_NXPTabPage";
-            this.m_NXPTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.m_NXPTabPage.Size = new System.Drawing.Size(1000, 522);
-            this.m_NXPTabPage.TabIndex = 5;
-            this.m_NXPTabPage.Text = "NXP 标签";
-            // 
-            // groupBox25
-            // 
-            this.groupBox25.Controls.Add(this.mUntraceableSet);
-            this.groupBox25.Controls.Add(this.label130);
-            this.groupBox25.Controls.Add(this.label129);
-            this.groupBox25.Controls.Add(this.mUntraceableRange);
-            this.groupBox25.Controls.Add(this.mUntraceableUser);
-            this.groupBox25.Controls.Add(this.mUntraceableTid);
-            this.groupBox25.Controls.Add(this.label128);
-            this.groupBox25.Controls.Add(this.mUntraceableEpc);
-            this.groupBox25.Controls.Add(this.label127);
-            this.groupBox25.Controls.Add(this.mUntraceablePwd);
-            this.groupBox25.Controls.Add(this.label126);
-            this.groupBox25.Location = new System.Drawing.Point(6, 6);
-            this.groupBox25.Name = "groupBox25";
-            this.groupBox25.Size = new System.Drawing.Size(988, 43);
-            this.groupBox25.TabIndex = 12;
-            this.groupBox25.TabStop = false;
-            this.groupBox25.Text = "Untraceable";
-            // 
-            // mUntraceableSet
-            // 
-            this.mUntraceableSet.Location = new System.Drawing.Point(845, 13);
-            this.mUntraceableSet.Name = "mUntraceableSet";
-            this.mUntraceableSet.Size = new System.Drawing.Size(90, 23);
-            this.mUntraceableSet.TabIndex = 17;
-            this.mUntraceableSet.Text = "设置 ";
-            this.mUntraceableSet.UseVisualStyleBackColor = true;
-            this.mUntraceableSet.Click += new System.EventHandler(this.mUntraceableSet_Click);
-            // 
-            // label130
-            // 
-            this.label130.AutoSize = true;
-            this.label130.Location = new System.Drawing.Point(589, 18);
-            this.label130.Name = "label130";
-            this.label130.Size = new System.Drawing.Size(41, 12);
-            this.label130.TabIndex = 16;
-            this.label130.Text = "RANGE:";
-            // 
-            // label129
-            // 
-            this.label129.AutoSize = true;
-            this.label129.Location = new System.Drawing.Point(456, 16);
-            this.label129.Name = "label129";
-            this.label129.Size = new System.Drawing.Size(35, 12);
-            this.label129.TabIndex = 15;
-            this.label129.Text = "USER:";
-            // 
-            // mUntraceableRange
-            // 
-            this.mUntraceableRange.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.mUntraceableRange.FormattingEnabled = true;
-            this.mUntraceableRange.Items.AddRange(new object[] {
-            "00",
-            "01",
-            "10",
-            "11"});
-            this.mUntraceableRange.Location = new System.Drawing.Point(631, 14);
-            this.mUntraceableRange.Name = "mUntraceableRange";
-            this.mUntraceableRange.Size = new System.Drawing.Size(72, 20);
-            this.mUntraceableRange.TabIndex = 14;
-            // 
-            // mUntraceableUser
-            // 
-            this.mUntraceableUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.mUntraceableUser.FormattingEnabled = true;
-            this.mUntraceableUser.Items.AddRange(new object[] {
-            "00",
-            "01"});
-            this.mUntraceableUser.Location = new System.Drawing.Point(491, 13);
-            this.mUntraceableUser.Name = "mUntraceableUser";
-            this.mUntraceableUser.Size = new System.Drawing.Size(72, 20);
-            this.mUntraceableUser.TabIndex = 13;
-            // 
-            // mUntraceableTid
-            // 
-            this.mUntraceableTid.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.mUntraceableTid.FormattingEnabled = true;
-            this.mUntraceableTid.Items.AddRange(new object[] {
-            "00",
-            "01",
-            "10",
-            "11"});
-            this.mUntraceableTid.Location = new System.Drawing.Point(346, 13);
-            this.mUntraceableTid.Name = "mUntraceableTid";
-            this.mUntraceableTid.Size = new System.Drawing.Size(72, 20);
-            this.mUntraceableTid.TabIndex = 12;
-            // 
-            // label128
-            // 
-            this.label128.AutoSize = true;
-            this.label128.Location = new System.Drawing.Point(311, 17);
-            this.label128.Name = "label128";
-            this.label128.Size = new System.Drawing.Size(29, 12);
-            this.label128.TabIndex = 11;
-            this.label128.Text = "TID:";
-            // 
-            // mUntraceableEpc
-            // 
-            this.mUntraceableEpc.Location = new System.Drawing.Point(256, 13);
-            this.mUntraceableEpc.Name = "mUntraceableEpc";
-            this.mUntraceableEpc.Size = new System.Drawing.Size(36, 21);
-            this.mUntraceableEpc.TabIndex = 10;
-            this.mUntraceableEpc.Text = "0";
-            this.mUntraceableEpc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.mUntraceableEpc.TextChanged += new System.EventHandler(this.mUntraceableEpc_TextChanged);
-            // 
-            // label127
-            // 
-            this.label127.AutoSize = true;
-            this.label127.Location = new System.Drawing.Point(221, 18);
-            this.label127.Name = "label127";
-            this.label127.Size = new System.Drawing.Size(29, 12);
-            this.label127.TabIndex = 5;
-            this.label127.Text = "EPC:";
-            // 
-            // mUntraceablePwd
-            // 
-            this.mUntraceablePwd.Location = new System.Drawing.Point(79, 14);
-            this.mUntraceablePwd.Name = "mUntraceablePwd";
-            this.mUntraceablePwd.Size = new System.Drawing.Size(120, 21);
-            this.mUntraceablePwd.TabIndex = 4;
-            this.mUntraceablePwd.Text = "00 00 00 00";
-            this.mUntraceablePwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label126
-            // 
-            this.label126.AutoSize = true;
-            this.label126.Location = new System.Drawing.Point(6, 20);
-            this.label126.Name = "label126";
-            this.label126.Size = new System.Drawing.Size(77, 12);
-            this.label126.TabIndex = 3;
-            this.label126.Text = "密码（HEX）:";
-            // 
-            // listViewUntraceable
-            // 
-            this.listViewUntraceable.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader17,
-            this.columnHeader18,
-            this.columnHeader19,
-            this.columnHeader20,
-            this.columnHeader21,
-            this.columnHeader22,
-            this.columnHeader23,
-            this.columnHeader24});
-            this.listViewUntraceable.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.listViewUntraceable.GridLines = true;
-            this.listViewUntraceable.Location = new System.Drawing.Point(0, 325);
-            this.listViewUntraceable.Name = "listViewUntraceable";
-            this.listViewUntraceable.Size = new System.Drawing.Size(1000, 197);
-            this.listViewUntraceable.TabIndex = 11;
-            this.listViewUntraceable.UseCompatibleStateImageBehavior = false;
-            this.listViewUntraceable.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader17
-            // 
-            this.columnHeader17.Text = "序号";
-            // 
-            // columnHeader18
-            // 
-            this.columnHeader18.Text = "PC";
-            this.columnHeader18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // columnHeader19
-            // 
-            this.columnHeader19.Text = "CRC";
-            this.columnHeader19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // columnHeader20
-            // 
-            this.columnHeader20.Text = "EPC";
-            this.columnHeader20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader20.Width = 260;
-            // 
-            // columnHeader21
-            // 
-            this.columnHeader21.Text = "数据";
-            this.columnHeader21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader21.Width = 341;
-            // 
-            // columnHeader22
-            // 
-            this.columnHeader22.Text = "数据长度";
-            this.columnHeader22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader22.Width = 73;
-            // 
-            // columnHeader23
-            // 
-            this.columnHeader23.Text = "天线";
-            this.columnHeader23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader23.Width = 49;
-            // 
-            // columnHeader24
-            // 
-            this.columnHeader24.Text = "操作次数";
-            this.columnHeader24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader24.Width = 79;
             // 
             // PagISO18000
             // 
@@ -7049,9 +6814,6 @@ namespace UHFDemo
             this.groupBox12.PerformLayout();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
-            this.m_NXPTabPage.ResumeLayout(false);
-            this.groupBox25.ResumeLayout(false);
-            this.groupBox25.PerformLayout();
             this.PagISO18000.ResumeLayout(false);
             this.PagISO18000.PerformLayout();
             this.gbISO1800LockQuery.ResumeLayout(false);
@@ -7603,28 +7365,6 @@ namespace UHFDemo
         private CheckBox m_new_fast_inventory;
         private Label label125;
         private ComboBox m_real_phase_value;
-        private TabPage m_NXPTabPage;
-        private GroupBox groupBox25;
-        private Button mUntraceableSet;
-        private Label label130;
-        private Label label129;
-        private ComboBox mUntraceableRange;
-        private ComboBox mUntraceableUser;
-        private ComboBox mUntraceableTid;
-        private Label label128;
-        private TextBox mUntraceableEpc;
-        private Label label127;
-        private CustomControl.HexTextBox mUntraceablePwd;
-        private Label label126;
-        private ListView listViewUntraceable;
-        private ColumnHeader columnHeader17;
-        private ColumnHeader columnHeader18;
-        private ColumnHeader columnHeader19;
-        private ColumnHeader columnHeader20;
-        private ColumnHeader columnHeader21;
-        private ColumnHeader columnHeader22;
-        private ColumnHeader columnHeader23;
-        private ColumnHeader columnHeader24;
     }
 }
 

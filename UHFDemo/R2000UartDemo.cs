@@ -159,10 +159,6 @@ namespace UHFDemo
             this.lvFastList.ColumnClick += new ColumnClickEventHandler(lvFastHelper.ListView_ColumnClick);
 
             this.m_real_phase_value.SelectedIndex = 0;
-
-            this.mUntraceableTid.SelectedIndex = 0;
-            this.mUntraceableUser.SelectedIndex = 0;
-            this.mUntraceableRange.SelectedIndex = 0;
         }
 
         private void refreshFastListView()
@@ -587,8 +583,6 @@ namespace UHFDemo
                             item.SubItems.Add(row[4].ToString());
                             item.SubItems.Add(row[5].ToString());
                             item.SubItems.Add(row[6].ToString());
-
-                            this.listViewUntraceable.Items.Add(item);
                         }
                         break;
                     default:
@@ -7368,30 +7362,6 @@ namespace UHFDemo
             {
                 m_nPhaseOpened = false;
             }
-        }
-
-        private void mUntraceableSet_Click(object sender, EventArgs e)
-        {
-            byte[] pwd = CCommondMethod.StringArrayToByteArray(CCommondMethod.StringToStringArray(this.mUntraceablePwd.Text, 2), 4);
-            if (pwd == null || pwd.Length != 4) 
-            {
-                MessageBox.Show("Password invaild!");
-                return;
-            }
-            
-            byte[] para = new byte[10];
-            Array.Copy(pwd,0,para,0,pwd.Length);
-            para[4] = 0;
-            para[5] = 0;
-            para[6] = Convert.ToByte(this.mUntraceableEpc.Text);
-            para[7] = (byte)this.mUntraceableTid.SelectedIndex;
-            para[8] = (byte)this.mUntraceableUser.SelectedIndex;
-            para[9] = (byte)this.mUntraceableRange.SelectedIndex;
-
-            m_curOperateTagBuffer.dtTagTable.Clear();
-            this.listViewUntraceable.Items.Clear();
-
-            reader.sendNXPCommand(m_curSetting.btReadId,(byte)0xE1,para);
         }
 
         private void mUntraceableEpc_TextChanged(object sender, EventArgs e)
