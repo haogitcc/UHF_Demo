@@ -381,8 +381,124 @@ namespace UHFDemo
                 case 0xE1:
                     ProcessUntraceable(msgTran);
                     break;
+                case 0xE4:
+                    ProcessChangeEAS(msgTran);
+                    break;
+                case 0xE8:
+                    ProcessReadSignature(msgTran);
+                    break;
                 default:
                     break;
+            }
+        }
+
+        private void ProcessReadSignature(Reader.MessageTran msgTran)
+        {
+            string strCmd = "Read Signature 设置";
+            string strErrorCode = string.Empty;
+
+            if (msgTran.AryData.Length == 1)
+            {
+                strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[0]);
+                string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+
+                WriteLog(lrtxtLog, strLog, 1);
+            }
+            else
+            {
+                int nLen = msgTran.AryData.Length;
+                int nEpcLen = ((msgTran.AryData[3] & 0xF8) >> 3) * 2;
+                //int nEpcLen = Convert.ToInt32(msgTran.AryData[2]) - 4;
+                int nDataLen = msgTran.AryData[2] & 0xFF;
+
+                if (msgTran.AryData[nLen - 3] != 0x10)
+                {
+                    strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[nLen - 3]);
+                    string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+
+                    WriteLog(lrtxtLog, strLog, 1);
+                    return;
+                }
+
+                string strPC = CCommondMethod.ByteArrayToString(msgTran.AryData, 3, 2);
+                string strEPC = CCommondMethod.ByteArrayToString(msgTran.AryData, 5, nEpcLen);
+                string strCRC = CCommondMethod.ByteArrayToString(msgTran.AryData, 5 + nEpcLen, 2);
+                string strData = CCommondMethod.ByteArrayToString(msgTran.AryData,7 + nEpcLen,nDataLen - 4 - nEpcLen); 
+
+                byte byTemp = msgTran.AryData[nLen - 2];
+                byte byAntId = (byte)((byTemp & 0x03) + 1);
+                string strAntId = byAntId.ToString();
+
+                string strReadCount = msgTran.AryData[nLen - 1].ToString();
+
+                DataRow row = m_curOperateTagBuffer.dtTagTable.NewRow();
+                row[0] = strPC;
+                row[1] = strCRC;
+                row[2] = strEPC;
+                row[3] = strData;
+                row[4] = (nDataLen - 4 - nEpcLen).ToString();
+                row[5] = strAntId;
+                row[6] = strReadCount;
+
+                m_curOperateTagBuffer.dtTagTable.Rows.Add(row);
+                m_curOperateTagBuffer.dtTagTable.AcceptChanges();
+
+                RefreshNXP(0xE8);
+                WriteLog(lrtxtLog, strCmd, 0);
+            }
+        }
+
+        private void ProcessChangeEAS(Reader.MessageTran msgTran)
+        {
+            string strCmd = "Change EAS 设置";
+            string strErrorCode = string.Empty;
+
+            if (msgTran.AryData.Length == 1)
+            {
+                strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[0]);
+                string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+
+                WriteLog(lrtxtLog, strLog, 1);
+            }
+            else
+            {
+                int nLen = msgTran.AryData.Length;
+                int nEpcLen = Convert.ToInt32(msgTran.AryData[2]) - 4;
+
+                if (msgTran.AryData[nLen - 3] != 0x10)
+                {
+                    strErrorCode = CCommondMethod.FormatErrorCode(msgTran.AryData[nLen - 3]);
+                    string strLog = strCmd + "失败，失败原因： " + strErrorCode;
+
+                    WriteLog(lrtxtLog, strLog, 1);
+                    return;
+                }
+
+                string strPC = CCommondMethod.ByteArrayToString(msgTran.AryData, 3, 2);
+                string strEPC = CCommondMethod.ByteArrayToString(msgTran.AryData, 5, nEpcLen);
+                string strCRC = CCommondMethod.ByteArrayToString(msgTran.AryData, 5 + nEpcLen, 2);
+                string strData = string.Empty;
+
+                byte byTemp = msgTran.AryData[nLen - 2];
+                byte byAntId = (byte)((byTemp & 0x03) + 1);
+                string strAntId = byAntId.ToString();
+
+                string strReadCount = msgTran.AryData[nLen - 1].ToString();
+
+                DataRow row = m_curOperateTagBuffer.dtTagTable.NewRow();
+                row[0] = strPC;
+                row[1] = strCRC;
+                row[2] = strEPC;
+                row[3] = strData;
+                row[4] = string.Empty;
+                row[5] = strAntId;
+                row[6] = strReadCount;
+
+                m_curOperateTagBuffer.dtTagTable.Rows.Add(row);
+                m_curOperateTagBuffer.dtTagTable.AcceptChanges();
+
+                RefreshNXP(0xE4);
+                WriteLog(lrtxtLog, strCmd, 0);
             }
         }
 
@@ -435,7 +551,7 @@ namespace UHFDemo
                 m_curOperateTagBuffer.dtTagTable.Rows.Add(row);
                 m_curOperateTagBuffer.dtTagTable.AcceptChanges();
 
-                RefreshUntraceable(0xE1);
+                RefreshNXP(0xE1);
                 WriteLog(lrtxtLog, strCmd, 0);
             }
         }
@@ -560,11 +676,11 @@ namespace UHFDemo
         }
 
         private delegate void RefreshiUntraceableUnsaft(byte btCmd);
-        private void RefreshUntraceable(byte btCmd)
+        private void RefreshNXP(byte btCmd)
         {
             if (this.InvokeRequired)
             {
-                RefreshiUntraceableUnsaft InvokeRefresh = new RefreshiUntraceableUnsaft(RefreshUntraceable);
+                RefreshiUntraceableUnsaft InvokeRefresh = new RefreshiUntraceableUnsaft(RefreshNXP);
                 this.Invoke(InvokeRefresh, new object[] { btCmd });
             }
             else
@@ -572,6 +688,8 @@ namespace UHFDemo
                 switch (btCmd)
                 {
                     case 0xE1:
+                    case 0xE4:
+                    case 0xE8:
                         {
                             int nCount = ltvOperate.Items.Count;
                             int nLength = m_curOperateTagBuffer.dtTagTable.Rows.Count;
@@ -7372,31 +7490,93 @@ namespace UHFDemo
 
         private void mUntraceableSet_Click(object sender, EventArgs e)
         {
-            byte[] pwd = CCommondMethod.StringArrayToByteArray(CCommondMethod.StringToStringArray(this.mUntraceablePwd.Text, 2), 4);
-            if (pwd == null || pwd.Length != 4) 
+            try
             {
-                MessageBox.Show("Password invaild!");
-                return;
+                byte[] pwd = CCommondMethod.StringArrayToByteArray(CCommondMethod.StringToStringArray(this.mUntraceablePwd.Text, 2), 4);
+                if (pwd == null || pwd.Length != 4)
+                {
+                    MessageBox.Show("Password invaild!");
+                    return;
+                }
+
+                byte[] para = new byte[10];
+                Array.Copy(pwd, 0, para, 0, pwd.Length);
+                para[4] = 0;
+                para[5] = 0;
+                para[6] = Convert.ToByte(this.mUntraceableEpc.Text);
+                para[7] = (byte)this.mUntraceableTid.SelectedIndex;
+                para[8] = (byte)this.mUntraceableUser.SelectedIndex;
+                para[9] = (byte)this.mUntraceableRange.SelectedIndex;
+
+                m_curOperateTagBuffer.dtTagTable.Clear();
+                this.listViewUntraceable.Items.Clear();
+
+                reader.sendNXPCommand(m_curSetting.btReadId, (byte)0xE1, para);
             }
-            
-            byte[] para = new byte[10];
-            Array.Copy(pwd,0,para,0,pwd.Length);
-            para[4] = 0;
-            para[5] = 0;
-            para[6] = Convert.ToByte(this.mUntraceableEpc.Text);
-            para[7] = (byte)this.mUntraceableTid.SelectedIndex;
-            para[8] = (byte)this.mUntraceableUser.SelectedIndex;
-            para[9] = (byte)this.mUntraceableRange.SelectedIndex;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-            m_curOperateTagBuffer.dtTagTable.Clear();
-            this.listViewUntraceable.Items.Clear();
-
-            reader.sendNXPCommand(m_curSetting.btReadId,(byte)0xE1,para);
         }
 
         private void mUntraceableEpc_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void m_ChangeEASSet_Click(object sender, EventArgs e)
+        {
+            byte[] pwd = CCommondMethod.StringArrayToByteArray(CCommondMethod.StringToStringArray(this.hexTextBoxChangeEASPwd.Text, 2), 4);
+            if (pwd == null || pwd.Length != 4)
+            {
+                MessageBox.Show("Password invaild!");
+                return;
+            }
+
+            byte[] para = new byte[5];
+            Array.Copy(pwd, 0, para, 0, pwd.Length);
+            if (this.changeEASrbOpen.Checked) 
+            {
+                para[4] = (byte)0x01;
+            }
+
+            if (this.changeEASrbOff.Checked)
+            {
+                para[4] = (byte)0x00;
+            }
+
+            m_curOperateTagBuffer.dtTagTable.Clear();
+            this.listViewUntraceable.Items.Clear();
+
+            reader.sendNXPCommand(m_curSetting.btReadId, (byte)0xE4, para);
+
+        }
+
+        private void mReadSignatureRead_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                byte[] pwd = CCommondMethod.StringArrayToByteArray(CCommondMethod.StringToStringArray(this.hexTextBoxReadSignature.Text, 2), 4);
+                if (pwd == null || pwd.Length != 4)
+                {
+                    MessageBox.Show("Password invaild!");
+                    return;
+                }
+
+                byte[] para = new byte[6];
+                Array.Copy(pwd, 0, para, 0, pwd.Length);
+                para[4] = Convert.ToByte(readSignatureStartAdd.Text);
+                para[5] = Convert.ToByte(mReadSignatureLength.Text);
+                m_curOperateTagBuffer.dtTagTable.Clear();
+                this.listViewUntraceable.Items.Clear();
+
+                reader.sendNXPCommand(m_curSetting.btReadId, (byte)0xE8, para);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

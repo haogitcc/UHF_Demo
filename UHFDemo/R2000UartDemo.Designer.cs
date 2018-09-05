@@ -573,6 +573,20 @@ namespace UHFDemo
             this.totalTime = new System.Windows.Forms.Timer(this.components);
             this.totalTimeBuffer = new System.Windows.Forms.Timer(this.components);
             this.sortImageList = new System.Windows.Forms.ImageList(this.components);
+            this.groupBox26 = new System.Windows.Forms.GroupBox();
+            this.m_ChangeEASSet = new System.Windows.Forms.Button();
+            this.hexTextBoxChangeEASPwd = new CustomControl.HexTextBox();
+            this.label135 = new System.Windows.Forms.Label();
+            this.groupBox27 = new System.Windows.Forms.GroupBox();
+            this.mReadSignatureRead = new System.Windows.Forms.Button();
+            this.hexTextBoxReadSignature = new CustomControl.HexTextBox();
+            this.label131 = new System.Windows.Forms.Label();
+            this.changeEASrbOpen = new System.Windows.Forms.RadioButton();
+            this.changeEASrbOff = new System.Windows.Forms.RadioButton();
+            this.readSignatureStartAdd = new System.Windows.Forms.TextBox();
+            this.mReadSignatureLength = new System.Windows.Forms.TextBox();
+            this.label132 = new System.Windows.Forms.Label();
+            this.label133 = new System.Windows.Forms.Label();
             this.tabCtrMain.SuspendLayout();
             this.PagReaderSetting.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -671,6 +685,8 @@ namespace UHFDemo
             ((System.ComponentModel.ISupportInitialize)(this.lxLedControl16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lxLedControl17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lxLedControl18)).BeginInit();
+            this.groupBox26.SuspendLayout();
+            this.groupBox27.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCtrMain
@@ -679,12 +695,9 @@ namespace UHFDemo
             this.tabCtrMain.Controls.Add(this.pageEpcTest);
             this.tabCtrMain.Controls.Add(this.PagISO18000);
             this.tabCtrMain.Controls.Add(this.PagTranDataLog);
-            this.tabCtrMain.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabCtrMain.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.tabCtrMain, "tabCtrMain");
             this.tabCtrMain.Name = "tabCtrMain";
             this.tabCtrMain.SelectedIndex = 0;
-            this.tabCtrMain.Size = new System.Drawing.Size(1018, 581);
-            this.tabCtrMain.TabIndex = 0;
             this.tabCtrMain.SelectedIndexChanged += new System.EventHandler(this.tabCtrMain_SelectedIndexChanged);
             this.tabCtrMain.Click += new System.EventHandler(this.tabCtrMain_Click);
             // 
@@ -692,23 +705,16 @@ namespace UHFDemo
             // 
             this.PagReaderSetting.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PagReaderSetting.Controls.Add(this.tabControl1);
-            this.PagReaderSetting.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.PagReaderSetting, "PagReaderSetting");
             this.PagReaderSetting.Name = "PagReaderSetting";
-            this.PagReaderSetting.Padding = new System.Windows.Forms.Padding(3);
-            this.PagReaderSetting.Size = new System.Drawing.Size(1010, 555);
-            this.PagReaderSetting.TabIndex = 0;
-            this.PagReaderSetting.Text = "读写器设置";
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tabControl1.Location = new System.Drawing.Point(3, 5);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1004, 547);
-            this.tabControl1.TabIndex = 15;
             // 
             // tabPage1
             // 
@@ -725,68 +731,46 @@ namespace UHFDemo
             this.tabPage1.Controls.Add(this.gbTcpIp);
             this.tabPage1.Controls.Add(this.gbRS232);
             this.tabPage1.Controls.Add(this.gbConnectType);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(996, 521);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "基本参数设置";
             // 
             // groupBox24
             // 
             this.groupBox24.Controls.Add(this.antType8);
             this.groupBox24.Controls.Add(this.antType4);
             this.groupBox24.Controls.Add(this.antType1);
-            this.groupBox24.Location = new System.Drawing.Point(165, 15);
+            resources.ApplyResources(this.groupBox24, "groupBox24");
             this.groupBox24.Name = "groupBox24";
-            this.groupBox24.Size = new System.Drawing.Size(267, 44);
-            this.groupBox24.TabIndex = 16;
             this.groupBox24.TabStop = false;
-            this.groupBox24.Text = "读写器类型";
             // 
             // antType8
             // 
-            this.antType8.AutoSize = true;
-            this.antType8.Location = new System.Drawing.Point(196, 16);
+            resources.ApplyResources(this.antType8, "antType8");
             this.antType8.Name = "antType8";
-            this.antType8.Size = new System.Drawing.Size(53, 16);
-            this.antType8.TabIndex = 2;
             this.antType8.TabStop = true;
-            this.antType8.Text = "8天线";
             this.antType8.UseVisualStyleBackColor = true;
             this.antType8.CheckedChanged += new System.EventHandler(this.antType8_CheckedChanged);
             // 
             // antType4
             // 
-            this.antType4.AutoSize = true;
-            this.antType4.Location = new System.Drawing.Point(111, 17);
+            resources.ApplyResources(this.antType4, "antType4");
             this.antType4.Name = "antType4";
-            this.antType4.Size = new System.Drawing.Size(53, 16);
-            this.antType4.TabIndex = 1;
             this.antType4.TabStop = true;
-            this.antType4.Text = "4天线";
             this.antType4.UseVisualStyleBackColor = true;
             this.antType4.CheckedChanged += new System.EventHandler(this.antType4_CheckedChanged);
             // 
             // antType1
             // 
-            this.antType1.AutoSize = true;
-            this.antType1.Location = new System.Drawing.Point(19, 17);
+            resources.ApplyResources(this.antType1, "antType1");
             this.antType1.Name = "antType1";
-            this.antType1.Size = new System.Drawing.Size(53, 16);
-            this.antType1.TabIndex = 0;
             this.antType1.TabStop = true;
-            this.antType1.Text = "1天线";
             this.antType1.UseVisualStyleBackColor = true;
             this.antType1.CheckedChanged += new System.EventHandler(this.antType1_CheckedChanged);
             // 
             // btReaderSetupRefresh
             // 
-            this.btReaderSetupRefresh.Location = new System.Drawing.Point(857, 474);
+            resources.ApplyResources(this.btReaderSetupRefresh, "btReaderSetupRefresh");
             this.btReaderSetupRefresh.Name = "btReaderSetupRefresh";
-            this.btReaderSetupRefresh.Size = new System.Drawing.Size(89, 23);
-            this.btReaderSetupRefresh.TabIndex = 15;
-            this.btReaderSetupRefresh.Text = "刷新界面";
             this.btReaderSetupRefresh.UseVisualStyleBackColor = true;
             this.btReaderSetupRefresh.Click += new System.EventHandler(this.btReaderSetupRefresh_Click);
             // 
@@ -795,12 +779,9 @@ namespace UHFDemo
             this.gbCmdReadGpio.Controls.Add(this.groupBox11);
             this.gbCmdReadGpio.Controls.Add(this.groupBox10);
             this.gbCmdReadGpio.ForeColor = System.Drawing.Color.Black;
-            this.gbCmdReadGpio.Location = new System.Drawing.Point(463, 120);
+            resources.ApplyResources(this.gbCmdReadGpio, "gbCmdReadGpio");
             this.gbCmdReadGpio.Name = "gbCmdReadGpio";
-            this.gbCmdReadGpio.Size = new System.Drawing.Size(519, 233);
-            this.gbCmdReadGpio.TabIndex = 12;
             this.gbCmdReadGpio.TabStop = false;
-            this.gbCmdReadGpio.Text = "读写GPIO";
             // 
             // groupBox11
             // 
@@ -810,53 +791,36 @@ namespace UHFDemo
             this.groupBox11.Controls.Add(this.btnWriteGpio4Value);
             this.groupBox11.Controls.Add(this.btnWriteGpio3Value);
             this.groupBox11.ForeColor = System.Drawing.Color.Black;
-            this.groupBox11.Location = new System.Drawing.Point(16, 121);
+            resources.ApplyResources(this.groupBox11, "groupBox11");
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(485, 98);
-            this.groupBox11.TabIndex = 13;
             this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "写GPIO";
             // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.label33);
             this.groupBox6.Controls.Add(this.rdbGpio3High);
             this.groupBox6.Controls.Add(this.rdbGpio3Low);
-            this.groupBox6.Location = new System.Drawing.Point(56, 17);
+            resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(245, 29);
-            this.groupBox6.TabIndex = 4;
             this.groupBox6.TabStop = false;
             // 
             // label33
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(31, 11);
+            resources.ApplyResources(this.label33, "label33");
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(41, 12);
-            this.label33.TabIndex = 6;
-            this.label33.Text = "GPIO3:";
             // 
             // rdbGpio3High
             // 
-            this.rdbGpio3High.AutoSize = true;
-            this.rdbGpio3High.Location = new System.Drawing.Point(78, 10);
+            resources.ApplyResources(this.rdbGpio3High, "rdbGpio3High");
             this.rdbGpio3High.Name = "rdbGpio3High";
-            this.rdbGpio3High.Size = new System.Drawing.Size(35, 16);
-            this.rdbGpio3High.TabIndex = 6;
             this.rdbGpio3High.TabStop = true;
-            this.rdbGpio3High.Text = "高";
             this.rdbGpio3High.UseVisualStyleBackColor = true;
             // 
             // rdbGpio3Low
             // 
-            this.rdbGpio3Low.AutoSize = true;
-            this.rdbGpio3Low.Location = new System.Drawing.Point(161, 10);
+            resources.ApplyResources(this.rdbGpio3Low, "rdbGpio3Low");
             this.rdbGpio3Low.Name = "rdbGpio3Low";
-            this.rdbGpio3Low.Size = new System.Drawing.Size(35, 16);
-            this.rdbGpio3Low.TabIndex = 0;
             this.rdbGpio3Low.TabStop = true;
-            this.rdbGpio3Low.Text = "低";
             this.rdbGpio3Low.UseVisualStyleBackColor = true;
             // 
             // groupBox7
@@ -864,60 +828,40 @@ namespace UHFDemo
             this.groupBox7.Controls.Add(this.label32);
             this.groupBox7.Controls.Add(this.rdbGpio4High);
             this.groupBox7.Controls.Add(this.rdbGpio4Low);
-            this.groupBox7.Location = new System.Drawing.Point(56, 54);
+            resources.ApplyResources(this.groupBox7, "groupBox7");
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(245, 30);
-            this.groupBox7.TabIndex = 4;
             this.groupBox7.TabStop = false;
             // 
             // label32
             // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(30, 12);
+            resources.ApplyResources(this.label32, "label32");
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(41, 12);
-            this.label32.TabIndex = 9;
-            this.label32.Text = "GPIO4:";
             // 
             // rdbGpio4High
             // 
-            this.rdbGpio4High.AutoSize = true;
-            this.rdbGpio4High.Location = new System.Drawing.Point(77, 10);
+            resources.ApplyResources(this.rdbGpio4High, "rdbGpio4High");
             this.rdbGpio4High.Name = "rdbGpio4High";
-            this.rdbGpio4High.Size = new System.Drawing.Size(35, 16);
-            this.rdbGpio4High.TabIndex = 1;
             this.rdbGpio4High.TabStop = true;
-            this.rdbGpio4High.Text = "高";
             this.rdbGpio4High.UseVisualStyleBackColor = true;
             // 
             // rdbGpio4Low
             // 
-            this.rdbGpio4Low.AutoSize = true;
-            this.rdbGpio4Low.Location = new System.Drawing.Point(161, 10);
+            resources.ApplyResources(this.rdbGpio4Low, "rdbGpio4Low");
             this.rdbGpio4Low.Name = "rdbGpio4Low";
-            this.rdbGpio4Low.Size = new System.Drawing.Size(35, 16);
-            this.rdbGpio4Low.TabIndex = 2;
             this.rdbGpio4Low.TabStop = true;
-            this.rdbGpio4Low.Text = "低";
             this.rdbGpio4Low.UseVisualStyleBackColor = true;
             // 
             // btnWriteGpio4Value
             // 
-            this.btnWriteGpio4Value.Location = new System.Drawing.Point(378, 61);
+            resources.ApplyResources(this.btnWriteGpio4Value, "btnWriteGpio4Value");
             this.btnWriteGpio4Value.Name = "btnWriteGpio4Value";
-            this.btnWriteGpio4Value.Size = new System.Drawing.Size(90, 23);
-            this.btnWriteGpio4Value.TabIndex = 5;
-            this.btnWriteGpio4Value.Text = "写GPIO4";
             this.btnWriteGpio4Value.UseVisualStyleBackColor = true;
             this.btnWriteGpio4Value.Click += new System.EventHandler(this.btnWriteGpio4Value_Click);
             // 
             // btnWriteGpio3Value
             // 
-            this.btnWriteGpio3Value.Location = new System.Drawing.Point(378, 24);
+            resources.ApplyResources(this.btnWriteGpio3Value, "btnWriteGpio3Value");
             this.btnWriteGpio3Value.Name = "btnWriteGpio3Value";
-            this.btnWriteGpio3Value.Size = new System.Drawing.Size(90, 23);
-            this.btnWriteGpio3Value.TabIndex = 10;
-            this.btnWriteGpio3Value.Text = "写GPIO3";
             this.btnWriteGpio3Value.UseVisualStyleBackColor = true;
             this.btnWriteGpio3Value.Click += new System.EventHandler(this.btnWriteGpio3Value_Click);
             // 
@@ -927,53 +871,36 @@ namespace UHFDemo
             this.groupBox10.Controls.Add(this.groupBox5);
             this.groupBox10.Controls.Add(this.btnReadGpioValue);
             this.groupBox10.ForeColor = System.Drawing.Color.Black;
-            this.groupBox10.Location = new System.Drawing.Point(17, 17);
+            resources.ApplyResources(this.groupBox10, "groupBox10");
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(485, 98);
-            this.groupBox10.TabIndex = 12;
             this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "读GPIO";
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.label30);
             this.groupBox4.Controls.Add(this.rdbGpio1High);
             this.groupBox4.Controls.Add(this.rdbGpio1Low);
-            this.groupBox4.Location = new System.Drawing.Point(53, 16);
+            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(247, 30);
-            this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             // 
             // label30
             // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(31, 14);
+            resources.ApplyResources(this.label30, "label30");
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(41, 12);
-            this.label30.TabIndex = 0;
-            this.label30.Text = "GPIO1:";
             // 
             // rdbGpio1High
             // 
-            this.rdbGpio1High.AutoSize = true;
-            this.rdbGpio1High.Location = new System.Drawing.Point(78, 12);
+            resources.ApplyResources(this.rdbGpio1High, "rdbGpio1High");
             this.rdbGpio1High.Name = "rdbGpio1High";
-            this.rdbGpio1High.Size = new System.Drawing.Size(35, 16);
-            this.rdbGpio1High.TabIndex = 1;
             this.rdbGpio1High.TabStop = true;
-            this.rdbGpio1High.Text = "高";
             this.rdbGpio1High.UseVisualStyleBackColor = true;
             // 
             // rdbGpio1Low
             // 
-            this.rdbGpio1Low.AutoSize = true;
-            this.rdbGpio1Low.Location = new System.Drawing.Point(163, 12);
+            resources.ApplyResources(this.rdbGpio1Low, "rdbGpio1Low");
             this.rdbGpio1Low.Name = "rdbGpio1Low";
-            this.rdbGpio1Low.Size = new System.Drawing.Size(35, 16);
-            this.rdbGpio1Low.TabIndex = 2;
             this.rdbGpio1Low.TabStop = true;
-            this.rdbGpio1Low.Text = "低";
             this.rdbGpio1Low.UseVisualStyleBackColor = true;
             // 
             // groupBox5
@@ -981,50 +908,33 @@ namespace UHFDemo
             this.groupBox5.Controls.Add(this.label31);
             this.groupBox5.Controls.Add(this.rdbGpio2High);
             this.groupBox5.Controls.Add(this.rdbGpio2Low);
-            this.groupBox5.Location = new System.Drawing.Point(53, 55);
+            resources.ApplyResources(this.groupBox5, "groupBox5");
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(247, 30);
-            this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
             // 
             // label31
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(30, 14);
+            resources.ApplyResources(this.label31, "label31");
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(41, 12);
-            this.label31.TabIndex = 3;
-            this.label31.Text = "GPIO2:";
             // 
             // rdbGpio2High
             // 
-            this.rdbGpio2High.AutoSize = true;
-            this.rdbGpio2High.Location = new System.Drawing.Point(77, 12);
+            resources.ApplyResources(this.rdbGpio2High, "rdbGpio2High");
             this.rdbGpio2High.Name = "rdbGpio2High";
-            this.rdbGpio2High.Size = new System.Drawing.Size(35, 16);
-            this.rdbGpio2High.TabIndex = 4;
             this.rdbGpio2High.TabStop = true;
-            this.rdbGpio2High.Text = "高";
             this.rdbGpio2High.UseVisualStyleBackColor = true;
             // 
             // rdbGpio2Low
             // 
-            this.rdbGpio2Low.AutoSize = true;
-            this.rdbGpio2Low.Location = new System.Drawing.Point(163, 12);
+            resources.ApplyResources(this.rdbGpio2Low, "rdbGpio2Low");
             this.rdbGpio2Low.Name = "rdbGpio2Low";
-            this.rdbGpio2Low.Size = new System.Drawing.Size(35, 16);
-            this.rdbGpio2Low.TabIndex = 5;
             this.rdbGpio2Low.TabStop = true;
-            this.rdbGpio2Low.Text = "低";
             this.rdbGpio2Low.UseVisualStyleBackColor = true;
             // 
             // btnReadGpioValue
             // 
-            this.btnReadGpioValue.Location = new System.Drawing.Point(377, 62);
+            resources.ApplyResources(this.btnReadGpioValue, "btnReadGpioValue");
             this.btnReadGpioValue.Name = "btnReadGpioValue";
-            this.btnReadGpioValue.Size = new System.Drawing.Size(90, 23);
-            this.btnReadGpioValue.TabIndex = 0;
-            this.btnReadGpioValue.Text = "读GPIO";
             this.btnReadGpioValue.UseVisualStyleBackColor = true;
             this.btnReadGpioValue.Click += new System.EventHandler(this.btnReadGpioValue_Click);
             // 
@@ -1035,54 +945,36 @@ namespace UHFDemo
             this.gbCmdBeeper.Controls.Add(this.rdbBeeperModeInventory);
             this.gbCmdBeeper.Controls.Add(this.rdbBeeperModeSlient);
             this.gbCmdBeeper.ForeColor = System.Drawing.Color.Black;
-            this.gbCmdBeeper.Location = new System.Drawing.Point(463, 359);
+            resources.ApplyResources(this.gbCmdBeeper, "gbCmdBeeper");
             this.gbCmdBeeper.Name = "gbCmdBeeper";
-            this.gbCmdBeeper.Size = new System.Drawing.Size(519, 109);
-            this.gbCmdBeeper.TabIndex = 11;
             this.gbCmdBeeper.TabStop = false;
-            this.gbCmdBeeper.Text = "蜂鸣器状态";
             // 
             // btnSetBeeperMode
             // 
-            this.btnSetBeeperMode.Location = new System.Drawing.Point(394, 39);
+            resources.ApplyResources(this.btnSetBeeperMode, "btnSetBeeperMode");
             this.btnSetBeeperMode.Name = "btnSetBeeperMode";
-            this.btnSetBeeperMode.Size = new System.Drawing.Size(90, 23);
-            this.btnSetBeeperMode.TabIndex = 3;
-            this.btnSetBeeperMode.Text = "设置 ";
             this.btnSetBeeperMode.UseVisualStyleBackColor = true;
             this.btnSetBeeperMode.Click += new System.EventHandler(this.btnSetBeeperMode_Click);
             // 
             // rdbBeeperModeTag
             // 
-            this.rdbBeeperModeTag.AutoSize = true;
-            this.rdbBeeperModeTag.Location = new System.Drawing.Point(16, 69);
+            resources.ApplyResources(this.rdbBeeperModeTag, "rdbBeeperModeTag");
             this.rdbBeeperModeTag.Name = "rdbBeeperModeTag";
-            this.rdbBeeperModeTag.Size = new System.Drawing.Size(431, 16);
-            this.rdbBeeperModeTag.TabIndex = 2;
             this.rdbBeeperModeTag.TabStop = true;
-            this.rdbBeeperModeTag.Text = "每读到一张标签鸣响(适用于少量标签，响应次数严格按照标签被识别次数。)";
             this.rdbBeeperModeTag.UseVisualStyleBackColor = true;
             // 
             // rdbBeeperModeInventory
             // 
-            this.rdbBeeperModeInventory.AutoSize = true;
-            this.rdbBeeperModeInventory.Location = new System.Drawing.Point(16, 42);
+            resources.ApplyResources(this.rdbBeeperModeInventory, "rdbBeeperModeInventory");
             this.rdbBeeperModeInventory.Name = "rdbBeeperModeInventory";
-            this.rdbBeeperModeInventory.Size = new System.Drawing.Size(83, 16);
-            this.rdbBeeperModeInventory.TabIndex = 1;
             this.rdbBeeperModeInventory.TabStop = true;
-            this.rdbBeeperModeInventory.Text = "盘存后鸣响";
             this.rdbBeeperModeInventory.UseVisualStyleBackColor = true;
             // 
             // rdbBeeperModeSlient
             // 
-            this.rdbBeeperModeSlient.AutoSize = true;
-            this.rdbBeeperModeSlient.Location = new System.Drawing.Point(17, 20);
+            resources.ApplyResources(this.rdbBeeperModeSlient, "rdbBeeperModeSlient");
             this.rdbBeeperModeSlient.Name = "rdbBeeperModeSlient";
-            this.rdbBeeperModeSlient.Size = new System.Drawing.Size(47, 16);
-            this.rdbBeeperModeSlient.TabIndex = 0;
             this.rdbBeeperModeSlient.TabStop = true;
-            this.rdbBeeperModeSlient.Text = "安静";
             this.rdbBeeperModeSlient.UseVisualStyleBackColor = true;
             // 
             // gbCmdTemperature
@@ -1090,70 +982,49 @@ namespace UHFDemo
             this.gbCmdTemperature.Controls.Add(this.btnGetReaderTemperature);
             this.gbCmdTemperature.Controls.Add(this.txtReaderTemperature);
             this.gbCmdTemperature.ForeColor = System.Drawing.Color.Black;
-            this.gbCmdTemperature.Location = new System.Drawing.Point(463, 65);
+            resources.ApplyResources(this.gbCmdTemperature, "gbCmdTemperature");
             this.gbCmdTemperature.Name = "gbCmdTemperature";
-            this.gbCmdTemperature.Size = new System.Drawing.Size(519, 49);
-            this.gbCmdTemperature.TabIndex = 10;
             this.gbCmdTemperature.TabStop = false;
-            this.gbCmdTemperature.Text = "工作温度监控";
             // 
             // btnGetReaderTemperature
             // 
-            this.btnGetReaderTemperature.Location = new System.Drawing.Point(393, 17);
+            resources.ApplyResources(this.btnGetReaderTemperature, "btnGetReaderTemperature");
             this.btnGetReaderTemperature.Name = "btnGetReaderTemperature";
-            this.btnGetReaderTemperature.Size = new System.Drawing.Size(90, 23);
-            this.btnGetReaderTemperature.TabIndex = 0;
-            this.btnGetReaderTemperature.Text = "读取";
             this.btnGetReaderTemperature.UseVisualStyleBackColor = true;
             this.btnGetReaderTemperature.Click += new System.EventHandler(this.btnGetReaderTemperature_Click);
             // 
             // txtReaderTemperature
             // 
-            this.txtReaderTemperature.Location = new System.Drawing.Point(106, 17);
+            resources.ApplyResources(this.txtReaderTemperature, "txtReaderTemperature");
             this.txtReaderTemperature.Name = "txtReaderTemperature";
             this.txtReaderTemperature.ReadOnly = true;
-            this.txtReaderTemperature.Size = new System.Drawing.Size(120, 21);
-            this.txtReaderTemperature.TabIndex = 1;
-            this.txtReaderTemperature.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // gbCmdVersion
             // 
             this.gbCmdVersion.Controls.Add(this.btnGetFirmwareVersion);
             this.gbCmdVersion.Controls.Add(this.txtFirmwareVersion);
             this.gbCmdVersion.ForeColor = System.Drawing.Color.Black;
-            this.gbCmdVersion.Location = new System.Drawing.Point(463, 15);
+            resources.ApplyResources(this.gbCmdVersion, "gbCmdVersion");
             this.gbCmdVersion.Name = "gbCmdVersion";
-            this.gbCmdVersion.Size = new System.Drawing.Size(519, 44);
-            this.gbCmdVersion.TabIndex = 9;
             this.gbCmdVersion.TabStop = false;
-            this.gbCmdVersion.Text = "固件版本";
             // 
             // btnGetFirmwareVersion
             // 
-            this.btnGetFirmwareVersion.Location = new System.Drawing.Point(394, 14);
+            resources.ApplyResources(this.btnGetFirmwareVersion, "btnGetFirmwareVersion");
             this.btnGetFirmwareVersion.Name = "btnGetFirmwareVersion";
-            this.btnGetFirmwareVersion.Size = new System.Drawing.Size(90, 23);
-            this.btnGetFirmwareVersion.TabIndex = 0;
-            this.btnGetFirmwareVersion.Text = "读取 ";
             this.btnGetFirmwareVersion.UseVisualStyleBackColor = true;
             this.btnGetFirmwareVersion.Click += new System.EventHandler(this.btnGetFirmwareVersion_Click);
             // 
             // txtFirmwareVersion
             // 
-            this.txtFirmwareVersion.Location = new System.Drawing.Point(105, 16);
+            resources.ApplyResources(this.txtFirmwareVersion, "txtFirmwareVersion");
             this.txtFirmwareVersion.Name = "txtFirmwareVersion";
             this.txtFirmwareVersion.ReadOnly = true;
-            this.txtFirmwareVersion.Size = new System.Drawing.Size(121, 21);
-            this.txtFirmwareVersion.TabIndex = 1;
-            this.txtFirmwareVersion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnResetReader
             // 
-            this.btnResetReader.Location = new System.Drawing.Point(10, 465);
+            resources.ApplyResources(this.btnResetReader, "btnResetReader");
             this.btnResetReader.Name = "btnResetReader";
-            this.btnResetReader.Size = new System.Drawing.Size(434, 41);
-            this.btnResetReader.TabIndex = 8;
-            this.btnResetReader.Text = "重启读写器";
             this.btnResetReader.UseVisualStyleBackColor = true;
             this.btnResetReader.Click += new System.EventHandler(this.btnResetReader_Click);
             // 
@@ -1164,47 +1035,32 @@ namespace UHFDemo
             this.gbCmdBaudrate.Controls.Add(this.btSetIdentifier);
             this.gbCmdBaudrate.Controls.Add(this.btGetIdentifier);
             this.gbCmdBaudrate.ForeColor = System.Drawing.Color.Black;
-            this.gbCmdBaudrate.Location = new System.Drawing.Point(10, 359);
+            resources.ApplyResources(this.gbCmdBaudrate, "gbCmdBaudrate");
             this.gbCmdBaudrate.Name = "gbCmdBaudrate";
-            this.gbCmdBaudrate.Size = new System.Drawing.Size(434, 96);
-            this.gbCmdBaudrate.TabIndex = 7;
             this.gbCmdBaudrate.TabStop = false;
-            this.gbCmdBaudrate.Text = "读写器识别标识(12字节)";
             // 
             // htbGetIdentifier
             // 
-            this.htbGetIdentifier.Location = new System.Drawing.Point(34, 22);
+            resources.ApplyResources(this.htbGetIdentifier, "htbGetIdentifier");
             this.htbGetIdentifier.Name = "htbGetIdentifier";
             this.htbGetIdentifier.ReadOnly = true;
-            this.htbGetIdentifier.Size = new System.Drawing.Size(228, 21);
-            this.htbGetIdentifier.TabIndex = 13;
-            this.htbGetIdentifier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // htbSetIdentifier
             // 
-            this.htbSetIdentifier.Location = new System.Drawing.Point(34, 61);
+            resources.ApplyResources(this.htbSetIdentifier, "htbSetIdentifier");
             this.htbSetIdentifier.Name = "htbSetIdentifier";
-            this.htbSetIdentifier.Size = new System.Drawing.Size(228, 21);
-            this.htbSetIdentifier.TabIndex = 12;
-            this.htbSetIdentifier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btSetIdentifier
             // 
-            this.btSetIdentifier.Location = new System.Drawing.Point(314, 60);
+            resources.ApplyResources(this.btSetIdentifier, "btSetIdentifier");
             this.btSetIdentifier.Name = "btSetIdentifier";
-            this.btSetIdentifier.Size = new System.Drawing.Size(90, 23);
-            this.btSetIdentifier.TabIndex = 1;
-            this.btSetIdentifier.Text = "设置";
             this.btSetIdentifier.UseVisualStyleBackColor = true;
             this.btSetIdentifier.Click += new System.EventHandler(this.btSetIdentifier_Click);
             // 
             // btGetIdentifier
             // 
-            this.btGetIdentifier.Location = new System.Drawing.Point(314, 21);
+            resources.ApplyResources(this.btGetIdentifier, "btGetIdentifier");
             this.btGetIdentifier.Name = "btGetIdentifier";
-            this.btGetIdentifier.Size = new System.Drawing.Size(90, 23);
-            this.btGetIdentifier.TabIndex = 0;
-            this.btGetIdentifier.Text = "读取";
             this.btGetIdentifier.UseVisualStyleBackColor = true;
             this.btGetIdentifier.Click += new System.EventHandler(this.btGetIdentifier_Click);
             // 
@@ -1213,28 +1069,19 @@ namespace UHFDemo
             this.gbCmdReaderAddress.Controls.Add(this.htxtReadId);
             this.gbCmdReaderAddress.Controls.Add(this.btnSetReadAddress);
             this.gbCmdReaderAddress.ForeColor = System.Drawing.Color.Black;
-            this.gbCmdReaderAddress.Location = new System.Drawing.Point(10, 287);
+            resources.ApplyResources(this.gbCmdReaderAddress, "gbCmdReaderAddress");
             this.gbCmdReaderAddress.Name = "gbCmdReaderAddress";
-            this.gbCmdReaderAddress.Size = new System.Drawing.Size(434, 66);
-            this.gbCmdReaderAddress.TabIndex = 5;
             this.gbCmdReaderAddress.TabStop = false;
-            this.gbCmdReaderAddress.Text = "读写器RS-485地址(HEX)";
             // 
             // htxtReadId
             // 
-            this.htxtReadId.Location = new System.Drawing.Point(114, 25);
+            resources.ApplyResources(this.htxtReadId, "htxtReadId");
             this.htxtReadId.Name = "htxtReadId";
-            this.htxtReadId.Size = new System.Drawing.Size(121, 21);
-            this.htxtReadId.TabIndex = 2;
-            this.htxtReadId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnSetReadAddress
             // 
-            this.btnSetReadAddress.Location = new System.Drawing.Point(314, 26);
+            resources.ApplyResources(this.btnSetReadAddress, "btnSetReadAddress");
             this.btnSetReadAddress.Name = "btnSetReadAddress";
-            this.btnSetReadAddress.Size = new System.Drawing.Size(90, 23);
-            this.btnSetReadAddress.TabIndex = 1;
-            this.btnSetReadAddress.Text = "设置 ";
             this.btnSetReadAddress.UseVisualStyleBackColor = true;
             this.btnSetReadAddress.Click += new System.EventHandler(this.btnSetReadAddress_Click);
             // 
@@ -1246,68 +1093,44 @@ namespace UHFDemo
             this.gbTcpIp.Controls.Add(this.ipIpServer);
             this.gbTcpIp.Controls.Add(this.label4);
             this.gbTcpIp.Controls.Add(this.label3);
-            this.gbTcpIp.Location = new System.Drawing.Point(10, 197);
+            resources.ApplyResources(this.gbTcpIp, "gbTcpIp");
             this.gbTcpIp.Name = "gbTcpIp";
-            this.gbTcpIp.Size = new System.Drawing.Size(434, 84);
-            this.gbTcpIp.TabIndex = 3;
             this.gbTcpIp.TabStop = false;
-            this.gbTcpIp.Text = "TCP/IP";
             // 
             // btnDisconnectTcp
             // 
-            this.btnDisconnectTcp.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDisconnectTcp.Location = new System.Drawing.Point(314, 51);
+            resources.ApplyResources(this.btnDisconnectTcp, "btnDisconnectTcp");
             this.btnDisconnectTcp.Name = "btnDisconnectTcp";
-            this.btnDisconnectTcp.Size = new System.Drawing.Size(90, 23);
-            this.btnDisconnectTcp.TabIndex = 3;
-            this.btnDisconnectTcp.Text = "断开读写器";
             this.btnDisconnectTcp.UseVisualStyleBackColor = true;
             this.btnDisconnectTcp.Click += new System.EventHandler(this.btnDisconnectTcp_Click);
             // 
             // txtTcpPort
             // 
-            this.txtTcpPort.Location = new System.Drawing.Point(114, 52);
+            resources.ApplyResources(this.txtTcpPort, "txtTcpPort");
             this.txtTcpPort.Name = "txtTcpPort";
-            this.txtTcpPort.Size = new System.Drawing.Size(120, 21);
-            this.txtTcpPort.TabIndex = 1;
-            this.txtTcpPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnConnectTcp
             // 
-            this.btnConnectTcp.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnConnectTcp.Location = new System.Drawing.Point(314, 19);
+            resources.ApplyResources(this.btnConnectTcp, "btnConnectTcp");
             this.btnConnectTcp.Name = "btnConnectTcp";
-            this.btnConnectTcp.Size = new System.Drawing.Size(90, 23);
-            this.btnConnectTcp.TabIndex = 2;
-            this.btnConnectTcp.Text = "连接读写器";
             this.btnConnectTcp.UseVisualStyleBackColor = true;
             this.btnConnectTcp.Click += new System.EventHandler(this.btnConnectTcp_Click);
             // 
             // ipIpServer
             // 
             this.ipIpServer.IpAddressStr = "";
-            this.ipIpServer.Location = new System.Drawing.Point(114, 20);
+            resources.ApplyResources(this.ipIpServer, "ipIpServer");
             this.ipIpServer.Name = "ipIpServer";
-            this.ipIpServer.Size = new System.Drawing.Size(120, 21);
-            this.ipIpServer.TabIndex = 0;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(56, 56);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 12);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "端口号:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 24);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 12);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "读写器IP:";
             // 
             // gbRS232
             // 
@@ -1320,31 +1143,21 @@ namespace UHFDemo
             this.gbRS232.Controls.Add(this.cmbComPort);
             this.gbRS232.Controls.Add(this.label2);
             this.gbRS232.Controls.Add(this.label1);
-            this.gbRS232.Location = new System.Drawing.Point(10, 65);
+            resources.ApplyResources(this.gbRS232, "gbRS232");
             this.gbRS232.Name = "gbRS232";
-            this.gbRS232.Size = new System.Drawing.Size(434, 124);
-            this.gbRS232.TabIndex = 2;
             this.gbRS232.TabStop = false;
-            this.gbRS232.Text = "RS-232";
             // 
             // btnSetUartBaudrate
             // 
-            this.btnSetUartBaudrate.Location = new System.Drawing.Point(315, 93);
+            resources.ApplyResources(this.btnSetUartBaudrate, "btnSetUartBaudrate");
             this.btnSetUartBaudrate.Name = "btnSetUartBaudrate";
-            this.btnSetUartBaudrate.Size = new System.Drawing.Size(90, 23);
-            this.btnSetUartBaudrate.TabIndex = 1;
-            this.btnSetUartBaudrate.Text = "设置";
             this.btnSetUartBaudrate.UseVisualStyleBackColor = true;
             this.btnSetUartBaudrate.Click += new System.EventHandler(this.btnSetUartBaudrate_Click);
             // 
             // btnDisconnectRs232
             // 
-            this.btnDisconnectRs232.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDisconnectRs232.Location = new System.Drawing.Point(314, 49);
+            resources.ApplyResources(this.btnDisconnectRs232, "btnDisconnectRs232");
             this.btnDisconnectRs232.Name = "btnDisconnectRs232";
-            this.btnDisconnectRs232.Size = new System.Drawing.Size(90, 23);
-            this.btnDisconnectRs232.TabIndex = 3;
-            this.btnDisconnectRs232.Text = "断开读写器";
             this.btnDisconnectRs232.UseVisualStyleBackColor = true;
             this.btnDisconnectRs232.Click += new System.EventHandler(this.btnDisconnectRs232_Click);
             // 
@@ -1353,30 +1166,20 @@ namespace UHFDemo
             this.cmbSetBaudrate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSetBaudrate.FormattingEnabled = true;
             this.cmbSetBaudrate.Items.AddRange(new object[] {
-            "38400",
-            "115200"});
-            this.cmbSetBaudrate.Location = new System.Drawing.Point(114, 94);
+            resources.GetString("cmbSetBaudrate.Items"),
+            resources.GetString("cmbSetBaudrate.Items1")});
+            resources.ApplyResources(this.cmbSetBaudrate, "cmbSetBaudrate");
             this.cmbSetBaudrate.Name = "cmbSetBaudrate";
-            this.cmbSetBaudrate.Size = new System.Drawing.Size(121, 20);
-            this.cmbSetBaudrate.TabIndex = 0;
             // 
             // lbChangeBaudrate
             // 
-            this.lbChangeBaudrate.AutoSize = true;
-            this.lbChangeBaudrate.Location = new System.Drawing.Point(33, 98);
+            resources.ApplyResources(this.lbChangeBaudrate, "lbChangeBaudrate");
             this.lbChangeBaudrate.Name = "lbChangeBaudrate";
-            this.lbChangeBaudrate.Size = new System.Drawing.Size(71, 12);
-            this.lbChangeBaudrate.TabIndex = 0;
-            this.lbChangeBaudrate.Text = "设置波特率:";
             // 
             // btnConnectRs232
             // 
-            this.btnConnectRs232.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnConnectRs232.Location = new System.Drawing.Point(314, 15);
+            resources.ApplyResources(this.btnConnectRs232, "btnConnectRs232");
             this.btnConnectRs232.Name = "btnConnectRs232";
-            this.btnConnectRs232.Size = new System.Drawing.Size(90, 23);
-            this.btnConnectRs232.TabIndex = 2;
-            this.btnConnectRs232.Text = "连接读写器";
             this.btnConnectRs232.UseVisualStyleBackColor = true;
             this.btnConnectRs232.Click += new System.EventHandler(this.btnConnectRs232_Click);
             // 
@@ -1385,89 +1188,66 @@ namespace UHFDemo
             this.cmbBaudrate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBaudrate.FormattingEnabled = true;
             this.cmbBaudrate.Items.AddRange(new object[] {
-            "38400",
-            "115200"});
-            this.cmbBaudrate.Location = new System.Drawing.Point(113, 50);
+            resources.GetString("cmbBaudrate.Items"),
+            resources.GetString("cmbBaudrate.Items1")});
+            resources.ApplyResources(this.cmbBaudrate, "cmbBaudrate");
             this.cmbBaudrate.Name = "cmbBaudrate";
-            this.cmbBaudrate.Size = new System.Drawing.Size(121, 20);
-            this.cmbBaudrate.TabIndex = 1;
             // 
             // cmbComPort
             // 
             this.cmbComPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbComPort.FormattingEnabled = true;
             this.cmbComPort.Items.AddRange(new object[] {
-            "COM1",
-            "COM2",
-            "COM3",
-            "COM4",
-            "COM5",
-            "COM6",
-            "COM7",
-            "COM8",
-            "COM9",
-            "COM10",
-            "COM11",
-            "COM12",
-            "COM13",
-            "COM14",
-            "COM15",
-            "COM16"});
-            this.cmbComPort.Location = new System.Drawing.Point(113, 16);
+            resources.GetString("cmbComPort.Items"),
+            resources.GetString("cmbComPort.Items1"),
+            resources.GetString("cmbComPort.Items2"),
+            resources.GetString("cmbComPort.Items3"),
+            resources.GetString("cmbComPort.Items4"),
+            resources.GetString("cmbComPort.Items5"),
+            resources.GetString("cmbComPort.Items6"),
+            resources.GetString("cmbComPort.Items7"),
+            resources.GetString("cmbComPort.Items8"),
+            resources.GetString("cmbComPort.Items9"),
+            resources.GetString("cmbComPort.Items10"),
+            resources.GetString("cmbComPort.Items11"),
+            resources.GetString("cmbComPort.Items12"),
+            resources.GetString("cmbComPort.Items13"),
+            resources.GetString("cmbComPort.Items14"),
+            resources.GetString("cmbComPort.Items15")});
+            resources.ApplyResources(this.cmbComPort, "cmbComPort");
             this.cmbComPort.Name = "cmbComPort";
-            this.cmbComPort.Size = new System.Drawing.Size(121, 20);
-            this.cmbComPort.TabIndex = 0;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 54);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 12);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "串口波特率:";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 20);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "串口号:";
             // 
             // gbConnectType
             // 
             this.gbConnectType.Controls.Add(this.rdbTcpIp);
             this.gbConnectType.Controls.Add(this.rdbRS232);
-            this.gbConnectType.Location = new System.Drawing.Point(10, 15);
+            resources.ApplyResources(this.gbConnectType, "gbConnectType");
             this.gbConnectType.Name = "gbConnectType";
-            this.gbConnectType.Size = new System.Drawing.Size(147, 44);
-            this.gbConnectType.TabIndex = 1;
             this.gbConnectType.TabStop = false;
-            this.gbConnectType.Text = "连接方式";
             // 
             // rdbTcpIp
             // 
-            this.rdbTcpIp.AutoSize = true;
-            this.rdbTcpIp.Location = new System.Drawing.Point(78, 16);
+            resources.ApplyResources(this.rdbTcpIp, "rdbTcpIp");
             this.rdbTcpIp.Name = "rdbTcpIp";
-            this.rdbTcpIp.Size = new System.Drawing.Size(59, 16);
-            this.rdbTcpIp.TabIndex = 1;
             this.rdbTcpIp.TabStop = true;
-            this.rdbTcpIp.Text = "TCP/IP";
             this.rdbTcpIp.UseVisualStyleBackColor = true;
             this.rdbTcpIp.CheckedChanged += new System.EventHandler(this.rdbTcpIp_CheckedChanged);
             // 
             // rdbRS232
             // 
-            this.rdbRS232.AutoSize = true;
-            this.rdbRS232.Location = new System.Drawing.Point(19, 17);
+            resources.ApplyResources(this.rdbRS232, "rdbRS232");
             this.rdbRS232.Name = "rdbRS232";
-            this.rdbRS232.Size = new System.Drawing.Size(53, 16);
-            this.rdbRS232.TabIndex = 0;
             this.rdbRS232.TabStop = true;
-            this.rdbRS232.Text = "RS232";
             this.rdbRS232.UseVisualStyleBackColor = true;
             this.rdbRS232.CheckedChanged += new System.EventHandler(this.rdbRS232_CheckedChanged);
             // 
@@ -1482,12 +1262,8 @@ namespace UHFDemo
             this.tabPage2.Controls.Add(this.gbCmdAntenna);
             this.tabPage2.Controls.Add(this.gbCmdRegion);
             this.tabPage2.Controls.Add(this.gbCmdOutputPower);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(996, 521);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "射频参数设置";
             // 
             // gbReturnLoss
             // 
@@ -1499,126 +1275,103 @@ namespace UHFDemo
             this.gbReturnLoss.Controls.Add(this.textReturnLoss);
             this.gbReturnLoss.Controls.Add(this.btReturnLoss);
             this.gbReturnLoss.ForeColor = System.Drawing.Color.Black;
-            this.gbReturnLoss.Location = new System.Drawing.Point(505, 66);
+            resources.ApplyResources(this.gbReturnLoss, "gbReturnLoss");
             this.gbReturnLoss.Name = "gbReturnLoss";
-            this.gbReturnLoss.Size = new System.Drawing.Size(477, 46);
-            this.gbReturnLoss.TabIndex = 19;
             this.gbReturnLoss.TabStop = false;
-            this.gbReturnLoss.Text = "测量天线端口回波损耗(Return Loss)";
             // 
             // label110
             // 
-            this.label110.AutoSize = true;
-            this.label110.Location = new System.Drawing.Point(156, 22);
+            resources.ApplyResources(this.label110, "label110");
             this.label110.Name = "label110";
-            this.label110.Size = new System.Drawing.Size(11, 12);
-            this.label110.TabIndex = 15;
-            this.label110.Text = "@";
             // 
             // label109
             // 
-            this.label109.AutoSize = true;
-            this.label109.Location = new System.Drawing.Point(250, 22);
+            resources.ApplyResources(this.label109, "label109");
             this.label109.Name = "label109";
-            this.label109.Size = new System.Drawing.Size(23, 12);
-            this.label109.TabIndex = 14;
-            this.label109.Text = "MHz";
             // 
             // cmbReturnLossFreq
             // 
             this.cmbReturnLossFreq.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbReturnLossFreq.FormattingEnabled = true;
             this.cmbReturnLossFreq.Items.AddRange(new object[] {
-            "865.00",
-            "865.50",
-            "866.00",
-            "866.50",
-            "867.00",
-            "867.50",
-            "868.00",
-            "902.00",
-            "902.50",
-            "903.00",
-            "903.50",
-            "904.00",
-            "904.50",
-            "905.00",
-            "905.50",
-            "906.00",
-            "906.50",
-            "907.00",
-            "907.50",
-            "908.00",
-            "908.50",
-            "909.00",
-            "909.50",
-            "910.00",
-            "910.50",
-            "911.00",
-            "911.50",
-            "912.00",
-            "912.50",
-            "913.00",
-            "913.50",
-            "914.00",
-            "914.50",
-            "915.00",
-            "915.50",
-            "916.00",
-            "916.50",
-            "917.00",
-            "917.50",
-            "918.00",
-            "918.50",
-            "919.00",
-            "919.50",
-            "920.00",
-            "920.50",
-            "921.00",
-            "921.50",
-            "922.00",
-            "922.50",
-            "923.00",
-            "923.50",
-            "924.00",
-            "924.50",
-            "925.00",
-            "925.50",
-            "926.00",
-            "926.50",
-            "927.00",
-            "927.50",
-            "928.00"});
-            this.cmbReturnLossFreq.Location = new System.Drawing.Point(173, 18);
+            resources.GetString("cmbReturnLossFreq.Items"),
+            resources.GetString("cmbReturnLossFreq.Items1"),
+            resources.GetString("cmbReturnLossFreq.Items2"),
+            resources.GetString("cmbReturnLossFreq.Items3"),
+            resources.GetString("cmbReturnLossFreq.Items4"),
+            resources.GetString("cmbReturnLossFreq.Items5"),
+            resources.GetString("cmbReturnLossFreq.Items6"),
+            resources.GetString("cmbReturnLossFreq.Items7"),
+            resources.GetString("cmbReturnLossFreq.Items8"),
+            resources.GetString("cmbReturnLossFreq.Items9"),
+            resources.GetString("cmbReturnLossFreq.Items10"),
+            resources.GetString("cmbReturnLossFreq.Items11"),
+            resources.GetString("cmbReturnLossFreq.Items12"),
+            resources.GetString("cmbReturnLossFreq.Items13"),
+            resources.GetString("cmbReturnLossFreq.Items14"),
+            resources.GetString("cmbReturnLossFreq.Items15"),
+            resources.GetString("cmbReturnLossFreq.Items16"),
+            resources.GetString("cmbReturnLossFreq.Items17"),
+            resources.GetString("cmbReturnLossFreq.Items18"),
+            resources.GetString("cmbReturnLossFreq.Items19"),
+            resources.GetString("cmbReturnLossFreq.Items20"),
+            resources.GetString("cmbReturnLossFreq.Items21"),
+            resources.GetString("cmbReturnLossFreq.Items22"),
+            resources.GetString("cmbReturnLossFreq.Items23"),
+            resources.GetString("cmbReturnLossFreq.Items24"),
+            resources.GetString("cmbReturnLossFreq.Items25"),
+            resources.GetString("cmbReturnLossFreq.Items26"),
+            resources.GetString("cmbReturnLossFreq.Items27"),
+            resources.GetString("cmbReturnLossFreq.Items28"),
+            resources.GetString("cmbReturnLossFreq.Items29"),
+            resources.GetString("cmbReturnLossFreq.Items30"),
+            resources.GetString("cmbReturnLossFreq.Items31"),
+            resources.GetString("cmbReturnLossFreq.Items32"),
+            resources.GetString("cmbReturnLossFreq.Items33"),
+            resources.GetString("cmbReturnLossFreq.Items34"),
+            resources.GetString("cmbReturnLossFreq.Items35"),
+            resources.GetString("cmbReturnLossFreq.Items36"),
+            resources.GetString("cmbReturnLossFreq.Items37"),
+            resources.GetString("cmbReturnLossFreq.Items38"),
+            resources.GetString("cmbReturnLossFreq.Items39"),
+            resources.GetString("cmbReturnLossFreq.Items40"),
+            resources.GetString("cmbReturnLossFreq.Items41"),
+            resources.GetString("cmbReturnLossFreq.Items42"),
+            resources.GetString("cmbReturnLossFreq.Items43"),
+            resources.GetString("cmbReturnLossFreq.Items44"),
+            resources.GetString("cmbReturnLossFreq.Items45"),
+            resources.GetString("cmbReturnLossFreq.Items46"),
+            resources.GetString("cmbReturnLossFreq.Items47"),
+            resources.GetString("cmbReturnLossFreq.Items48"),
+            resources.GetString("cmbReturnLossFreq.Items49"),
+            resources.GetString("cmbReturnLossFreq.Items50"),
+            resources.GetString("cmbReturnLossFreq.Items51"),
+            resources.GetString("cmbReturnLossFreq.Items52"),
+            resources.GetString("cmbReturnLossFreq.Items53"),
+            resources.GetString("cmbReturnLossFreq.Items54"),
+            resources.GetString("cmbReturnLossFreq.Items55"),
+            resources.GetString("cmbReturnLossFreq.Items56"),
+            resources.GetString("cmbReturnLossFreq.Items57"),
+            resources.GetString("cmbReturnLossFreq.Items58"),
+            resources.GetString("cmbReturnLossFreq.Items59")});
+            resources.ApplyResources(this.cmbReturnLossFreq, "cmbReturnLossFreq");
             this.cmbReturnLossFreq.Name = "cmbReturnLossFreq";
-            this.cmbReturnLossFreq.Size = new System.Drawing.Size(71, 20);
-            this.cmbReturnLossFreq.TabIndex = 13;
             // 
             // label108
             // 
-            this.label108.AutoSize = true;
-            this.label108.Location = new System.Drawing.Point(50, 22);
+            resources.ApplyResources(this.label108, "label108");
             this.label108.Name = "label108";
-            this.label108.Size = new System.Drawing.Size(23, 12);
-            this.label108.TabIndex = 12;
-            this.label108.Text = "RL:";
             // 
             // textReturnLoss
             // 
-            this.textReturnLoss.Location = new System.Drawing.Point(79, 18);
+            resources.ApplyResources(this.textReturnLoss, "textReturnLoss");
             this.textReturnLoss.Name = "textReturnLoss";
             this.textReturnLoss.ReadOnly = true;
-            this.textReturnLoss.Size = new System.Drawing.Size(71, 21);
-            this.textReturnLoss.TabIndex = 11;
-            this.textReturnLoss.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btReturnLoss
             // 
-            this.btReturnLoss.Location = new System.Drawing.Point(369, 17);
+            resources.ApplyResources(this.btReturnLoss, "btReturnLoss");
             this.btReturnLoss.Name = "btReturnLoss";
-            this.btReturnLoss.Size = new System.Drawing.Size(90, 23);
-            this.btReturnLoss.TabIndex = 10;
-            this.btReturnLoss.Text = "测量";
             this.btReturnLoss.UseVisualStyleBackColor = true;
             this.btReturnLoss.Click += new System.EventHandler(this.btReturnLoss_Click);
             // 
@@ -1631,86 +1384,57 @@ namespace UHFDemo
             this.gbProfile.Controls.Add(this.rdbProfile1);
             this.gbProfile.Controls.Add(this.rdbProfile0);
             this.gbProfile.ForeColor = System.Drawing.Color.Black;
-            this.gbProfile.Location = new System.Drawing.Point(15, 414);
+            resources.ApplyResources(this.gbProfile, "gbProfile");
             this.gbProfile.Name = "gbProfile";
-            this.gbProfile.Size = new System.Drawing.Size(967, 73);
-            this.gbProfile.TabIndex = 18;
             this.gbProfile.TabStop = false;
-            this.gbProfile.Text = "射频通讯链路 ";
             // 
             // btGetProfile
             // 
-            this.btGetProfile.Location = new System.Drawing.Point(734, 29);
+            resources.ApplyResources(this.btGetProfile, "btGetProfile");
             this.btGetProfile.Name = "btGetProfile";
-            this.btGetProfile.Size = new System.Drawing.Size(90, 23);
-            this.btGetProfile.TabIndex = 9;
-            this.btGetProfile.Text = "读取 ";
             this.btGetProfile.UseVisualStyleBackColor = true;
             this.btGetProfile.Click += new System.EventHandler(this.btGetProfile_Click);
             // 
             // btSetProfile
             // 
-            this.btSetProfile.Location = new System.Drawing.Point(859, 29);
+            resources.ApplyResources(this.btSetProfile, "btSetProfile");
             this.btSetProfile.Name = "btSetProfile";
-            this.btSetProfile.Size = new System.Drawing.Size(90, 23);
-            this.btSetProfile.TabIndex = 8;
-            this.btSetProfile.Text = "设置 ";
             this.btSetProfile.UseVisualStyleBackColor = true;
             this.btSetProfile.Click += new System.EventHandler(this.btSetProfile_Click);
             // 
             // rdbProfile3
             // 
-            this.rdbProfile3.AutoSize = true;
-            this.rdbProfile3.Location = new System.Drawing.Point(347, 45);
+            resources.ApplyResources(this.rdbProfile3, "rdbProfile3");
             this.rdbProfile3.Name = "rdbProfile3";
-            this.rdbProfile3.Size = new System.Drawing.Size(299, 16);
-            this.rdbProfile3.TabIndex = 3;
             this.rdbProfile3.TabStop = true;
-            this.rdbProfile3.Text = "配置3                 Tari 6.25uS; FM0 400KHz;";
             this.rdbProfile3.UseVisualStyleBackColor = true;
             // 
             // rdbProfile2
             // 
-            this.rdbProfile2.AutoSize = true;
-            this.rdbProfile2.Location = new System.Drawing.Point(65, 45);
+            resources.ApplyResources(this.rdbProfile2, "rdbProfile2");
             this.rdbProfile2.Name = "rdbProfile2";
-            this.rdbProfile2.Size = new System.Drawing.Size(227, 16);
-            this.rdbProfile2.TabIndex = 2;
             this.rdbProfile2.TabStop = true;
-            this.rdbProfile2.Text = "配置2  Tari 25uS; Miller 4 300KHz;";
             this.rdbProfile2.UseVisualStyleBackColor = true;
             // 
             // rdbProfile1
             // 
-            this.rdbProfile1.AutoSize = true;
-            this.rdbProfile1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.rdbProfile1, "rdbProfile1");
             this.rdbProfile1.ForeColor = System.Drawing.Color.Black;
-            this.rdbProfile1.Location = new System.Drawing.Point(347, 20);
             this.rdbProfile1.Name = "rdbProfile1";
-            this.rdbProfile1.Size = new System.Drawing.Size(311, 16);
-            this.rdbProfile1.TabIndex = 1;
             this.rdbProfile1.TabStop = true;
-            this.rdbProfile1.Text = "配置1(推荐且为默认)   Tari 25uS; Miller 4 250KHz";
             this.rdbProfile1.UseVisualStyleBackColor = true;
             // 
             // rdbProfile0
             // 
-            this.rdbProfile0.AutoSize = true;
-            this.rdbProfile0.Location = new System.Drawing.Point(65, 20);
+            resources.ApplyResources(this.rdbProfile0, "rdbProfile0");
             this.rdbProfile0.Name = "rdbProfile0";
-            this.rdbProfile0.Size = new System.Drawing.Size(185, 16);
-            this.rdbProfile0.TabIndex = 0;
             this.rdbProfile0.TabStop = true;
-            this.rdbProfile0.Text = "配置0  Tari 25uS; FM0 40KHz";
             this.rdbProfile0.UseVisualStyleBackColor = true;
             // 
             // btRfSetup
             // 
-            this.btRfSetup.Location = new System.Drawing.Point(874, 493);
+            resources.ApplyResources(this.btRfSetup, "btRfSetup");
             this.btRfSetup.Name = "btRfSetup";
-            this.btRfSetup.Size = new System.Drawing.Size(90, 23);
-            this.btRfSetup.TabIndex = 17;
-            this.btRfSetup.Text = "刷新界面";
             this.btRfSetup.UseVisualStyleBackColor = true;
             this.btRfSetup.Click += new System.EventHandler(this.btRfSetup_Click);
             // 
@@ -1723,73 +1447,48 @@ namespace UHFDemo
             this.gbMonza.Controls.Add(this.btGetMonzaStatus);
             this.gbMonza.Controls.Add(this.rdbMonzaOn);
             this.gbMonza.ForeColor = System.Drawing.Color.Black;
-            this.gbMonza.Location = new System.Drawing.Point(15, 196);
+            resources.ApplyResources(this.gbMonza, "gbMonza");
             this.gbMonza.Name = "gbMonza";
-            this.gbMonza.Size = new System.Drawing.Size(967, 62);
-            this.gbMonza.TabIndex = 15;
             this.gbMonza.TabStop = false;
-            this.gbMonza.Text = "Impinj Monza 标签快速读取TID功能";
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
+            resources.ApplyResources(this.label14, "label14");
             this.label14.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label14.Location = new System.Drawing.Point(48, 40);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(227, 12);
-            this.label14.TabIndex = 10;
-            this.label14.Text = "2.若标签不支持快速读TID请关闭此功能。";
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
+            resources.ApplyResources(this.label11, "label11");
             this.label11.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label11.Location = new System.Drawing.Point(12, 18);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(371, 12);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "说明: 1.只有Impinj Monza系列标签的部分型号支持快速读TID功能。";
             // 
             // rdbMonzaOff
             // 
-            this.rdbMonzaOff.AutoSize = true;
-            this.rdbMonzaOff.Location = new System.Drawing.Point(524, 27);
+            resources.ApplyResources(this.rdbMonzaOff, "rdbMonzaOff");
             this.rdbMonzaOff.Name = "rdbMonzaOff";
-            this.rdbMonzaOff.Size = new System.Drawing.Size(47, 16);
-            this.rdbMonzaOff.TabIndex = 3;
             this.rdbMonzaOff.TabStop = true;
-            this.rdbMonzaOff.Text = "关闭";
             this.rdbMonzaOff.UseVisualStyleBackColor = true;
             // 
             // btSetMonzaStatus
             // 
-            this.btSetMonzaStatus.Location = new System.Drawing.Point(859, 24);
+            resources.ApplyResources(this.btSetMonzaStatus, "btSetMonzaStatus");
             this.btSetMonzaStatus.Name = "btSetMonzaStatus";
-            this.btSetMonzaStatus.Size = new System.Drawing.Size(90, 23);
-            this.btSetMonzaStatus.TabIndex = 2;
-            this.btSetMonzaStatus.Text = "设置";
             this.btSetMonzaStatus.UseVisualStyleBackColor = true;
             this.btSetMonzaStatus.Click += new System.EventHandler(this.btSetMonzaStatus_Click);
             // 
             // btGetMonzaStatus
             // 
-            this.btGetMonzaStatus.Location = new System.Drawing.Point(734, 24);
+            resources.ApplyResources(this.btGetMonzaStatus, "btGetMonzaStatus");
             this.btGetMonzaStatus.Name = "btGetMonzaStatus";
-            this.btGetMonzaStatus.Size = new System.Drawing.Size(90, 23);
-            this.btGetMonzaStatus.TabIndex = 1;
-            this.btGetMonzaStatus.Text = "读取";
             this.btGetMonzaStatus.UseVisualStyleBackColor = true;
             this.btGetMonzaStatus.Click += new System.EventHandler(this.btGetMonzaStatus_Click);
             // 
             // rdbMonzaOn
             // 
-            this.rdbMonzaOn.AutoSize = true;
-            this.rdbMonzaOn.Location = new System.Drawing.Point(413, 27);
+            resources.ApplyResources(this.rdbMonzaOn, "rdbMonzaOn");
             this.rdbMonzaOn.Name = "rdbMonzaOn";
-            this.rdbMonzaOn.Size = new System.Drawing.Size(47, 16);
-            this.rdbMonzaOn.TabIndex = 0;
             this.rdbMonzaOn.TabStop = true;
-            this.rdbMonzaOn.Text = "打开";
             this.rdbMonzaOn.UseVisualStyleBackColor = true;
             // 
             // gbCmdAntDetector
@@ -1803,86 +1502,54 @@ namespace UHFDemo
             this.gbCmdAntDetector.Controls.Add(this.btnGetAntDetector);
             this.gbCmdAntDetector.Controls.Add(this.btnSetAntDetector);
             this.gbCmdAntDetector.ForeColor = System.Drawing.Color.Black;
-            this.gbCmdAntDetector.Location = new System.Drawing.Point(15, 118);
+            resources.ApplyResources(this.gbCmdAntDetector, "gbCmdAntDetector");
             this.gbCmdAntDetector.Name = "gbCmdAntDetector";
-            this.gbCmdAntDetector.Size = new System.Drawing.Size(967, 72);
-            this.gbCmdAntDetector.TabIndex = 13;
             this.gbCmdAntDetector.TabStop = false;
-            this.gbCmdAntDetector.Text = "天线检测灵敏度";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
+            resources.ApplyResources(this.label7, "label7");
             this.label7.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label7.Location = new System.Drawing.Point(48, 36);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(389, 12);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "2.为保护设备，检测到回波损耗大于此阈值将报错并停止读写标签操作。";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
+            resources.ApplyResources(this.label6, "label6");
             this.label6.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label6.Location = new System.Drawing.Point(48, 56);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(347, 12);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "3.此阈值越大对天线端口阻抗匹配要求越高，设为0关闭此功能。";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
+            resources.ApplyResources(this.label5, "label5");
             this.label5.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label5.Location = new System.Drawing.Point(12, 16);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(383, 12);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "说明: 1.读写标签时系统自动测量天线端口的回波损耗(Return Loss)。";
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(480, 36);
+            resources.ApplyResources(this.label10, "label10");
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(83, 12);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "回波损耗阈值:";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(646, 36);
+            resources.ApplyResources(this.label8, "label8");
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(17, 12);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "dB";
             // 
             // tbAntDectector
             // 
-            this.tbAntDectector.Location = new System.Drawing.Point(569, 32);
+            resources.ApplyResources(this.tbAntDectector, "tbAntDectector");
             this.tbAntDectector.Name = "tbAntDectector";
-            this.tbAntDectector.Size = new System.Drawing.Size(71, 21);
-            this.tbAntDectector.TabIndex = 4;
-            this.tbAntDectector.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnGetAntDetector
             // 
-            this.btnGetAntDetector.Location = new System.Drawing.Point(734, 31);
+            resources.ApplyResources(this.btnGetAntDetector, "btnGetAntDetector");
             this.btnGetAntDetector.Name = "btnGetAntDetector";
-            this.btnGetAntDetector.Size = new System.Drawing.Size(90, 23);
-            this.btnGetAntDetector.TabIndex = 3;
-            this.btnGetAntDetector.Text = "读取 ";
             this.btnGetAntDetector.UseVisualStyleBackColor = true;
             this.btnGetAntDetector.Click += new System.EventHandler(this.btnGetAntDetector_Click);
             // 
             // btnSetAntDetector
             // 
-            this.btnSetAntDetector.Location = new System.Drawing.Point(859, 31);
+            resources.ApplyResources(this.btnSetAntDetector, "btnSetAntDetector");
             this.btnSetAntDetector.Name = "btnSetAntDetector";
-            this.btnSetAntDetector.Size = new System.Drawing.Size(90, 23);
-            this.btnSetAntDetector.TabIndex = 2;
-            this.btnSetAntDetector.Text = "设置 ";
             this.btnSetAntDetector.UseVisualStyleBackColor = true;
             this.btnSetAntDetector.Click += new System.EventHandler(this.btnSetAntDetector_Click);
             // 
@@ -1893,53 +1560,38 @@ namespace UHFDemo
             this.gbCmdAntenna.Controls.Add(this.btnGetWorkAntenna);
             this.gbCmdAntenna.Controls.Add(this.btnSetWorkAntenna);
             this.gbCmdAntenna.ForeColor = System.Drawing.Color.Black;
-            this.gbCmdAntenna.Location = new System.Drawing.Point(15, 24);
+            resources.ApplyResources(this.gbCmdAntenna, "gbCmdAntenna");
             this.gbCmdAntenna.Name = "gbCmdAntenna";
-            this.gbCmdAntenna.Size = new System.Drawing.Size(472, 46);
-            this.gbCmdAntenna.TabIndex = 14;
             this.gbCmdAntenna.TabStop = false;
-            this.gbCmdAntenna.Text = "切换当前工作天线";
             // 
             // label107
             // 
-            this.label107.AutoSize = true;
-            this.label107.Location = new System.Drawing.Point(47, 22);
+            resources.ApplyResources(this.label107, "label107");
             this.label107.Name = "label107";
-            this.label107.Size = new System.Drawing.Size(59, 12);
-            this.label107.TabIndex = 7;
-            this.label107.Text = "天线端口:";
             // 
             // cmbWorkAnt
             // 
             this.cmbWorkAnt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWorkAnt.FormattingEnabled = true;
             this.cmbWorkAnt.Items.AddRange(new object[] {
-            "天线 1",
-            "天线 2",
-            "天线 3",
-            "天线 4"});
-            this.cmbWorkAnt.Location = new System.Drawing.Point(112, 18);
+            resources.GetString("cmbWorkAnt.Items"),
+            resources.GetString("cmbWorkAnt.Items1"),
+            resources.GetString("cmbWorkAnt.Items2"),
+            resources.GetString("cmbWorkAnt.Items3")});
+            resources.ApplyResources(this.cmbWorkAnt, "cmbWorkAnt");
             this.cmbWorkAnt.Name = "cmbWorkAnt";
-            this.cmbWorkAnt.Size = new System.Drawing.Size(84, 20);
-            this.cmbWorkAnt.TabIndex = 6;
             // 
             // btnGetWorkAntenna
             // 
-            this.btnGetWorkAntenna.Location = new System.Drawing.Point(234, 16);
+            resources.ApplyResources(this.btnGetWorkAntenna, "btnGetWorkAntenna");
             this.btnGetWorkAntenna.Name = "btnGetWorkAntenna";
-            this.btnGetWorkAntenna.Size = new System.Drawing.Size(90, 23);
-            this.btnGetWorkAntenna.TabIndex = 5;
-            this.btnGetWorkAntenna.Text = "读取 ";
             this.btnGetWorkAntenna.UseVisualStyleBackColor = true;
             this.btnGetWorkAntenna.Click += new System.EventHandler(this.btnGetWorkAntenna_Click);
             // 
             // btnSetWorkAntenna
             // 
-            this.btnSetWorkAntenna.Location = new System.Drawing.Point(343, 16);
+            resources.ApplyResources(this.btnSetWorkAntenna, "btnSetWorkAntenna");
             this.btnSetWorkAntenna.Name = "btnSetWorkAntenna";
-            this.btnSetWorkAntenna.Size = new System.Drawing.Size(90, 23);
-            this.btnSetWorkAntenna.TabIndex = 4;
-            this.btnSetWorkAntenna.Text = "设置 ";
             this.btnSetWorkAntenna.UseVisualStyleBackColor = true;
             this.btnSetWorkAntenna.Click += new System.EventHandler(this.btnSetWorkAntenna_Click);
             // 
@@ -1951,21 +1603,14 @@ namespace UHFDemo
             this.gbCmdRegion.Controls.Add(this.btnGetFrequencyRegion);
             this.gbCmdRegion.Controls.Add(this.btnSetFrequencyRegion);
             this.gbCmdRegion.ForeColor = System.Drawing.Color.Black;
-            this.gbCmdRegion.Location = new System.Drawing.Point(15, 264);
+            resources.ApplyResources(this.gbCmdRegion, "gbCmdRegion");
             this.gbCmdRegion.Name = "gbCmdRegion";
-            this.gbCmdRegion.Size = new System.Drawing.Size(967, 144);
-            this.gbCmdRegion.TabIndex = 9;
             this.gbCmdRegion.TabStop = false;
-            this.gbCmdRegion.Text = "射频频谱 ";
             // 
             // cbUserDefineFreq
             // 
-            this.cbUserDefineFreq.AutoSize = true;
-            this.cbUserDefineFreq.Location = new System.Drawing.Point(9, 100);
+            resources.ApplyResources(this.cbUserDefineFreq, "cbUserDefineFreq");
             this.cbUserDefineFreq.Name = "cbUserDefineFreq";
-            this.cbUserDefineFreq.Size = new System.Drawing.Size(60, 16);
-            this.cbUserDefineFreq.TabIndex = 11;
-            this.cbUserDefineFreq.Text = "自定义";
             this.cbUserDefineFreq.UseVisualStyleBackColor = true;
             this.cbUserDefineFreq.CheckedChanged += new System.EventHandler(this.cbUserDefineFreq_CheckedChanged);
             // 
@@ -1981,90 +1626,54 @@ namespace UHFDemo
             this.groupBox23.Controls.Add(this.TextFreqInterval);
             this.groupBox23.Controls.Add(this.textStartFreq);
             this.groupBox23.ForeColor = System.Drawing.Color.Black;
-            this.groupBox23.Location = new System.Drawing.Point(75, 77);
+            resources.ApplyResources(this.groupBox23, "groupBox23");
             this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Size = new System.Drawing.Size(609, 55);
-            this.groupBox23.TabIndex = 10;
             this.groupBox23.TabStop = false;
-            this.groupBox23.Text = "用户自定义频点";
             // 
             // label106
             // 
-            this.label106.AutoSize = true;
-            this.label106.Location = new System.Drawing.Point(571, 24);
+            resources.ApplyResources(this.label106, "label106");
             this.label106.Name = "label106";
-            this.label106.Size = new System.Drawing.Size(17, 12);
-            this.label106.TabIndex = 8;
-            this.label106.Text = "个";
             // 
             // label105
             // 
-            this.label105.AutoSize = true;
-            this.label105.Location = new System.Drawing.Point(400, 24);
+            resources.ApplyResources(this.label105, "label105");
             this.label105.Name = "label105";
-            this.label105.Size = new System.Drawing.Size(23, 12);
-            this.label105.TabIndex = 7;
-            this.label105.Text = "KHz";
             // 
             // label104
             // 
-            this.label104.AutoSize = true;
-            this.label104.Location = new System.Drawing.Point(213, 24);
+            resources.ApplyResources(this.label104, "label104");
             this.label104.Name = "label104";
-            this.label104.Size = new System.Drawing.Size(23, 12);
-            this.label104.TabIndex = 6;
-            this.label104.Text = "KHz";
             // 
             // label103
             // 
-            this.label103.AutoSize = true;
-            this.label103.Location = new System.Drawing.Point(429, 24);
+            resources.ApplyResources(this.label103, "label103");
             this.label103.Name = "label103";
-            this.label103.Size = new System.Drawing.Size(59, 12);
-            this.label103.TabIndex = 5;
-            this.label103.Text = "频点数量:";
             // 
             // label86
             // 
-            this.label86.AutoSize = true;
-            this.label86.Location = new System.Drawing.Point(260, 24);
+            resources.ApplyResources(this.label86, "label86");
             this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(59, 12);
-            this.label86.TabIndex = 4;
-            this.label86.Text = "频道间隔:";
             // 
             // label75
             // 
-            this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(76, 24);
+            resources.ApplyResources(this.label75, "label75");
             this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(59, 12);
-            this.label75.TabIndex = 3;
-            this.label75.Text = "起始频率:";
             // 
             // textFreqQuantity
             // 
-            this.textFreqQuantity.Location = new System.Drawing.Point(494, 20);
+            resources.ApplyResources(this.textFreqQuantity, "textFreqQuantity");
             this.textFreqQuantity.Name = "textFreqQuantity";
-            this.textFreqQuantity.Size = new System.Drawing.Size(71, 21);
-            this.textFreqQuantity.TabIndex = 2;
-            this.textFreqQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TextFreqInterval
             // 
-            this.TextFreqInterval.Location = new System.Drawing.Point(325, 20);
+            resources.ApplyResources(this.TextFreqInterval, "TextFreqInterval");
             this.TextFreqInterval.Name = "TextFreqInterval";
-            this.TextFreqInterval.Size = new System.Drawing.Size(71, 21);
-            this.TextFreqInterval.TabIndex = 1;
-            this.TextFreqInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textStartFreq
             // 
-            this.textStartFreq.Location = new System.Drawing.Point(141, 20);
+            resources.ApplyResources(this.textStartFreq, "textStartFreq");
             this.textStartFreq.Name = "textStartFreq";
-            this.textStartFreq.Size = new System.Drawing.Size(66, 21);
-            this.textStartFreq.TabIndex = 0;
-            this.textStartFreq.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBox21
             // 
@@ -2078,120 +1687,79 @@ namespace UHFDemo
             this.groupBox21.Controls.Add(this.rdbRegionEtsi);
             this.groupBox21.Controls.Add(this.rdbRegionFcc);
             this.groupBox21.ForeColor = System.Drawing.Color.Black;
-            this.groupBox21.Location = new System.Drawing.Point(75, 16);
+            resources.ApplyResources(this.groupBox21, "groupBox21");
             this.groupBox21.Name = "groupBox21";
-            this.groupBox21.Size = new System.Drawing.Size(609, 55);
-            this.groupBox21.TabIndex = 9;
             this.groupBox21.TabStop = false;
-            this.groupBox21.Text = "系统默认频点";
             // 
             // label37
             // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(570, 23);
+            resources.ApplyResources(this.label37, "label37");
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(23, 12);
-            this.label37.TabIndex = 17;
-            this.label37.Text = "MHz";
             // 
             // label36
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(403, 24);
+            resources.ApplyResources(this.label36, "label36");
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(23, 12);
-            this.label36.TabIndex = 16;
-            this.label36.Text = "MHz";
             // 
             // cmbFrequencyEnd
             // 
             this.cmbFrequencyEnd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFrequencyEnd.FormattingEnabled = true;
-            this.cmbFrequencyEnd.Location = new System.Drawing.Point(494, 19);
+            resources.ApplyResources(this.cmbFrequencyEnd, "cmbFrequencyEnd");
             this.cmbFrequencyEnd.Name = "cmbFrequencyEnd";
-            this.cmbFrequencyEnd.Size = new System.Drawing.Size(71, 20);
-            this.cmbFrequencyEnd.TabIndex = 14;
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(454, 24);
+            resources.ApplyResources(this.label13, "label13");
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(17, 12);
-            this.label13.TabIndex = 15;
-            this.label13.Text = "—";
             // 
             // cmbFrequencyStart
             // 
             this.cmbFrequencyStart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFrequencyStart.FormattingEnabled = true;
-            this.cmbFrequencyStart.Location = new System.Drawing.Point(325, 19);
+            resources.ApplyResources(this.cmbFrequencyStart, "cmbFrequencyStart");
             this.cmbFrequencyStart.Name = "cmbFrequencyStart";
-            this.cmbFrequencyStart.Size = new System.Drawing.Size(71, 20);
-            this.cmbFrequencyStart.TabIndex = 12;
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(260, 23);
+            resources.ApplyResources(this.label12, "label12");
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(59, 12);
-            this.label12.TabIndex = 13;
-            this.label12.Text = "频谱范围:";
             // 
             // rdbRegionChn
             // 
-            this.rdbRegionChn.AutoSize = true;
-            this.rdbRegionChn.Location = new System.Drawing.Point(195, 22);
+            resources.ApplyResources(this.rdbRegionChn, "rdbRegionChn");
             this.rdbRegionChn.Name = "rdbRegionChn";
-            this.rdbRegionChn.Size = new System.Drawing.Size(41, 16);
-            this.rdbRegionChn.TabIndex = 11;
             this.rdbRegionChn.TabStop = true;
-            this.rdbRegionChn.Text = "CHN";
             this.rdbRegionChn.UseVisualStyleBackColor = true;
             this.rdbRegionChn.CheckedChanged += new System.EventHandler(this.rdbRegionChn_CheckedChanged);
             // 
             // rdbRegionEtsi
             // 
-            this.rdbRegionEtsi.AutoSize = true;
-            this.rdbRegionEtsi.Location = new System.Drawing.Point(116, 22);
+            resources.ApplyResources(this.rdbRegionEtsi, "rdbRegionEtsi");
             this.rdbRegionEtsi.Name = "rdbRegionEtsi";
-            this.rdbRegionEtsi.Size = new System.Drawing.Size(47, 16);
-            this.rdbRegionEtsi.TabIndex = 10;
             this.rdbRegionEtsi.TabStop = true;
-            this.rdbRegionEtsi.Text = "ETSI";
             this.rdbRegionEtsi.UseVisualStyleBackColor = true;
             this.rdbRegionEtsi.CheckedChanged += new System.EventHandler(this.rdbRegionEtsi_CheckedChanged);
             // 
             // rdbRegionFcc
             // 
-            this.rdbRegionFcc.AutoSize = true;
-            this.rdbRegionFcc.Location = new System.Drawing.Point(43, 22);
+            resources.ApplyResources(this.rdbRegionFcc, "rdbRegionFcc");
             this.rdbRegionFcc.Name = "rdbRegionFcc";
-            this.rdbRegionFcc.Size = new System.Drawing.Size(41, 16);
-            this.rdbRegionFcc.TabIndex = 9;
             this.rdbRegionFcc.TabStop = true;
-            this.rdbRegionFcc.Text = "FCC";
             this.rdbRegionFcc.UseVisualStyleBackColor = true;
             this.rdbRegionFcc.CheckedChanged += new System.EventHandler(this.rdbRegionFcc_CheckedChanged);
             // 
             // btnGetFrequencyRegion
             // 
-            this.btnGetFrequencyRegion.Location = new System.Drawing.Point(734, 66);
+            resources.ApplyResources(this.btnGetFrequencyRegion, "btnGetFrequencyRegion");
             this.btnGetFrequencyRegion.Name = "btnGetFrequencyRegion";
-            this.btnGetFrequencyRegion.Size = new System.Drawing.Size(90, 23);
-            this.btnGetFrequencyRegion.TabIndex = 6;
-            this.btnGetFrequencyRegion.Text = "读取 ";
             this.btnGetFrequencyRegion.UseVisualStyleBackColor = true;
             this.btnGetFrequencyRegion.Click += new System.EventHandler(this.btnGetFrequencyRegion_Click);
             // 
             // btnSetFrequencyRegion
             // 
-            this.btnSetFrequencyRegion.Location = new System.Drawing.Point(859, 66);
+            resources.ApplyResources(this.btnSetFrequencyRegion, "btnSetFrequencyRegion");
             this.btnSetFrequencyRegion.Name = "btnSetFrequencyRegion";
-            this.btnSetFrequencyRegion.Size = new System.Drawing.Size(90, 23);
-            this.btnSetFrequencyRegion.TabIndex = 5;
-            this.btnSetFrequencyRegion.Text = "设置 ";
             this.btnSetFrequencyRegion.UseVisualStyleBackColor = true;
             this.btnSetFrequencyRegion.Click += new System.EventHandler(this.btnSetFrequencyRegion_Click);
             // 
@@ -2218,207 +1786,130 @@ namespace UHFDemo
             this.gbCmdOutputPower.Controls.Add(this.btnSetOutputPower);
             this.gbCmdOutputPower.Controls.Add(this.label9);
             this.gbCmdOutputPower.ForeColor = System.Drawing.Color.Black;
-            this.gbCmdOutputPower.Location = new System.Drawing.Point(505, 8);
+            resources.ApplyResources(this.gbCmdOutputPower, "gbCmdOutputPower");
             this.gbCmdOutputPower.Name = "gbCmdOutputPower";
-            this.gbCmdOutputPower.Size = new System.Drawing.Size(477, 52);
-            this.gbCmdOutputPower.TabIndex = 8;
             this.gbCmdOutputPower.TabStop = false;
-            this.gbCmdOutputPower.Text = "射频输出功率";
             // 
             // label115
             // 
-            this.label115.AutoSize = true;
-            this.label115.Location = new System.Drawing.Point(180, 13);
+            resources.ApplyResources(this.label115, "label115");
             this.label115.Name = "label115";
-            this.label115.Size = new System.Drawing.Size(11, 12);
-            this.label115.TabIndex = 20;
-            this.label115.Text = "8";
             // 
             // label114
             // 
-            this.label114.AutoSize = true;
-            this.label114.Location = new System.Drawing.Point(155, 13);
+            resources.ApplyResources(this.label114, "label114");
             this.label114.Name = "label114";
-            this.label114.Size = new System.Drawing.Size(11, 12);
-            this.label114.TabIndex = 19;
-            this.label114.Text = "7";
             // 
             // label113
             // 
-            this.label113.AutoSize = true;
-            this.label113.Location = new System.Drawing.Point(133, 13);
+            resources.ApplyResources(this.label113, "label113");
             this.label113.Name = "label113";
-            this.label113.Size = new System.Drawing.Size(11, 12);
-            this.label113.TabIndex = 18;
-            this.label113.Text = "6";
             // 
             // label112
             // 
-            this.label112.AutoSize = true;
-            this.label112.Location = new System.Drawing.Point(108, 13);
+            resources.ApplyResources(this.label112, "label112");
             this.label112.Name = "label112";
-            this.label112.Size = new System.Drawing.Size(11, 12);
-            this.label112.TabIndex = 17;
-            this.label112.Text = "5";
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(175, 28);
+            resources.ApplyResources(this.textBox10, "textBox10");
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(17, 21);
-            this.textBox10.TabIndex = 16;
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox10.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(150, 28);
+            resources.ApplyResources(this.textBox9, "textBox9");
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(17, 21);
-            this.textBox9.TabIndex = 15;
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(128, 28);
+            resources.ApplyResources(this.textBox8, "textBox8");
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(17, 21);
-            this.textBox8.TabIndex = 14;
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(103, 28);
+            resources.ApplyResources(this.textBox7, "textBox7");
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(17, 21);
-            this.textBox7.TabIndex = 13;
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label34
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(80, 13);
+            resources.ApplyResources(this.label34, "label34");
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(11, 12);
-            this.label34.TabIndex = 12;
-            this.label34.Text = "4";
             // 
             // label21
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(56, 13);
+            resources.ApplyResources(this.label21, "label21");
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(11, 12);
-            this.label21.TabIndex = 11;
-            this.label21.Text = "3";
             // 
             // label20
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(32, 13);
+            resources.ApplyResources(this.label20, "label20");
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(11, 12);
-            this.label20.TabIndex = 10;
-            this.label20.Text = "2";
             // 
             // label18
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 13);
+            resources.ApplyResources(this.label18, "label18");
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(11, 12);
-            this.label18.TabIndex = 9;
-            this.label18.Text = "1";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(78, 28);
+            resources.ApplyResources(this.textBox4, "textBox4");
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(17, 21);
-            this.textBox4.TabIndex = 7;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(53, 28);
+            resources.ApplyResources(this.textBox3, "textBox3");
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(17, 21);
-            this.textBox3.TabIndex = 6;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(31, 28);
+            resources.ApplyResources(this.textBox2, "textBox2");
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(17, 21);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 28);
+            resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(17, 21);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label15
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(197, 16);
+            resources.ApplyResources(this.label15, "label15");
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(41, 12);
-            this.label15.TabIndex = 3;
-            this.label15.Text = "天线号";
             // 
             // btnGetOutputPower
             // 
-            this.btnGetOutputPower.Location = new System.Drawing.Point(244, 16);
+            resources.ApplyResources(this.btnGetOutputPower, "btnGetOutputPower");
             this.btnGetOutputPower.Name = "btnGetOutputPower";
-            this.btnGetOutputPower.Size = new System.Drawing.Size(90, 23);
-            this.btnGetOutputPower.TabIndex = 2;
-            this.btnGetOutputPower.Text = "读取 ";
             this.btnGetOutputPower.UseVisualStyleBackColor = true;
             this.btnGetOutputPower.Click += new System.EventHandler(this.btnGetOutputPower_Click);
             // 
             // btnSetOutputPower
             // 
-            this.btnSetOutputPower.Location = new System.Drawing.Point(369, 16);
+            resources.ApplyResources(this.btnSetOutputPower, "btnSetOutputPower");
             this.btnSetOutputPower.Name = "btnSetOutputPower";
-            this.btnSetOutputPower.Size = new System.Drawing.Size(90, 23);
-            this.btnSetOutputPower.TabIndex = 1;
-            this.btnSetOutputPower.Text = "设置 ";
             this.btnSetOutputPower.UseVisualStyleBackColor = true;
             this.btnSetOutputPower.Click += new System.EventHandler(this.btnSetOutputPower_Click);
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(204, 34);
+            resources.ApplyResources(this.label9, "label9");
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(23, 12);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "dBm";
             // 
             // pageEpcTest
             // 
             this.pageEpcTest.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pageEpcTest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pageEpcTest.Controls.Add(this.tabEpcTest);
-            this.pageEpcTest.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.pageEpcTest, "pageEpcTest");
             this.pageEpcTest.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.pageEpcTest.Location = new System.Drawing.Point(4, 22);
             this.pageEpcTest.Name = "pageEpcTest";
-            this.pageEpcTest.Size = new System.Drawing.Size(1010, 555);
-            this.pageEpcTest.TabIndex = 5;
-            this.pageEpcTest.Text = "18000-6C标签测试";
             // 
             // tabEpcTest
             // 
@@ -2428,13 +1919,9 @@ namespace UHFDemo
             this.tabEpcTest.Controls.Add(this.pageAcessTag);
             this.tabEpcTest.Controls.Add(this.tabPage3);
             this.tabEpcTest.Controls.Add(this.m_NXPTabPage);
-            this.tabEpcTest.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tabEpcTest.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tabEpcTest.Location = new System.Drawing.Point(0, 5);
+            resources.ApplyResources(this.tabEpcTest, "tabEpcTest");
             this.tabEpcTest.Name = "tabEpcTest";
             this.tabEpcTest.SelectedIndex = 0;
-            this.tabEpcTest.Size = new System.Drawing.Size(1008, 548);
-            this.tabEpcTest.TabIndex = 0;
             this.tabEpcTest.TabStop = false;
             this.tabEpcTest.SelectedIndexChanged += new System.EventHandler(this.tabEpcTest_SelectedIndexChanged);
             // 
@@ -2454,26 +1941,14 @@ namespace UHFDemo
             this.pageRealMode.Controls.Add(this.lbRealTagCount);
             this.pageRealMode.Controls.Add(this.groupBox1);
             this.pageRealMode.Controls.Add(this.lvRealList);
-            this.pageRealMode.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.pageRealMode.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.pageRealMode, "pageRealMode");
             this.pageRealMode.Name = "pageRealMode";
-            this.pageRealMode.Padding = new System.Windows.Forms.Padding(3);
-            this.pageRealMode.Size = new System.Drawing.Size(1000, 522);
-            this.pageRealMode.TabIndex = 1;
-            this.pageRealMode.Text = "盘存标签(实时模式)";
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
             this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(992, 56);
-            this.tableLayoutPanel1.TabIndex = 64;
             // 
             // panel5
             // 
@@ -2492,227 +1967,143 @@ namespace UHFDemo
             this.panel5.Controls.Add(this.label98);
             this.panel5.Controls.Add(this.cmbSession);
             this.panel5.Controls.Add(this.label97);
-            this.panel5.Location = new System.Drawing.Point(4, 4);
+            resources.ApplyResources(this.panel5, "panel5");
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(984, 48);
-            this.panel5.TabIndex = 1;
             // 
             // label125
             // 
-            this.label125.AutoSize = true;
-            this.label125.Enabled = false;
-            this.label125.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label125.Location = new System.Drawing.Point(918, 4);
+            resources.ApplyResources(this.label125, "label125");
             this.label125.Name = "label125";
-            this.label125.Size = new System.Drawing.Size(29, 12);
-            this.label125.TabIndex = 69;
-            this.label125.Text = "相位";
             // 
             // m_real_phase_value
             // 
             this.m_real_phase_value.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.m_real_phase_value.Enabled = false;
-            this.m_real_phase_value.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.m_real_phase_value, "m_real_phase_value");
             this.m_real_phase_value.FormattingEnabled = true;
             this.m_real_phase_value.Items.AddRange(new object[] {
-            "00",
-            "01"});
-            this.m_real_phase_value.Location = new System.Drawing.Point(899, 18);
+            resources.GetString("m_real_phase_value.Items"),
+            resources.GetString("m_real_phase_value.Items1")});
             this.m_real_phase_value.Name = "m_real_phase_value";
-            this.m_real_phase_value.Size = new System.Drawing.Size(62, 20);
-            this.m_real_phase_value.TabIndex = 68;
             // 
             // btRealTimeInventory
             // 
-            this.btRealTimeInventory.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.btRealTimeInventory, "btRealTimeInventory");
             this.btRealTimeInventory.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btRealTimeInventory.Location = new System.Drawing.Point(9, 5);
             this.btRealTimeInventory.Name = "btRealTimeInventory";
-            this.btRealTimeInventory.Size = new System.Drawing.Size(144, 38);
-            this.btRealTimeInventory.TabIndex = 1;
-            this.btRealTimeInventory.Text = "开始盘存";
             this.btRealTimeInventory.UseVisualStyleBackColor = true;
             this.btRealTimeInventory.Click += new System.EventHandler(this.btRealTimeInventory_Click);
             // 
             // label84
             // 
-            this.label84.AutoSize = true;
-            this.label84.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label84.Location = new System.Drawing.Point(161, 18);
+            resources.ApplyResources(this.label84, "label84");
             this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(119, 12);
-            this.label84.TabIndex = 2;
-            this.label84.Text = "每条命令的盘存次数:";
             // 
             // textRealRound
             // 
-            this.textRealRound.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textRealRound.Location = new System.Drawing.Point(288, 13);
+            resources.ApplyResources(this.textRealRound, "textRealRound");
             this.textRealRound.Name = "textRealRound";
-            this.textRealRound.Size = new System.Drawing.Size(28, 21);
-            this.textRealRound.TabIndex = 48;
-            this.textRealRound.Text = "1";
-            this.textRealRound.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // sessionInventoryrb
             // 
-            this.sessionInventoryrb.AutoSize = true;
-            this.sessionInventoryrb.Location = new System.Drawing.Point(347, 27);
+            resources.ApplyResources(this.sessionInventoryrb, "sessionInventoryrb");
             this.sessionInventoryrb.Name = "sessionInventoryrb";
-            this.sessionInventoryrb.Size = new System.Drawing.Size(116, 18);
-            this.sessionInventoryrb.TabIndex = 67;
             this.sessionInventoryrb.TabStop = true;
-            this.sessionInventoryrb.Text = "自定义Session";
             this.sessionInventoryrb.UseVisualStyleBackColor = true;
             this.sessionInventoryrb.CheckedChanged += new System.EventHandler(this.sessionInventoryrb_CheckedChanged);
             // 
             // autoInventoryrb
             // 
-            this.autoInventoryrb.AutoSize = true;
+            resources.ApplyResources(this.autoInventoryrb, "autoInventoryrb");
             this.autoInventoryrb.Checked = true;
-            this.autoInventoryrb.Location = new System.Drawing.Point(347, 4);
             this.autoInventoryrb.Name = "autoInventoryrb";
-            this.autoInventoryrb.Size = new System.Drawing.Size(53, 18);
-            this.autoInventoryrb.TabIndex = 66;
             this.autoInventoryrb.TabStop = true;
-            this.autoInventoryrb.Text = "自动";
             this.autoInventoryrb.UseVisualStyleBackColor = true;
             this.autoInventoryrb.CheckedChanged += new System.EventHandler(this.autoInventoryrb_CheckedChanged);
             // 
             // m_session_q_cb
             // 
-            this.m_session_q_cb.AutoSize = true;
-            this.m_session_q_cb.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.m_session_q_cb.Location = new System.Drawing.Point(870, 21);
+            resources.ApplyResources(this.m_session_q_cb, "m_session_q_cb");
             this.m_session_q_cb.Name = "m_session_q_cb";
-            this.m_session_q_cb.Size = new System.Drawing.Size(15, 14);
-            this.m_session_q_cb.TabIndex = 65;
             this.m_session_q_cb.UseVisualStyleBackColor = true;
             this.m_session_q_cb.CheckedChanged += new System.EventHandler(this.m_session_q_cb_CheckedChanged);
             // 
             // m_session_sl_cb
             // 
-            this.m_session_sl_cb.AutoSize = true;
-            this.m_session_sl_cb.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.m_session_sl_cb.Location = new System.Drawing.Point(747, 25);
+            resources.ApplyResources(this.m_session_sl_cb, "m_session_sl_cb");
             this.m_session_sl_cb.Name = "m_session_sl_cb";
-            this.m_session_sl_cb.Size = new System.Drawing.Size(15, 14);
-            this.m_session_sl_cb.TabIndex = 64;
             this.m_session_sl_cb.UseVisualStyleBackColor = true;
             this.m_session_sl_cb.CheckedChanged += new System.EventHandler(this.m_session_sl_cb_CheckedChanged);
             // 
             // m_session_sl
             // 
             this.m_session_sl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.m_session_sl.Enabled = false;
-            this.m_session_sl.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.m_session_sl, "m_session_sl");
             this.m_session_sl.FormattingEnabled = true;
             this.m_session_sl.Items.AddRange(new object[] {
-            "00",
-            "01",
-            "10",
-            "11"});
-            this.m_session_sl.Location = new System.Drawing.Point(773, 21);
+            resources.GetString("m_session_sl.Items"),
+            resources.GetString("m_session_sl.Items1"),
+            resources.GetString("m_session_sl.Items2"),
+            resources.GetString("m_session_sl.Items3")});
             this.m_session_sl.Name = "m_session_sl";
-            this.m_session_sl.Size = new System.Drawing.Size(62, 20);
-            this.m_session_sl.TabIndex = 57;
             // 
             // m_sl_content
             // 
-            this.m_sl_content.AutoSize = true;
-            this.m_sl_content.Enabled = false;
-            this.m_sl_content.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.m_sl_content.Location = new System.Drawing.Point(792, 5);
+            resources.ApplyResources(this.m_sl_content, "m_sl_content");
             this.m_sl_content.Name = "m_sl_content";
-            this.m_sl_content.Size = new System.Drawing.Size(17, 12);
-            this.m_sl_content.TabIndex = 56;
-            this.m_sl_content.Text = "SL";
             this.m_sl_content.Click += new System.EventHandler(this.label125_Click);
             // 
             // cmbTarget
             // 
             this.cmbTarget.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTarget.Enabled = false;
-            this.cmbTarget.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.cmbTarget, "cmbTarget");
             this.cmbTarget.FormattingEnabled = true;
             this.cmbTarget.Items.AddRange(new object[] {
-            "A",
-            "B"});
-            this.cmbTarget.Location = new System.Drawing.Point(640, 21);
+            resources.GetString("cmbTarget.Items"),
+            resources.GetString("cmbTarget.Items1")});
             this.cmbTarget.Name = "cmbTarget";
-            this.cmbTarget.Size = new System.Drawing.Size(62, 20);
-            this.cmbTarget.TabIndex = 54;
             // 
             // label98
             // 
-            this.label98.AutoSize = true;
-            this.label98.Enabled = false;
-            this.label98.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label98.Location = new System.Drawing.Point(620, 5);
+            resources.ApplyResources(this.label98, "label98");
             this.label98.Name = "label98";
-            this.label98.Size = new System.Drawing.Size(101, 12);
-            this.label98.TabIndex = 53;
-            this.label98.Text = "Inventoried Flag";
             // 
             // cmbSession
             // 
             this.cmbSession.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSession.Enabled = false;
-            this.cmbSession.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.cmbSession, "cmbSession");
             this.cmbSession.FormattingEnabled = true;
             this.cmbSession.Items.AddRange(new object[] {
-            "S0",
-            "S1",
-            "S2",
-            "S3",
-            "SL"});
-            this.cmbSession.Location = new System.Drawing.Point(512, 20);
+            resources.GetString("cmbSession.Items"),
+            resources.GetString("cmbSession.Items1"),
+            resources.GetString("cmbSession.Items2"),
+            resources.GetString("cmbSession.Items3"),
+            resources.GetString("cmbSession.Items4")});
             this.cmbSession.Name = "cmbSession";
-            this.cmbSession.Size = new System.Drawing.Size(62, 20);
-            this.cmbSession.TabIndex = 52;
             // 
             // label97
             // 
-            this.label97.AutoSize = true;
-            this.label97.Enabled = false;
-            this.label97.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label97.Location = new System.Drawing.Point(510, 4);
+            resources.ApplyResources(this.label97, "label97");
             this.label97.Name = "label97";
-            this.label97.Size = new System.Drawing.Size(65, 12);
-            this.label97.TabIndex = 51;
-            this.label97.Text = "Session ID";
             // 
             // excel_format_rb
             // 
-            this.excel_format_rb.AutoSize = true;
-            this.excel_format_rb.Location = new System.Drawing.Point(838, 289);
+            resources.ApplyResources(this.excel_format_rb, "excel_format_rb");
             this.excel_format_rb.Name = "excel_format_rb";
-            this.excel_format_rb.Size = new System.Drawing.Size(60, 18);
-            this.excel_format_rb.TabIndex = 63;
-            this.excel_format_rb.Text = "EXCEL";
             this.excel_format_rb.UseVisualStyleBackColor = true;
             // 
             // txt_format_rb
             // 
-            this.txt_format_rb.AutoSize = true;
+            resources.ApplyResources(this.txt_format_rb, "txt_format_rb");
             this.txt_format_rb.Checked = true;
-            this.txt_format_rb.Location = new System.Drawing.Point(778, 289);
             this.txt_format_rb.Name = "txt_format_rb";
-            this.txt_format_rb.Size = new System.Drawing.Size(46, 18);
-            this.txt_format_rb.TabIndex = 62;
             this.txt_format_rb.TabStop = true;
-            this.txt_format_rb.Text = "TXT";
             this.txt_format_rb.UseVisualStyleBackColor = true;
             // 
             // button8
             // 
-            this.button8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.button8, "button8");
             this.button8.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button8.Location = new System.Drawing.Point(904, 285);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(89, 23);
-            this.button8.TabIndex = 61;
-            this.button8.Text = "保存标签";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
@@ -2727,177 +2118,103 @@ namespace UHFDemo
             this.groupBox20.Controls.Add(this.cbRealWorkant3);
             this.groupBox20.Controls.Add(this.cbRealWorkant2);
             this.groupBox20.Controls.Add(this.label19);
-            this.groupBox20.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.groupBox20, "groupBox20");
             this.groupBox20.ForeColor = System.Drawing.Color.Black;
-            this.groupBox20.Location = new System.Drawing.Point(3, 66);
             this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(994, 53);
-            this.groupBox20.TabIndex = 49;
             this.groupBox20.TabStop = false;
-            this.groupBox20.Text = "选择天线 ";
             // 
             // cbRealWorkant8
             // 
-            this.cbRealWorkant8.AutoSize = true;
-            this.cbRealWorkant8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbRealWorkant8.Location = new System.Drawing.Point(775, 22);
+            resources.ApplyResources(this.cbRealWorkant8, "cbRealWorkant8");
             this.cbRealWorkant8.Name = "cbRealWorkant8";
-            this.cbRealWorkant8.Size = new System.Drawing.Size(54, 16);
-            this.cbRealWorkant8.TabIndex = 72;
-            this.cbRealWorkant8.Text = "天线8";
             this.cbRealWorkant8.UseVisualStyleBackColor = true;
             // 
             // cbRealWorkant7
             // 
-            this.cbRealWorkant7.AutoSize = true;
-            this.cbRealWorkant7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbRealWorkant7.Location = new System.Drawing.Point(689, 22);
+            resources.ApplyResources(this.cbRealWorkant7, "cbRealWorkant7");
             this.cbRealWorkant7.Name = "cbRealWorkant7";
-            this.cbRealWorkant7.Size = new System.Drawing.Size(54, 16);
-            this.cbRealWorkant7.TabIndex = 71;
-            this.cbRealWorkant7.Text = "天线7";
             this.cbRealWorkant7.UseVisualStyleBackColor = true;
             // 
             // cbRealWorkant6
             // 
-            this.cbRealWorkant6.AutoSize = true;
-            this.cbRealWorkant6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbRealWorkant6.Location = new System.Drawing.Point(591, 22);
+            resources.ApplyResources(this.cbRealWorkant6, "cbRealWorkant6");
             this.cbRealWorkant6.Name = "cbRealWorkant6";
-            this.cbRealWorkant6.Size = new System.Drawing.Size(54, 16);
-            this.cbRealWorkant6.TabIndex = 70;
-            this.cbRealWorkant6.Text = "天线6";
             this.cbRealWorkant6.UseVisualStyleBackColor = true;
             // 
             // cbRealWorkant5
             // 
-            this.cbRealWorkant5.AutoSize = true;
-            this.cbRealWorkant5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbRealWorkant5.Location = new System.Drawing.Point(505, 22);
+            resources.ApplyResources(this.cbRealWorkant5, "cbRealWorkant5");
             this.cbRealWorkant5.Name = "cbRealWorkant5";
-            this.cbRealWorkant5.Size = new System.Drawing.Size(54, 16);
-            this.cbRealWorkant5.TabIndex = 69;
-            this.cbRealWorkant5.Text = "天线5";
             this.cbRealWorkant5.UseVisualStyleBackColor = true;
             // 
             // cbRealWorkant1
             // 
-            this.cbRealWorkant1.AutoSize = true;
+            resources.ApplyResources(this.cbRealWorkant1, "cbRealWorkant1");
             this.cbRealWorkant1.Checked = true;
             this.cbRealWorkant1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbRealWorkant1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbRealWorkant1.Location = new System.Drawing.Point(128, 22);
             this.cbRealWorkant1.Name = "cbRealWorkant1";
-            this.cbRealWorkant1.Size = new System.Drawing.Size(54, 16);
-            this.cbRealWorkant1.TabIndex = 68;
-            this.cbRealWorkant1.Text = "天线1";
             this.cbRealWorkant1.UseVisualStyleBackColor = true;
             // 
             // cbRealWorkant4
             // 
-            this.cbRealWorkant4.AutoSize = true;
-            this.cbRealWorkant4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbRealWorkant4.Location = new System.Drawing.Point(412, 22);
+            resources.ApplyResources(this.cbRealWorkant4, "cbRealWorkant4");
             this.cbRealWorkant4.Name = "cbRealWorkant4";
-            this.cbRealWorkant4.Size = new System.Drawing.Size(54, 16);
-            this.cbRealWorkant4.TabIndex = 67;
-            this.cbRealWorkant4.Text = "天线4";
             this.cbRealWorkant4.UseVisualStyleBackColor = true;
             // 
             // cbRealWorkant3
             // 
-            this.cbRealWorkant3.AutoSize = true;
-            this.cbRealWorkant3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbRealWorkant3.Location = new System.Drawing.Point(319, 22);
+            resources.ApplyResources(this.cbRealWorkant3, "cbRealWorkant3");
             this.cbRealWorkant3.Name = "cbRealWorkant3";
-            this.cbRealWorkant3.Size = new System.Drawing.Size(54, 16);
-            this.cbRealWorkant3.TabIndex = 66;
-            this.cbRealWorkant3.Text = "天线3";
             this.cbRealWorkant3.UseVisualStyleBackColor = true;
             // 
             // cbRealWorkant2
             // 
-            this.cbRealWorkant2.AutoSize = true;
-            this.cbRealWorkant2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbRealWorkant2.Location = new System.Drawing.Point(224, 22);
+            resources.ApplyResources(this.cbRealWorkant2, "cbRealWorkant2");
             this.cbRealWorkant2.Name = "cbRealWorkant2";
-            this.cbRealWorkant2.Size = new System.Drawing.Size(54, 16);
-            this.cbRealWorkant2.TabIndex = 65;
-            this.cbRealWorkant2.Text = "天线2";
             this.cbRealWorkant2.UseVisualStyleBackColor = true;
             // 
             // label19
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(51, 19);
+            resources.ApplyResources(this.label19, "label19");
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(0, 12);
-            this.label19.TabIndex = 0;
             // 
             // tbRealMinRssi
             // 
-            this.tbRealMinRssi.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbRealMinRssi.Location = new System.Drawing.Point(365, 287);
+            resources.ApplyResources(this.tbRealMinRssi, "tbRealMinRssi");
             this.tbRealMinRssi.Name = "tbRealMinRssi";
             this.tbRealMinRssi.ReadOnly = true;
-            this.tbRealMinRssi.Size = new System.Drawing.Size(62, 21);
-            this.tbRealMinRssi.TabIndex = 46;
-            this.tbRealMinRssi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbRealMaxRssi
             // 
-            this.tbRealMaxRssi.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbRealMaxRssi.Location = new System.Drawing.Point(517, 287);
+            resources.ApplyResources(this.tbRealMaxRssi, "tbRealMaxRssi");
             this.tbRealMaxRssi.Name = "tbRealMaxRssi";
             this.tbRealMaxRssi.ReadOnly = true;
-            this.tbRealMaxRssi.Size = new System.Drawing.Size(62, 21);
-            this.tbRealMaxRssi.TabIndex = 47;
-            this.tbRealMaxRssi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btRealFresh
             // 
-            this.btRealFresh.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.btRealFresh, "btRealFresh");
             this.btRealFresh.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btRealFresh.Location = new System.Drawing.Point(627, 285);
             this.btRealFresh.Name = "btRealFresh";
-            this.btRealFresh.Size = new System.Drawing.Size(89, 23);
-            this.btRealFresh.TabIndex = 45;
-            this.btRealFresh.Text = "刷新界面";
             this.btRealFresh.UseVisualStyleBackColor = true;
             this.btRealFresh.Click += new System.EventHandler(this.btRealFresh_Click);
             // 
             // label70
             // 
-            this.label70.AutoSize = true;
-            this.label70.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label70, "label70");
             this.label70.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label70.Location = new System.Drawing.Point(448, 293);
             this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(59, 12);
-            this.label70.TabIndex = 43;
-            this.label70.Text = "Max RSSI:";
             // 
             // label74
             // 
-            this.label74.AutoSize = true;
-            this.label74.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label74, "label74");
             this.label74.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label74.Location = new System.Drawing.Point(300, 293);
             this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(59, 12);
-            this.label74.TabIndex = 44;
-            this.label74.Text = "Min RSSI:";
             // 
             // lbRealTagCount
             // 
-            this.lbRealTagCount.AutoSize = true;
-            this.lbRealTagCount.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.lbRealTagCount, "lbRealTagCount");
             this.lbRealTagCount.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lbRealTagCount.Location = new System.Drawing.Point(7, 290);
             this.lbRealTagCount.Name = "lbRealTagCount";
-            this.lbRealTagCount.Size = new System.Drawing.Size(65, 12);
-            this.lbRealTagCount.TabIndex = 42;
-            this.lbRealTagCount.Text = "标签列表: ";
             // 
             // groupBox1
             // 
@@ -2912,14 +2229,10 @@ namespace UHFDemo
             this.groupBox1.Controls.Add(this.label68);
             this.groupBox1.Controls.Add(this.label69);
             this.groupBox1.Controls.Add(this.ledReal1);
-            this.groupBox1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox1.Location = new System.Drawing.Point(1, 119);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(996, 162);
-            this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "数据";
             // 
             // ledReal3
             // 
@@ -2932,14 +2245,11 @@ namespace UHFDemo
             this.ledReal3.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.ledReal3.ForeColor = System.Drawing.Color.MidnightBlue;
             this.ledReal3.HighlightOpaque = ((byte)(20));
-            this.ledReal3.Location = new System.Drawing.Point(702, 50);
+            resources.ApplyResources(this.ledReal3, "ledReal3");
             this.ledReal3.Name = "ledReal3";
             this.ledReal3.RoundCorner = true;
             this.ledReal3.SegmentIntervalRatio = 50;
             this.ledReal3.ShowHighlight = true;
-            this.ledReal3.Size = new System.Drawing.Size(183, 35);
-            this.ledReal3.TabIndex = 40;
-            this.ledReal3.Text = "0";
             this.ledReal3.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             this.ledReal3.TotalCharCount = 10;
             // 
@@ -2949,15 +2259,13 @@ namespace UHFDemo
             this.comboBox6.ForeColor = System.Drawing.SystemColors.InfoText;
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Items.AddRange(new object[] {
-            "天线1",
-            "天线2",
-            "天线3",
-            "天线4",
-            "不选"});
-            this.comboBox6.Location = new System.Drawing.Point(-165, 111);
+            resources.GetString("comboBox6.Items"),
+            resources.GetString("comboBox6.Items1"),
+            resources.GetString("comboBox6.Items2"),
+            resources.GetString("comboBox6.Items3"),
+            resources.GetString("comboBox6.Items4")});
+            resources.ApplyResources(this.comboBox6, "comboBox6");
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(55, 20);
-            this.comboBox6.TabIndex = 39;
             // 
             // ledReal5
             // 
@@ -2970,14 +2278,11 @@ namespace UHFDemo
             this.ledReal5.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.ledReal5.ForeColor = System.Drawing.Color.MidnightBlue;
             this.ledReal5.HighlightOpaque = ((byte)(20));
-            this.ledReal5.Location = new System.Drawing.Point(702, 118);
+            resources.ApplyResources(this.ledReal5, "ledReal5");
             this.ledReal5.Name = "ledReal5";
             this.ledReal5.RoundCorner = true;
             this.ledReal5.SegmentIntervalRatio = 50;
             this.ledReal5.ShowHighlight = true;
-            this.ledReal5.Size = new System.Drawing.Size(183, 35);
-            this.ledReal5.TabIndex = 35;
-            this.ledReal5.Text = "0";
             this.ledReal5.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             this.ledReal5.TotalCharCount = 10;
             // 
@@ -2992,14 +2297,11 @@ namespace UHFDemo
             this.ledReal2.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.ledReal2.ForeColor = System.Drawing.Color.Purple;
             this.ledReal2.HighlightOpaque = ((byte)(20));
-            this.ledReal2.Location = new System.Drawing.Point(496, 35);
+            resources.ApplyResources(this.ledReal2, "ledReal2");
             this.ledReal2.Name = "ledReal2";
             this.ledReal2.RoundCorner = true;
             this.ledReal2.SegmentIntervalRatio = 50;
             this.ledReal2.ShowHighlight = true;
-            this.ledReal2.Size = new System.Drawing.Size(162, 50);
-            this.ledReal2.TabIndex = 34;
-            this.ledReal2.Text = "0";
             this.ledReal2.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             this.ledReal2.TotalCharCount = 6;
             // 
@@ -3014,71 +2316,43 @@ namespace UHFDemo
             this.ledReal4.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.ledReal4.ForeColor = System.Drawing.Color.Purple;
             this.ledReal4.HighlightOpaque = ((byte)(20));
-            this.ledReal4.Location = new System.Drawing.Point(497, 103);
+            resources.ApplyResources(this.ledReal4, "ledReal4");
             this.ledReal4.Name = "ledReal4";
             this.ledReal4.RoundCorner = true;
             this.ledReal4.SegmentIntervalRatio = 50;
             this.ledReal4.ShowHighlight = true;
-            this.ledReal4.Size = new System.Drawing.Size(161, 50);
-            this.ledReal4.TabIndex = 33;
-            this.ledReal4.Text = "0";
             this.ledReal4.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             this.ledReal4.TotalCharCount = 6;
             // 
             // label53
             // 
-            this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label53, "label53");
             this.label53.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label53.Location = new System.Drawing.Point(700, 103);
             this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(131, 12);
-            this.label53.TabIndex = 30;
-            this.label53.Text = "累计运行的时间(毫秒):";
             // 
             // label66
             // 
-            this.label66.AutoSize = true;
-            this.label66.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label66, "label66");
             this.label66.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label66.Location = new System.Drawing.Point(495, 17);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(125, 12);
-            this.label66.TabIndex = 29;
-            this.label66.Text = "命令识别速度(个/秒):";
             // 
             // label67
             // 
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label67, "label67");
             this.label67.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label67.Location = new System.Drawing.Point(498, 88);
             this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(119, 12);
-            this.label67.TabIndex = 28;
-            this.label67.Text = "命令执行时间(毫秒):";
             // 
             // label68
             // 
-            this.label68.AutoSize = true;
-            this.label68.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label68, "label68");
             this.label68.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label68.Location = new System.Drawing.Point(700, 35);
             this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(107, 12);
-            this.label68.TabIndex = 27;
-            this.label68.Text = "累计返回数据(条):";
             // 
             // label69
             // 
-            this.label69.AutoSize = true;
-            this.label69.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label69, "label69");
             this.label69.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label69.Location = new System.Drawing.Point(104, 17);
             this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(143, 12);
-            this.label69.TabIndex = 26;
-            this.label69.Text = "已盘存的标签总数量(个):";
             // 
             // ledReal1
             // 
@@ -3092,14 +2366,11 @@ namespace UHFDemo
             this.ledReal1.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.ledReal1.ForeColor = System.Drawing.Color.MidnightBlue;
             this.ledReal1.HighlightOpaque = ((byte)(20));
-            this.ledReal1.Location = new System.Drawing.Point(106, 35);
+            resources.ApplyResources(this.ledReal1, "ledReal1");
             this.ledReal1.Name = "ledReal1";
             this.ledReal1.RoundCorner = true;
             this.ledReal1.SegmentIntervalRatio = 50;
             this.ledReal1.ShowHighlight = true;
-            this.ledReal1.Size = new System.Drawing.Size(310, 118);
-            this.ledReal1.TabIndex = 21;
-            this.ledReal1.Text = "0";
             this.ledReal1.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             // 
             // lvRealList
@@ -3112,56 +2383,39 @@ namespace UHFDemo
             this.columnHeader41,
             this.columnHeader412,
             this.columnHeader42});
-            this.lvRealList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lvRealList.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.lvRealList, "lvRealList");
             this.lvRealList.GridLines = true;
-            this.lvRealList.Location = new System.Drawing.Point(3, 313);
             this.lvRealList.Name = "lvRealList";
-            this.lvRealList.Size = new System.Drawing.Size(994, 206);
-            this.lvRealList.TabIndex = 23;
             this.lvRealList.UseCompatibleStateImageBehavior = false;
             this.lvRealList.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader37
             // 
-            this.columnHeader37.Text = "ID";
-            this.columnHeader37.Width = 59;
+            resources.ApplyResources(this.columnHeader37, "columnHeader37");
             // 
             // columnHeader38
             // 
-            this.columnHeader38.Text = "EPC";
-            this.columnHeader38.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader38.Width = 446;
+            resources.ApplyResources(this.columnHeader38, "columnHeader38");
             // 
             // columnHeader39
             // 
-            this.columnHeader39.Text = "PC";
-            this.columnHeader39.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader39.Width = 71;
+            resources.ApplyResources(this.columnHeader39, "columnHeader39");
             // 
             // columnHeader40
             // 
-            this.columnHeader40.Text = "识别次数(ANT1/2/3/4/5/6/7/8)";
-            this.columnHeader40.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader40.Width = 235;
+            resources.ApplyResources(this.columnHeader40, "columnHeader40");
             // 
             // columnHeader41
             // 
-            this.columnHeader41.Text = "RSSI";
-            this.columnHeader41.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader41.Width = 97;
+            resources.ApplyResources(this.columnHeader41, "columnHeader41");
             // 
             // columnHeader412
             // 
-            this.columnHeader412.Text = "相位值";
-            this.columnHeader412.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader412.Width = 97;
+            resources.ApplyResources(this.columnHeader412, "columnHeader412");
             // 
             // columnHeader42
             // 
-            this.columnHeader42.Text = "载波频率";
-            this.columnHeader42.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader42.Width = 97;
+            resources.ApplyResources(this.columnHeader42, "columnHeader42");
             // 
             // pageBufferedMode
             // 
@@ -3175,63 +2429,38 @@ namespace UHFDemo
             this.pageBufferedMode.Controls.Add(this.labelBufferTagCount);
             this.pageBufferedMode.Controls.Add(this.lvBufferList);
             this.pageBufferedMode.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.pageBufferedMode.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.pageBufferedMode, "pageBufferedMode");
             this.pageBufferedMode.Name = "pageBufferedMode";
-            this.pageBufferedMode.Size = new System.Drawing.Size(1000, 522);
-            this.pageBufferedMode.TabIndex = 2;
-            this.pageBufferedMode.Text = "盘存标签(缓存模式)";
             // 
             // excel_format_buffer_rb
             // 
-            this.excel_format_buffer_rb.AutoSize = true;
-            this.excel_format_buffer_rb.Location = new System.Drawing.Point(832, 259);
+            resources.ApplyResources(this.excel_format_buffer_rb, "excel_format_buffer_rb");
             this.excel_format_buffer_rb.Name = "excel_format_buffer_rb";
-            this.excel_format_buffer_rb.Size = new System.Drawing.Size(53, 16);
-            this.excel_format_buffer_rb.TabIndex = 64;
-            this.excel_format_buffer_rb.Text = "EXCEL";
             this.excel_format_buffer_rb.UseVisualStyleBackColor = true;
             // 
             // txt_format_buffer_rb
             // 
-            this.txt_format_buffer_rb.AutoSize = true;
+            resources.ApplyResources(this.txt_format_buffer_rb, "txt_format_buffer_rb");
             this.txt_format_buffer_rb.Checked = true;
-            this.txt_format_buffer_rb.Location = new System.Drawing.Point(766, 259);
             this.txt_format_buffer_rb.Name = "txt_format_buffer_rb";
-            this.txt_format_buffer_rb.Size = new System.Drawing.Size(41, 16);
-            this.txt_format_buffer_rb.TabIndex = 63;
             this.txt_format_buffer_rb.TabStop = true;
-            this.txt_format_buffer_rb.Text = "TXT";
             this.txt_format_buffer_rb.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
-            this.button6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.button6, "button6");
             this.button6.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button6.Location = new System.Drawing.Point(907, 255);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(89, 23);
-            this.button6.TabIndex = 62;
-            this.button6.Text = "保存标签";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.22422F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.77578F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 390F));
+            resources.ApplyResources(this.tableLayoutPanel4, "tableLayoutPanel4");
             this.tableLayoutPanel4.Controls.Add(this.panel9, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel10, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel8, 1, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1000, 82);
-            this.tableLayoutPanel4.TabIndex = 58;
             // 
             // panel9
             // 
@@ -3239,57 +2468,38 @@ namespace UHFDemo
             this.panel9.Controls.Add(this.btQueryBuffer);
             this.panel9.Controls.Add(this.btGetClearBuffer);
             this.panel9.Controls.Add(this.btGetBuffer);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(611, 4);
+            resources.ApplyResources(this.panel9, "panel9");
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(385, 74);
-            this.panel9.TabIndex = 1;
             // 
             // btClearBuffer
             // 
-            this.btClearBuffer.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.btClearBuffer, "btClearBuffer");
             this.btClearBuffer.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btClearBuffer.Location = new System.Drawing.Point(15, 41);
             this.btClearBuffer.Name = "btClearBuffer";
-            this.btClearBuffer.Size = new System.Drawing.Size(135, 25);
-            this.btClearBuffer.TabIndex = 8;
-            this.btClearBuffer.Text = "清空缓存";
             this.btClearBuffer.UseVisualStyleBackColor = true;
             this.btClearBuffer.Click += new System.EventHandler(this.btClearBuffer_Click);
             // 
             // btQueryBuffer
             // 
-            this.btQueryBuffer.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.btQueryBuffer, "btQueryBuffer");
             this.btQueryBuffer.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btQueryBuffer.Location = new System.Drawing.Point(167, 41);
             this.btQueryBuffer.Name = "btQueryBuffer";
-            this.btQueryBuffer.Size = new System.Drawing.Size(135, 25);
-            this.btQueryBuffer.TabIndex = 7;
-            this.btQueryBuffer.Text = "查询缓存中标签数量";
             this.btQueryBuffer.UseVisualStyleBackColor = true;
             this.btQueryBuffer.Click += new System.EventHandler(this.btQueryBuffer_Click);
             // 
             // btGetClearBuffer
             // 
-            this.btGetClearBuffer.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.btGetClearBuffer, "btGetClearBuffer");
             this.btGetClearBuffer.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btGetClearBuffer.Location = new System.Drawing.Point(167, 10);
             this.btGetClearBuffer.Name = "btGetClearBuffer";
-            this.btGetClearBuffer.Size = new System.Drawing.Size(135, 25);
-            this.btGetClearBuffer.TabIndex = 6;
-            this.btGetClearBuffer.Text = "读取并清空缓存";
             this.btGetClearBuffer.UseVisualStyleBackColor = true;
             this.btGetClearBuffer.Click += new System.EventHandler(this.btGetClearBuffer_Click);
             // 
             // btGetBuffer
             // 
-            this.btGetBuffer.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.btGetBuffer, "btGetBuffer");
             this.btGetBuffer.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btGetBuffer.Location = new System.Drawing.Point(15, 10);
             this.btGetBuffer.Name = "btGetBuffer";
-            this.btGetBuffer.Size = new System.Drawing.Size(135, 25);
-            this.btGetBuffer.TabIndex = 5;
-            this.btGetBuffer.Text = "读取缓存";
             this.btGetBuffer.UseVisualStyleBackColor = true;
             this.btGetBuffer.Click += new System.EventHandler(this.btGetBuffer_Click);
             // 
@@ -3298,43 +2508,26 @@ namespace UHFDemo
             this.panel10.Controls.Add(this.btBufferInventory);
             this.panel10.Controls.Add(this.label85);
             this.panel10.Controls.Add(this.textReadRoundBuffer);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(4, 4);
+            resources.ApplyResources(this.panel10, "panel10");
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(298, 74);
-            this.panel10.TabIndex = 0;
             // 
             // btBufferInventory
             // 
-            this.btBufferInventory.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.btBufferInventory, "btBufferInventory");
             this.btBufferInventory.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btBufferInventory.Location = new System.Drawing.Point(7, 14);
             this.btBufferInventory.Name = "btBufferInventory";
-            this.btBufferInventory.Size = new System.Drawing.Size(144, 38);
-            this.btBufferInventory.TabIndex = 51;
-            this.btBufferInventory.Text = "开始盘存";
             this.btBufferInventory.UseVisualStyleBackColor = true;
             this.btBufferInventory.Click += new System.EventHandler(this.btBufferInventory_Click);
             // 
             // label85
             // 
-            this.label85.AutoSize = true;
-            this.label85.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label85.Location = new System.Drawing.Point(154, 29);
+            resources.ApplyResources(this.label85, "label85");
             this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(119, 12);
-            this.label85.TabIndex = 49;
-            this.label85.Text = "每条命令的盘存次数:";
             // 
             // textReadRoundBuffer
             // 
-            this.textReadRoundBuffer.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textReadRoundBuffer.Location = new System.Drawing.Point(273, 26);
+            resources.ApplyResources(this.textReadRoundBuffer, "textReadRoundBuffer");
             this.textReadRoundBuffer.Name = "textReadRoundBuffer";
-            this.textReadRoundBuffer.Size = new System.Drawing.Size(28, 21);
-            this.textReadRoundBuffer.TabIndex = 50;
-            this.textReadRoundBuffer.Text = "1";
-            this.textReadRoundBuffer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel8
             // 
@@ -3346,100 +2539,57 @@ namespace UHFDemo
             this.panel8.Controls.Add(this.cbBufferWorkant4);
             this.panel8.Controls.Add(this.cbBufferWorkant2);
             this.panel8.Controls.Add(this.cbBufferWorkant3);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(309, 4);
+            resources.ApplyResources(this.panel8, "panel8");
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(295, 74);
-            this.panel8.TabIndex = 0;
             // 
             // checkBox4
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkBox4.Location = new System.Drawing.Point(237, 37);
+            resources.ApplyResources(this.checkBox4, "checkBox4");
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(54, 16);
-            this.checkBox4.TabIndex = 15;
-            this.checkBox4.Text = "天线8";
             this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // checkBox3
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkBox3.Location = new System.Drawing.Point(171, 37);
+            resources.ApplyResources(this.checkBox3, "checkBox3");
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(54, 16);
-            this.checkBox3.TabIndex = 14;
-            this.checkBox3.Text = "天线7";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // checkBox2
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkBox2.Location = new System.Drawing.Point(104, 36);
+            resources.ApplyResources(this.checkBox2, "checkBox2");
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(54, 16);
-            this.checkBox2.TabIndex = 13;
-            this.checkBox2.Text = "天线6";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // checkBox1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkBox1.Location = new System.Drawing.Point(33, 37);
+            resources.ApplyResources(this.checkBox1, "checkBox1");
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(54, 16);
-            this.checkBox1.TabIndex = 12;
-            this.checkBox1.Text = "天线5";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // cbBufferWorkant1
             // 
-            this.cbBufferWorkant1.AutoSize = true;
+            resources.ApplyResources(this.cbBufferWorkant1, "cbBufferWorkant1");
             this.cbBufferWorkant1.Checked = true;
             this.cbBufferWorkant1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbBufferWorkant1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbBufferWorkant1.Location = new System.Drawing.Point(33, 10);
             this.cbBufferWorkant1.Name = "cbBufferWorkant1";
-            this.cbBufferWorkant1.Size = new System.Drawing.Size(54, 16);
-            this.cbBufferWorkant1.TabIndex = 11;
-            this.cbBufferWorkant1.Text = "天线1";
             this.cbBufferWorkant1.UseVisualStyleBackColor = true;
             // 
             // cbBufferWorkant4
             // 
-            this.cbBufferWorkant4.AutoSize = true;
-            this.cbBufferWorkant4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbBufferWorkant4.Location = new System.Drawing.Point(237, 10);
+            resources.ApplyResources(this.cbBufferWorkant4, "cbBufferWorkant4");
             this.cbBufferWorkant4.Name = "cbBufferWorkant4";
-            this.cbBufferWorkant4.Size = new System.Drawing.Size(54, 16);
-            this.cbBufferWorkant4.TabIndex = 10;
-            this.cbBufferWorkant4.Text = "天线4";
             this.cbBufferWorkant4.UseVisualStyleBackColor = true;
             // 
             // cbBufferWorkant2
             // 
-            this.cbBufferWorkant2.AutoSize = true;
-            this.cbBufferWorkant2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbBufferWorkant2.Location = new System.Drawing.Point(104, 10);
+            resources.ApplyResources(this.cbBufferWorkant2, "cbBufferWorkant2");
             this.cbBufferWorkant2.Name = "cbBufferWorkant2";
-            this.cbBufferWorkant2.Size = new System.Drawing.Size(54, 16);
-            this.cbBufferWorkant2.TabIndex = 8;
-            this.cbBufferWorkant2.Text = "天线2";
             this.cbBufferWorkant2.UseVisualStyleBackColor = true;
             // 
             // cbBufferWorkant3
             // 
-            this.cbBufferWorkant3.AutoSize = true;
-            this.cbBufferWorkant3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbBufferWorkant3.Location = new System.Drawing.Point(171, 10);
+            resources.ApplyResources(this.cbBufferWorkant3, "cbBufferWorkant3");
             this.cbBufferWorkant3.Name = "cbBufferWorkant3";
-            this.cbBufferWorkant3.Size = new System.Drawing.Size(54, 16);
-            this.cbBufferWorkant3.TabIndex = 9;
-            this.cbBufferWorkant3.Text = "天线3";
             this.cbBufferWorkant3.UseVisualStyleBackColor = true;
             // 
             // groupBox3
@@ -3455,14 +2605,10 @@ namespace UHFDemo
             this.groupBox3.Controls.Add(this.label95);
             this.groupBox3.Controls.Add(this.label96);
             this.groupBox3.Controls.Add(this.ledBuffer1);
-            this.groupBox3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox3.Location = new System.Drawing.Point(0, 88);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(996, 162);
-            this.groupBox3.TabIndex = 57;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "数据";
             // 
             // ledBuffer4
             // 
@@ -3475,14 +2621,11 @@ namespace UHFDemo
             this.ledBuffer4.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.ledBuffer4.ForeColor = System.Drawing.Color.MidnightBlue;
             this.ledBuffer4.HighlightOpaque = ((byte)(20));
-            this.ledBuffer4.Location = new System.Drawing.Point(702, 50);
+            resources.ApplyResources(this.ledBuffer4, "ledBuffer4");
             this.ledBuffer4.Name = "ledBuffer4";
             this.ledBuffer4.RoundCorner = true;
             this.ledBuffer4.SegmentIntervalRatio = 50;
             this.ledBuffer4.ShowHighlight = true;
-            this.ledBuffer4.Size = new System.Drawing.Size(183, 35);
-            this.ledBuffer4.TabIndex = 40;
-            this.ledBuffer4.Text = "0";
             this.ledBuffer4.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             this.ledBuffer4.TotalCharCount = 10;
             // 
@@ -3492,15 +2635,13 @@ namespace UHFDemo
             this.comboBox11.ForeColor = System.Drawing.SystemColors.InfoText;
             this.comboBox11.FormattingEnabled = true;
             this.comboBox11.Items.AddRange(new object[] {
-            "天线1",
-            "天线2",
-            "天线3",
-            "天线4",
-            "不选"});
-            this.comboBox11.Location = new System.Drawing.Point(-165, 111);
+            resources.GetString("comboBox11.Items"),
+            resources.GetString("comboBox11.Items1"),
+            resources.GetString("comboBox11.Items2"),
+            resources.GetString("comboBox11.Items3"),
+            resources.GetString("comboBox11.Items4")});
+            resources.ApplyResources(this.comboBox11, "comboBox11");
             this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(55, 20);
-            this.comboBox11.TabIndex = 39;
             // 
             // ledBuffer5
             // 
@@ -3513,14 +2654,11 @@ namespace UHFDemo
             this.ledBuffer5.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.ledBuffer5.ForeColor = System.Drawing.Color.MidnightBlue;
             this.ledBuffer5.HighlightOpaque = ((byte)(20));
-            this.ledBuffer5.Location = new System.Drawing.Point(702, 118);
+            resources.ApplyResources(this.ledBuffer5, "ledBuffer5");
             this.ledBuffer5.Name = "ledBuffer5";
             this.ledBuffer5.RoundCorner = true;
             this.ledBuffer5.SegmentIntervalRatio = 50;
             this.ledBuffer5.ShowHighlight = true;
-            this.ledBuffer5.Size = new System.Drawing.Size(183, 35);
-            this.ledBuffer5.TabIndex = 35;
-            this.ledBuffer5.Text = "0";
             this.ledBuffer5.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             this.ledBuffer5.TotalCharCount = 10;
             // 
@@ -3535,14 +2673,11 @@ namespace UHFDemo
             this.ledBuffer2.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.ledBuffer2.ForeColor = System.Drawing.Color.Purple;
             this.ledBuffer2.HighlightOpaque = ((byte)(20));
-            this.ledBuffer2.Location = new System.Drawing.Point(496, 35);
+            resources.ApplyResources(this.ledBuffer2, "ledBuffer2");
             this.ledBuffer2.Name = "ledBuffer2";
             this.ledBuffer2.RoundCorner = true;
             this.ledBuffer2.SegmentIntervalRatio = 50;
             this.ledBuffer2.ShowHighlight = true;
-            this.ledBuffer2.Size = new System.Drawing.Size(162, 50);
-            this.ledBuffer2.TabIndex = 34;
-            this.ledBuffer2.Text = "0";
             this.ledBuffer2.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             this.ledBuffer2.TotalCharCount = 6;
             // 
@@ -3557,71 +2692,43 @@ namespace UHFDemo
             this.ledBuffer3.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.ledBuffer3.ForeColor = System.Drawing.Color.Purple;
             this.ledBuffer3.HighlightOpaque = ((byte)(20));
-            this.ledBuffer3.Location = new System.Drawing.Point(497, 103);
+            resources.ApplyResources(this.ledBuffer3, "ledBuffer3");
             this.ledBuffer3.Name = "ledBuffer3";
             this.ledBuffer3.RoundCorner = true;
             this.ledBuffer3.SegmentIntervalRatio = 50;
             this.ledBuffer3.ShowHighlight = true;
-            this.ledBuffer3.Size = new System.Drawing.Size(161, 50);
-            this.ledBuffer3.TabIndex = 33;
-            this.ledBuffer3.Text = "0";
             this.ledBuffer3.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             this.ledBuffer3.TotalCharCount = 6;
             // 
             // label92
             // 
-            this.label92.AutoSize = true;
-            this.label92.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label92, "label92");
             this.label92.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label92.Location = new System.Drawing.Point(700, 103);
             this.label92.Name = "label92";
-            this.label92.Size = new System.Drawing.Size(131, 12);
-            this.label92.TabIndex = 30;
-            this.label92.Text = "累计运行的时间(毫秒):";
             // 
             // label93
             // 
-            this.label93.AutoSize = true;
-            this.label93.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label93, "label93");
             this.label93.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label93.Location = new System.Drawing.Point(495, 17);
             this.label93.Name = "label93";
-            this.label93.Size = new System.Drawing.Size(125, 12);
-            this.label93.TabIndex = 29;
-            this.label93.Text = "命令识别速度(个/秒):";
             // 
             // label94
             // 
-            this.label94.AutoSize = true;
-            this.label94.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label94, "label94");
             this.label94.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label94.Location = new System.Drawing.Point(498, 88);
             this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(119, 12);
-            this.label94.TabIndex = 28;
-            this.label94.Text = "命令执行时间(毫秒):";
             // 
             // label95
             // 
-            this.label95.AutoSize = true;
-            this.label95.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label95, "label95");
             this.label95.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label95.Location = new System.Drawing.Point(700, 35);
             this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(107, 12);
-            this.label95.TabIndex = 27;
-            this.label95.Text = "累计读标签的次数:";
             // 
             // label96
             // 
-            this.label96.AutoSize = true;
-            this.label96.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label96, "label96");
             this.label96.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label96.Location = new System.Drawing.Point(104, 17);
             this.label96.Name = "label96";
-            this.label96.Size = new System.Drawing.Size(143, 12);
-            this.label96.TabIndex = 26;
-            this.label96.Text = "已盘存的标签总数量(个):";
             // 
             // ledBuffer1
             // 
@@ -3635,38 +2742,26 @@ namespace UHFDemo
             this.ledBuffer1.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.ledBuffer1.ForeColor = System.Drawing.Color.MidnightBlue;
             this.ledBuffer1.HighlightOpaque = ((byte)(20));
-            this.ledBuffer1.Location = new System.Drawing.Point(106, 35);
+            resources.ApplyResources(this.ledBuffer1, "ledBuffer1");
             this.ledBuffer1.Name = "ledBuffer1";
             this.ledBuffer1.RoundCorner = true;
             this.ledBuffer1.SegmentIntervalRatio = 50;
             this.ledBuffer1.ShowHighlight = true;
-            this.ledBuffer1.Size = new System.Drawing.Size(310, 118);
-            this.ledBuffer1.TabIndex = 21;
-            this.ledBuffer1.Text = "0";
             this.ledBuffer1.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             // 
             // btBufferFresh
             // 
-            this.btBufferFresh.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.btBufferFresh, "btBufferFresh");
             this.btBufferFresh.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btBufferFresh.Location = new System.Drawing.Point(623, 255);
             this.btBufferFresh.Name = "btBufferFresh";
-            this.btBufferFresh.Size = new System.Drawing.Size(89, 23);
-            this.btBufferFresh.TabIndex = 52;
-            this.btBufferFresh.Text = "刷新界面";
             this.btBufferFresh.UseVisualStyleBackColor = true;
             this.btBufferFresh.Click += new System.EventHandler(this.btBufferFresh_Click);
             // 
             // labelBufferTagCount
             // 
-            this.labelBufferTagCount.AutoSize = true;
-            this.labelBufferTagCount.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.labelBufferTagCount, "labelBufferTagCount");
             this.labelBufferTagCount.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.labelBufferTagCount.Location = new System.Drawing.Point(6, 261);
             this.labelBufferTagCount.Name = "labelBufferTagCount";
-            this.labelBufferTagCount.Size = new System.Drawing.Size(65, 12);
-            this.labelBufferTagCount.TabIndex = 49;
-            this.labelBufferTagCount.Text = "标签列表: ";
             // 
             // lvBufferList
             // 
@@ -3678,57 +2773,39 @@ namespace UHFDemo
             this.columnHeader53,
             this.columnHeader54,
             this.columnHeader16});
-            this.lvBufferList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lvBufferList.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.lvBufferList, "lvBufferList");
             this.lvBufferList.GridLines = true;
-            this.lvBufferList.Location = new System.Drawing.Point(0, 284);
             this.lvBufferList.Name = "lvBufferList";
-            this.lvBufferList.Size = new System.Drawing.Size(1000, 238);
-            this.lvBufferList.TabIndex = 48;
             this.lvBufferList.UseCompatibleStateImageBehavior = false;
             this.lvBufferList.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader49
             // 
-            this.columnHeader49.Text = "ID";
-            this.columnHeader49.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader49.Width = 56;
+            resources.ApplyResources(this.columnHeader49, "columnHeader49");
             // 
             // columnHeader50
             // 
-            this.columnHeader50.Text = "PC";
-            this.columnHeader50.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader50.Width = 64;
+            resources.ApplyResources(this.columnHeader50, "columnHeader50");
             // 
             // columnHeader51
             // 
-            this.columnHeader51.Text = "CRC";
-            this.columnHeader51.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader51.Width = 74;
+            resources.ApplyResources(this.columnHeader51, "columnHeader51");
             // 
             // columnHeader52
             // 
-            this.columnHeader52.Text = "EPC";
-            this.columnHeader52.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader52.Width = 492;
+            resources.ApplyResources(this.columnHeader52, "columnHeader52");
             // 
             // columnHeader53
             // 
-            this.columnHeader53.Text = "天线号";
-            this.columnHeader53.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader53.Width = 95;
+            resources.ApplyResources(this.columnHeader53, "columnHeader53");
             // 
             // columnHeader54
             // 
-            this.columnHeader54.Text = "RSSI";
-            this.columnHeader54.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader54.Width = 90;
+            resources.ApplyResources(this.columnHeader54, "columnHeader54");
             // 
             // columnHeader16
             // 
-            this.columnHeader16.Text = "读取次数";
-            this.columnHeader16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader16.Width = 139;
+            resources.ApplyResources(this.columnHeader16, "columnHeader16");
             // 
             // pageFast4AntMode
             // 
@@ -3746,45 +2823,29 @@ namespace UHFDemo
             this.pageFast4AntMode.Controls.Add(this.label49);
             this.pageFast4AntMode.Controls.Add(this.txtFastTagList);
             this.pageFast4AntMode.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.pageFast4AntMode.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.pageFast4AntMode, "pageFast4AntMode");
             this.pageFast4AntMode.Name = "pageFast4AntMode";
-            this.pageFast4AntMode.Padding = new System.Windows.Forms.Padding(3);
-            this.pageFast4AntMode.Size = new System.Drawing.Size(1000, 522);
-            this.pageFast4AntMode.TabIndex = 0;
-            this.pageFast4AntMode.Text = "快速天线盘存";
             this.pageFast4AntMode.Enter += new System.EventHandler(this.pageFast4AntMode_Enter);
             // 
             // txt_format_fast_rb
             // 
-            this.txt_format_fast_rb.AutoSize = true;
+            resources.ApplyResources(this.txt_format_fast_rb, "txt_format_fast_rb");
             this.txt_format_fast_rb.Checked = true;
-            this.txt_format_fast_rb.Location = new System.Drawing.Point(739, 266);
             this.txt_format_fast_rb.Name = "txt_format_fast_rb";
-            this.txt_format_fast_rb.Size = new System.Drawing.Size(41, 16);
-            this.txt_format_fast_rb.TabIndex = 65;
             this.txt_format_fast_rb.TabStop = true;
-            this.txt_format_fast_rb.Text = "TXT";
             this.txt_format_fast_rb.UseVisualStyleBackColor = true;
             // 
             // excel_format_fast_rb
             // 
-            this.excel_format_fast_rb.AutoSize = true;
-            this.excel_format_fast_rb.Location = new System.Drawing.Point(809, 266);
+            resources.ApplyResources(this.excel_format_fast_rb, "excel_format_fast_rb");
             this.excel_format_fast_rb.Name = "excel_format_fast_rb";
-            this.excel_format_fast_rb.Size = new System.Drawing.Size(53, 16);
-            this.excel_format_fast_rb.TabIndex = 64;
-            this.excel_format_fast_rb.Text = "EXCEL";
             this.excel_format_fast_rb.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
-            this.button7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.button7, "button7");
             this.button7.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button7.Location = new System.Drawing.Point(885, 261);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(89, 23);
-            this.button7.TabIndex = 62;
-            this.button7.Text = "保存标签";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click_1);
             // 
@@ -3801,15 +2862,10 @@ namespace UHFDemo
             this.groupBox2.Controls.Add(this.label57);
             this.groupBox2.Controls.Add(this.label58);
             this.groupBox2.Controls.Add(this.ledFast1);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox2.Location = new System.Drawing.Point(3, 96);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(994, 162);
-            this.groupBox2.TabIndex = 42;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "数据";
             // 
             // ledFast4
             // 
@@ -3822,14 +2878,11 @@ namespace UHFDemo
             this.ledFast4.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.ledFast4.ForeColor = System.Drawing.Color.MidnightBlue;
             this.ledFast4.HighlightOpaque = ((byte)(20));
-            this.ledFast4.Location = new System.Drawing.Point(702, 50);
+            resources.ApplyResources(this.ledFast4, "ledFast4");
             this.ledFast4.Name = "ledFast4";
             this.ledFast4.RoundCorner = true;
             this.ledFast4.SegmentIntervalRatio = 50;
             this.ledFast4.ShowHighlight = true;
-            this.ledFast4.Size = new System.Drawing.Size(183, 35);
-            this.ledFast4.TabIndex = 40;
-            this.ledFast4.Text = "0";
             this.ledFast4.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             this.ledFast4.TotalCharCount = 10;
             // 
@@ -3839,15 +2892,13 @@ namespace UHFDemo
             this.comboBox7.ForeColor = System.Drawing.SystemColors.InfoText;
             this.comboBox7.FormattingEnabled = true;
             this.comboBox7.Items.AddRange(new object[] {
-            "天线1",
-            "天线2",
-            "天线3",
-            "天线4",
-            "不选"});
-            this.comboBox7.Location = new System.Drawing.Point(-165, 111);
+            resources.GetString("comboBox7.Items"),
+            resources.GetString("comboBox7.Items1"),
+            resources.GetString("comboBox7.Items2"),
+            resources.GetString("comboBox7.Items3"),
+            resources.GetString("comboBox7.Items4")});
+            resources.ApplyResources(this.comboBox7, "comboBox7");
             this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(55, 20);
-            this.comboBox7.TabIndex = 39;
             // 
             // ledFast5
             // 
@@ -3860,14 +2911,11 @@ namespace UHFDemo
             this.ledFast5.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.ledFast5.ForeColor = System.Drawing.Color.MidnightBlue;
             this.ledFast5.HighlightOpaque = ((byte)(20));
-            this.ledFast5.Location = new System.Drawing.Point(702, 118);
+            resources.ApplyResources(this.ledFast5, "ledFast5");
             this.ledFast5.Name = "ledFast5";
             this.ledFast5.RoundCorner = true;
             this.ledFast5.SegmentIntervalRatio = 50;
             this.ledFast5.ShowHighlight = true;
-            this.ledFast5.Size = new System.Drawing.Size(183, 35);
-            this.ledFast5.TabIndex = 35;
-            this.ledFast5.Text = "0";
             this.ledFast5.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             this.ledFast5.TotalCharCount = 10;
             // 
@@ -3882,14 +2930,11 @@ namespace UHFDemo
             this.ledFast2.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.ledFast2.ForeColor = System.Drawing.Color.Purple;
             this.ledFast2.HighlightOpaque = ((byte)(20));
-            this.ledFast2.Location = new System.Drawing.Point(496, 35);
+            resources.ApplyResources(this.ledFast2, "ledFast2");
             this.ledFast2.Name = "ledFast2";
             this.ledFast2.RoundCorner = true;
             this.ledFast2.SegmentIntervalRatio = 50;
             this.ledFast2.ShowHighlight = true;
-            this.ledFast2.Size = new System.Drawing.Size(162, 50);
-            this.ledFast2.TabIndex = 34;
-            this.ledFast2.Text = "0";
             this.ledFast2.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             this.ledFast2.TotalCharCount = 6;
             // 
@@ -3904,71 +2949,43 @@ namespace UHFDemo
             this.ledFast3.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.ledFast3.ForeColor = System.Drawing.Color.Purple;
             this.ledFast3.HighlightOpaque = ((byte)(20));
-            this.ledFast3.Location = new System.Drawing.Point(497, 103);
+            resources.ApplyResources(this.ledFast3, "ledFast3");
             this.ledFast3.Name = "ledFast3";
             this.ledFast3.RoundCorner = true;
             this.ledFast3.SegmentIntervalRatio = 50;
             this.ledFast3.ShowHighlight = true;
-            this.ledFast3.Size = new System.Drawing.Size(161, 50);
-            this.ledFast3.TabIndex = 33;
-            this.ledFast3.Text = "0";
             this.ledFast3.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             this.ledFast3.TotalCharCount = 6;
             // 
             // label54
             // 
-            this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label54, "label54");
             this.label54.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label54.Location = new System.Drawing.Point(700, 103);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(131, 12);
-            this.label54.TabIndex = 30;
-            this.label54.Text = "累计运行的时间(毫秒):";
             // 
             // label55
             // 
-            this.label55.AutoSize = true;
-            this.label55.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label55, "label55");
             this.label55.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label55.Location = new System.Drawing.Point(495, 17);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(125, 12);
-            this.label55.TabIndex = 29;
-            this.label55.Text = "命令识别速度(个/秒):";
             // 
             // label56
             // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label56, "label56");
             this.label56.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label56.Location = new System.Drawing.Point(498, 88);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(119, 12);
-            this.label56.TabIndex = 28;
-            this.label56.Text = "命令执行时间(毫秒):";
             // 
             // label57
             // 
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label57, "label57");
             this.label57.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label57.Location = new System.Drawing.Point(700, 35);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(107, 12);
-            this.label57.TabIndex = 27;
-            this.label57.Text = "累计返回数据(条):";
             // 
             // label58
             // 
-            this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label58, "label58");
             this.label58.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label58.Location = new System.Drawing.Point(104, 17);
             this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(143, 12);
-            this.label58.TabIndex = 26;
-            this.label58.Text = "已盘存的标签总数量(个):";
             // 
             // ledFast1
             // 
@@ -3982,63 +2999,39 @@ namespace UHFDemo
             this.ledFast1.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.ledFast1.ForeColor = System.Drawing.Color.MidnightBlue;
             this.ledFast1.HighlightOpaque = ((byte)(20));
-            this.ledFast1.Location = new System.Drawing.Point(106, 35);
+            resources.ApplyResources(this.ledFast1, "ledFast1");
             this.ledFast1.Name = "ledFast1";
             this.ledFast1.RoundCorner = true;
             this.ledFast1.SegmentIntervalRatio = 50;
             this.ledFast1.ShowHighlight = true;
-            this.ledFast1.Size = new System.Drawing.Size(310, 118);
-            this.ledFast1.TabIndex = 21;
-            this.ledFast1.Text = "0";
             this.ledFast1.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             // 
             // txtFastMaxRssi
             // 
-            this.txtFastMaxRssi.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtFastMaxRssi.Location = new System.Drawing.Point(499, 261);
+            resources.ApplyResources(this.txtFastMaxRssi, "txtFastMaxRssi");
             this.txtFastMaxRssi.Name = "txtFastMaxRssi";
-            this.txtFastMaxRssi.Size = new System.Drawing.Size(62, 21);
-            this.txtFastMaxRssi.TabIndex = 40;
             // 
             // txtFastMinRssi
             // 
-            this.txtFastMinRssi.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtFastMinRssi.Location = new System.Drawing.Point(337, 261);
+            resources.ApplyResources(this.txtFastMinRssi, "txtFastMinRssi");
             this.txtFastMinRssi.Name = "txtFastMinRssi";
-            this.txtFastMinRssi.Size = new System.Drawing.Size(62, 21);
-            this.txtFastMinRssi.TabIndex = 41;
             // 
             // buttonFastFresh
             // 
-            this.buttonFastFresh.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.buttonFastFresh, "buttonFastFresh");
             this.buttonFastFresh.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.buttonFastFresh.Location = new System.Drawing.Point(602, 261);
             this.buttonFastFresh.Name = "buttonFastFresh";
-            this.buttonFastFresh.Size = new System.Drawing.Size(89, 23);
-            this.buttonFastFresh.TabIndex = 28;
-            this.buttonFastFresh.Text = "刷新界面";
             this.buttonFastFresh.UseVisualStyleBackColor = true;
             this.buttonFastFresh.Click += new System.EventHandler(this.buttonFastFresh_Click);
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.20588F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.79412F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 282F));
+            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
             this.tableLayoutPanel2.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel4, 2, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(994, 93);
-            this.tableLayoutPanel2.TabIndex = 25;
             // 
             // panel2
             // 
@@ -4075,457 +3068,307 @@ namespace UHFDemo
             this.panel2.Controls.Add(this.label61);
             this.panel2.Controls.Add(this.label59);
             this.panel2.Controls.Add(this.label48);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(198, 5);
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(506, 83);
-            this.panel2.TabIndex = 0;
             // 
             // label124
             // 
-            this.label124.AutoSize = true;
-            this.label124.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label124, "label124");
             this.label124.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label124.Location = new System.Drawing.Point(296, 45);
             this.label124.Name = "label124";
-            this.label124.Size = new System.Drawing.Size(11, 12);
-            this.label124.TabIndex = 76;
-            this.label124.Text = "G";
             // 
             // label123
             // 
-            this.label123.AutoSize = true;
-            this.label123.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label123, "label123");
             this.label123.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label123.Location = new System.Drawing.Point(423, 45);
             this.label123.Name = "label123";
-            this.label123.Size = new System.Drawing.Size(11, 12);
-            this.label123.TabIndex = 75;
-            this.label123.Text = "H";
             // 
             // label122
             // 
-            this.label122.AutoSize = true;
-            this.label122.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label122, "label122");
             this.label122.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label122.Location = new System.Drawing.Point(297, 45);
             this.label122.Name = "label122";
-            this.label122.Size = new System.Drawing.Size(0, 12);
-            this.label122.TabIndex = 74;
             // 
             // label121
             // 
-            this.label121.AutoSize = true;
-            this.label121.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label121, "label121");
             this.label121.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label121.Location = new System.Drawing.Point(162, 45);
             this.label121.Name = "label121";
-            this.label121.Size = new System.Drawing.Size(11, 12);
-            this.label121.TabIndex = 73;
-            this.label121.Text = "F";
             // 
             // textBox16
             // 
-            this.textBox16.Location = new System.Drawing.Point(462, 58);
+            resources.ApplyResources(this.textBox16, "textBox16");
             this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(42, 21);
-            this.textBox16.TabIndex = 72;
-            this.textBox16.Text = "1";
-            this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(337, 61);
+            resources.ApplyResources(this.textBox15, "textBox15");
             this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(42, 21);
-            this.textBox15.TabIndex = 71;
-            this.textBox15.Text = "1";
-            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(203, 59);
+            resources.ApplyResources(this.textBox14, "textBox14");
             this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(42, 21);
-            this.textBox14.TabIndex = 70;
-            this.textBox14.Text = "1";
-            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox13
             // 
-            this.textBox13.Location = new System.Drawing.Point(66, 58);
+            resources.ApplyResources(this.textBox13, "textBox13");
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(42, 21);
-            this.textBox13.TabIndex = 69;
-            this.textBox13.Text = "1";
-            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // comboBox4
             // 
             this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.comboBox4, "comboBox4");
             this.comboBox4.ForeColor = System.Drawing.SystemColors.InfoText;
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
-            "天线1",
-            "天线2",
-            "天线3",
-            "天线4",
-            "天线5",
-            "天线6",
-            "天线7",
-            "天线8",
-            "不选"});
-            this.comboBox4.Location = new System.Drawing.Point(401, 59);
+            resources.GetString("comboBox4.Items"),
+            resources.GetString("comboBox4.Items1"),
+            resources.GetString("comboBox4.Items2"),
+            resources.GetString("comboBox4.Items3"),
+            resources.GetString("comboBox4.Items4"),
+            resources.GetString("comboBox4.Items5"),
+            resources.GetString("comboBox4.Items6"),
+            resources.GetString("comboBox4.Items7"),
+            resources.GetString("comboBox4.Items8")});
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(55, 20);
-            this.comboBox4.TabIndex = 68;
             // 
             // comboBox3
             // 
             this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.comboBox3, "comboBox3");
             this.comboBox3.ForeColor = System.Drawing.SystemColors.InfoText;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
-            "天线1",
-            "天线2",
-            "天线3",
-            "天线4",
-            "天线5",
-            "天线6",
-            "天线7",
-            "天线8",
-            "不选"});
-            this.comboBox3.Location = new System.Drawing.Point(276, 59);
+            resources.GetString("comboBox3.Items"),
+            resources.GetString("comboBox3.Items1"),
+            resources.GetString("comboBox3.Items2"),
+            resources.GetString("comboBox3.Items3"),
+            resources.GetString("comboBox3.Items4"),
+            resources.GetString("comboBox3.Items5"),
+            resources.GetString("comboBox3.Items6"),
+            resources.GetString("comboBox3.Items7"),
+            resources.GetString("comboBox3.Items8")});
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(55, 20);
-            this.comboBox3.TabIndex = 67;
             // 
             // comboBox2
             // 
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.comboBox2, "comboBox2");
             this.comboBox2.ForeColor = System.Drawing.SystemColors.InfoText;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            "天线1",
-            "天线2",
-            "天线3",
-            "天线4",
-            "天线5",
-            "天线6",
-            "天线7",
-            "天线8",
-            "不选"});
-            this.comboBox2.Location = new System.Drawing.Point(138, 59);
+            resources.GetString("comboBox2.Items"),
+            resources.GetString("comboBox2.Items1"),
+            resources.GetString("comboBox2.Items2"),
+            resources.GetString("comboBox2.Items3"),
+            resources.GetString("comboBox2.Items4"),
+            resources.GetString("comboBox2.Items5"),
+            resources.GetString("comboBox2.Items6"),
+            resources.GetString("comboBox2.Items7"),
+            resources.GetString("comboBox2.Items8")});
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(55, 20);
-            this.comboBox2.TabIndex = 66;
             // 
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.ForeColor = System.Drawing.SystemColors.InfoText;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "天线1",
-            "天线2",
-            "天线3",
-            "天线4",
-            "天线5",
-            "天线6",
-            "天线7",
-            "天线8",
-            "不选"});
-            this.comboBox1.Location = new System.Drawing.Point(6, 59);
+            resources.GetString("comboBox1.Items"),
+            resources.GetString("comboBox1.Items1"),
+            resources.GetString("comboBox1.Items2"),
+            resources.GetString("comboBox1.Items3"),
+            resources.GetString("comboBox1.Items4"),
+            resources.GetString("comboBox1.Items5"),
+            resources.GetString("comboBox1.Items6"),
+            resources.GetString("comboBox1.Items7"),
+            resources.GetString("comboBox1.Items8")});
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(55, 20);
-            this.comboBox1.TabIndex = 65;
             // 
             // label120
             // 
-            this.label120.AutoSize = true;
-            this.label120.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label120, "label120");
             this.label120.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label120.Location = new System.Drawing.Point(460, 45);
             this.label120.Name = "label120";
-            this.label120.Size = new System.Drawing.Size(53, 12);
-            this.label120.TabIndex = 64;
-            this.label120.Text = "轮询次数";
             // 
             // label119
             // 
-            this.label119.AutoSize = true;
-            this.label119.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label119, "label119");
             this.label119.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label119.Location = new System.Drawing.Point(334, 45);
             this.label119.Name = "label119";
-            this.label119.Size = new System.Drawing.Size(53, 12);
-            this.label119.TabIndex = 63;
-            this.label119.Text = "轮询次数";
             // 
             // label118
             // 
-            this.label118.AutoSize = true;
-            this.label118.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label118, "label118");
             this.label118.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label118.Location = new System.Drawing.Point(201, 44);
             this.label118.Name = "label118";
-            this.label118.Size = new System.Drawing.Size(53, 12);
-            this.label118.TabIndex = 62;
-            this.label118.Text = "轮询次数";
             // 
             // label117
             // 
-            this.label117.AutoSize = true;
-            this.label117.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label117, "label117");
             this.label117.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label117.Location = new System.Drawing.Point(64, 44);
             this.label117.Name = "label117";
-            this.label117.Size = new System.Drawing.Size(53, 12);
-            this.label117.TabIndex = 61;
-            this.label117.Text = "轮询次数";
             // 
             // label116
             // 
-            this.label116.AutoSize = true;
-            this.label116.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label116, "label116");
             this.label116.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label116.Location = new System.Drawing.Point(26, 44);
             this.label116.Name = "label116";
-            this.label116.Size = new System.Drawing.Size(11, 12);
-            this.label116.TabIndex = 60;
-            this.label116.Text = "E";
             // 
             // txtDStay
             // 
             this.txtDStay.AcceptsReturn = true;
-            this.txtDStay.Location = new System.Drawing.Point(462, 19);
+            resources.ApplyResources(this.txtDStay, "txtDStay");
             this.txtDStay.Name = "txtDStay";
-            this.txtDStay.Size = new System.Drawing.Size(37, 21);
-            this.txtDStay.TabIndex = 59;
-            this.txtDStay.Text = "1";
-            this.txtDStay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtCStay
             // 
-            this.txtCStay.Location = new System.Drawing.Point(337, 21);
+            resources.ApplyResources(this.txtCStay, "txtCStay");
             this.txtCStay.Name = "txtCStay";
-            this.txtCStay.Size = new System.Drawing.Size(42, 21);
-            this.txtCStay.TabIndex = 58;
-            this.txtCStay.Text = "1";
-            this.txtCStay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBStay
             // 
-            this.txtBStay.Location = new System.Drawing.Point(203, 20);
+            resources.ApplyResources(this.txtBStay, "txtBStay");
             this.txtBStay.Name = "txtBStay";
-            this.txtBStay.Size = new System.Drawing.Size(42, 21);
-            this.txtBStay.TabIndex = 57;
-            this.txtBStay.Text = "1";
-            this.txtBStay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtAStay
             // 
-            this.txtAStay.Location = new System.Drawing.Point(67, 20);
+            resources.ApplyResources(this.txtAStay, "txtAStay");
             this.txtAStay.Name = "txtAStay";
-            this.txtAStay.Size = new System.Drawing.Size(42, 21);
-            this.txtAStay.TabIndex = 56;
-            this.txtAStay.Text = "1";
-            this.txtAStay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label64
             // 
-            this.label64.AutoSize = true;
-            this.label64.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label64, "label64");
             this.label64.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label64.Location = new System.Drawing.Point(460, 6);
             this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(53, 12);
-            this.label64.TabIndex = 39;
-            this.label64.Text = "轮询次数";
             // 
             // label65
             // 
-            this.label65.AutoSize = true;
-            this.label65.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label65, "label65");
             this.label65.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label65.Location = new System.Drawing.Point(423, 3);
             this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(11, 12);
-            this.label65.TabIndex = 38;
-            this.label65.Text = "D";
             // 
             // cmbAntSelect1
             // 
             this.cmbAntSelect1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAntSelect1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.cmbAntSelect1, "cmbAntSelect1");
             this.cmbAntSelect1.ForeColor = System.Drawing.SystemColors.InfoText;
             this.cmbAntSelect1.FormattingEnabled = true;
             this.cmbAntSelect1.Items.AddRange(new object[] {
-            "天线1",
-            "天线2",
-            "天线3",
-            "天线4",
-            "天线5",
-            "天线6",
-            "天线7",
-            "天线8",
-            "不选"});
-            this.cmbAntSelect1.Location = new System.Drawing.Point(6, 21);
+            resources.GetString("cmbAntSelect1.Items"),
+            resources.GetString("cmbAntSelect1.Items1"),
+            resources.GetString("cmbAntSelect1.Items2"),
+            resources.GetString("cmbAntSelect1.Items3"),
+            resources.GetString("cmbAntSelect1.Items4"),
+            resources.GetString("cmbAntSelect1.Items5"),
+            resources.GetString("cmbAntSelect1.Items6"),
+            resources.GetString("cmbAntSelect1.Items7"),
+            resources.GetString("cmbAntSelect1.Items8")});
             this.cmbAntSelect1.Name = "cmbAntSelect1";
-            this.cmbAntSelect1.Size = new System.Drawing.Size(55, 20);
-            this.cmbAntSelect1.TabIndex = 13;
             // 
             // label62
             // 
-            this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label62, "label62");
             this.label62.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label62.Location = new System.Drawing.Point(334, 5);
             this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(53, 12);
-            this.label62.TabIndex = 37;
-            this.label62.Text = "轮询次数";
             // 
             // cmbAntSelect2
             // 
             this.cmbAntSelect2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAntSelect2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.cmbAntSelect2, "cmbAntSelect2");
             this.cmbAntSelect2.ForeColor = System.Drawing.SystemColors.InfoText;
             this.cmbAntSelect2.FormattingEnabled = true;
             this.cmbAntSelect2.Items.AddRange(new object[] {
-            "天线1",
-            "天线2",
-            "天线3",
-            "天线4",
-            "天线5",
-            "天线6",
-            "天线7",
-            "天线8",
-            "不选"});
-            this.cmbAntSelect2.Location = new System.Drawing.Point(138, 20);
+            resources.GetString("cmbAntSelect2.Items"),
+            resources.GetString("cmbAntSelect2.Items1"),
+            resources.GetString("cmbAntSelect2.Items2"),
+            resources.GetString("cmbAntSelect2.Items3"),
+            resources.GetString("cmbAntSelect2.Items4"),
+            resources.GetString("cmbAntSelect2.Items5"),
+            resources.GetString("cmbAntSelect2.Items6"),
+            resources.GetString("cmbAntSelect2.Items7"),
+            resources.GetString("cmbAntSelect2.Items8")});
             this.cmbAntSelect2.Name = "cmbAntSelect2";
-            this.cmbAntSelect2.Size = new System.Drawing.Size(55, 20);
-            this.cmbAntSelect2.TabIndex = 14;
             // 
             // label63
             // 
-            this.label63.AutoSize = true;
-            this.label63.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label63, "label63");
             this.label63.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label63.Location = new System.Drawing.Point(297, 5);
             this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(11, 12);
-            this.label63.TabIndex = 36;
-            this.label63.Text = "C";
             // 
             // cmbAntSelect3
             // 
             this.cmbAntSelect3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAntSelect3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.cmbAntSelect3, "cmbAntSelect3");
             this.cmbAntSelect3.ForeColor = System.Drawing.SystemColors.InfoText;
             this.cmbAntSelect3.FormattingEnabled = true;
             this.cmbAntSelect3.Items.AddRange(new object[] {
-            "天线1",
-            "天线2",
-            "天线3",
-            "天线4",
-            "天线5",
-            "天线6",
-            "天线7",
-            "天线8",
-            "不选"});
-            this.cmbAntSelect3.Location = new System.Drawing.Point(276, 21);
+            resources.GetString("cmbAntSelect3.Items"),
+            resources.GetString("cmbAntSelect3.Items1"),
+            resources.GetString("cmbAntSelect3.Items2"),
+            resources.GetString("cmbAntSelect3.Items3"),
+            resources.GetString("cmbAntSelect3.Items4"),
+            resources.GetString("cmbAntSelect3.Items5"),
+            resources.GetString("cmbAntSelect3.Items6"),
+            resources.GetString("cmbAntSelect3.Items7"),
+            resources.GetString("cmbAntSelect3.Items8")});
             this.cmbAntSelect3.Name = "cmbAntSelect3";
-            this.cmbAntSelect3.Size = new System.Drawing.Size(55, 20);
-            this.cmbAntSelect3.TabIndex = 15;
             // 
             // label60
             // 
-            this.label60.AutoSize = true;
-            this.label60.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label60, "label60");
             this.label60.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label60.Location = new System.Drawing.Point(201, 3);
             this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(53, 12);
-            this.label60.TabIndex = 35;
-            this.label60.Text = "轮询次数";
             // 
             // cmbAntSelect4
             // 
             this.cmbAntSelect4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAntSelect4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.cmbAntSelect4, "cmbAntSelect4");
             this.cmbAntSelect4.ForeColor = System.Drawing.SystemColors.InfoText;
             this.cmbAntSelect4.FormattingEnabled = true;
             this.cmbAntSelect4.Items.AddRange(new object[] {
-            "天线1",
-            "天线2",
-            "天线3",
-            "天线4",
-            "天线5",
-            "天线6",
-            "天线7",
-            "天线8",
-            "不选"});
-            this.cmbAntSelect4.Location = new System.Drawing.Point(401, 20);
+            resources.GetString("cmbAntSelect4.Items"),
+            resources.GetString("cmbAntSelect4.Items1"),
+            resources.GetString("cmbAntSelect4.Items2"),
+            resources.GetString("cmbAntSelect4.Items3"),
+            resources.GetString("cmbAntSelect4.Items4"),
+            resources.GetString("cmbAntSelect4.Items5"),
+            resources.GetString("cmbAntSelect4.Items6"),
+            resources.GetString("cmbAntSelect4.Items7"),
+            resources.GetString("cmbAntSelect4.Items8")});
             this.cmbAntSelect4.Name = "cmbAntSelect4";
-            this.cmbAntSelect4.Size = new System.Drawing.Size(55, 20);
-            this.cmbAntSelect4.TabIndex = 16;
             // 
             // label61
             // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label61, "label61");
             this.label61.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label61.Location = new System.Drawing.Point(162, 5);
             this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(11, 12);
-            this.label61.TabIndex = 34;
-            this.label61.Text = "B";
             // 
             // label59
             // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label59, "label59");
             this.label59.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label59.Location = new System.Drawing.Point(64, 3);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(53, 12);
-            this.label59.TabIndex = 33;
-            this.label59.Text = "轮询次数";
             // 
             // label48
             // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label48, "label48");
             this.label48.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label48.Location = new System.Drawing.Point(26, 3);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(11, 12);
-            this.label48.TabIndex = 32;
-            this.label48.Text = "A";
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btFastInventory);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(5, 5);
+            resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(185, 83);
-            this.panel3.TabIndex = 1;
             // 
             // btFastInventory
             // 
-            this.btFastInventory.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.btFastInventory, "btFastInventory");
             this.btFastInventory.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btFastInventory.Location = new System.Drawing.Point(28, 16);
             this.btFastInventory.Name = "btFastInventory";
-            this.btFastInventory.Size = new System.Drawing.Size(144, 38);
-            this.btFastInventory.TabIndex = 52;
-            this.btFastInventory.Text = "开始盘存";
             this.btFastInventory.UseVisualStyleBackColor = true;
             this.btFastInventory.Click += new System.EventHandler(this.btFastInventory_Click);
             // 
@@ -4539,119 +3382,74 @@ namespace UHFDemo
             this.panel4.Controls.Add(this.txtInterval);
             this.panel4.Controls.Add(this.label73);
             this.panel4.Controls.Add(this.label72);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(712, 5);
+            resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(277, 83);
-            this.panel4.TabIndex = 2;
             // 
             // m_phase_value
             // 
-            this.m_phase_value.AutoSize = true;
-            this.m_phase_value.Enabled = false;
-            this.m_phase_value.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.m_phase_value.Location = new System.Drawing.Point(198, 56);
+            resources.ApplyResources(this.m_phase_value, "m_phase_value");
             this.m_phase_value.Name = "m_phase_value";
-            this.m_phase_value.Size = new System.Drawing.Size(60, 16);
-            this.m_phase_value.TabIndex = 71;
-            this.m_phase_value.Text = "相位值";
             this.m_phase_value.UseVisualStyleBackColor = true;
             this.m_phase_value.CheckedChanged += new System.EventHandler(this.m_phase_value_CheckedChanged);
             // 
             // m_new_fast_inventory_flag
             // 
             this.m_new_fast_inventory_flag.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.m_new_fast_inventory_flag.Enabled = false;
-            this.m_new_fast_inventory_flag.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.m_new_fast_inventory_flag, "m_new_fast_inventory_flag");
             this.m_new_fast_inventory_flag.ForeColor = System.Drawing.SystemColors.InfoText;
             this.m_new_fast_inventory_flag.FormattingEnabled = true;
             this.m_new_fast_inventory_flag.Items.AddRange(new object[] {
-            "A",
-            "B"});
-            this.m_new_fast_inventory_flag.Location = new System.Drawing.Point(122, 54);
+            resources.GetString("m_new_fast_inventory_flag.Items"),
+            resources.GetString("m_new_fast_inventory_flag.Items1")});
             this.m_new_fast_inventory_flag.Name = "m_new_fast_inventory_flag";
-            this.m_new_fast_inventory_flag.Size = new System.Drawing.Size(55, 20);
-            this.m_new_fast_inventory_flag.TabIndex = 70;
             // 
             // m_new_fast_inventory_session
             // 
             this.m_new_fast_inventory_session.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.m_new_fast_inventory_session.Enabled = false;
-            this.m_new_fast_inventory_session.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.m_new_fast_inventory_session, "m_new_fast_inventory_session");
             this.m_new_fast_inventory_session.ForeColor = System.Drawing.SystemColors.InfoText;
             this.m_new_fast_inventory_session.FormattingEnabled = true;
             this.m_new_fast_inventory_session.Items.AddRange(new object[] {
-            "S0",
-            "S1",
-            "S2",
-            "S3"});
-            this.m_new_fast_inventory_session.Location = new System.Drawing.Point(48, 54);
+            resources.GetString("m_new_fast_inventory_session.Items"),
+            resources.GetString("m_new_fast_inventory_session.Items1"),
+            resources.GetString("m_new_fast_inventory_session.Items2"),
+            resources.GetString("m_new_fast_inventory_session.Items3")});
             this.m_new_fast_inventory_session.Name = "m_new_fast_inventory_session";
-            this.m_new_fast_inventory_session.Size = new System.Drawing.Size(55, 20);
-            this.m_new_fast_inventory_session.TabIndex = 69;
             // 
             // m_new_fast_inventory
             // 
-            this.m_new_fast_inventory.AutoSize = true;
-            this.m_new_fast_inventory.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.m_new_fast_inventory.Location = new System.Drawing.Point(12, 58);
+            resources.ApplyResources(this.m_new_fast_inventory, "m_new_fast_inventory");
             this.m_new_fast_inventory.Name = "m_new_fast_inventory";
-            this.m_new_fast_inventory.Size = new System.Drawing.Size(30, 16);
-            this.m_new_fast_inventory.TabIndex = 65;
-            this.m_new_fast_inventory.Text = "S";
             this.m_new_fast_inventory.UseVisualStyleBackColor = true;
             this.m_new_fast_inventory.CheckedChanged += new System.EventHandler(this.m_new_fast_inventory_CheckedChanged);
             // 
             // txtRepeat
             // 
-            this.txtRepeat.Location = new System.Drawing.Point(153, 22);
+            resources.ApplyResources(this.txtRepeat, "txtRepeat");
             this.txtRepeat.Name = "txtRepeat";
-            this.txtRepeat.Size = new System.Drawing.Size(42, 21);
-            this.txtRepeat.TabIndex = 58;
-            this.txtRepeat.Text = "10";
-            this.txtRepeat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtInterval
             // 
-            this.txtInterval.Location = new System.Drawing.Point(55, 24);
+            resources.ApplyResources(this.txtInterval, "txtInterval");
             this.txtInterval.Name = "txtInterval";
-            this.txtInterval.Size = new System.Drawing.Size(42, 21);
-            this.txtInterval.TabIndex = 57;
-            this.txtInterval.Text = "0";
-            this.txtInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label73
             // 
-            this.label73.AutoSize = true;
-            this.label73.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label73, "label73");
             this.label73.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label73.Location = new System.Drawing.Point(38, 7);
             this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(89, 12);
-            this.label73.TabIndex = 36;
-            this.label73.Text = "天线间延时(mS)";
             // 
             // label72
             // 
-            this.label72.AutoSize = true;
-            this.label72.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label72, "label72");
             this.label72.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label72.Location = new System.Drawing.Point(151, 6);
             this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(53, 12);
-            this.label72.TabIndex = 37;
-            this.label72.Text = "循环次数";
             // 
             // label22
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label22, "label22");
             this.label22.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label22.Location = new System.Drawing.Point(435, 266);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(59, 12);
-            this.label22.TabIndex = 26;
-            this.label22.Text = "Max RSSI:";
             // 
             // lvFastList
             // 
@@ -4663,89 +3461,59 @@ namespace UHFDemo
             this.columnHeader35,
             this.columnHeader356,
             this.columnHeader36});
-            this.lvFastList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lvFastList.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.lvFastList, "lvFastList");
             this.lvFastList.GridLines = true;
-            this.lvFastList.Location = new System.Drawing.Point(3, 288);
             this.lvFastList.Name = "lvFastList";
-            this.lvFastList.Size = new System.Drawing.Size(994, 231);
-            this.lvFastList.TabIndex = 24;
             this.lvFastList.UseCompatibleStateImageBehavior = false;
             this.lvFastList.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader31
             // 
-            this.columnHeader31.Text = "ID";
-            this.columnHeader31.Width = 53;
+            resources.ApplyResources(this.columnHeader31, "columnHeader31");
             // 
             // columnHeader32
             // 
-            this.columnHeader32.Text = "EPC";
-            this.columnHeader32.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader32.Width = 400;
+            resources.ApplyResources(this.columnHeader32, "columnHeader32");
             // 
             // columnHeader33
             // 
-            this.columnHeader33.Text = "PC";
-            this.columnHeader33.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader33.Width = 61;
+            resources.ApplyResources(this.columnHeader33, "columnHeader33");
             // 
             // columnHeader34
             // 
-            this.columnHeader34.Text = "识别次数(ANT1/2/3/4/5/6/7/8)";
-            this.columnHeader34.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader34.Width = 211;
+            resources.ApplyResources(this.columnHeader34, "columnHeader34");
             // 
             // columnHeader35
             // 
-            this.columnHeader35.Text = "RSSI";
-            this.columnHeader35.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader35.Width = 89;
+            resources.ApplyResources(this.columnHeader35, "columnHeader35");
             // 
             // columnHeader356
             // 
-            this.columnHeader356.Text = "相位值";
-            this.columnHeader356.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader356.Width = 65;
+            resources.ApplyResources(this.columnHeader356, "columnHeader356");
             // 
             // columnHeader36
             // 
-            this.columnHeader36.Text = "载波频率";
-            this.columnHeader36.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader36.Width = 117;
+            resources.ApplyResources(this.columnHeader36, "columnHeader36");
             // 
             // label49
             // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label49, "label49");
             this.label49.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label49.Location = new System.Drawing.Point(272, 264);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(59, 12);
-            this.label49.TabIndex = 27;
-            this.label49.Text = "Min RSSI:";
             // 
             // txtFastTagList
             // 
-            this.txtFastTagList.AutoSize = true;
-            this.txtFastTagList.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.txtFastTagList, "txtFastTagList");
             this.txtFastTagList.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.txtFastTagList.Location = new System.Drawing.Point(6, 261);
             this.txtFastTagList.Name = "txtFastTagList";
-            this.txtFastTagList.Size = new System.Drawing.Size(65, 12);
-            this.txtFastTagList.TabIndex = 23;
-            this.txtFastTagList.Text = "标签列表: ";
             // 
             // pageAcessTag
             // 
             this.pageAcessTag.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pageAcessTag.Controls.Add(this.ltvOperate);
             this.pageAcessTag.Controls.Add(this.gbCmdOperateTag);
-            this.pageAcessTag.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.pageAcessTag, "pageAcessTag");
             this.pageAcessTag.Name = "pageAcessTag";
-            this.pageAcessTag.Size = new System.Drawing.Size(1000, 522);
-            this.pageAcessTag.TabIndex = 3;
-            this.pageAcessTag.Text = "存取标签";
             this.pageAcessTag.UseVisualStyleBackColor = true;
             // 
             // ltvOperate
@@ -4759,59 +3527,43 @@ namespace UHFDemo
             this.columnHeader13,
             this.columnHeader14,
             this.columnHeader15});
-            this.ltvOperate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ltvOperate.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.ltvOperate, "ltvOperate");
             this.ltvOperate.GridLines = true;
-            this.ltvOperate.Location = new System.Drawing.Point(0, 325);
             this.ltvOperate.Name = "ltvOperate";
-            this.ltvOperate.Size = new System.Drawing.Size(1000, 197);
-            this.ltvOperate.TabIndex = 10;
             this.ltvOperate.UseCompatibleStateImageBehavior = false;
             this.ltvOperate.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "序号";
+            resources.ApplyResources(this.columnHeader5, "columnHeader5");
             // 
             // columnHeader9
             // 
-            this.columnHeader9.Text = "PC";
-            this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            resources.ApplyResources(this.columnHeader9, "columnHeader9");
             // 
             // columnHeader10
             // 
-            this.columnHeader10.Text = "CRC";
-            this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            resources.ApplyResources(this.columnHeader10, "columnHeader10");
             // 
             // columnHeader11
             // 
-            this.columnHeader11.Text = "EPC";
-            this.columnHeader11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader11.Width = 260;
+            resources.ApplyResources(this.columnHeader11, "columnHeader11");
             // 
             // columnHeader12
             // 
-            this.columnHeader12.Text = "数据";
-            this.columnHeader12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader12.Width = 341;
+            resources.ApplyResources(this.columnHeader12, "columnHeader12");
             // 
             // columnHeader13
             // 
-            this.columnHeader13.Text = "数据长度";
-            this.columnHeader13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader13.Width = 73;
+            resources.ApplyResources(this.columnHeader13, "columnHeader13");
             // 
             // columnHeader14
             // 
-            this.columnHeader14.Text = "天线";
-            this.columnHeader14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader14.Width = 49;
+            resources.ApplyResources(this.columnHeader14, "columnHeader14");
             // 
             // columnHeader15
             // 
-            this.columnHeader15.Text = "操作次数";
-            this.columnHeader15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader15.Width = 79;
+            resources.ApplyResources(this.columnHeader15, "columnHeader15");
             // 
             // gbCmdOperateTag
             // 
@@ -4819,53 +3571,35 @@ namespace UHFDemo
             this.gbCmdOperateTag.Controls.Add(this.groupBox15);
             this.gbCmdOperateTag.Controls.Add(this.groupBox14);
             this.gbCmdOperateTag.Controls.Add(this.groupBox13);
-            this.gbCmdOperateTag.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbCmdOperateTag.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.gbCmdOperateTag.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.gbCmdOperateTag, "gbCmdOperateTag");
             this.gbCmdOperateTag.Name = "gbCmdOperateTag";
-            this.gbCmdOperateTag.Size = new System.Drawing.Size(1000, 325);
-            this.gbCmdOperateTag.TabIndex = 8;
             this.gbCmdOperateTag.TabStop = false;
-            this.gbCmdOperateTag.Text = "标签操作";
             // 
             // groupBox16
             // 
             this.groupBox16.Controls.Add(this.btnKillTag);
             this.groupBox16.Controls.Add(this.htxtKillPwd);
             this.groupBox16.Controls.Add(this.label29);
-            this.groupBox16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox16.Location = new System.Drawing.Point(3, 270);
+            resources.ApplyResources(this.groupBox16, "groupBox16");
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(994, 45);
-            this.groupBox16.TabIndex = 4;
             this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "销毁标签";
             // 
             // btnKillTag
             // 
-            this.btnKillTag.Location = new System.Drawing.Point(888, 19);
+            resources.ApplyResources(this.btnKillTag, "btnKillTag");
             this.btnKillTag.Name = "btnKillTag";
-            this.btnKillTag.Size = new System.Drawing.Size(90, 23);
-            this.btnKillTag.TabIndex = 14;
-            this.btnKillTag.Text = "销毁标签";
             this.btnKillTag.UseVisualStyleBackColor = true;
             this.btnKillTag.Click += new System.EventHandler(this.btnKillTag_Click);
             // 
             // htxtKillPwd
             // 
-            this.htxtKillPwd.Location = new System.Drawing.Point(402, 21);
+            resources.ApplyResources(this.htxtKillPwd, "htxtKillPwd");
             this.htxtKillPwd.Name = "htxtKillPwd";
-            this.htxtKillPwd.Size = new System.Drawing.Size(120, 21);
-            this.htxtKillPwd.TabIndex = 13;
             // 
             // label29
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(307, 25);
+            resources.ApplyResources(this.label29, "label29");
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(89, 12);
-            this.label29.TabIndex = 13;
-            this.label29.Text = "销毁密码(HEX):";
             // 
             // groupBox15
             // 
@@ -4874,29 +3608,19 @@ namespace UHFDemo
             this.groupBox15.Controls.Add(this.groupBox19);
             this.groupBox15.Controls.Add(this.groupBox18);
             this.groupBox15.Controls.Add(this.btnLockTag);
-            this.groupBox15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox15.Location = new System.Drawing.Point(3, 162);
+            resources.ApplyResources(this.groupBox15, "groupBox15");
             this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(994, 108);
-            this.groupBox15.TabIndex = 3;
             this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "锁定标签";
             // 
             // htxtLockPwd
             // 
-            this.htxtLockPwd.Location = new System.Drawing.Point(736, 45);
+            resources.ApplyResources(this.htxtLockPwd, "htxtLockPwd");
             this.htxtLockPwd.Name = "htxtLockPwd";
-            this.htxtLockPwd.Size = new System.Drawing.Size(120, 21);
-            this.htxtLockPwd.TabIndex = 12;
             // 
             // label28
             // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(641, 49);
+            resources.ApplyResources(this.label28, "label28");
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(89, 12);
-            this.label28.TabIndex = 12;
-            this.label28.Text = "访问密码(HEX):";
             // 
             // groupBox19
             // 
@@ -4905,65 +3629,43 @@ namespace UHFDemo
             this.groupBox19.Controls.Add(this.rdbEpcMermory);
             this.groupBox19.Controls.Add(this.rdbKillPwd);
             this.groupBox19.Controls.Add(this.rdbAccessPwd);
-            this.groupBox19.Location = new System.Drawing.Point(16, 14);
+            resources.ApplyResources(this.groupBox19, "groupBox19");
             this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(584, 40);
-            this.groupBox19.TabIndex = 2;
             this.groupBox19.TabStop = false;
             // 
             // rdbUserMemory
             // 
-            this.rdbUserMemory.AutoSize = true;
-            this.rdbUserMemory.Location = new System.Drawing.Point(483, 15);
+            resources.ApplyResources(this.rdbUserMemory, "rdbUserMemory");
             this.rdbUserMemory.Name = "rdbUserMemory";
-            this.rdbUserMemory.Size = new System.Drawing.Size(59, 16);
-            this.rdbUserMemory.TabIndex = 4;
             this.rdbUserMemory.TabStop = true;
-            this.rdbUserMemory.Text = "USER区";
             this.rdbUserMemory.UseVisualStyleBackColor = true;
             // 
             // rdbTidMemory
             // 
-            this.rdbTidMemory.AutoSize = true;
-            this.rdbTidMemory.Location = new System.Drawing.Point(378, 15);
+            resources.ApplyResources(this.rdbTidMemory, "rdbTidMemory");
             this.rdbTidMemory.Name = "rdbTidMemory";
-            this.rdbTidMemory.Size = new System.Drawing.Size(53, 16);
-            this.rdbTidMemory.TabIndex = 3;
             this.rdbTidMemory.TabStop = true;
-            this.rdbTidMemory.Text = "TID区";
             this.rdbTidMemory.UseVisualStyleBackColor = true;
             // 
             // rdbEpcMermory
             // 
-            this.rdbEpcMermory.AutoSize = true;
-            this.rdbEpcMermory.Location = new System.Drawing.Point(275, 15);
+            resources.ApplyResources(this.rdbEpcMermory, "rdbEpcMermory");
             this.rdbEpcMermory.Name = "rdbEpcMermory";
-            this.rdbEpcMermory.Size = new System.Drawing.Size(53, 16);
-            this.rdbEpcMermory.TabIndex = 2;
             this.rdbEpcMermory.TabStop = true;
-            this.rdbEpcMermory.Text = "EPC区";
             this.rdbEpcMermory.UseVisualStyleBackColor = true;
             // 
             // rdbKillPwd
             // 
-            this.rdbKillPwd.AutoSize = true;
-            this.rdbKillPwd.Location = new System.Drawing.Point(142, 15);
+            resources.ApplyResources(this.rdbKillPwd, "rdbKillPwd");
             this.rdbKillPwd.Name = "rdbKillPwd";
-            this.rdbKillPwd.Size = new System.Drawing.Size(83, 16);
-            this.rdbKillPwd.TabIndex = 1;
             this.rdbKillPwd.TabStop = true;
-            this.rdbKillPwd.Text = "销毁密码区";
             this.rdbKillPwd.UseVisualStyleBackColor = true;
             // 
             // rdbAccessPwd
             // 
-            this.rdbAccessPwd.AutoSize = true;
-            this.rdbAccessPwd.Location = new System.Drawing.Point(9, 15);
+            resources.ApplyResources(this.rdbAccessPwd, "rdbAccessPwd");
             this.rdbAccessPwd.Name = "rdbAccessPwd";
-            this.rdbAccessPwd.Size = new System.Drawing.Size(83, 16);
-            this.rdbAccessPwd.TabIndex = 0;
             this.rdbAccessPwd.TabStop = true;
-            this.rdbAccessPwd.Text = "访问密码区";
             this.rdbAccessPwd.UseVisualStyleBackColor = true;
             // 
             // groupBox18
@@ -4972,63 +3674,42 @@ namespace UHFDemo
             this.groupBox18.Controls.Add(this.rdbFreeEver);
             this.groupBox18.Controls.Add(this.rdbLock);
             this.groupBox18.Controls.Add(this.rdbFree);
-            this.groupBox18.Location = new System.Drawing.Point(16, 51);
+            resources.ApplyResources(this.groupBox18, "groupBox18");
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(584, 40);
-            this.groupBox18.TabIndex = 1;
             this.groupBox18.TabStop = false;
             // 
             // rdbLockEver
             // 
-            this.rdbLockEver.AutoSize = true;
-            this.rdbLockEver.Location = new System.Drawing.Point(483, 14);
+            resources.ApplyResources(this.rdbLockEver, "rdbLockEver");
             this.rdbLockEver.Name = "rdbLockEver";
-            this.rdbLockEver.Size = new System.Drawing.Size(71, 16);
-            this.rdbLockEver.TabIndex = 3;
             this.rdbLockEver.TabStop = true;
-            this.rdbLockEver.Text = "永久锁定";
             this.rdbLockEver.UseVisualStyleBackColor = true;
             // 
             // rdbFreeEver
             // 
-            this.rdbFreeEver.AutoSize = true;
-            this.rdbFreeEver.Location = new System.Drawing.Point(309, 14);
+            resources.ApplyResources(this.rdbFreeEver, "rdbFreeEver");
             this.rdbFreeEver.Name = "rdbFreeEver";
-            this.rdbFreeEver.Size = new System.Drawing.Size(71, 16);
-            this.rdbFreeEver.TabIndex = 2;
             this.rdbFreeEver.TabStop = true;
-            this.rdbFreeEver.Text = "永久开放";
             this.rdbFreeEver.UseVisualStyleBackColor = true;
             // 
             // rdbLock
             // 
-            this.rdbLock.AutoSize = true;
-            this.rdbLock.Location = new System.Drawing.Point(159, 14);
+            resources.ApplyResources(this.rdbLock, "rdbLock");
             this.rdbLock.Name = "rdbLock";
-            this.rdbLock.Size = new System.Drawing.Size(47, 16);
-            this.rdbLock.TabIndex = 1;
             this.rdbLock.TabStop = true;
-            this.rdbLock.Text = "锁定";
             this.rdbLock.UseVisualStyleBackColor = true;
             // 
             // rdbFree
             // 
-            this.rdbFree.AutoSize = true;
-            this.rdbFree.Location = new System.Drawing.Point(9, 14);
+            resources.ApplyResources(this.rdbFree, "rdbFree");
             this.rdbFree.Name = "rdbFree";
-            this.rdbFree.Size = new System.Drawing.Size(47, 16);
-            this.rdbFree.TabIndex = 0;
             this.rdbFree.TabStop = true;
-            this.rdbFree.Text = "开放";
             this.rdbFree.UseVisualStyleBackColor = true;
             // 
             // btnLockTag
             // 
-            this.btnLockTag.Location = new System.Drawing.Point(888, 44);
+            resources.ApplyResources(this.btnLockTag, "btnLockTag");
             this.btnLockTag.Name = "btnLockTag";
-            this.btnLockTag.Size = new System.Drawing.Size(90, 23);
-            this.btnLockTag.TabIndex = 0;
-            this.btnLockTag.Text = "锁定标签";
             this.btnLockTag.UseVisualStyleBackColor = true;
             this.btnLockTag.Click += new System.EventHandler(this.btnLockTag_Click);
             // 
@@ -5047,110 +3728,72 @@ namespace UHFDemo
             this.groupBox14.Controls.Add(this.label25);
             this.groupBox14.Controls.Add(this.groupBox17);
             this.groupBox14.Controls.Add(this.label24);
-            this.groupBox14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox14.Location = new System.Drawing.Point(3, 67);
+            resources.ApplyResources(this.groupBox14, "groupBox14");
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(994, 95);
-            this.groupBox14.TabIndex = 2;
             this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "读写标签";
             // 
             // radioButton2
             // 
-            this.radioButton2.AutoSize = true;
+            resources.ApplyResources(this.radioButton2, "radioButton2");
             this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(729, 62);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(83, 16);
-            this.radioButton2.TabIndex = 12;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "BlockWrite";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(829, 62);
+            resources.ApplyResources(this.radioButton1, "radioButton1");
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(53, 16);
-            this.radioButton1.TabIndex = 11;
-            this.radioButton1.Text = "Write";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // htxtWriteData
             // 
-            this.htxtWriteData.Location = new System.Drawing.Point(106, 58);
+            resources.ApplyResources(this.htxtWriteData, "htxtWriteData");
             this.htxtWriteData.Name = "htxtWriteData";
-            this.htxtWriteData.Size = new System.Drawing.Size(617, 21);
-            this.htxtWriteData.TabIndex = 10;
             // 
             // txtWordCnt
             // 
-            this.txtWordCnt.Location = new System.Drawing.Point(808, 23);
+            resources.ApplyResources(this.txtWordCnt, "txtWordCnt");
             this.txtWordCnt.Name = "txtWordCnt";
-            this.txtWordCnt.Size = new System.Drawing.Size(48, 21);
-            this.txtWordCnt.TabIndex = 9;
             // 
             // label27
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(707, 27);
+            resources.ApplyResources(this.label27, "label27");
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(95, 12);
-            this.label27.TabIndex = 8;
-            this.label27.Text = "数据长度(WORD):";
             // 
             // btnWriteTag
             // 
-            this.btnWriteTag.Location = new System.Drawing.Point(888, 58);
+            resources.ApplyResources(this.btnWriteTag, "btnWriteTag");
             this.btnWriteTag.Name = "btnWriteTag";
-            this.btnWriteTag.Size = new System.Drawing.Size(90, 23);
-            this.btnWriteTag.TabIndex = 7;
-            this.btnWriteTag.Text = "写标签";
             this.btnWriteTag.UseVisualStyleBackColor = true;
             this.btnWriteTag.Click += new System.EventHandler(this.btnWriteTag_Click);
             // 
             // btnReadTag
             // 
-            this.btnReadTag.Location = new System.Drawing.Point(888, 22);
+            resources.ApplyResources(this.btnReadTag, "btnReadTag");
             this.btnReadTag.Name = "btnReadTag";
-            this.btnReadTag.Size = new System.Drawing.Size(90, 23);
-            this.btnReadTag.TabIndex = 6;
-            this.btnReadTag.Text = "读标签";
             this.btnReadTag.UseVisualStyleBackColor = true;
             this.btnReadTag.Click += new System.EventHandler(this.btnReadTag_Click);
             // 
             // txtWordAdd
             // 
-            this.txtWordAdd.Location = new System.Drawing.Point(641, 23);
+            resources.ApplyResources(this.txtWordAdd, "txtWordAdd");
             this.txtWordAdd.Name = "txtWordAdd";
-            this.txtWordAdd.Size = new System.Drawing.Size(48, 21);
-            this.txtWordAdd.TabIndex = 5;
             // 
             // label26
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(540, 27);
+            resources.ApplyResources(this.label26, "label26");
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(95, 12);
-            this.label26.TabIndex = 4;
-            this.label26.Text = "起始地址(WORD):";
             // 
             // htxtReadAndWritePwd
             // 
-            this.htxtReadAndWritePwd.Location = new System.Drawing.Point(402, 23);
+            resources.ApplyResources(this.htxtReadAndWritePwd, "htxtReadAndWritePwd");
             this.htxtReadAndWritePwd.Name = "htxtReadAndWritePwd";
-            this.htxtReadAndWritePwd.Size = new System.Drawing.Size(120, 21);
-            this.htxtReadAndWritePwd.TabIndex = 3;
             // 
             // label25
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(295, 27);
+            resources.ApplyResources(this.label25, "label25");
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(101, 12);
-            this.label25.TabIndex = 2;
-            this.label25.Text = "访问密码（HEX）:";
             // 
             // groupBox17
             // 
@@ -5158,64 +3801,42 @@ namespace UHFDemo
             this.groupBox17.Controls.Add(this.rdbTid);
             this.groupBox17.Controls.Add(this.rdbEpc);
             this.groupBox17.Controls.Add(this.rdbReserved);
-            this.groupBox17.Location = new System.Drawing.Point(18, 12);
+            resources.ApplyResources(this.groupBox17, "groupBox17");
             this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(273, 40);
-            this.groupBox17.TabIndex = 1;
             this.groupBox17.TabStop = false;
             // 
             // rdbUser
             // 
-            this.rdbUser.AutoSize = true;
-            this.rdbUser.Location = new System.Drawing.Point(189, 13);
+            resources.ApplyResources(this.rdbUser, "rdbUser");
             this.rdbUser.Name = "rdbUser";
-            this.rdbUser.Size = new System.Drawing.Size(59, 16);
-            this.rdbUser.TabIndex = 3;
             this.rdbUser.TabStop = true;
-            this.rdbUser.Text = "USER区";
             this.rdbUser.UseVisualStyleBackColor = true;
             // 
             // rdbTid
             // 
-            this.rdbTid.AutoSize = true;
-            this.rdbTid.Location = new System.Drawing.Point(130, 13);
+            resources.ApplyResources(this.rdbTid, "rdbTid");
             this.rdbTid.Name = "rdbTid";
-            this.rdbTid.Size = new System.Drawing.Size(53, 16);
-            this.rdbTid.TabIndex = 2;
             this.rdbTid.TabStop = true;
-            this.rdbTid.Text = "TID区";
             this.rdbTid.UseVisualStyleBackColor = true;
             // 
             // rdbEpc
             // 
-            this.rdbEpc.AutoSize = true;
-            this.rdbEpc.Location = new System.Drawing.Point(71, 13);
+            resources.ApplyResources(this.rdbEpc, "rdbEpc");
             this.rdbEpc.Name = "rdbEpc";
-            this.rdbEpc.Size = new System.Drawing.Size(53, 16);
-            this.rdbEpc.TabIndex = 1;
             this.rdbEpc.TabStop = true;
-            this.rdbEpc.Text = "EPC区";
             this.rdbEpc.UseVisualStyleBackColor = true;
             // 
             // rdbReserved
             // 
-            this.rdbReserved.AutoSize = true;
-            this.rdbReserved.Location = new System.Drawing.Point(6, 13);
+            resources.ApplyResources(this.rdbReserved, "rdbReserved");
             this.rdbReserved.Name = "rdbReserved";
-            this.rdbReserved.Size = new System.Drawing.Size(59, 16);
-            this.rdbReserved.TabIndex = 0;
             this.rdbReserved.TabStop = true;
-            this.rdbReserved.Text = "密码区";
             this.rdbReserved.UseVisualStyleBackColor = true;
             // 
             // label24
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(19, 64);
+            resources.ApplyResources(this.label24, "label24");
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(89, 12);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "写入数据(HEX):";
             // 
             // groupBox13
             // 
@@ -5224,30 +3845,19 @@ namespace UHFDemo
             this.groupBox13.Controls.Add(this.cmbSetAccessEpcMatch);
             this.groupBox13.Controls.Add(this.txtAccessEpcMatch);
             this.groupBox13.Controls.Add(this.ckAccessEpcMatch);
-            this.groupBox13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox13.Location = new System.Drawing.Point(3, 17);
+            resources.ApplyResources(this.groupBox13, "groupBox13");
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(994, 50);
-            this.groupBox13.TabIndex = 1;
             this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "选定操作标签";
             // 
             // label23
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(468, 22);
+            resources.ApplyResources(this.label23, "label23");
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(59, 12);
-            this.label23.TabIndex = 4;
-            this.label23.Text = "标签列表:";
             // 
             // btnSetAccessEpcMatch
             // 
-            this.btnSetAccessEpcMatch.Location = new System.Drawing.Point(888, 17);
+            resources.ApplyResources(this.btnSetAccessEpcMatch, "btnSetAccessEpcMatch");
             this.btnSetAccessEpcMatch.Name = "btnSetAccessEpcMatch";
-            this.btnSetAccessEpcMatch.Size = new System.Drawing.Size(90, 23);
-            this.btnSetAccessEpcMatch.TabIndex = 3;
-            this.btnSetAccessEpcMatch.Text = "选定标签";
             this.btnSetAccessEpcMatch.UseVisualStyleBackColor = true;
             this.btnSetAccessEpcMatch.Click += new System.EventHandler(this.btnSetAccessEpcMatch_Click);
             // 
@@ -5255,28 +3865,20 @@ namespace UHFDemo
             // 
             this.cmbSetAccessEpcMatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSetAccessEpcMatch.FormattingEnabled = true;
-            this.cmbSetAccessEpcMatch.Location = new System.Drawing.Point(533, 18);
+            resources.ApplyResources(this.cmbSetAccessEpcMatch, "cmbSetAccessEpcMatch");
             this.cmbSetAccessEpcMatch.Name = "cmbSetAccessEpcMatch";
-            this.cmbSetAccessEpcMatch.Size = new System.Drawing.Size(323, 20);
-            this.cmbSetAccessEpcMatch.TabIndex = 2;
             this.cmbSetAccessEpcMatch.DropDown += new System.EventHandler(this.cmbSetAccessEpcMatch_DropDown);
             // 
             // txtAccessEpcMatch
             // 
-            this.txtAccessEpcMatch.Location = new System.Drawing.Point(106, 18);
+            resources.ApplyResources(this.txtAccessEpcMatch, "txtAccessEpcMatch");
             this.txtAccessEpcMatch.Name = "txtAccessEpcMatch";
             this.txtAccessEpcMatch.ReadOnly = true;
-            this.txtAccessEpcMatch.Size = new System.Drawing.Size(320, 21);
-            this.txtAccessEpcMatch.TabIndex = 1;
             // 
             // ckAccessEpcMatch
             // 
-            this.ckAccessEpcMatch.AutoSize = true;
-            this.ckAccessEpcMatch.Location = new System.Drawing.Point(16, 20);
+            resources.ApplyResources(this.ckAccessEpcMatch, "ckAccessEpcMatch");
             this.ckAccessEpcMatch.Name = "ckAccessEpcMatch";
-            this.ckAccessEpcMatch.Size = new System.Drawing.Size(90, 16);
-            this.ckAccessEpcMatch.TabIndex = 0;
-            this.ckAccessEpcMatch.Text = "已选定标签:";
             this.ckAccessEpcMatch.UseVisualStyleBackColor = true;
             this.ckAccessEpcMatch.CheckedChanged += new System.EventHandler(this.cbAccessEpcMatch_CheckedChanged);
             // 
@@ -5287,12 +3889,8 @@ namespace UHFDemo
             this.tabPage3.Controls.Add(this.groupBox22);
             this.tabPage3.Controls.Add(this.groupBox12);
             this.tabPage3.Controls.Add(this.groupBox9);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1000, 522);
-            this.tabPage3.TabIndex = 4;
-            this.tabPage3.Text = "设置标签过滤";
             // 
             // listView2
             // 
@@ -5304,75 +3902,52 @@ namespace UHFDemo
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8});
-            this.listView2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.listView2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.listView2, "listView2");
             this.listView2.GridLines = true;
-            this.listView2.Location = new System.Drawing.Point(3, 285);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(994, 234);
-            this.listView2.TabIndex = 30;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "过滤ID";
-            this.columnHeader1.Width = 56;
+            resources.ApplyResources(this.columnHeader1, "columnHeader1");
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Session ID";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 118;
+            resources.ApplyResources(this.columnHeader2, "columnHeader2");
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "过滤行为";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 96;
+            resources.ApplyResources(this.columnHeader3, "columnHeader3");
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "过滤区域";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 71;
+            resources.ApplyResources(this.columnHeader4, "columnHeader4");
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "起始地址(Hex bit)";
-            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader6.Width = 134;
+            resources.ApplyResources(this.columnHeader6, "columnHeader6");
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "过滤长度(Hex bit)";
-            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader7.Width = 138;
+            resources.ApplyResources(this.columnHeader7, "columnHeader7");
             // 
             // columnHeader8
             // 
-            this.columnHeader8.Text = "过滤值";
-            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader8.Width = 376;
+            resources.ApplyResources(this.columnHeader8, "columnHeader8");
             // 
             // groupBox22
             // 
             this.groupBox22.Controls.Add(this.button3);
             this.groupBox22.ForeColor = System.Drawing.Color.Black;
-            this.groupBox22.Location = new System.Drawing.Point(6, 203);
+            resources.ApplyResources(this.groupBox22, "groupBox22");
             this.groupBox22.Name = "groupBox22";
-            this.groupBox22.Size = new System.Drawing.Size(988, 49);
-            this.groupBox22.TabIndex = 29;
             this.groupBox22.TabStop = false;
-            this.groupBox22.Text = "查询过滤设置";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(626, 14);
+            resources.ApplyResources(this.button3, "button3");
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(202, 23);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "查询过滤";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -5382,45 +3957,33 @@ namespace UHFDemo
             this.groupBox12.Controls.Add(this.comboBox16);
             this.groupBox12.Controls.Add(this.button2);
             this.groupBox12.ForeColor = System.Drawing.Color.Black;
-            this.groupBox12.Location = new System.Drawing.Point(6, 137);
+            resources.ApplyResources(this.groupBox12, "groupBox12");
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(988, 49);
-            this.groupBox12.TabIndex = 28;
             this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "清除过滤设置";
             // 
             // label111
             // 
-            this.label111.AutoSize = true;
-            this.label111.Location = new System.Drawing.Point(106, 25);
+            resources.ApplyResources(this.label111, "label111");
             this.label111.Name = "label111";
-            this.label111.Size = new System.Drawing.Size(47, 12);
-            this.label111.TabIndex = 16;
-            this.label111.Text = "过滤ID:";
             // 
             // comboBox16
             // 
             this.comboBox16.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox16.FormattingEnabled = true;
             this.comboBox16.Items.AddRange(new object[] {
-            "Mask ALL",
-            "Mask No.1",
-            "Mask No.2",
-            "Mask No.3",
-            "Mask No.4",
-            "Mask No.5"});
-            this.comboBox16.Location = new System.Drawing.Point(198, 17);
+            resources.GetString("comboBox16.Items"),
+            resources.GetString("comboBox16.Items1"),
+            resources.GetString("comboBox16.Items2"),
+            resources.GetString("comboBox16.Items3"),
+            resources.GetString("comboBox16.Items4"),
+            resources.GetString("comboBox16.Items5")});
+            resources.ApplyResources(this.comboBox16, "comboBox16");
             this.comboBox16.Name = "comboBox16";
-            this.comboBox16.Size = new System.Drawing.Size(91, 20);
-            this.comboBox16.TabIndex = 15;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(626, 20);
+            resources.ApplyResources(this.button2, "button2");
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(202, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "清除过滤";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -5442,45 +4005,29 @@ namespace UHFDemo
             this.groupBox9.Controls.Add(this.comboBox15);
             this.groupBox9.Controls.Add(this.button1);
             this.groupBox9.ForeColor = System.Drawing.Color.Black;
-            this.groupBox9.Location = new System.Drawing.Point(6, 6);
+            resources.ApplyResources(this.groupBox9, "groupBox9");
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(988, 125);
-            this.groupBox9.TabIndex = 27;
             this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "设置过滤";
             // 
             // textBox12
             // 
-            this.textBox12.Location = new System.Drawing.Point(431, 55);
+            resources.ApplyResources(this.textBox12, "textBox12");
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(123, 21);
-            this.textBox12.TabIndex = 21;
-            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(149, 61);
+            resources.ApplyResources(this.textBox11, "textBox11");
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(94, 21);
-            this.textBox11.TabIndex = 20;
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // hexTextBox9
             // 
-            this.hexTextBox9.Location = new System.Drawing.Point(132, 95);
+            resources.ApplyResources(this.hexTextBox9, "hexTextBox9");
             this.hexTextBox9.Name = "hexTextBox9";
-            this.hexTextBox9.Size = new System.Drawing.Size(460, 21);
-            this.hexTextBox9.TabIndex = 18;
-            this.hexTextBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label38
             // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(5, 23);
+            resources.ApplyResources(this.label38, "label38");
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(47, 12);
-            this.label38.TabIndex = 15;
-            this.label38.Text = "过滤ID:";
             // 
             // comboBox12
             // 
@@ -5488,139 +4035,101 @@ namespace UHFDemo
             this.comboBox12.DropDownWidth = 70;
             this.comboBox12.FormattingEnabled = true;
             this.comboBox12.Items.AddRange(new object[] {
-            "Mask No.1",
-            "Mask No.2",
-            "Mask No.3",
-            "Mask No.4",
-            "Mask No.5"});
-            this.comboBox12.Location = new System.Drawing.Point(58, 20);
+            resources.GetString("comboBox12.Items"),
+            resources.GetString("comboBox12.Items1"),
+            resources.GetString("comboBox12.Items2"),
+            resources.GetString("comboBox12.Items3"),
+            resources.GetString("comboBox12.Items4")});
+            resources.ApplyResources(this.comboBox12, "comboBox12");
             this.comboBox12.Name = "comboBox12";
-            this.comboBox12.Size = new System.Drawing.Size(83, 20);
-            this.comboBox12.TabIndex = 14;
             // 
             // label39
             // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(29, 98);
+            resources.ApplyResources(this.label39, "label39");
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(47, 12);
-            this.label39.TabIndex = 11;
-            this.label39.Text = "过滤值:";
             // 
             // label71
             // 
-            this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(312, 61);
+            resources.ApplyResources(this.label71, "label71");
             this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(89, 12);
-            this.label71.TabIndex = 10;
-            this.label71.Text = "过滤长度(bit):";
             // 
             // label99
             // 
-            this.label99.AutoSize = true;
-            this.label99.Location = new System.Drawing.Point(29, 64);
+            resources.ApplyResources(this.label99, "label99");
             this.label99.Name = "label99";
-            this.label99.Size = new System.Drawing.Size(89, 12);
-            this.label99.TabIndex = 9;
-            this.label99.Text = "起始地址(bit):";
             // 
             // label100
             // 
-            this.label100.AutoSize = true;
-            this.label100.Location = new System.Drawing.Point(439, 23);
+            resources.ApplyResources(this.label100, "label100");
             this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(65, 12);
-            this.label100.TabIndex = 6;
-            this.label100.Text = "过滤区域：";
             // 
             // label101
             // 
-            this.label101.AutoSize = true;
-            this.label101.Location = new System.Drawing.Point(296, 24);
+            resources.ApplyResources(this.label101, "label101");
             this.label101.Name = "label101";
-            this.label101.Size = new System.Drawing.Size(59, 12);
-            this.label101.TabIndex = 5;
-            this.label101.Text = "过滤行为:";
             // 
             // label102
             // 
-            this.label102.AutoSize = true;
-            this.label102.Location = new System.Drawing.Point(147, 26);
+            resources.ApplyResources(this.label102, "label102");
             this.label102.Name = "label102";
-            this.label102.Size = new System.Drawing.Size(71, 12);
-            this.label102.TabIndex = 4;
-            this.label102.Text = "Session ID:";
             // 
             // comboBox13
             // 
             this.comboBox13.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox13.FormattingEnabled = true;
             this.comboBox13.Items.AddRange(new object[] {
-            "Reserve",
-            "EPC",
-            "TID",
-            "USER"});
-            this.comboBox13.Location = new System.Drawing.Point(510, 20);
+            resources.GetString("comboBox13.Items"),
+            resources.GetString("comboBox13.Items1"),
+            resources.GetString("comboBox13.Items2"),
+            resources.GetString("comboBox13.Items3")});
+            resources.ApplyResources(this.comboBox13, "comboBox13");
             this.comboBox13.Name = "comboBox13";
-            this.comboBox13.Size = new System.Drawing.Size(82, 20);
-            this.comboBox13.TabIndex = 3;
             // 
             // comboBox14
             // 
             this.comboBox14.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox14.FormattingEnabled = true;
             this.comboBox14.Items.AddRange(new object[] {
-            "00",
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07"});
-            this.comboBox14.Location = new System.Drawing.Point(361, 20);
+            resources.GetString("comboBox14.Items"),
+            resources.GetString("comboBox14.Items1"),
+            resources.GetString("comboBox14.Items2"),
+            resources.GetString("comboBox14.Items3"),
+            resources.GetString("comboBox14.Items4"),
+            resources.GetString("comboBox14.Items5"),
+            resources.GetString("comboBox14.Items6"),
+            resources.GetString("comboBox14.Items7")});
+            resources.ApplyResources(this.comboBox14, "comboBox14");
             this.comboBox14.Name = "comboBox14";
-            this.comboBox14.Size = new System.Drawing.Size(72, 20);
-            this.comboBox14.TabIndex = 2;
             // 
             // comboBox15
             // 
             this.comboBox15.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox15.FormattingEnabled = true;
             this.comboBox15.Items.AddRange(new object[] {
-            "S0",
-            "S1",
-            "S2",
-            "S3",
-            "SL"});
-            this.comboBox15.Location = new System.Drawing.Point(218, 23);
+            resources.GetString("comboBox15.Items"),
+            resources.GetString("comboBox15.Items1"),
+            resources.GetString("comboBox15.Items2"),
+            resources.GetString("comboBox15.Items3"),
+            resources.GetString("comboBox15.Items4")});
+            resources.ApplyResources(this.comboBox15, "comboBox15");
             this.comboBox15.Name = "comboBox15";
-            this.comboBox15.Size = new System.Drawing.Size(72, 20);
-            this.comboBox15.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(626, 53);
+            resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(202, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "设置过滤";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // m_NXPTabPage
             // 
             this.m_NXPTabPage.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.m_NXPTabPage.Controls.Add(this.groupBox27);
+            this.m_NXPTabPage.Controls.Add(this.groupBox26);
             this.m_NXPTabPage.Controls.Add(this.groupBox25);
             this.m_NXPTabPage.Controls.Add(this.listViewUntraceable);
-            this.m_NXPTabPage.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.m_NXPTabPage, "m_NXPTabPage");
             this.m_NXPTabPage.Name = "m_NXPTabPage";
-            this.m_NXPTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.m_NXPTabPage.Size = new System.Drawing.Size(1000, 522);
-            this.m_NXPTabPage.TabIndex = 5;
-            this.m_NXPTabPage.Text = "NXP 标签";
             // 
             // groupBox25
             // 
@@ -5635,126 +4144,86 @@ namespace UHFDemo
             this.groupBox25.Controls.Add(this.label127);
             this.groupBox25.Controls.Add(this.mUntraceablePwd);
             this.groupBox25.Controls.Add(this.label126);
-            this.groupBox25.Location = new System.Drawing.Point(6, 6);
+            resources.ApplyResources(this.groupBox25, "groupBox25");
             this.groupBox25.Name = "groupBox25";
-            this.groupBox25.Size = new System.Drawing.Size(988, 43);
-            this.groupBox25.TabIndex = 12;
             this.groupBox25.TabStop = false;
-            this.groupBox25.Text = "Untraceable";
             // 
             // mUntraceableSet
             // 
-            this.mUntraceableSet.Location = new System.Drawing.Point(845, 13);
+            resources.ApplyResources(this.mUntraceableSet, "mUntraceableSet");
             this.mUntraceableSet.Name = "mUntraceableSet";
-            this.mUntraceableSet.Size = new System.Drawing.Size(90, 23);
-            this.mUntraceableSet.TabIndex = 17;
-            this.mUntraceableSet.Text = "设置 ";
             this.mUntraceableSet.UseVisualStyleBackColor = true;
             this.mUntraceableSet.Click += new System.EventHandler(this.mUntraceableSet_Click);
             // 
             // label130
             // 
-            this.label130.AutoSize = true;
-            this.label130.Location = new System.Drawing.Point(589, 18);
+            resources.ApplyResources(this.label130, "label130");
             this.label130.Name = "label130";
-            this.label130.Size = new System.Drawing.Size(41, 12);
-            this.label130.TabIndex = 16;
-            this.label130.Text = "RANGE:";
             // 
             // label129
             // 
-            this.label129.AutoSize = true;
-            this.label129.Location = new System.Drawing.Point(456, 16);
+            resources.ApplyResources(this.label129, "label129");
             this.label129.Name = "label129";
-            this.label129.Size = new System.Drawing.Size(35, 12);
-            this.label129.TabIndex = 15;
-            this.label129.Text = "USER:";
             // 
             // mUntraceableRange
             // 
             this.mUntraceableRange.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.mUntraceableRange.FormattingEnabled = true;
             this.mUntraceableRange.Items.AddRange(new object[] {
-            "00",
-            "01",
-            "10",
-            "11"});
-            this.mUntraceableRange.Location = new System.Drawing.Point(631, 14);
+            resources.GetString("mUntraceableRange.Items"),
+            resources.GetString("mUntraceableRange.Items1"),
+            resources.GetString("mUntraceableRange.Items2"),
+            resources.GetString("mUntraceableRange.Items3")});
+            resources.ApplyResources(this.mUntraceableRange, "mUntraceableRange");
             this.mUntraceableRange.Name = "mUntraceableRange";
-            this.mUntraceableRange.Size = new System.Drawing.Size(72, 20);
-            this.mUntraceableRange.TabIndex = 14;
             // 
             // mUntraceableUser
             // 
             this.mUntraceableUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.mUntraceableUser.FormattingEnabled = true;
             this.mUntraceableUser.Items.AddRange(new object[] {
-            "00",
-            "01"});
-            this.mUntraceableUser.Location = new System.Drawing.Point(491, 13);
+            resources.GetString("mUntraceableUser.Items"),
+            resources.GetString("mUntraceableUser.Items1")});
+            resources.ApplyResources(this.mUntraceableUser, "mUntraceableUser");
             this.mUntraceableUser.Name = "mUntraceableUser";
-            this.mUntraceableUser.Size = new System.Drawing.Size(72, 20);
-            this.mUntraceableUser.TabIndex = 13;
             // 
             // mUntraceableTid
             // 
             this.mUntraceableTid.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.mUntraceableTid.FormattingEnabled = true;
             this.mUntraceableTid.Items.AddRange(new object[] {
-            "00",
-            "01",
-            "10",
-            "11"});
-            this.mUntraceableTid.Location = new System.Drawing.Point(346, 13);
+            resources.GetString("mUntraceableTid.Items"),
+            resources.GetString("mUntraceableTid.Items1"),
+            resources.GetString("mUntraceableTid.Items2"),
+            resources.GetString("mUntraceableTid.Items3")});
+            resources.ApplyResources(this.mUntraceableTid, "mUntraceableTid");
             this.mUntraceableTid.Name = "mUntraceableTid";
-            this.mUntraceableTid.Size = new System.Drawing.Size(72, 20);
-            this.mUntraceableTid.TabIndex = 12;
             // 
             // label128
             // 
-            this.label128.AutoSize = true;
-            this.label128.Location = new System.Drawing.Point(311, 17);
+            resources.ApplyResources(this.label128, "label128");
             this.label128.Name = "label128";
-            this.label128.Size = new System.Drawing.Size(29, 12);
-            this.label128.TabIndex = 11;
-            this.label128.Text = "TID:";
             // 
             // mUntraceableEpc
             // 
-            this.mUntraceableEpc.Location = new System.Drawing.Point(256, 13);
+            resources.ApplyResources(this.mUntraceableEpc, "mUntraceableEpc");
             this.mUntraceableEpc.Name = "mUntraceableEpc";
-            this.mUntraceableEpc.Size = new System.Drawing.Size(36, 21);
-            this.mUntraceableEpc.TabIndex = 10;
-            this.mUntraceableEpc.Text = "0";
-            this.mUntraceableEpc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mUntraceableEpc.TextChanged += new System.EventHandler(this.mUntraceableEpc_TextChanged);
             // 
             // label127
             // 
-            this.label127.AutoSize = true;
-            this.label127.Location = new System.Drawing.Point(221, 18);
+            resources.ApplyResources(this.label127, "label127");
             this.label127.Name = "label127";
-            this.label127.Size = new System.Drawing.Size(29, 12);
-            this.label127.TabIndex = 5;
-            this.label127.Text = "EPC:";
             // 
             // mUntraceablePwd
             // 
-            this.mUntraceablePwd.Location = new System.Drawing.Point(79, 14);
+            resources.ApplyResources(this.mUntraceablePwd, "mUntraceablePwd");
             this.mUntraceablePwd.Name = "mUntraceablePwd";
-            this.mUntraceablePwd.Size = new System.Drawing.Size(120, 21);
-            this.mUntraceablePwd.TabIndex = 4;
-            this.mUntraceablePwd.Text = "00 00 00 00";
-            this.mUntraceablePwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label126
             // 
-            this.label126.AutoSize = true;
-            this.label126.Location = new System.Drawing.Point(6, 20);
+            resources.ApplyResources(this.label126, "label126");
             this.label126.Name = "label126";
-            this.label126.Size = new System.Drawing.Size(77, 12);
-            this.label126.TabIndex = 3;
-            this.label126.Text = "密码（HEX）:";
             // 
             // listViewUntraceable
             // 
@@ -5767,58 +4236,43 @@ namespace UHFDemo
             this.columnHeader22,
             this.columnHeader23,
             this.columnHeader24});
-            this.listViewUntraceable.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.listViewUntraceable, "listViewUntraceable");
             this.listViewUntraceable.GridLines = true;
-            this.listViewUntraceable.Location = new System.Drawing.Point(0, 325);
             this.listViewUntraceable.Name = "listViewUntraceable";
-            this.listViewUntraceable.Size = new System.Drawing.Size(1000, 197);
-            this.listViewUntraceable.TabIndex = 11;
             this.listViewUntraceable.UseCompatibleStateImageBehavior = false;
             this.listViewUntraceable.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader17
             // 
-            this.columnHeader17.Text = "序号";
+            resources.ApplyResources(this.columnHeader17, "columnHeader17");
             // 
             // columnHeader18
             // 
-            this.columnHeader18.Text = "PC";
-            this.columnHeader18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            resources.ApplyResources(this.columnHeader18, "columnHeader18");
             // 
             // columnHeader19
             // 
-            this.columnHeader19.Text = "CRC";
-            this.columnHeader19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            resources.ApplyResources(this.columnHeader19, "columnHeader19");
             // 
             // columnHeader20
             // 
-            this.columnHeader20.Text = "EPC";
-            this.columnHeader20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader20.Width = 260;
+            resources.ApplyResources(this.columnHeader20, "columnHeader20");
             // 
             // columnHeader21
             // 
-            this.columnHeader21.Text = "数据";
-            this.columnHeader21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader21.Width = 341;
+            resources.ApplyResources(this.columnHeader21, "columnHeader21");
             // 
             // columnHeader22
             // 
-            this.columnHeader22.Text = "数据长度";
-            this.columnHeader22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader22.Width = 73;
+            resources.ApplyResources(this.columnHeader22, "columnHeader22");
             // 
             // columnHeader23
             // 
-            this.columnHeader23.Text = "天线";
-            this.columnHeader23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader23.Width = 49;
+            resources.ApplyResources(this.columnHeader23, "columnHeader23");
             // 
             // columnHeader24
             // 
-            this.columnHeader24.Text = "操作次数";
-            this.columnHeader24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader24.Width = 79;
+            resources.ApplyResources(this.columnHeader24, "columnHeader24");
             // 
             // PagISO18000
             // 
@@ -5831,31 +4285,21 @@ namespace UHFDemo
             this.PagISO18000.Controls.Add(this.gbISO1800ReadWrite);
             this.PagISO18000.Controls.Add(this.label41);
             this.PagISO18000.Controls.Add(this.htxtReadUID);
-            this.PagISO18000.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.PagISO18000, "PagISO18000");
             this.PagISO18000.Name = "PagISO18000";
-            this.PagISO18000.Size = new System.Drawing.Size(1010, 555);
-            this.PagISO18000.TabIndex = 4;
-            this.PagISO18000.Text = "ISO 18000-6B标签测试";
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(887, 22);
+            resources.ApplyResources(this.btnClear, "btnClear");
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(100, 28);
-            this.btnClear.TabIndex = 10;
-            this.btnClear.Text = "刷新界面";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnInventoryISO18000
             // 
-            this.btnInventoryISO18000.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.btnInventoryISO18000, "btnInventoryISO18000");
             this.btnInventoryISO18000.ForeColor = System.Drawing.Color.Indigo;
-            this.btnInventoryISO18000.Location = new System.Drawing.Point(8, 10);
             this.btnInventoryISO18000.Name = "btnInventoryISO18000";
-            this.btnInventoryISO18000.Size = new System.Drawing.Size(120, 35);
-            this.btnInventoryISO18000.TabIndex = 3;
-            this.btnInventoryISO18000.Text = "开始盘存";
             this.btnInventoryISO18000.UseVisualStyleBackColor = true;
             this.btnInventoryISO18000.Click += new System.EventHandler(this.btnInventoryISO18000_Click);
             // 
@@ -5866,13 +4310,10 @@ namespace UHFDemo
             this.columnHeader25,
             this.columnHeader26,
             this.columnHeader28});
-            this.ltvTagISO18000.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.ltvTagISO18000, "ltvTagISO18000");
             this.ltvTagISO18000.FullRowSelect = true;
             this.ltvTagISO18000.GridLines = true;
-            this.ltvTagISO18000.Location = new System.Drawing.Point(3, 51);
             this.ltvTagISO18000.Name = "ltvTagISO18000";
-            this.ltvTagISO18000.Size = new System.Drawing.Size(458, 502);
-            this.ltvTagISO18000.TabIndex = 9;
             this.ltvTagISO18000.UseCompatibleStateImageBehavior = false;
             this.ltvTagISO18000.View = System.Windows.Forms.View.Details;
             this.ltvTagISO18000.Click += new System.EventHandler(this.ltvTagISO18000_Click);
@@ -5880,25 +4321,19 @@ namespace UHFDemo
             // 
             // columnHeader27
             // 
-            this.columnHeader27.Text = "序号";
+            resources.ApplyResources(this.columnHeader27, "columnHeader27");
             // 
             // columnHeader25
             // 
-            this.columnHeader25.Text = "UID";
-            this.columnHeader25.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader25.Width = 227;
+            resources.ApplyResources(this.columnHeader25, "columnHeader25");
             // 
             // columnHeader26
             // 
-            this.columnHeader26.Text = "天线号";
-            this.columnHeader26.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader26.Width = 77;
+            resources.ApplyResources(this.columnHeader26, "columnHeader26");
             // 
             // columnHeader28
             // 
-            this.columnHeader28.Text = "次数";
-            this.columnHeader28.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader28.Width = 75;
+            resources.ApplyResources(this.columnHeader28, "columnHeader28");
             // 
             // gbISO1800LockQuery
             // 
@@ -5909,74 +4344,47 @@ namespace UHFDemo
             this.gbISO1800LockQuery.Controls.Add(this.label47);
             this.gbISO1800LockQuery.Controls.Add(this.btnQueryTagISO18000);
             this.gbISO1800LockQuery.Controls.Add(this.btnLockTagISO18000);
-            this.gbISO1800LockQuery.Location = new System.Drawing.Point(487, 467);
+            resources.ApplyResources(this.gbISO1800LockQuery, "gbISO1800LockQuery");
             this.gbISO1800LockQuery.Name = "gbISO1800LockQuery";
-            this.gbISO1800LockQuery.Size = new System.Drawing.Size(515, 86);
-            this.gbISO1800LockQuery.TabIndex = 7;
             this.gbISO1800LockQuery.TabStop = false;
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(263, 58);
+            resources.ApplyResources(this.txtStatus, "txtStatus");
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.ReadOnly = true;
-            this.txtStatus.Size = new System.Drawing.Size(128, 21);
-            this.txtStatus.TabIndex = 9;
-            this.txtStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // htxtQueryAdd
             // 
-            this.htxtQueryAdd.Location = new System.Drawing.Point(210, 58);
-            this.htxtQueryAdd.MaxLength = 2;
+            resources.ApplyResources(this.htxtQueryAdd, "htxtQueryAdd");
             this.htxtQueryAdd.Name = "htxtQueryAdd";
-            this.htxtQueryAdd.Size = new System.Drawing.Size(39, 21);
-            this.htxtQueryAdd.TabIndex = 8;
-            this.htxtQueryAdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label46
             // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(25, 62);
+            resources.ApplyResources(this.label46, "label46");
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(173, 12);
-            this.label46.TabIndex = 5;
-            this.label46.Text = "查询永久写保护状态(HEX地址):";
             // 
             // htxtLockAdd
             // 
-            this.htxtLockAdd.Location = new System.Drawing.Point(210, 25);
-            this.htxtLockAdd.MaxLength = 2;
+            resources.ApplyResources(this.htxtLockAdd, "htxtLockAdd");
             this.htxtLockAdd.Name = "htxtLockAdd";
-            this.htxtLockAdd.Size = new System.Drawing.Size(39, 21);
-            this.htxtLockAdd.TabIndex = 8;
-            this.htxtLockAdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label47
             // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(73, 29);
+            resources.ApplyResources(this.label47, "label47");
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(125, 12);
-            this.label47.TabIndex = 5;
-            this.label47.Text = "永久写保护(HEX地址):";
             // 
             // btnQueryTagISO18000
             // 
-            this.btnQueryTagISO18000.Location = new System.Drawing.Point(400, 54);
+            resources.ApplyResources(this.btnQueryTagISO18000, "btnQueryTagISO18000");
             this.btnQueryTagISO18000.Name = "btnQueryTagISO18000";
-            this.btnQueryTagISO18000.Size = new System.Drawing.Size(100, 28);
-            this.btnQueryTagISO18000.TabIndex = 3;
-            this.btnQueryTagISO18000.Text = "查询状态";
             this.btnQueryTagISO18000.UseVisualStyleBackColor = true;
             this.btnQueryTagISO18000.Click += new System.EventHandler(this.btnQueryTagISO18000_Click);
             // 
             // btnLockTagISO18000
             // 
-            this.btnLockTagISO18000.Location = new System.Drawing.Point(400, 21);
+            resources.ApplyResources(this.btnLockTagISO18000, "btnLockTagISO18000");
             this.btnLockTagISO18000.Name = "btnLockTagISO18000";
-            this.btnLockTagISO18000.Size = new System.Drawing.Size(100, 28);
-            this.btnLockTagISO18000.TabIndex = 3;
-            this.btnLockTagISO18000.Text = "永久写保护";
             this.btnLockTagISO18000.UseVisualStyleBackColor = true;
             this.btnLockTagISO18000.Click += new System.EventHandler(this.btnLockTagISO18000_Click);
             // 
@@ -6000,208 +4408,125 @@ namespace UHFDemo
             this.gbISO1800ReadWrite.Controls.Add(this.label42);
             this.gbISO1800ReadWrite.Controls.Add(this.label43);
             this.gbISO1800ReadWrite.Controls.Add(this.btnReadTagISO18000);
-            this.gbISO1800ReadWrite.Location = new System.Drawing.Point(487, 56);
+            resources.ApplyResources(this.gbISO1800ReadWrite, "gbISO1800ReadWrite");
             this.gbISO1800ReadWrite.Name = "gbISO1800ReadWrite";
-            this.gbISO1800ReadWrite.Size = new System.Drawing.Size(515, 411);
-            this.gbISO1800ReadWrite.TabIndex = 4;
             this.gbISO1800ReadWrite.TabStop = false;
-            this.gbISO1800ReadWrite.Text = "任意长度读写数据";
             // 
             // txtLoopTimes
             // 
-            this.txtLoopTimes.Location = new System.Drawing.Point(274, 219);
+            resources.ApplyResources(this.txtLoopTimes, "txtLoopTimes");
             this.txtLoopTimes.Name = "txtLoopTimes";
             this.txtLoopTimes.ReadOnly = true;
-            this.txtLoopTimes.Size = new System.Drawing.Size(41, 21);
-            this.txtLoopTimes.TabIndex = 15;
-            this.txtLoopTimes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label44
             // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(179, 223);
+            resources.ApplyResources(this.label44, "label44");
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(83, 12);
-            this.label44.TabIndex = 14;
-            this.label44.Text = "成功写入(次):";
             // 
             // txtLoop
             // 
-            this.txtLoop.Location = new System.Drawing.Point(117, 219);
+            resources.ApplyResources(this.txtLoop, "txtLoop");
             this.txtLoop.Name = "txtLoop";
-            this.txtLoop.Size = new System.Drawing.Size(39, 21);
-            this.txtLoop.TabIndex = 13;
-            this.txtLoop.Text = "1";
-            this.txtLoop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label40
             // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(22, 223);
+            resources.ApplyResources(this.label40, "label40");
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(83, 12);
-            this.label40.TabIndex = 12;
-            this.label40.Text = "循环写入(次):";
             // 
             // htxtWriteData18000
             // 
-            this.htxtWriteData18000.Location = new System.Drawing.Point(117, 247);
-            this.htxtWriteData18000.Multiline = true;
+            resources.ApplyResources(this.htxtWriteData18000, "htxtWriteData18000");
             this.htxtWriteData18000.Name = "htxtWriteData18000";
-            this.htxtWriteData18000.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.htxtWriteData18000.Size = new System.Drawing.Size(383, 158);
-            this.htxtWriteData18000.TabIndex = 9;
             // 
             // txtWriteLength
             // 
-            this.txtWriteLength.Location = new System.Drawing.Point(274, 192);
-            this.txtWriteLength.MaxLength = 2;
+            resources.ApplyResources(this.txtWriteLength, "txtWriteLength");
             this.txtWriteLength.Name = "txtWriteLength";
             this.txtWriteLength.ReadOnly = true;
-            this.txtWriteLength.Size = new System.Drawing.Size(41, 21);
-            this.txtWriteLength.TabIndex = 11;
-            this.txtWriteLength.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // htxtReadData18000
             // 
-            this.htxtReadData18000.Location = new System.Drawing.Point(117, 49);
-            this.htxtReadData18000.Multiline = true;
+            resources.ApplyResources(this.htxtReadData18000, "htxtReadData18000");
             this.htxtReadData18000.Name = "htxtReadData18000";
             this.htxtReadData18000.ReadOnly = true;
-            this.htxtReadData18000.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.htxtReadData18000.Size = new System.Drawing.Size(383, 133);
-            this.htxtReadData18000.TabIndex = 11;
             // 
             // label45
             // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(16, 250);
+            resources.ApplyResources(this.label45, "label45");
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(89, 12);
-            this.label45.TabIndex = 6;
-            this.label45.Text = "写入数据(HEX):";
             // 
             // btnWriteTagISO18000
             // 
-            this.btnWriteTagISO18000.Location = new System.Drawing.Point(400, 215);
+            resources.ApplyResources(this.btnWriteTagISO18000, "btnWriteTagISO18000");
             this.btnWriteTagISO18000.Name = "btnWriteTagISO18000";
-            this.btnWriteTagISO18000.Size = new System.Drawing.Size(100, 28);
-            this.btnWriteTagISO18000.TabIndex = 3;
-            this.btnWriteTagISO18000.Text = "写数据";
             this.btnWriteTagISO18000.UseVisualStyleBackColor = true;
             this.btnWriteTagISO18000.Click += new System.EventHandler(this.btnWriteTagISO18000_Click);
             // 
             // label51
             // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(173, 196);
+            resources.ApplyResources(this.label51, "label51");
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(89, 12);
-            this.label51.TabIndex = 10;
-            this.label51.Text = "写入长度(HEX):";
             // 
             // label52
             // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(16, 52);
+            resources.ApplyResources(this.label52, "label52");
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(89, 12);
-            this.label52.TabIndex = 10;
-            this.label52.Text = "读取数据(HEX):";
             // 
             // txtReadLength
             // 
-            this.txtReadLength.Location = new System.Drawing.Point(274, 19);
-            this.txtReadLength.MaxLength = 2;
+            resources.ApplyResources(this.txtReadLength, "txtReadLength");
             this.txtReadLength.Name = "txtReadLength";
-            this.txtReadLength.Size = new System.Drawing.Size(41, 21);
-            this.txtReadLength.TabIndex = 9;
-            this.txtReadLength.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // htxtWriteStartAdd
             // 
-            this.htxtWriteStartAdd.Location = new System.Drawing.Point(117, 192);
-            this.htxtWriteStartAdd.MaxLength = 2;
+            resources.ApplyResources(this.htxtWriteStartAdd, "htxtWriteStartAdd");
             this.htxtWriteStartAdd.Name = "htxtWriteStartAdd";
-            this.htxtWriteStartAdd.Size = new System.Drawing.Size(39, 21);
-            this.htxtWriteStartAdd.TabIndex = 8;
-            this.htxtWriteStartAdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label50
             // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(173, 23);
+            resources.ApplyResources(this.label50, "label50");
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(89, 12);
-            this.label50.TabIndex = 8;
-            this.label50.Text = "读取长度(HEX):";
             // 
             // htxtReadStartAdd
             // 
-            this.htxtReadStartAdd.Location = new System.Drawing.Point(117, 19);
-            this.htxtReadStartAdd.MaxLength = 2;
+            resources.ApplyResources(this.htxtReadStartAdd, "htxtReadStartAdd");
             this.htxtReadStartAdd.Name = "htxtReadStartAdd";
-            this.htxtReadStartAdd.Size = new System.Drawing.Size(39, 21);
-            this.htxtReadStartAdd.TabIndex = 7;
-            this.htxtReadStartAdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label42
             // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(16, 23);
+            resources.ApplyResources(this.label42, "label42");
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(89, 12);
-            this.label42.TabIndex = 5;
-            this.label42.Text = "起始地址(HEX):";
             // 
             // label43
             // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(16, 196);
+            resources.ApplyResources(this.label43, "label43");
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(89, 12);
-            this.label43.TabIndex = 5;
-            this.label43.Text = "起始地址(HEX):";
             // 
             // btnReadTagISO18000
             // 
-            this.btnReadTagISO18000.Location = new System.Drawing.Point(400, 15);
+            resources.ApplyResources(this.btnReadTagISO18000, "btnReadTagISO18000");
             this.btnReadTagISO18000.Name = "btnReadTagISO18000";
-            this.btnReadTagISO18000.Size = new System.Drawing.Size(100, 28);
-            this.btnReadTagISO18000.TabIndex = 3;
-            this.btnReadTagISO18000.Text = "读数据";
             this.btnReadTagISO18000.UseVisualStyleBackColor = true;
             this.btnReadTagISO18000.Click += new System.EventHandler(this.btnReadTagISO18000_Click);
             // 
             // label41
             // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(503, 30);
+            resources.ApplyResources(this.label41, "label41");
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(89, 12);
-            this.label41.TabIndex = 4;
-            this.label41.Text = "当前选择的UID:";
             // 
             // htxtReadUID
             // 
-            this.htxtReadUID.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.htxtReadUID.Location = new System.Drawing.Point(604, 27);
+            resources.ApplyResources(this.htxtReadUID, "htxtReadUID");
             this.htxtReadUID.Name = "htxtReadUID";
             this.htxtReadUID.ReadOnly = true;
-            this.htxtReadUID.Size = new System.Drawing.Size(195, 21);
-            this.htxtReadUID.TabIndex = 6;
-            this.htxtReadUID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // PagTranDataLog
             // 
             this.PagTranDataLog.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PagTranDataLog.Controls.Add(this.gbCmdManual);
             this.PagTranDataLog.Controls.Add(this.lrtxtDataTran);
-            this.PagTranDataLog.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.PagTranDataLog, "PagTranDataLog");
             this.PagTranDataLog.Name = "PagTranDataLog";
-            this.PagTranDataLog.Size = new System.Drawing.Size(1010, 555);
-            this.PagTranDataLog.TabIndex = 2;
-            this.PagTranDataLog.Text = "串口监控数据";
             this.PagTranDataLog.UseVisualStyleBackColor = true;
             // 
             // gbCmdManual
@@ -6212,132 +4537,84 @@ namespace UHFDemo
             this.gbCmdManual.Controls.Add(this.label17);
             this.gbCmdManual.Controls.Add(this.btnSendData);
             this.gbCmdManual.Controls.Add(this.htxtCheckData);
-            this.gbCmdManual.Location = new System.Drawing.Point(2, 476);
+            resources.ApplyResources(this.gbCmdManual, "gbCmdManual");
             this.gbCmdManual.Name = "gbCmdManual";
-            this.gbCmdManual.Size = new System.Drawing.Size(1002, 51);
-            this.gbCmdManual.TabIndex = 8;
             this.gbCmdManual.TabStop = false;
             // 
             // label16
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 19);
+            resources.ApplyResources(this.label16, "label16");
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(83, 12);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "手工输入数据:";
             // 
             // htxtSendData
             // 
-            this.htxtSendData.Location = new System.Drawing.Point(95, 16);
+            resources.ApplyResources(this.htxtSendData, "htxtSendData");
             this.htxtSendData.Name = "htxtSendData";
-            this.htxtSendData.Size = new System.Drawing.Size(515, 21);
-            this.htxtSendData.TabIndex = 2;
             this.htxtSendData.Leave += new System.EventHandler(this.htxtSendData_Leave);
             // 
             // btnClearData
             // 
-            this.btnClearData.Location = new System.Drawing.Point(906, 14);
+            resources.ApplyResources(this.btnClearData, "btnClearData");
             this.btnClearData.Name = "btnClearData";
-            this.btnClearData.Size = new System.Drawing.Size(90, 23);
-            this.btnClearData.TabIndex = 6;
-            this.btnClearData.Text = "清空数据";
             this.btnClearData.UseVisualStyleBackColor = true;
             this.btnClearData.Click += new System.EventHandler(this.btnClearData_Click);
             // 
             // label17
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(632, 19);
+            resources.ApplyResources(this.label17, "label17");
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(47, 12);
-            this.label17.TabIndex = 3;
-            this.label17.Text = "校验位:";
             // 
             // btnSendData
             // 
-            this.btnSendData.Location = new System.Drawing.Point(810, 14);
+            resources.ApplyResources(this.btnSendData, "btnSendData");
             this.btnSendData.Name = "btnSendData";
-            this.btnSendData.Size = new System.Drawing.Size(90, 23);
-            this.btnSendData.TabIndex = 5;
-            this.btnSendData.Text = "发送数据";
             this.btnSendData.UseVisualStyleBackColor = true;
             this.btnSendData.Click += new System.EventHandler(this.btnSendData_Click);
             // 
             // htxtCheckData
             // 
-            this.htxtCheckData.Location = new System.Drawing.Point(685, 16);
+            resources.ApplyResources(this.htxtCheckData, "htxtCheckData");
             this.htxtCheckData.Name = "htxtCheckData";
             this.htxtCheckData.ReadOnly = true;
-            this.htxtCheckData.Size = new System.Drawing.Size(47, 21);
-            this.htxtCheckData.TabIndex = 4;
             // 
             // lrtxtDataTran
             // 
-            this.lrtxtDataTran.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lrtxtDataTran.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.lrtxtDataTran, "lrtxtDataTran");
             this.lrtxtDataTran.Name = "lrtxtDataTran";
-            this.lrtxtDataTran.Size = new System.Drawing.Size(1010, 471);
-            this.lrtxtDataTran.TabIndex = 0;
-            this.lrtxtDataTran.Text = "";
             this.lrtxtDataTran.DoubleClick += new System.EventHandler(this.lrtxtDataTran_DoubleClick);
             // 
             // label35
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(2, 588);
+            resources.ApplyResources(this.label35, "label35");
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(59, 12);
-            this.label35.TabIndex = 13;
-            this.label35.Text = "操作记录:";
             // 
             // ckDisplayLog
             // 
-            this.ckDisplayLog.AutoSize = true;
+            resources.ApplyResources(this.ckDisplayLog, "ckDisplayLog");
             this.ckDisplayLog.ForeColor = System.Drawing.Color.Indigo;
-            this.ckDisplayLog.Location = new System.Drawing.Point(879, 586);
             this.ckDisplayLog.Name = "ckDisplayLog";
-            this.ckDisplayLog.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ckDisplayLog.Size = new System.Drawing.Size(96, 16);
-            this.ckDisplayLog.TabIndex = 16;
-            this.ckDisplayLog.Text = "打开串口监控";
             this.ckDisplayLog.UseVisualStyleBackColor = true;
             this.ckDisplayLog.CheckedChanged += new System.EventHandler(this.ckDisplayLog_CheckedChanged);
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.66265F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.33735F));
+            resources.ApplyResources(this.tableLayoutPanel3, "tableLayoutPanel3");
             this.tableLayoutPanel3.Controls.Add(this.panel6, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel7, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(996, 55);
-            this.tableLayoutPanel3.TabIndex = 48;
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.button4);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(4, 4);
+            resources.ApplyResources(this.panel6, "panel6");
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(397, 47);
-            this.panel6.TabIndex = 0;
             // 
             // button4
             // 
             this.button4.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button4.Location = new System.Drawing.Point(126, 4);
+            resources.ApplyResources(this.button4, "button4");
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(144, 38);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "开始盘存";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // panel7
@@ -6346,111 +4623,69 @@ namespace UHFDemo
             this.panel7.Controls.Add(this.checkBox6);
             this.panel7.Controls.Add(this.checkBox7);
             this.panel7.Controls.Add(this.checkBox8);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(408, 4);
+            resources.ApplyResources(this.panel7, "panel7");
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(584, 47);
-            this.panel7.TabIndex = 1;
             // 
             // checkBox5
             // 
-            this.checkBox5.AutoSize = true;
+            resources.ApplyResources(this.checkBox5, "checkBox5");
             this.checkBox5.Checked = true;
             this.checkBox5.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkBox5.Location = new System.Drawing.Point(64, 17);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(57, 16);
-            this.checkBox5.TabIndex = 3;
-            this.checkBox5.Text = "天线1";
             this.checkBox5.UseVisualStyleBackColor = true;
             // 
             // checkBox6
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkBox6.Location = new System.Drawing.Point(436, 17);
+            resources.ApplyResources(this.checkBox6, "checkBox6");
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(57, 16);
-            this.checkBox6.TabIndex = 2;
-            this.checkBox6.Text = "天线4";
             this.checkBox6.UseVisualStyleBackColor = true;
             // 
             // checkBox7
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkBox7.Location = new System.Drawing.Point(312, 17);
+            resources.ApplyResources(this.checkBox7, "checkBox7");
             this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(57, 16);
-            this.checkBox7.TabIndex = 1;
-            this.checkBox7.Text = "天线3";
             this.checkBox7.UseVisualStyleBackColor = true;
             // 
             // checkBox8
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkBox8.Location = new System.Drawing.Point(188, 17);
+            resources.ApplyResources(this.checkBox8, "checkBox8");
             this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(57, 16);
-            this.checkBox8.TabIndex = 0;
-            this.checkBox8.Text = "天线2";
             this.checkBox8.UseVisualStyleBackColor = true;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(704, 234);
+            resources.ApplyResources(this.textBox5, "textBox5");
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(89, 21);
-            this.textBox5.TabIndex = 46;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(502, 234);
+            resources.ApplyResources(this.textBox6, "textBox6");
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(89, 21);
-            this.textBox6.TabIndex = 47;
             // 
             // button5
             // 
             this.button5.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button5.Location = new System.Drawing.Point(907, 232);
+            resources.ApplyResources(this.button5, "button5");
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(89, 23);
-            this.button5.TabIndex = 45;
-            this.button5.Text = "刷新界面";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // label76
             // 
-            this.label76.AutoSize = true;
+            resources.ApplyResources(this.label76, "label76");
             this.label76.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label76.Location = new System.Drawing.Point(633, 237);
             this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(65, 12);
-            this.label76.TabIndex = 43;
-            this.label76.Text = "Max RSSI：";
             // 
             // label77
             // 
-            this.label77.AutoSize = true;
+            resources.ApplyResources(this.label77, "label77");
             this.label77.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label77.Location = new System.Drawing.Point(431, 238);
             this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(65, 12);
-            this.label77.TabIndex = 44;
-            this.label77.Text = "Min RSSI：";
             // 
             // label78
             // 
-            this.label78.AutoSize = true;
+            resources.ApplyResources(this.label78, "label78");
             this.label78.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label78.Location = new System.Drawing.Point(6, 237);
             this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(71, 12);
-            this.label78.TabIndex = 42;
-            this.label78.Text = "标签列表： ";
             // 
             // groupBox8
             // 
@@ -6466,12 +4701,9 @@ namespace UHFDemo
             this.groupBox8.Controls.Add(this.label83);
             this.groupBox8.Controls.Add(this.lxLedControl13);
             this.groupBox8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox8.Location = new System.Drawing.Point(2, 64);
+            resources.ApplyResources(this.groupBox8, "groupBox8");
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(996, 162);
-            this.groupBox8.TabIndex = 24;
             this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "数据";
             // 
             // comboBox9
             // 
@@ -6479,15 +4711,13 @@ namespace UHFDemo
             this.comboBox9.ForeColor = System.Drawing.SystemColors.InfoText;
             this.comboBox9.FormattingEnabled = true;
             this.comboBox9.Items.AddRange(new object[] {
-            "天线1",
-            "天线2",
-            "天线3",
-            "天线4",
-            "不选"});
-            this.comboBox9.Location = new System.Drawing.Point(-165, 111);
+            resources.GetString("comboBox9.Items"),
+            resources.GetString("comboBox9.Items1"),
+            resources.GetString("comboBox9.Items2"),
+            resources.GetString("comboBox9.Items3"),
+            resources.GetString("comboBox9.Items4")});
+            resources.ApplyResources(this.comboBox9, "comboBox9");
             this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(55, 20);
-            this.comboBox9.TabIndex = 39;
             // 
             // lxLedControl9
             // 
@@ -6500,14 +4730,11 @@ namespace UHFDemo
             this.lxLedControl9.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.lxLedControl9.ForeColor = System.Drawing.Color.Black;
             this.lxLedControl9.HighlightOpaque = ((byte)(20));
-            this.lxLedControl9.Location = new System.Drawing.Point(702, 118);
+            resources.ApplyResources(this.lxLedControl9, "lxLedControl9");
             this.lxLedControl9.Name = "lxLedControl9";
             this.lxLedControl9.RoundCorner = true;
             this.lxLedControl9.SegmentIntervalRatio = 50;
             this.lxLedControl9.ShowHighlight = true;
-            this.lxLedControl9.Size = new System.Drawing.Size(183, 35);
-            this.lxLedControl9.TabIndex = 35;
-            this.lxLedControl9.Text = "0";
             this.lxLedControl9.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             this.lxLedControl9.TotalCharCount = 10;
             // 
@@ -6522,14 +4749,11 @@ namespace UHFDemo
             this.lxLedControl10.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.lxLedControl10.ForeColor = System.Drawing.Color.Black;
             this.lxLedControl10.HighlightOpaque = ((byte)(20));
-            this.lxLedControl10.Location = new System.Drawing.Point(496, 35);
+            resources.ApplyResources(this.lxLedControl10, "lxLedControl10");
             this.lxLedControl10.Name = "lxLedControl10";
             this.lxLedControl10.RoundCorner = true;
             this.lxLedControl10.SegmentIntervalRatio = 50;
             this.lxLedControl10.ShowHighlight = true;
-            this.lxLedControl10.Size = new System.Drawing.Size(140, 50);
-            this.lxLedControl10.TabIndex = 34;
-            this.lxLedControl10.Text = "0";
             this.lxLedControl10.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             // 
             // lxLedControl11
@@ -6543,14 +4767,11 @@ namespace UHFDemo
             this.lxLedControl11.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.lxLedControl11.ForeColor = System.Drawing.Color.Black;
             this.lxLedControl11.HighlightOpaque = ((byte)(20));
-            this.lxLedControl11.Location = new System.Drawing.Point(497, 103);
+            resources.ApplyResources(this.lxLedControl11, "lxLedControl11");
             this.lxLedControl11.Name = "lxLedControl11";
             this.lxLedControl11.RoundCorner = true;
             this.lxLedControl11.SegmentIntervalRatio = 50;
             this.lxLedControl11.ShowHighlight = true;
-            this.lxLedControl11.Size = new System.Drawing.Size(140, 50);
-            this.lxLedControl11.TabIndex = 33;
-            this.lxLedControl11.Text = "0";
             this.lxLedControl11.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             // 
             // lxLedControl12
@@ -6564,66 +4785,42 @@ namespace UHFDemo
             this.lxLedControl12.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.lxLedControl12.ForeColor = System.Drawing.Color.Black;
             this.lxLedControl12.HighlightOpaque = ((byte)(20));
-            this.lxLedControl12.Location = new System.Drawing.Point(702, 35);
+            resources.ApplyResources(this.lxLedControl12, "lxLedControl12");
             this.lxLedControl12.Name = "lxLedControl12";
             this.lxLedControl12.RoundCorner = true;
             this.lxLedControl12.SegmentIntervalRatio = 50;
             this.lxLedControl12.ShowHighlight = true;
-            this.lxLedControl12.Size = new System.Drawing.Size(140, 50);
-            this.lxLedControl12.TabIndex = 32;
-            this.lxLedControl12.Text = "0";
             this.lxLedControl12.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             // 
             // label79
             // 
-            this.label79.AutoSize = true;
+            resources.ApplyResources(this.label79, "label79");
             this.label79.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label79.Location = new System.Drawing.Point(700, 103);
             this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(137, 12);
-            this.label79.TabIndex = 30;
-            this.label79.Text = "累计运行的时间(毫秒)：";
             // 
             // label80
             // 
-            this.label80.AutoSize = true;
+            resources.ApplyResources(this.label80, "label80");
             this.label80.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label80.Location = new System.Drawing.Point(495, 17);
             this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(131, 12);
-            this.label80.TabIndex = 29;
-            this.label80.Text = "命令识别速度(个/秒)：";
             // 
             // label81
             // 
-            this.label81.AutoSize = true;
+            resources.ApplyResources(this.label81, "label81");
             this.label81.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label81.Location = new System.Drawing.Point(498, 88);
             this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(125, 12);
-            this.label81.TabIndex = 28;
-            this.label81.Text = "命令执行时间(毫秒)：";
             // 
             // label82
             // 
-            this.label82.AutoSize = true;
+            resources.ApplyResources(this.label82, "label82");
             this.label82.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label82.Location = new System.Drawing.Point(700, 17);
             this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(113, 12);
-            this.label82.TabIndex = 27;
-            this.label82.Text = "命令返回数据(条)：";
             // 
             // label83
             // 
-            this.label83.AutoSize = true;
-            this.label83.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label83, "label83");
             this.label83.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label83.Location = new System.Drawing.Point(104, 17);
             this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(149, 12);
-            this.label83.TabIndex = 26;
-            this.label83.Text = "已盘存的标签总数量(个)：";
             // 
             // lxLedControl13
             // 
@@ -6636,14 +4833,11 @@ namespace UHFDemo
             this.lxLedControl13.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.lxLedControl13.ForeColor = System.Drawing.Color.Purple;
             this.lxLedControl13.HighlightOpaque = ((byte)(20));
-            this.lxLedControl13.Location = new System.Drawing.Point(106, 35);
+            resources.ApplyResources(this.lxLedControl13, "lxLedControl13");
             this.lxLedControl13.Name = "lxLedControl13";
             this.lxLedControl13.RoundCorner = true;
             this.lxLedControl13.SegmentIntervalRatio = 50;
             this.lxLedControl13.ShowHighlight = true;
-            this.lxLedControl13.Size = new System.Drawing.Size(310, 118);
-            this.lxLedControl13.TabIndex = 21;
-            this.lxLedControl13.Text = "0";
             this.lxLedControl13.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             // 
             // listView1
@@ -6655,48 +4849,34 @@ namespace UHFDemo
             this.columnHeader46,
             this.columnHeader47,
             this.columnHeader48});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.listView1.Location = new System.Drawing.Point(3, 261);
+            resources.ApplyResources(this.listView1, "listView1");
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(996, 267);
-            this.listView1.TabIndex = 23;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader43
             // 
-            this.columnHeader43.Text = "ID";
-            this.columnHeader43.Width = 56;
+            resources.ApplyResources(this.columnHeader43, "columnHeader43");
             // 
             // columnHeader44
             // 
-            this.columnHeader44.Text = "EPC";
-            this.columnHeader44.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader44.Width = 486;
+            resources.ApplyResources(this.columnHeader44, "columnHeader44");
             // 
             // columnHeader45
             // 
-            this.columnHeader45.Text = "PC";
-            this.columnHeader45.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader45.Width = 83;
+            resources.ApplyResources(this.columnHeader45, "columnHeader45");
             // 
             // columnHeader46
             // 
-            this.columnHeader46.Text = "识别次数";
-            this.columnHeader46.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader46.Width = 129;
+            resources.ApplyResources(this.columnHeader46, "columnHeader46");
             // 
             // columnHeader47
             // 
-            this.columnHeader47.Text = "RSSI";
-            this.columnHeader47.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader47.Width = 95;
+            resources.ApplyResources(this.columnHeader47, "columnHeader47");
             // 
             // columnHeader48
             // 
-            this.columnHeader48.Text = "载波频率";
-            this.columnHeader48.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader48.Width = 92;
+            resources.ApplyResources(this.columnHeader48, "columnHeader48");
             // 
             // comboBox10
             // 
@@ -6704,87 +4884,56 @@ namespace UHFDemo
             this.comboBox10.ForeColor = System.Drawing.SystemColors.InfoText;
             this.comboBox10.FormattingEnabled = true;
             this.comboBox10.Items.AddRange(new object[] {
-            "天线1",
-            "天线2",
-            "天线3",
-            "天线4",
-            "不选"});
-            this.comboBox10.Location = new System.Drawing.Point(-165, 111);
+            resources.GetString("comboBox10.Items"),
+            resources.GetString("comboBox10.Items1"),
+            resources.GetString("comboBox10.Items2"),
+            resources.GetString("comboBox10.Items3"),
+            resources.GetString("comboBox10.Items4")});
+            resources.ApplyResources(this.comboBox10, "comboBox10");
             this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(55, 20);
-            this.comboBox10.TabIndex = 39;
             // 
             // label87
             // 
-            this.label87.AutoSize = true;
+            resources.ApplyResources(this.label87, "label87");
             this.label87.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label87.Location = new System.Drawing.Point(700, 103);
             this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(137, 12);
-            this.label87.TabIndex = 30;
-            this.label87.Text = "累计运行的时间(毫秒)：";
             // 
             // label88
             // 
-            this.label88.AutoSize = true;
+            resources.ApplyResources(this.label88, "label88");
             this.label88.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label88.Location = new System.Drawing.Point(495, 17);
             this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(131, 12);
-            this.label88.TabIndex = 29;
-            this.label88.Text = "命令识别速度(个/秒)：";
             // 
             // label89
             // 
-            this.label89.AutoSize = true;
+            resources.ApplyResources(this.label89, "label89");
             this.label89.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label89.Location = new System.Drawing.Point(498, 88);
             this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(125, 12);
-            this.label89.TabIndex = 28;
-            this.label89.Text = "命令执行时间(毫秒)：";
             // 
             // label90
             // 
-            this.label90.AutoSize = true;
+            resources.ApplyResources(this.label90, "label90");
             this.label90.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label90.Location = new System.Drawing.Point(700, 17);
             this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(113, 12);
-            this.label90.TabIndex = 27;
-            this.label90.Text = "命令返回数据(条)：";
             // 
             // label91
             // 
-            this.label91.AutoSize = true;
-            this.label91.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            resources.ApplyResources(this.label91, "label91");
             this.label91.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label91.Location = new System.Drawing.Point(104, 17);
             this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(149, 12);
-            this.label91.TabIndex = 26;
-            this.label91.Text = "已盘存的标签总数量(个)：";
             // 
             // ckClearOperationRec
             // 
-            this.ckClearOperationRec.AutoSize = true;
+            resources.ApplyResources(this.ckClearOperationRec, "ckClearOperationRec");
             this.ckClearOperationRec.Checked = true;
             this.ckClearOperationRec.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckClearOperationRec.Location = new System.Drawing.Point(71, 587);
             this.ckClearOperationRec.Name = "ckClearOperationRec";
-            this.ckClearOperationRec.Size = new System.Drawing.Size(72, 16);
-            this.ckClearOperationRec.TabIndex = 17;
-            this.ckClearOperationRec.Text = "自动清空";
             this.ckClearOperationRec.UseVisualStyleBackColor = true;
             // 
             // lrtxtLog
             // 
-            this.lrtxtLog.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lrtxtLog.Location = new System.Drawing.Point(0, 608);
+            resources.ApplyResources(this.lrtxtLog, "lrtxtLog");
             this.lrtxtLog.Name = "lrtxtLog";
-            this.lrtxtLog.Size = new System.Drawing.Size(1018, 132);
-            this.lrtxtLog.TabIndex = 1;
-            this.lrtxtLog.Text = "";
             this.lrtxtLog.TextChanged += new System.EventHandler(this.lrtxtLog_TextChanged);
             this.lrtxtLog.DoubleClick += new System.EventHandler(this.lrtxtLog_DoubleClick);
             // 
@@ -6799,14 +4948,11 @@ namespace UHFDemo
             this.lxLedControl14.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.lxLedControl14.ForeColor = System.Drawing.Color.Black;
             this.lxLedControl14.HighlightOpaque = ((byte)(20));
-            this.lxLedControl14.Location = new System.Drawing.Point(702, 118);
+            resources.ApplyResources(this.lxLedControl14, "lxLedControl14");
             this.lxLedControl14.Name = "lxLedControl14";
             this.lxLedControl14.RoundCorner = true;
             this.lxLedControl14.SegmentIntervalRatio = 50;
             this.lxLedControl14.ShowHighlight = true;
-            this.lxLedControl14.Size = new System.Drawing.Size(183, 35);
-            this.lxLedControl14.TabIndex = 35;
-            this.lxLedControl14.Text = "0";
             this.lxLedControl14.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             this.lxLedControl14.TotalCharCount = 10;
             // 
@@ -6821,14 +4967,11 @@ namespace UHFDemo
             this.lxLedControl15.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.lxLedControl15.ForeColor = System.Drawing.Color.Black;
             this.lxLedControl15.HighlightOpaque = ((byte)(20));
-            this.lxLedControl15.Location = new System.Drawing.Point(496, 35);
+            resources.ApplyResources(this.lxLedControl15, "lxLedControl15");
             this.lxLedControl15.Name = "lxLedControl15";
             this.lxLedControl15.RoundCorner = true;
             this.lxLedControl15.SegmentIntervalRatio = 50;
             this.lxLedControl15.ShowHighlight = true;
-            this.lxLedControl15.Size = new System.Drawing.Size(140, 50);
-            this.lxLedControl15.TabIndex = 34;
-            this.lxLedControl15.Text = "0";
             this.lxLedControl15.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             // 
             // lxLedControl16
@@ -6842,14 +4985,11 @@ namespace UHFDemo
             this.lxLedControl16.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.lxLedControl16.ForeColor = System.Drawing.Color.Black;
             this.lxLedControl16.HighlightOpaque = ((byte)(20));
-            this.lxLedControl16.Location = new System.Drawing.Point(497, 103);
+            resources.ApplyResources(this.lxLedControl16, "lxLedControl16");
             this.lxLedControl16.Name = "lxLedControl16";
             this.lxLedControl16.RoundCorner = true;
             this.lxLedControl16.SegmentIntervalRatio = 50;
             this.lxLedControl16.ShowHighlight = true;
-            this.lxLedControl16.Size = new System.Drawing.Size(140, 50);
-            this.lxLedControl16.TabIndex = 33;
-            this.lxLedControl16.Text = "0";
             this.lxLedControl16.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             // 
             // lxLedControl17
@@ -6863,14 +5003,11 @@ namespace UHFDemo
             this.lxLedControl17.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.lxLedControl17.ForeColor = System.Drawing.Color.Black;
             this.lxLedControl17.HighlightOpaque = ((byte)(20));
-            this.lxLedControl17.Location = new System.Drawing.Point(702, 35);
+            resources.ApplyResources(this.lxLedControl17, "lxLedControl17");
             this.lxLedControl17.Name = "lxLedControl17";
             this.lxLedControl17.RoundCorner = true;
             this.lxLedControl17.SegmentIntervalRatio = 50;
             this.lxLedControl17.ShowHighlight = true;
-            this.lxLedControl17.Size = new System.Drawing.Size(140, 50);
-            this.lxLedControl17.TabIndex = 32;
-            this.lxLedControl17.Text = "0";
             this.lxLedControl17.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             // 
             // lxLedControl18
@@ -6884,14 +5021,11 @@ namespace UHFDemo
             this.lxLedControl18.FocusedBorderColor = System.Drawing.Color.LightCoral;
             this.lxLedControl18.ForeColor = System.Drawing.Color.Purple;
             this.lxLedControl18.HighlightOpaque = ((byte)(20));
-            this.lxLedControl18.Location = new System.Drawing.Point(106, 35);
+            resources.ApplyResources(this.lxLedControl18, "lxLedControl18");
             this.lxLedControl18.Name = "lxLedControl18";
             this.lxLedControl18.RoundCorner = true;
             this.lxLedControl18.SegmentIntervalRatio = 50;
             this.lxLedControl18.ShowHighlight = true;
-            this.lxLedControl18.Size = new System.Drawing.Size(310, 118);
-            this.lxLedControl18.TabIndex = 21;
-            this.lxLedControl18.Text = "0";
             this.lxLedControl18.TextAlignment = LxControl.LxLedControl.Alignment.Right;
             // 
             // timerInventory
@@ -6910,12 +5044,103 @@ namespace UHFDemo
             this.sortImageList.TransparentColor = System.Drawing.Color.Transparent;
             this.sortImageList.Images.SetKeyName(0, "sort.png");
             // 
+            // groupBox26
+            // 
+            this.groupBox26.Controls.Add(this.changeEASrbOff);
+            this.groupBox26.Controls.Add(this.changeEASrbOpen);
+            this.groupBox26.Controls.Add(this.m_ChangeEASSet);
+            this.groupBox26.Controls.Add(this.hexTextBoxChangeEASPwd);
+            this.groupBox26.Controls.Add(this.label135);
+            resources.ApplyResources(this.groupBox26, "groupBox26");
+            this.groupBox26.Name = "groupBox26";
+            this.groupBox26.TabStop = false;
+            // 
+            // m_ChangeEASSet
+            // 
+            resources.ApplyResources(this.m_ChangeEASSet, "m_ChangeEASSet");
+            this.m_ChangeEASSet.Name = "m_ChangeEASSet";
+            this.m_ChangeEASSet.UseVisualStyleBackColor = true;
+            this.m_ChangeEASSet.Click += new System.EventHandler(this.m_ChangeEASSet_Click);
+            // 
+            // hexTextBoxChangeEASPwd
+            // 
+            resources.ApplyResources(this.hexTextBoxChangeEASPwd, "hexTextBoxChangeEASPwd");
+            this.hexTextBoxChangeEASPwd.Name = "hexTextBoxChangeEASPwd";
+            // 
+            // label135
+            // 
+            resources.ApplyResources(this.label135, "label135");
+            this.label135.Name = "label135";
+            // 
+            // groupBox27
+            // 
+            this.groupBox27.Controls.Add(this.label133);
+            this.groupBox27.Controls.Add(this.label132);
+            this.groupBox27.Controls.Add(this.mReadSignatureLength);
+            this.groupBox27.Controls.Add(this.readSignatureStartAdd);
+            this.groupBox27.Controls.Add(this.mReadSignatureRead);
+            this.groupBox27.Controls.Add(this.hexTextBoxReadSignature);
+            this.groupBox27.Controls.Add(this.label131);
+            resources.ApplyResources(this.groupBox27, "groupBox27");
+            this.groupBox27.Name = "groupBox27";
+            this.groupBox27.TabStop = false;
+            // 
+            // mReadSignatureRead
+            // 
+            resources.ApplyResources(this.mReadSignatureRead, "mReadSignatureRead");
+            this.mReadSignatureRead.Name = "mReadSignatureRead";
+            this.mReadSignatureRead.UseVisualStyleBackColor = true;
+            this.mReadSignatureRead.Click += new System.EventHandler(this.mReadSignatureRead_Click);
+            // 
+            // hexTextBoxReadSignature
+            // 
+            resources.ApplyResources(this.hexTextBoxReadSignature, "hexTextBoxReadSignature");
+            this.hexTextBoxReadSignature.Name = "hexTextBoxReadSignature";
+            // 
+            // label131
+            // 
+            resources.ApplyResources(this.label131, "label131");
+            this.label131.Name = "label131";
+            // 
+            // changeEASrbOpen
+            // 
+            resources.ApplyResources(this.changeEASrbOpen, "changeEASrbOpen");
+            this.changeEASrbOpen.Checked = true;
+            this.changeEASrbOpen.Name = "changeEASrbOpen";
+            this.changeEASrbOpen.TabStop = true;
+            this.changeEASrbOpen.UseVisualStyleBackColor = true;
+            // 
+            // changeEASrbOff
+            // 
+            resources.ApplyResources(this.changeEASrbOff, "changeEASrbOff");
+            this.changeEASrbOff.Name = "changeEASrbOff";
+            this.changeEASrbOff.UseVisualStyleBackColor = true;
+            // 
+            // readSignatureStartAdd
+            // 
+            resources.ApplyResources(this.readSignatureStartAdd, "readSignatureStartAdd");
+            this.readSignatureStartAdd.Name = "readSignatureStartAdd";
+            // 
+            // mReadSignatureLength
+            // 
+            resources.ApplyResources(this.mReadSignatureLength, "mReadSignatureLength");
+            this.mReadSignatureLength.Name = "mReadSignatureLength";
+            // 
+            // label132
+            // 
+            resources.ApplyResources(this.label132, "label132");
+            this.label132.Name = "label132";
+            // 
+            // label133
+            // 
+            resources.ApplyResources(this.label133, "label133");
+            this.label133.Name = "label133";
+            // 
             // R2000UartDemo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1018, 740);
             this.Controls.Add(this.ckClearOperationRec);
             this.Controls.Add(this.ckDisplayLog);
             this.Controls.Add(this.label35);
@@ -6923,11 +5148,8 @@ namespace UHFDemo
             this.Controls.Add(this.tabCtrMain);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "R2000UartDemo";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UHF RFID Reader Demo v3.9.0";
             this.Load += new System.EventHandler(this.R2000UartDemo_Load);
             this.tabCtrMain.ResumeLayout(false);
             this.PagReaderSetting.ResumeLayout(false);
@@ -7077,6 +5299,10 @@ namespace UHFDemo
             ((System.ComponentModel.ISupportInitialize)(this.lxLedControl16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lxLedControl17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lxLedControl18)).EndInit();
+            this.groupBox26.ResumeLayout(false);
+            this.groupBox26.PerformLayout();
+            this.groupBox27.ResumeLayout(false);
+            this.groupBox27.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -7625,6 +5851,20 @@ namespace UHFDemo
         private ColumnHeader columnHeader22;
         private ColumnHeader columnHeader23;
         private ColumnHeader columnHeader24;
+        private GroupBox groupBox27;
+        private Label label133;
+        private Label label132;
+        private TextBox mReadSignatureLength;
+        private TextBox readSignatureStartAdd;
+        private Button mReadSignatureRead;
+        private CustomControl.HexTextBox hexTextBoxReadSignature;
+        private Label label131;
+        private GroupBox groupBox26;
+        private RadioButton changeEASrbOff;
+        private RadioButton changeEASrbOpen;
+        private Button m_ChangeEASSet;
+        private CustomControl.HexTextBox hexTextBoxChangeEASPwd;
+        private Label label135;
     }
 }
 
