@@ -4225,6 +4225,10 @@ namespace UHFDemo
             {
                 btLockType = 0x03;
             }
+            else if (rdbLockEverR6.Checked)
+            {
+                btLockType = 0x06;
+            }
             else
             {
                 MessageBox.Show("请选择保护类型");

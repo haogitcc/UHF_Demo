@@ -551,6 +551,7 @@ namespace UHFDemo
             this.totalTime = new System.Windows.Forms.Timer(this.components);
             this.totalTimeBuffer = new System.Windows.Forms.Timer(this.components);
             this.sortImageList = new System.Windows.Forms.ImageList(this.components);
+            this.rdbLockEverR6 = new System.Windows.Forms.RadioButton();
             this.tabCtrMain.SuspendLayout();
             this.PagReaderSetting.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -4943,6 +4944,7 @@ namespace UHFDemo
             // 
             // groupBox18
             // 
+            this.groupBox18.Controls.Add(this.rdbLockEverR6);
             this.groupBox18.Controls.Add(this.rdbLockEver);
             this.groupBox18.Controls.Add(this.rdbFreeEver);
             this.groupBox18.Controls.Add(this.rdbLock);
@@ -4956,7 +4958,7 @@ namespace UHFDemo
             // rdbLockEver
             // 
             this.rdbLockEver.AutoSize = true;
-            this.rdbLockEver.Location = new System.Drawing.Point(483, 14);
+            this.rdbLockEver.Location = new System.Drawing.Point(378, 14);
             this.rdbLockEver.Name = "rdbLockEver";
             this.rdbLockEver.Size = new System.Drawing.Size(71, 16);
             this.rdbLockEver.TabIndex = 3;
@@ -4967,7 +4969,7 @@ namespace UHFDemo
             // rdbFreeEver
             // 
             this.rdbFreeEver.AutoSize = true;
-            this.rdbFreeEver.Location = new System.Drawing.Point(309, 14);
+            this.rdbFreeEver.Location = new System.Drawing.Point(244, 14);
             this.rdbFreeEver.Name = "rdbFreeEver";
             this.rdbFreeEver.Size = new System.Drawing.Size(71, 16);
             this.rdbFreeEver.TabIndex = 2;
@@ -4978,7 +4980,7 @@ namespace UHFDemo
             // rdbLock
             // 
             this.rdbLock.AutoSize = true;
-            this.rdbLock.Location = new System.Drawing.Point(159, 14);
+            this.rdbLock.Location = new System.Drawing.Point(138, 14);
             this.rdbLock.Name = "rdbLock";
             this.rdbLock.Size = new System.Drawing.Size(47, 16);
             this.rdbLock.TabIndex = 1;
@@ -6675,6 +6677,17 @@ namespace UHFDemo
             this.sortImageList.TransparentColor = System.Drawing.Color.Transparent;
             this.sortImageList.Images.SetKeyName(0, "sort.png");
             // 
+            // rdbLockEverR6
+            // 
+            this.rdbLockEverR6.AutoSize = true;
+            this.rdbLockEverR6.Location = new System.Drawing.Point(483, 14);
+            this.rdbLockEverR6.Name = "rdbLockEverR6";
+            this.rdbLockEverR6.Size = new System.Drawing.Size(83, 16);
+            this.rdbLockEverR6.TabIndex = 4;
+            this.rdbLockEverR6.TabStop = true;
+            this.rdbLockEverR6.Text = "R6永久锁定";
+            this.rdbLockEverR6.UseVisualStyleBackColor = true;
+            // 
             // R2000UartDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -7365,6 +7378,7 @@ namespace UHFDemo
         private CheckBox m_new_fast_inventory;
         private Label label125;
         private ComboBox m_real_phase_value;
+        private RadioButton rdbLockEverR6;
     }
 }
 
