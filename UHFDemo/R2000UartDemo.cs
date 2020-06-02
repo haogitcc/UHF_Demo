@@ -5734,25 +5734,30 @@ namespace UHFDemo
                 m_curInventoryBuffer.ClearInventoryRealResult();
                 lvFastList.Items.Clear();
 
-
+                // 配置 8 Channel 参数
                 if (antType8.Checked)
                 {
                     if (m_new_fast_inventory.Checked)
                     {
                         m_btAryData = new byte[29];
+                        // 配置Reserve
                         m_btAryData[17] = Convert.ToByte(this.mPower1.Text);
                         m_btAryData[18] = Convert.ToByte(this.mPower2.Text);
                         m_btAryData[19] = Convert.ToByte(this.mPower3.Text);
                         m_btAryData[20] = Convert.ToByte(this.mPower4.Text);
                         m_btAryData[21] = Convert.ToByte(this.mPower5.Text);
-
+                        // 配置Session
                         m_btAryData[22] = Convert.ToByte(m_new_fast_inventory_session.SelectedIndex);
+                        // 配置Target
                         m_btAryData[23] = Convert.ToByte(m_new_fast_inventory_flag.SelectedIndex);
+                        // 配置优化 Optimize
                         m_btAryData[24] = Convert.ToByte(m_new_fast_inventory_optimized.Text,16);
+                        // 配置连续盘存 Ongoing
                         m_btAryData[25] = Convert.ToByte(m_new_fast_inventory_continue.Text,16);
+                        // 配置Target Quantity
                         m_btAryData[26] = Convert.ToByte(m_new_fast_inventory_target_count.Text);
+                        //配置相位 Phase
                         m_btAryData[27] = m_phase_value.Checked ? (byte)0x01 : (byte)0x00;
-
                     }
                     else
                     {
@@ -5760,6 +5765,7 @@ namespace UHFDemo
                     }
                 }
 
+                // 配置4 Channel参数
                 if (antType4.Checked)
                 {
                     if (m_new_fast_inventory.Checked)
@@ -5774,18 +5780,23 @@ namespace UHFDemo
                         m_btAryData_4[13] = 0x00;
                         m_btAryData_4[14] = 0xFF;
                         m_btAryData_4[15] = 0x00;
-
+                        // 配置Reserve
                         m_btAryData_4[17] = Convert.ToByte(this.mPower1.Text);
                         m_btAryData_4[18] = Convert.ToByte(this.mPower2.Text);
                         m_btAryData_4[19] = Convert.ToByte(this.mPower3.Text);
                         m_btAryData_4[20] = Convert.ToByte(this.mPower4.Text);
                         m_btAryData_4[21] = Convert.ToByte(this.mPower5.Text);
-
+                        // 配置Session
                         m_btAryData_4[22] = Convert.ToByte(m_new_fast_inventory_session.SelectedIndex);
+                        // 配置Target
                         m_btAryData_4[23] = Convert.ToByte(m_new_fast_inventory_flag.SelectedIndex);
+                        // 配置优化 Optimize
                         m_btAryData_4[24] = Convert.ToByte(m_new_fast_inventory_optimized.Text,16);
+                        // 配置连续盘存 Ongoing
                         m_btAryData_4[25] = Convert.ToByte(m_new_fast_inventory_continue.Text,16);
+                        // 配置Target Quantity
                         m_btAryData_4[26] = Convert.ToByte(m_new_fast_inventory_target_count.Text);
+                        //配置相位 Phase
                         m_btAryData_4[27] = m_phase_value.Checked ? (byte)0x01 : (byte)0x00;
                     }
                     else
@@ -5797,80 +5808,19 @@ namespace UHFDemo
                 
                 m_nTotal = 0;
 
-                //judge 4 ant 
+                //判断4 Channel 天线配置
                 if (antType4.Checked)
                 {
-                    if ((cmbAntSelect1.SelectedIndex < 0) || (cmbAntSelect1.SelectedIndex > 3))
-                    {
-                        m_btAryData_4[0] = 0xFF;
-                    }
-                    else
-                    {
-                        m_btAryData_4[0] = Convert.ToByte(cmbAntSelect1.SelectedIndex);
-                    }
-                    if (txtAStay.Text.Length == 0)
-                    {
-                        m_btAryData_4[1] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData_4[1] = Convert.ToByte(txtAStay.Text);
-                    }
+                    int channel = 4;
+                    judgAntenna(cmbAntA, txtStayA, channel, 0);
+                    judgAntenna(cmbAntB, txtStayB, channel, 2);
+                    judgAntenna(cmbAntC, txtStayC, channel, 4);
+                    judgAntenna(cmbAntD, txtStayD, channel, 6);
 
-                    if ((cmbAntSelect2.SelectedIndex < 0) || (cmbAntSelect2.SelectedIndex > 3))
-                    {
-                        m_btAryData_4[2] = 0xFF;
-                    }
-                    else
-                    {
-                        m_btAryData_4[2] = Convert.ToByte(cmbAntSelect2.SelectedIndex);
-                    }
-                    if (txtBStay.Text.Length == 0)
-                    {
-                        m_btAryData_4[3] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData_4[3] = Convert.ToByte(txtBStay.Text);
-                    }
-
-                    if ((cmbAntSelect3.SelectedIndex < 0) || (cmbAntSelect3.SelectedIndex > 3))
-                    {
-                        m_btAryData_4[4] = 0xFF;
-                    }
-                    else
-                    {
-                        m_btAryData_4[4] = Convert.ToByte(cmbAntSelect3.SelectedIndex);
-                    }
-                    if (txtCStay.Text.Length == 0)
-                    {
-                        m_btAryData_4[5] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData_4[5] = Convert.ToByte(txtCStay.Text);
-                    }
-
-                    if ((cmbAntSelect4.SelectedIndex < 0) || (cmbAntSelect4.SelectedIndex > 3))
-                    {
-                        m_btAryData_4[6] = 0xFF;
-                    }
-                    else
-                    {
-                        m_btAryData_4[6] = Convert.ToByte(cmbAntSelect4.SelectedIndex);
-                    }
-                    if (txtDStay.Text.Length == 0)
-                    {
-                        m_btAryData_4[7] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData_4[7] = Convert.ToByte(txtDStay.Text);
-                    }
-
-
+                    // 使用快速盘存选项
                     if (m_new_fast_inventory.Checked)
                     {
+                        // 配置天线休息时间 Interval
                         if (txtInterval.Text.Length == 0)
                         {
                             m_btAryData_4[16] = 0x00;
@@ -5880,6 +5830,7 @@ namespace UHFDemo
                             m_btAryData_4[16] = Convert.ToByte(txtInterval.Text);
                         }
 
+                        // 配置以上天线切换顺序重复次数 Repeat
                         if (txtRepeat.Text.Length == 0)
                         {
                             m_btAryData_4[28] = 0x00;
@@ -5891,6 +5842,7 @@ namespace UHFDemo
                     }
                     else
                     {
+                        // 配置天线休息时间 Interval
                         if (txtInterval.Text.Length == 0)
                         {
                             m_btAryData_4[8] = 0x00;
@@ -5900,6 +5852,7 @@ namespace UHFDemo
                             m_btAryData_4[8] = Convert.ToByte(txtInterval.Text);
                         }
 
+                        // 配置以上天线切换顺序重复次数 Repeat
                         if (txtRepeat.Text.Length == 0)
                         {
                             m_btAryData_4[9] = 0x00;
@@ -5910,7 +5863,7 @@ namespace UHFDemo
                         }
                     }
 
-
+                    isSelectAnt(channel);
                     if (m_btAryData_4[0] > 3)
                     {
                         antASelection = 0;
@@ -5943,146 +5896,20 @@ namespace UHFDemo
                     }
 
                 }
-                // judge the ant 8 can use or not
+
+                // 判断8 Channel 天线配置
                 if (antType8.Checked)
                 {
-                    if ((cmbAntSelect1.SelectedIndex < 0) || (cmbAntSelect1.SelectedIndex > 7))
-                    {
-                        m_btAryData[0] = 0xFF;
-                    }
-                    else
-                    {
-                        m_btAryData[0] = Convert.ToByte(cmbAntSelect1.SelectedIndex);
-                    }
-                    if (txtAStay.Text.Length == 0)
-                    {
-                        m_btAryData[1] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData[1] = Convert.ToByte(txtAStay.Text);
-                    }
+                    judgAntenna(cmbAntA, txtStayA, 8, 2);
+                    judgAntenna(cmbAntB, txtStayB, 8, 4);
+                    judgAntenna(cmbAntC, txtStayC, 8, 5);
+                    judgAntenna(cmbAntD, txtStayD, 8, 6);
+                    judgAntenna(cmbAntE, txtStayE, 8, 8);
+                    judgAntenna(cmbAntF, txtStayF, 8, 10);
+                    judgAntenna(cmbAntG, txtStayG, 8, 12);
+                    judgAntenna(cmbAntH, txtStayH, 8, 14);
 
-                    if ((cmbAntSelect2.SelectedIndex < 0) || (cmbAntSelect2.SelectedIndex > 7))
-                    {
-                        m_btAryData[2] = 0xFF;
-                    }
-                    else
-                    {
-                        m_btAryData[2] = Convert.ToByte(cmbAntSelect2.SelectedIndex);
-                    }
-                    if (txtBStay.Text.Length == 0)
-                    {
-                        m_btAryData[3] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData[3] = Convert.ToByte(txtBStay.Text);
-                    }
-
-                    if ((cmbAntSelect3.SelectedIndex < 0) || (cmbAntSelect3.SelectedIndex > 7))
-                    {
-                        m_btAryData[4] = 0xFF;
-                    }
-                    else
-                    {
-                        m_btAryData[4] = Convert.ToByte(cmbAntSelect3.SelectedIndex);
-                    }
-                    if (txtCStay.Text.Length == 0)
-                    {
-                        m_btAryData[5] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData[5] = Convert.ToByte(txtCStay.Text);
-                    }
-
-                    if ((cmbAntSelect4.SelectedIndex < 0) || (cmbAntSelect4.SelectedIndex > 7))
-                    {
-                        m_btAryData[6] = 0xFF;
-                    }
-                    else
-                    {
-                        m_btAryData[6] = Convert.ToByte(cmbAntSelect4.SelectedIndex);
-                    }
-                    if (txtDStay.Text.Length == 0)
-                    {
-                        m_btAryData[7] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData[7] = Convert.ToByte(txtDStay.Text);
-                    }
-
-                    // ant8 
-                    if ((comboBox1.SelectedIndex < 0) || (comboBox1.SelectedIndex > 7))
-                    {
-                        m_btAryData[8] = 0xFF;
-                    }
-                    else
-                    {
-                        m_btAryData[8] = Convert.ToByte(comboBox1.SelectedIndex);
-                    }
-                    if (txtAStay.Text.Length == 0)
-                    {
-                        m_btAryData[9] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData[9] = Convert.ToByte(textBox13.Text);
-                    }
-
-                    if ((comboBox2.SelectedIndex < 0) || (comboBox2.SelectedIndex > 7))
-                    {
-                        m_btAryData[10] = 0xFF;
-                    }
-                    else
-                    {
-                        m_btAryData[10] = Convert.ToByte(comboBox2.SelectedIndex);
-                    }
-                    if (txtBStay.Text.Length == 0)
-                    {
-                        m_btAryData[11] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData[11] = Convert.ToByte(textBox14.Text);
-                    }
-
-                    if ((comboBox3.SelectedIndex < 0) || (comboBox3.SelectedIndex > 7))
-                    {
-                        m_btAryData[12] = 0xFF;
-                    }
-                    else
-                    {
-                        m_btAryData[12] = Convert.ToByte(comboBox3.SelectedIndex);
-                    }
-                    if (txtCStay.Text.Length == 0)
-                    {
-                        m_btAryData[13] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData[13] = Convert.ToByte(textBox15.Text);
-                    }
-
-                    if ((comboBox4.SelectedIndex < 0) || (comboBox4.SelectedIndex > 7))
-                    {
-                        m_btAryData[14] = 0xFF;
-                    }
-                    else
-                    {
-                        m_btAryData[14] = Convert.ToByte(comboBox4.SelectedIndex);
-                    }
-                    if (txtDStay.Text.Length == 0)
-                    {
-                        m_btAryData[15] = 0x00;
-                    }
-                    else
-                    {
-                        m_btAryData[15] = Convert.ToByte(textBox16.Text);
-                    }
-
+                    // 配置天线休息时间 Interval
                     if (txtInterval.Text.Length == 0)
                     {
                         m_btAryData[16] = 0x00;
@@ -6092,6 +5919,7 @@ namespace UHFDemo
                         m_btAryData[16] = Convert.ToByte(txtInterval.Text);
                     }
 
+                    // 配置以上天线切换顺序重复次数 Repeat
                     if (txtRepeat.Text.Length == 0)
                     {
                         m_btAryData[m_btAryData.Length - 1] = 0x00;
@@ -6127,13 +5955,7 @@ namespace UHFDemo
                     }
                      * */
 
-
-                    
-
                     //ant 8
-
-
-
                     if (m_btAryData[0] > 7)
                     {
                         antASelection = 0;
@@ -6154,8 +5976,6 @@ namespace UHFDemo
                         antDSelection = 0;
                     }
 
-                    // ant8
-
                     if (m_btAryData[8] > 7)
                     {
                         antESelection = 0;
@@ -6175,11 +5995,7 @@ namespace UHFDemo
                     {
                         antHSelection = 0;
                     }
-
-
-
                     //ant8
-
                     if ((antASelection * m_btAryData[1] + antBSelection * m_btAryData[3] + antCSelection * m_btAryData[5] + antDSelection * m_btAryData[7]
                        + antESelection * m_btAryData[9] + antFSelection * m_btAryData[11] + antGSelection * m_btAryData[13] + antHSelection * m_btAryData[15]) == 0)
                     {
@@ -6193,35 +6009,83 @@ namespace UHFDemo
                     }
                 }
 
-                    m_nSwitchTotal = 0;
-                    m_nSwitchTime = 0;
-                    m_startConsumTime = DateTime.Now;
+                m_nSwitchTotal = 0;
+                m_nSwitchTime = 0;
+                m_startConsumTime = DateTime.Now;
 
-                    if (mDynamicPoll.Checked)
+                if (mDynamicPoll.Checked)
+                {
+                    m_nRepeat2 = false;
+                    m_nRepeat12 = false;
+                    m_nRepeat1 = false;
+                    reader.SetTempOutpower(m_curSetting.btReadId, Convert.ToByte(m_new_fast_inventory_power1.Text));
+                }
+                else
+                {
+                    if (antType4.Checked)
                     {
-                        m_nRepeat2 = false;
-                        m_nRepeat12 = false;
-                        m_nRepeat1 = false;
-                        reader.SetTempOutpower(m_curSetting.btReadId,Convert.ToByte(m_new_fast_inventory_power1.Text));
+                        reader.FastSwitchInventory(m_curSetting.btReadId, m_btAryData_4);
                     }
-                    else
+                    else if (antType8.Checked)
                     {
-                        if (antType4.Checked)
-                        {
-                            reader.FastSwitchInventory(m_curSetting.btReadId, m_btAryData_4);
-                        }
-                        else if (antType8.Checked)
-                        {
-                            reader.FastSwitchInventory(m_curSetting.btReadId, m_btAryData);
-                        }
+                        reader.FastSwitchInventory(m_curSetting.btReadId, m_btAryData);
                     }
-
-            
+                }
             }
             catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }            
+        }
+
+        private void judgAntenna(ComboBox cmbAnt, TextBox txtStay, int channel, int index)
+        {
+            switch(channel)
+            {
+                case 4:
+                    {
+                        if ((cmbAnt.SelectedIndex < 0) || (cmbAnt.SelectedIndex > channel - 1))
+                        {
+                            m_btAryData_4[index] = 0xFF;
+                        }
+                        else
+                        {
+                            m_btAryData_4[index] = Convert.ToByte(cmbAnt.SelectedIndex);
+                        }
+                        if (txtStay.Text.Length == 0)
+                        {
+                            m_btAryData_4[index + 1] = 0x00;
+                        }
+                        else
+                        {
+                            m_btAryData_4[index + 1] = Convert.ToByte(txtStay.Text);
+                        }
+                    }
+                    break;
+                case 8:
+                    {
+                        if ((cmbAnt.SelectedIndex < 0) || (cmbAntA.SelectedIndex > channel - 1))
+                        {
+                            m_btAryData[index] = 0xFF;
+                        }
+                        else
+                        {
+                            m_btAryData[index] = Convert.ToByte(cmbAnt.SelectedIndex);
+                        }
+                        if (txtStay.Text.Length == 0)
+                        {
+                            m_btAryData[index + 1] = 0x00;
+                        }
+                        else
+                        {
+                            m_btAryData[index + 1] = Convert.ToByte(txtStay.Text);
+                        }
+                    }
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private void buttonFastFresh_Click(object sender, EventArgs e)
@@ -6242,20 +6106,20 @@ namespace UHFDemo
 
             mDynamicPoll.Checked = false;
 
-            cmbAntSelect1.SelectedIndex = 0;
-            cmbAntSelect2.SelectedIndex = 1;
-            cmbAntSelect3.SelectedIndex = 2;
-            cmbAntSelect4.SelectedIndex = 3;
+            cmbAntA.SelectedIndex = 0;
+            cmbAntB.SelectedIndex = 1;
+            cmbAntC.SelectedIndex = 2;
+            cmbAntD.SelectedIndex = 3;
 
-            comboBox1.SelectedIndex = 4;
-            comboBox2.SelectedIndex = 5;
-            comboBox3.SelectedIndex = 6;
-            comboBox4.SelectedIndex = 7;
+            cmbAntE.SelectedIndex = 4;
+            cmbAntF.SelectedIndex = 5;
+            cmbAntG.SelectedIndex = 6;
+            cmbAntH.SelectedIndex = 7;
 
-            txtAStay.Text = "1";
-            txtBStay.Text = "1";
-            txtCStay.Text = "1";
-            txtDStay.Text = "1";
+            txtStayA.Text = "1";
+            txtStayB.Text = "1";
+            txtStayC.Text = "1";
+            txtStayD.Text = "1";
 
             txtInterval.Text = "0";
             txtRepeat.Text = "1";
@@ -7345,24 +7209,24 @@ namespace UHFDemo
                 checkBox3.Enabled = false;
                 checkBox4.Enabled = false;
 
-                cmbAntSelect1.Enabled = false;
-                cmbAntSelect2.Enabled = false;
-                cmbAntSelect3.Enabled = false;
-                cmbAntSelect4.Enabled = false;
-                txtAStay.Enabled = false;
-                txtBStay.Enabled = false;
-                txtCStay.Enabled = false;
-                txtDStay.Enabled = false;
+                cmbAntA.Enabled = false;
+                cmbAntB.Enabled = false;
+                cmbAntC.Enabled = false;
+                cmbAntD.Enabled = false;
+                txtStayA.Enabled = false;
+                txtStayB.Enabled = false;
+                txtStayC.Enabled = false;
+                txtStayD.Enabled = false;
 
-                comboBox1.Enabled = false;
-                comboBox2.Enabled = false;
-                comboBox3.Enabled = false;
-                comboBox4.Enabled = false;
+                cmbAntE.Enabled = false;
+                cmbAntF.Enabled = false;
+                cmbAntG.Enabled = false;
+                cmbAntH.Enabled = false;
 
-                textBox13.Enabled = false;
-                textBox14.Enabled = false;
-                textBox15.Enabled = false;
-                textBox16.Enabled = false;
+                txtStayE.Enabled = false;
+                txtStayF.Enabled = false;
+                txtStayG.Enabled = false;
+                txtStayH.Enabled = false;
             }
         }
 
@@ -7419,24 +7283,24 @@ namespace UHFDemo
                 checkBox3.Enabled = false;
                 checkBox4.Enabled = false;
 
-                cmbAntSelect1.Enabled = true;
-                cmbAntSelect2.Enabled = true;
-                cmbAntSelect3.Enabled = true;
-                cmbAntSelect4.Enabled = true;
-                txtAStay.Enabled = true;
-                txtBStay.Enabled = true;
-                txtCStay.Enabled = true;
-                txtDStay.Enabled = true;
+                cmbAntA.Enabled = true;
+                cmbAntB.Enabled = true;
+                cmbAntC.Enabled = true;
+                cmbAntD.Enabled = true;
+                txtStayA.Enabled = true;
+                txtStayB.Enabled = true;
+                txtStayC.Enabled = true;
+                txtStayD.Enabled = true;
 
-                comboBox1.Enabled = false;
-                comboBox2.Enabled = false;
-                comboBox3.Enabled = false;
-                comboBox4.Enabled = false;
+                cmbAntE.Enabled = false;
+                cmbAntF.Enabled = false;
+                cmbAntG.Enabled = false;
+                cmbAntH.Enabled = false;
 
-                textBox13.Enabled = false;
-                textBox14.Enabled = false;
-                textBox15.Enabled = false;
-                textBox16.Enabled = false;
+                txtStayE.Enabled = false;
+                txtStayF.Enabled = false;
+                txtStayG.Enabled = false;
+                txtStayH.Enabled = false;
 
 
                 //select ant
@@ -7469,38 +7333,38 @@ namespace UHFDemo
                  */
 
                 //change  selelct ant
-                cmbAntSelect1.Items.Clear();
-                cmbAntSelect1.Items.AddRange(new object[] {
+                cmbAntA.Items.Clear();
+                cmbAntA.Items.AddRange(new object[] {
                 "天线1",
                 "天线2",
                 "天线3",
                 "天线4",
                 "不选"});
-                cmbAntSelect1.SelectedIndex = 0;
-                cmbAntSelect2.Items.Clear();
-                cmbAntSelect2.Items.AddRange(new object[] {
+                cmbAntA.SelectedIndex = 0;
+                cmbAntB.Items.Clear();
+                cmbAntB.Items.AddRange(new object[] {
                 "天线1",
                 "天线2",
                 "天线3",
                 "天线4",
                 "不选"});
-                cmbAntSelect2.SelectedIndex = 1;
-                cmbAntSelect3.Items.Clear();
-                cmbAntSelect3.Items.AddRange(new object[] {
+                cmbAntB.SelectedIndex = 1;
+                cmbAntC.Items.Clear();
+                cmbAntC.Items.AddRange(new object[] {
                 "天线1",
                 "天线2",
                 "天线3",
                 "天线4",
                 "不选"});
-                cmbAntSelect3.SelectedIndex = 2;
-                cmbAntSelect4.Items.Clear();
-                cmbAntSelect4.Items.AddRange(new object[] {
+                cmbAntC.SelectedIndex = 2;
+                cmbAntD.Items.Clear();
+                cmbAntD.Items.AddRange(new object[] {
                 "天线1",
                 "天线2",
                 "天线3",
                 "天线4",
                 "不选"});
-                cmbAntSelect4.SelectedIndex = 3;
+                cmbAntD.SelectedIndex = 3;
 
                 //change  selelct ant
 
@@ -7560,29 +7424,29 @@ namespace UHFDemo
                 checkBox3.Enabled = true;
                 checkBox4.Enabled = true;
 
-                cmbAntSelect1.Enabled = true;
-                cmbAntSelect2.Enabled = true;
-                cmbAntSelect3.Enabled = true;
-                cmbAntSelect4.Enabled = true;
-                txtAStay.Enabled = true;
-                txtBStay.Enabled = true;
-                txtCStay.Enabled = true;
-                txtDStay.Enabled = true;
+                cmbAntA.Enabled = true;
+                cmbAntB.Enabled = true;
+                cmbAntC.Enabled = true;
+                cmbAntD.Enabled = true;
+                txtStayA.Enabled = true;
+                txtStayB.Enabled = true;
+                txtStayC.Enabled = true;
+                txtStayD.Enabled = true;
 
-                comboBox1.Enabled = true;
-                comboBox2.Enabled = true;
-                comboBox3.Enabled = true;
-                comboBox4.Enabled = true;
+                cmbAntE.Enabled = true;
+                cmbAntF.Enabled = true;
+                cmbAntG.Enabled = true;
+                cmbAntH.Enabled = true;
 
-                textBox13.Enabled = true;
-                textBox14.Enabled = true;
-                textBox15.Enabled = true;
-                textBox16.Enabled = true;
+                txtStayE.Enabled = true;
+                txtStayF.Enabled = true;
+                txtStayG.Enabled = true;
+                txtStayH.Enabled = true;
 
 
                 //change  selelct ant
-                cmbAntSelect1.Items.Clear();
-                cmbAntSelect1.Items.AddRange(new object[] {
+                cmbAntA.Items.Clear();
+                cmbAntA.Items.AddRange(new object[] {
                 "天线1",
                 "天线2",
                 "天线3",
@@ -7592,9 +7456,9 @@ namespace UHFDemo
                 "天线7",
                 "天线8",
                 "不选"});
-                cmbAntSelect1.SelectedIndex = 0;
-                cmbAntSelect2.Items.Clear();
-                cmbAntSelect2.Items.AddRange(new object[] {
+                cmbAntA.SelectedIndex = 0;
+                cmbAntB.Items.Clear();
+                cmbAntB.Items.AddRange(new object[] {
                  "天线1",
                 "天线2",
                 "天线3",
@@ -7604,9 +7468,9 @@ namespace UHFDemo
                 "天线7",
                 "天线8",
                 "不选"});
-                cmbAntSelect2.SelectedIndex = 1;
-                cmbAntSelect3.Items.Clear();
-                cmbAntSelect3.Items.AddRange(new object[] {
+                cmbAntB.SelectedIndex = 1;
+                cmbAntC.Items.Clear();
+                cmbAntC.Items.AddRange(new object[] {
                 "天线1",
                 "天线2",
                 "天线3",
@@ -7616,9 +7480,9 @@ namespace UHFDemo
                 "天线7",
                 "天线8",
                 "不选"});
-                cmbAntSelect3.SelectedIndex = 2;
-                cmbAntSelect4.Items.Clear();
-                cmbAntSelect4.Items.AddRange(new object[] {
+                cmbAntC.SelectedIndex = 2;
+                cmbAntD.Items.Clear();
+                cmbAntD.Items.AddRange(new object[] {
                  "天线1",
                 "天线2",
                 "天线3",
@@ -7628,12 +7492,12 @@ namespace UHFDemo
                 "天线7",
                 "天线8",
                 "不选"});
-                cmbAntSelect4.SelectedIndex = 3;
+                cmbAntD.SelectedIndex = 3;
 
-                comboBox1.SelectedIndex = 4;
-                comboBox2.SelectedIndex = 5;
-                comboBox3.SelectedIndex = 6;
-                comboBox4.SelectedIndex = 7;
+                cmbAntE.SelectedIndex = 4;
+                cmbAntF.SelectedIndex = 5;
+                cmbAntG.SelectedIndex = 6;
+                cmbAntH.SelectedIndex = 7;
                 //change  selelct ant
             }
         }
